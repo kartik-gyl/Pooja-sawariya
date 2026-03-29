@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पूजा साँवरिया — Hindi Poet & Author</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #FDFBF1;
+  --sand: #D9BFAB;
+  --indigo: #2B3D52;
+  --indigo-muted: #536780;
+  --saffron: #E1A337;
+  --border: rgba(43, 61, 82, 0.15);
+  --border-light: rgba(253, 251, 241, 0.15);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--parchment);color:var(--indigo);font-family:'Lato',sans-serif;overflow-x:hidden;}
+
+body::after {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:9999;
+  mix-blend-mode: multiply;
+}
+
+.page{display:none;min-height:100vh;}
+.page.active{display:block;}
+
+h1, h2, h3, h4, .serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.4rem 5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(253, 251, 241, 0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav-logo{cursor:pointer; display:flex; flex-direction:column; align-items:flex-start;}
+.nav-logo-en{font-family:'Lato',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.25em;color:var(--indigo);text-transform:uppercase;display:block;}
+.nav-logo-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:.75rem;font-weight:600;color:var(--saffron);letter-spacing:.06em;display:block;margin-top:.15rem;}
+.nav-links{display:flex;gap:3rem;list-style:none;}
+.nav-links a{font-family:'Lato',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.15em;color:var(--indigo-muted);text-decoration:none;text-transform:uppercase;transition:color .3s;position:relative;cursor:pointer;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--saffron);transition:width .4s cubic-bezier(0.2, 0.8, 0.2, 1);}
+.nav-links a:hover{color:var(--saffron);}
+.nav-links a:hover::after{width:100%;}
+
+/* ═══ BUTTONS ═══ */
+.btn-primary{font-family:'Lato',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;padding:1.1rem 2.4rem;background:var(--saffron);color:var(--indigo);text-decoration:none;cursor:pointer;border:none;transition:all .4s ease;display:inline-block;}
+.btn-primary:hover{background:var(--indigo);color:var(--saffron);}
+.btn-secondary{font-family:'Lato',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;padding:1.05rem 2.4rem;background:transparent;color:var(--indigo);text-decoration:none;border:1px solid var(--indigo);cursor:pointer;transition:all .4s ease;display:inline-block;}
+.btn-secondary:hover{border-color:var(--saffron);color:var(--indigo);background:var(--saffron);}
+
+/* ═══ HOME HERO ═══ */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden;background:var(--parchment);}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:9rem 4rem 6rem 5rem;z-index:2;}
+.hero-eyebrow{font-family:'Lato',sans-serif;font-weight:900;font-size:.75rem;letter-spacing:.3em;color:var(--saffron);text-transform:uppercase;margin-bottom:1.8rem;animation:fadeUp 1s ease .2s both;}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,5.5vw,6.5rem);font-weight:400;line-height:1.05;color:var(--indigo);animation:fadeUp 1s ease .4s both;}
+.hero-name em{font-style:italic;color:var(--saffron);}
+.hero-name-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(1.4rem,2vw,2.2rem);font-weight:300;color:var(--indigo-muted);margin:.8rem 0 2.5rem;letter-spacing:.04em;animation:fadeUp 1s ease .55s both;}
+.hero-tagline{font-size:1.18rem;font-weight:300;font-style:italic;color:var(--indigo-muted);line-height:1.8;max-width:420px;margin-bottom:3.5rem;animation:fadeUp 1s ease .7s both;border-left:2px solid var(--saffron);padding-left:1.5rem;}
+.hero-cta{display:flex;gap:1.2rem;flex-wrap:wrap;animation:fadeUp 1s ease .9s both;}
+.hero-right{position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--sand),var(--parchment));border-left:1px solid var(--border);}
+.hero-svg{width:min(480px,90%);animation:fadeIn 1.6s ease .5s both;}
+.float-words{position:absolute;inset:0;pointer-events:none;}
+.fw{position:absolute;font-family:'Noto Sans Devanagari',sans-serif;color:var(--saffron);opacity:0;animation:floatWord 9s ease-in-out infinite; font-weight: 600;}
+.fw:nth-child(1){top:15%;left:10%;font-size:1.35rem;animation-delay:0s;}
+.fw:nth-child(2){top:30%;left:72%;font-size:.95rem;animation-delay:1.8s;}
+.fw:nth-child(3){top:56%;left:7%;font-size:1.15rem;animation-delay:3.6s;}
+.fw:nth-child(4){top:70%;left:68%;font-size:.9rem;animation-delay:5.4s;}
+.fw:nth-child(5){top:83%;left:36%;font-size:1.05rem;animation-delay:7.2s;}
+.hero-num{position:absolute;bottom:2rem;right:3rem;font-family:'Playfair Display',serif;font-size:12rem;font-weight:400;color:rgba(43, 61, 82, 0.04);line-height:1;user-select:none;}
+@keyframes floatWord{0%{opacity:0;transform:translateY(12px);}20%{opacity:.8;transform:translateY(0);}80%{opacity:.8;transform:translateY(-10px);}100%{opacity:0;transform:translateY(-22px);}}
+
+/* ═══ MARQUEE ═══ */
+.mq{overflow:hidden;background:var(--saffron);padding:1rem 0;white-space:nowrap;border-top:1px solid var(--indigo);border-bottom:1px solid var(--indigo);}
+.mq-i{display:inline-flex;animation:marquee 32s linear infinite;gap:2rem;align-items:center;}
+.mi{font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--indigo);letter-spacing:.08em;padding:0 .8rem;font-weight:700;}
+.md{color:var(--parchment);font-size:.5rem;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ═══ ABOUT STRIP ═══ */
+.alt-bg { background-color: var(--sand); border-bottom: 1px solid var(--border); }
+.about-home{display:grid;grid-template-columns:0.9fr 1.3fr; gap: 5rem; max-width:1280px;margin:0 auto;padding:8rem 5rem; align-items: center;}
+.al{display:flex; justify-content: center;}
+.about-img-wrap { width: 100%; max-width: 380px; aspect-ratio: 3/4; border-radius: 4px; overflow: hidden; box-shadow: 15px 24px 60px rgba(0,0,0,0.18); border: 6px solid var(--parchment); outline: 1px solid var(--border); position: relative; }
+.about-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ac{padding-left:0;}
+.about-h{font-family:'Playfair Display',serif;font-size:clamp(2rem,2.8vw,3.2rem);font-weight:400;line-height:1.2;color:var(--indigo);margin-bottom:2rem;}
+.about-h em{font-style:italic;color:var(--saffron);}
+.about-p{font-size:1.15rem;line-height:1.9;color:var(--indigo-muted);margin-bottom:1.4rem;font-weight:400;}
+.stats{display:flex;gap:4rem;margin-top:3rem;padding-top:3rem;border-top:1px solid var(--border);flex-wrap:wrap;}
+.stat .n{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:400;color:var(--indigo);line-height:1;display:block;}
+.stat .l{font-family:'Lato',sans-serif;font-weight:700;font-size:.65rem;letter-spacing:.2em;color:var(--indigo-muted);text-transform:uppercase;margin-top:.6rem;display:block;}
+
+/* ═══ NEW RELEASE: HUMSAFAR ═══ */
+.new-release-sec { padding: 8rem 5rem; background: var(--indigo); color: var(--parchment); position: relative; overflow: hidden; }
+.new-release-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 70% 30%, rgba(225, 163, 55, 0.1), transparent 60%); pointer-events: none; }
+.nr-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.nr-book-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+.nr-disc { position: absolute; width: 320px; height: 320px; background: #111; border-radius: 50%; border: 2px solid #333; z-index: 1; transform: translateX(80px); box-shadow: 0 15px 40px rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; animation: spin 20s linear infinite; }
+.nr-disc-label { width: 100px; height: 100px; background: var(--saffron); border-radius: 50%; border: 1px solid #000; position: relative; overflow: hidden;}
+.nr-disc-label::after { content: ''; position: absolute; inset: 35%; border-radius: 50%; background: #111;}
+.nr-book-cover { width: 280px; aspect-ratio: 3/4.2; background: #222; z-index: 2; box-shadow: 15px 25px 50px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; position: relative; overflow: hidden; background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('humsafar_placeholder.jpg'); background-size: cover;}
+.nr-book-cover::after { content: 'हमसफ़र'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Noto Sans Devanagari', sans-serif; font-size: 2.5rem; color: var(--saffron); font-weight: 500;}
+@keyframes spin { from { transform: translateX(80px) rotate(0deg); } to { transform: translateX(80px) rotate(360deg); } }
+
+.nr-content .sec-eyebrow { color: var(--saffron); font-weight: 900; }
+.nr-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; }
+.nr-title em { color: var(--saffron); font-style: italic; }
+.nr-pub { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.8rem; letter-spacing: 0.2em; color: var(--sand); text-transform: uppercase; margin-bottom: 2rem; display: block; }
+.nr-desc { font-size: 1.15rem; line-height: 1.8; color: rgba(253, 251, 241, 0.8); margin-bottom: 2.5rem; font-weight: 300; }
+.nr-features { display: flex; flex-direction: column; gap: 1.5rem; }
+.nr-f-item { display: flex; align-items: flex-start; gap: 1.2rem; }
+.nr-f-icon { width: 44px; height: 44px; background: rgba(225, 163, 55, 0.15); border: 1.5px solid var(--saffron); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--saffron); }
+.nr-f-text h4 { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.9rem; color: var(--parchment); margin-bottom: 0.3rem; letter-spacing: 0.05em; }
+.nr-f-text p { font-size: 0.95rem; color: rgba(253, 251, 241, 0.6); }
+
+/* ═══ BOOKS HOME ═══ */
+.bks-home{padding:8rem 5rem;background:var(--parchment);position:relative;overflow:hidden; border-top: 1px solid var(--border);}
+.bks-home::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(43, 61, 82,.05),transparent 70%);pointer-events:none;}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:5rem;}
+.sec-eyebrow{font-family:'Lato',sans-serif;font-weight:900;font-size:.75rem;letter-spacing:.3em;color:var(--saffron);text-transform:uppercase;display:block;margin-bottom:1rem;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,3vw,3.5rem);font-weight:400;color:var(--indigo);line-height:1.1;}
+.sec-title em{font-style:italic;color:var(--saffron);}
+.bks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem;}
+.bk{cursor:pointer;transition:transform .4s cubic-bezier(0.2, 0.8, 0.2, 1);}
+.bk:hover{transform:translateY(-10px);}
+.bk-cover{width:100%;aspect-ratio:3/4.2;position:relative;overflow:hidden;margin-bottom:1.8rem;box-shadow:8px 16px 40px rgba(0,0,0,.15);transition:box-shadow .4s;border-radius:2px;background-size:cover;background-repeat:no-repeat;}
+.bk:hover .bk-cover{box-shadow:12px 24px 60px rgba(0,0,0,.25);}
+.bk-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--indigo);margin-bottom:.3rem;letter-spacing:.02em;}
+.bk-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:.85rem;font-weight:600;color:var(--saffron);margin-bottom:.8rem;}
+.bk-desc{font-family:'Lato',sans-serif;font-weight:300;font-size:.9rem;color:var(--indigo-muted);line-height:1.7;margin-bottom:1.2rem;}
+.bk-more{font-family:'Lato',sans-serif;font-weight:900;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--saffron);cursor:pointer;border-bottom:2px solid rgba(225, 163, 55, 0.4);padding-bottom:.2rem;transition:all .3s;display:inline-block;}
+.bk-more:hover{color:var(--indigo);border-color:var(--indigo);letter-spacing:.25em;}
+
+/* ═══ AWARD GALLERY PREVIEW ═══ */
+.awards-preview-sec { padding: 8rem 5rem; background: var(--sand); position: relative; border-top: 1px solid var(--border);}
+.awards-grid-preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3.5rem; margin-bottom: 4rem;}
+.award-preview-card { position: relative; aspect-ratio: 4/5; overflow: hidden; border-radius: 4px; border: 1px solid var(--border); box-shadow: 0 12px 30px rgba(0,0,0,0.06); transition: all 0.4s ease; background: var(--parchment); }
+.award-preview-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); border-color: var(--saffron);}
+.award-preview-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ═══ QUOTE ═══ */
+.quote-wrap { background: var(--parchment); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.quote-sec { max-width: 1280px; margin: 0 auto; padding: 8rem 5rem; display: grid; grid-template-columns: 1fr 1.3fr; gap: 6rem; align-items: center; }
+.quote-img-wrap { width: 100%; aspect-ratio: 3/4; overflow: hidden; border-radius: 4px; box-shadow: 12px 24px 60px rgba(0,0,0,0.15); border: 1px solid var(--border); }
+.quote-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.quote-content { text-align: left; }
+.q-mark{font-family:'Playfair Display',serif;font-size:8rem;color:var(--saffron);opacity:.3;line-height:.6;display:block;margin-bottom:1rem; margin-left: -5px;}
+.q-text{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.5vw,2.8rem);font-weight:400;font-style:italic;color:var(--indigo);line-height:1.5;margin:0 0 1.5rem;position:relative;z-index:2;}
+.q-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(1.1rem,1.6vw,1.7rem);font-weight:300;color:var(--indigo-muted);margin-top:1rem;position:relative;z-index:2;}
+.q-div{width:80px;height:1px;background:var(--saffron);margin:2.5rem 0;}
+.q-attr{font-family:'Lato',sans-serif;font-weight:900;font-size:.75rem;letter-spacing:.3em;color:var(--indigo);text-transform:uppercase;position:relative;z-index:2;}
+
+/* ═══ CONNECT ═══ */
+.connect-sec{padding:8rem 5rem;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;background:var(--parchment);}
+.cl .sec-eyebrow{display:block;margin-bottom:1.2rem;color:var(--saffron); font-weight: 900;}
+.cl-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,2.8vw,3.2rem);font-weight:400;color:var(--indigo);line-height:1.2;margin-bottom:1.6rem;}
+.cl-title em{font-style:italic;color:var(--saffron);}
+.cl-sub{font-size:1.15rem;color:var(--indigo-muted);line-height:1.8;font-style:italic;margin-bottom:2.5rem;}
+.amazon-list{display:flex;flex-direction:column;gap:1rem;}
+.al-row{display:flex;align-items:center;gap:1.2rem;padding:1.2rem 1.5rem;border:1px solid var(--border);text-decoration:none;transition:all .3s;background:var(--parchment);}
+.al-row:hover{border-color:var(--saffron);background:var(--sand);}
+.al-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.d1{background:#836496;}.d2{background:#1a1c3b;}.d3{background:#4a70b0;}.d4{background:#c4dee8;}
+.al-info{flex:1;}
+.al-en{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--indigo);display:block;font-weight:500;}
+.al-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:.8rem;color:var(--indigo-muted);display:block;margin-top:.2rem;}
+.al-arr{color:var(--saffron);transition:transform .3s;font-size:1.2rem;}
+.al-row:hover .al-arr{transform:translateX(6px);}
+.cr-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,2.8vw,3.2rem);font-weight:400;color:var(--indigo);line-height:1.2;margin-bottom:1.6rem;}
+.cr-title em{font-style:italic;color:var(--saffron);}
+.cr-img-wrap { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 3px; margin-bottom: 2rem; box-shadow: 8px 16px 40px rgba(0,0,0,0.1); border: 1px solid var(--border); }
+.cr-img { width: 100%; height: 100%; object-fit: cover; object-position: center 65%; display: block; }
+.cr-p{font-size:1.15rem;color:var(--indigo-muted);line-height:1.9;font-weight:400;margin-bottom:1.5rem;}
+.cr-quote-box{margin-top:2.5rem;padding:2rem;border:1px solid var(--border);background:var(--sand);border-left:3px solid var(--saffron);}
+.cr-quote-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:1.15rem;color:var(--indigo);line-height:1.8;font-style:italic;font-weight:400;}
+.cr-quote-en{font-family:'Lato',sans-serif;font-weight:400;font-size:.95rem;color:var(--indigo-muted);margin-top:1rem;font-style:italic;}
+.contact-block { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.contact-link { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 1.8vw, 1.6rem); color: var(--indigo); text-decoration: none; transition: color .3s ease; display: inline-block; font-style: italic; }
+.contact-link:hover { color: var(--saffron); }
+.social-links { display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.social-link { font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--indigo-muted); text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+.social-link:hover { color: var(--saffron); border-color: var(--saffron); }
+
+/* ═══ TEAM / ACKNOWLEDGEMENT ═══ */
+.team-sec { padding: 7rem 5rem; background: var(--sand); text-align: center; border-top: 1px solid var(--border); }
+.team-eyebrow { font-family: 'Lato', sans-serif; font-weight: 900; font-size: .75rem; letter-spacing: .3em; color: var(--saffron); text-transform: uppercase; display: block; margin-bottom: 1rem; }
+.team-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 2.8vw, 3.2rem); font-weight: 400; color: var(--indigo); line-height: 1.2; margin-bottom: 1.5rem; }
+.team-title em { font-style: italic; color: var(--saffron); }
+.team-desc { font-size: 1.15rem; line-height: 1.9; color: var(--indigo-muted); max-width: 800px; margin: 0 auto 3.5rem; font-weight: 300; }
+.team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 4rem; max-width: 1000px; margin: 0 auto; }
+.team-member { display: flex; flex-direction: column; align-items: center; }
+.team-role { font-family: 'Lato', sans-serif; font-weight: 900; font-size: .7rem; letter-spacing: .25em; color: var(--saffron); text-transform: uppercase; margin-bottom: .6rem; }
+.team-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--indigo); font-weight: 400; }
+.team-name-hi { font-family: 'Noto Sans Devanagari', sans-serif; font-size: .9rem; color: var(--indigo-muted); margin-top: .4rem; font-weight: 300; }
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--indigo);padding:3rem 5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-light);}
+.f-name-en{font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.25em;color:var(--parchment);display:block;text-transform:uppercase;}
+.f-name-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:.85rem;font-weight:600;color:var(--saffron);margin-top:.3rem;display:block;}
+.f-tag{font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--saffron);text-align:center;font-weight:600;}
+.f-copy{font-family:'Lato',sans-serif;font-size:.75rem;color:rgba(253, 251, 241,.4);letter-spacing:.1em;text-transform:uppercase;}
+
+/* ═══ BOOK DETAIL ═══ */
+.book-pg{padding-top:85px;}
+.bp-hero{display:grid;grid-template-columns:1fr 1.45fr;min-height:75vh;background:linear-gradient(135deg,var(--sand),var(--parchment));border-bottom:1px solid var(--border);}
+.bp-hl{display:flex;align-items:center;justify-content:center;padding:5rem 3rem 5rem 5rem;position:relative;}
+.bp-hl::after{content:'';position:absolute;top:10%;bottom:10%;right:0;width:1px;background:var(--border);}
+.bp-cover-wrap{width:min(280px,85%);position:relative;}
+.bp-cover-box{width:100%;aspect-ratio:3/4.2;overflow:hidden;box-shadow:20px 30px 60px rgba(0,0,0,.3);border-radius:2px;background-size:cover;background-repeat:no-repeat;position:relative;}
+.bp-spine{position:absolute;top:0;left:0;width:16px;height:100%;background:linear-gradient(to right, rgba(0,0,0,.45) 0%, rgba(255,255,255,.15) 20%, rgba(0,0,0,.1) 100%); mix-blend-mode: multiply; pointer-events: none;}
+.bp-hr{padding:6rem 5rem 5rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+.bp-back{font-family:'Lato',sans-serif;font-weight:900;font-size:.7rem;letter-spacing:.25em;color:var(--indigo-muted);text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:.6rem;margin-bottom:2.5rem;text-decoration:none;transition:color .3s;background:none;border:none;}
+.bp-back:hover{color:var(--saffron);}
+.bp-eyebrow{font-family:'Lato',sans-serif;font-weight:900;font-size:.75rem;letter-spacing:.35em;color:var(--saffron);text-transform:uppercase;margin-bottom:1rem;}
+.bp-title-en{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,4vw,4.5rem);font-weight:400;line-height:1.05;color:var(--indigo);}
+.bp-title-en em{font-style:italic;color:var(--saffron);}
+.bp-title-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(1.2rem,1.8vw,1.9rem);font-weight:300;color:var(--indigo-muted);margin:.6rem 0 2rem;letter-spacing:.04em;}
+.bp-tagline{font-size:1.2rem;font-style:italic;font-weight:300;color:var(--indigo-muted);line-height:1.7;margin-bottom:2.5rem;border-left:2px solid var(--saffron);padding-left:1.5rem;}
+.bp-tagline-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:.95rem;margin-top:.6rem;display:block;}
+.bp-meta{display:grid;grid-template-columns:1fr 1fr;gap:.8rem 2.5rem;margin-bottom:3rem;}
+.bmk{font-family:'Lato',sans-serif;font-weight:900;font-size:.7rem;letter-spacing:.25em;color:var(--saffron);text-transform:uppercase;display:block;margin-bottom:.2rem;}
+.bmv{font-family:'Lato',sans-serif;font-size:1.05rem;color:var(--indigo);font-weight:400;}
+.bp-actions{display:flex;gap:1.2rem;flex-wrap:wrap;}
+
+.bp-body{padding:6rem 5rem;max-width:1100px;margin:0 auto;background:var(--parchment);}
+.bps{margin-bottom:4.5rem;}
+.bps-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:400;color:var(--indigo);margin-bottom:1.6rem;padding-bottom:.8rem;border-bottom:1px solid var(--border);}
+.bps-title span{font-family:'Noto Sans Devanagari',sans-serif;font-size:1.05rem;font-weight:300;color:var(--text-muted);margin-left:1rem;}
+.bps-text{font-size:1.15rem;line-height:2;color:var(--indigo-muted);font-weight:400;}
+.bps-text p{margin-bottom:1.4rem;}
+.bps-text em{font-style:italic;color:var(--indigo);font-weight:400;}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.dcard{padding:1.6rem;border:1px solid var(--border);background:var(--sand);}
+.dcard .dk{font-family:'Lato',sans-serif;font-weight:900;font-size:.7rem;letter-spacing:.25em;color:var(--saffron);text-transform:uppercase;display:block;margin-bottom:.4rem;}
+.dcard .dv{font-family:'Lato',sans-serif;font-size:1.05rem;color:var(--indigo);font-weight:400;}
+
+.bp-author-strip { display: flex; align-items: center; gap: 1.5rem; margin-top: 4.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+.bp-auth-info h4 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--indigo); margin-bottom: 0.3rem; }
+.bp-auth-info p { font-size: 1rem; color: var(--indigo-muted); font-style: italic; font-weight: 300; }
+
+.also-by{background:var(--indigo);padding:6rem 5rem;}
+.also-inner{max-width:1280px;margin:0 auto;}
+.also-h{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:400;color:var(--parchment);margin-bottom:3rem;}
+.also-h em{font-style:italic;color:var(--saffron);}
+.also-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+.also-card{display:flex;gap:1.2rem;padding:1.2rem;border:1px solid var(--border-light);cursor:pointer;transition:all .3s;background:var(--indigo);}
+.also-card:hover{border-color:var(--saffron);background:#1a2533;}
+.also-thumb{width:60px;flex-shrink:0;}
+.also-info{flex:1;display:flex;flex-direction:column;justify-content:center;}
+.also-en{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);margin-bottom:.2rem;display:block;font-weight:400;}
+.also-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:.8rem;color:var(--saffron);margin-bottom:.5rem;display:block;font-weight:600;}
+.also-cta-lnk{font-family:'Lato',sans-serif;font-weight:900;font-size:.65rem;letter-spacing:.2em;color:var(--saffron);text-transform:uppercase;}
+
+/* Inauguration Gallery Styles */
+.inaug-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+.inaug-item { border-radius: 4px; overflow: hidden; border: 1px solid var(--border); background: var(--sand); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
+.inaug-item:hover { transform: translateY(-5px); }
+.inaug-img { width: 100%; height: auto; display: block; }
+.inaug-caption { padding: 1rem; font-size: 0.9rem; color: var(--indigo-muted); font-style: italic; border-top: 1px solid var(--border); text-align: center; }
+
+/* ═══ AWARD GALLERY PAGE ═══ */
+.gallery-pg-wrap { padding: 120px 5rem 6rem; max-width: 1200px; margin: 0 auto; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem;}
+.gallery-item { position: relative; border-radius: 4px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.06); transition: all 0.4s ease; background: var(--sand); }
+.gallery-item:hover { transform: scale(1.02); z-index: 10; border-color: var(--saffron); }
+.gallery-img { width: 100%; height: auto; display: block; }
+
+/* ═══ FAMILY PAGE ═══ */
+.page-family-wrap { padding: 120px 5rem 6rem; max-width: 1100px; margin: 0 auto; background: var(--parchment); }
+.fam-head { text-align: center; margin-bottom: 5rem; }
+.fam-eyebrow { font-family: 'Lato', sans-serif; font-weight: 900; font-size: .75rem; letter-spacing: .3em; color: var(--saffron); text-transform: uppercase; margin-bottom: 1rem; display: block; }
+.fam-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 4vw, 3.8rem); color: var(--indigo); margin-bottom: 1.5rem; }
+.fam-title em { font-style: italic; color: var(--saffron); }
+.fam-desc { font-size: 1.15rem; line-height: 1.9; color: var(--indigo-muted); max-width: 700px; margin: 0 auto; font-weight: 300; }
+.fam-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 6rem; }
+.fam-row:nth-child(even) { direction: rtl; } 
+.fam-row:nth-child(even) > * { direction: ltr; text-align: left; }
+.fam-img-wrap { aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; border: 1px solid var(--border); box-shadow: 8px 16px 40px rgba(0,0,0,0.08); background: var(--sand); position: relative;}
+.fam-img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1;}
+.fam-info h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--indigo); margin-bottom: 0.5rem; }
+.fam-info h4 { font-family: 'Lato', sans-serif; font-weight: 900; font-size: .8rem; letter-spacing: .15em; color: var(--saffron); text-transform: uppercase; margin-bottom: 1.5rem; }
+.fam-info p { font-size: 1.15rem; line-height: 1.9; color: var(--indigo-muted); font-weight: 300; }
+.back-btn-wrap { margin-bottom: 3rem; }
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:.1s;}.rd2{transition-delay:.2s;}.rd3{transition-delay:.3s;}.rd4{transition-delay:.4s;}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+nav{padding:1.2rem 2.5rem;}
+.hero{grid-template-columns:1fr;}
+.hero-left{padding:8rem 2.5rem 3.5rem;}
+.hero-right{height:44vh;border-left:none;border-top:1px solid var(--border);}
+.about-home{grid-template-columns:1fr;padding:6rem 2.5rem; gap: 4rem;}
+.about-img-wrap { max-width: 320px; margin: 0 auto; }
+.ac{padding-left:0;border-left:none;}
+.nr-container { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+.nr-book-visual { margin-bottom: 2rem; }
+.bks-home{padding:6rem 2.5rem;}
+.bks-grid{grid-template-columns:repeat(2,1fr);}
+.awards-preview-sec { padding: 6rem 2.5rem; }
+.awards-grid-preview { grid-template-columns: 1fr 1fr; }
+.bp-hero{grid-template-columns:1fr;}
+.bp-hl{padding:4rem 2.5rem 2rem;}
+.bp-hl::after{display:none;}
+.bp-cover-wrap{width:220px;}
+.bp-hr{padding:2rem 2.5rem 4rem;}
+.bp-body{padding:4rem 2.5rem;}
+.detail-grid{grid-template-columns:repeat(2,1fr);}
+.also-by{padding:4rem 2.5rem;}
+.also-grid{grid-template-columns:1fr 1fr;}
+.connect-sec{grid-template-columns:1fr;padding:6rem 2.5rem;gap:4rem;}
+.team-sec{padding:6rem 2.5rem;}
+.page-family-wrap { padding: 100px 2.5rem 4rem; }
+.fam-row, .fam-row:nth-child(even) { grid-template-columns: 1fr; direction: ltr; gap: 2rem; }
+footer{padding:2.5rem 2.5rem;flex-direction:column;gap:1.2rem;text-align:center;}
+.quote-sec{grid-template-columns: 1fr; padding:6rem 2.5rem; gap: 4rem;}
+.quote-img-wrap { max-width: 450px; margin: 0 auto; aspect-ratio: 4/3; }
+.quote-content { text-align: center; }
+.q-mark { margin-left: 0; }
+.q-div { margin: 2.5rem auto; }
+}
+@media(max-width:640px){
+.nav-links{display:none;}
+.bks-grid{grid-template-columns:1fr;}
+.awards-grid-preview { grid-template-columns: 1fr; }
+.bp-meta{grid-template-columns:1fr;}
+.detail-grid{grid-template-columns:1fr;}
+.also-grid{grid-template-columns:1fr;}
+.stats{flex-direction:column;gap:2rem;}
+.hero-cta{flex-direction:column;}
+.btn-primary, .btn-secondary {text-align:center;}
+.nr-disc { width: 220px; height: 220px; transform: translateX(40px); }
+.nr-book-cover { width: 200px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo" onclick="goHome()">
+    <span class="nav-logo-en">Pooja Sawariya</span>
+    <span class="nav-logo-hi">पूजा साँवरिया</span>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="goHome();smoothTo('about-a')">About</a></li>
+    <li><a onclick="goHome();smoothTo('books-a')">Books</a></li>
+    <li><a onclick="goHome();smoothTo('awards-a')">Awards</a></li>
+    <li><a onclick="goHome();smoothTo('connect-a')">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════ HOME ══════════════ -->
+<div id="page-home" class="page active">
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Hindi Poet &amp; Author</p>
+    <h1 class="hero-name">Pooja<br><em>Sawariya</em></h1>
+    <p class="hero-name-hi">पूजा साँवरिया</p>
+    <p class="hero-tagline">Weaving the unspoken language of the heart — verse by verse, feeling by feeling.</p>
+    <div class="hero-cta">
+      <a class="btn-primary" onclick="goHome();smoothTo('books-a')"><span>Explore Books</span></a>
+      <a class="btn-secondary" onclick="goHome();smoothTo('about-a')">About the Author</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <svg class="hero-svg" viewBox="0 0 460 560" xmlns="http://www.w3.org/2000/svg">
+      <defs><radialGradient id="rg" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:#2B3D52;stop-opacity:.1"/><stop offset="100%" style="stop-color:#2B3D52;stop-opacity:0"/></radialGradient></defs>
+      <circle cx="230" cy="280" r="210" fill="url(#rg)"/>
+      <circle cx="230" cy="280" r="200" fill="none" stroke="#E1A337" stroke-width=".5" opacity=".6"/>
+      <circle cx="230" cy="280" r="185" fill="none" stroke="#2B3D52" stroke-width=".3" opacity=".4"/>
+      <circle cx="230" cy="280" r="125" fill="none" stroke="#E1A337" stroke-width=".6" opacity=".7"/>
+      <circle cx="230" cy="280" r="75" fill="none" stroke="#2B3D52" stroke-width=".4" opacity=".5"/>
+      <line x1="230" y1="60" x2="230" y2="500" stroke="#2B3D52" stroke-width=".3" opacity=".3"/>
+      <line x1="10" y1="280" x2="450" y2="280" stroke="#2B3D52" stroke-width=".3" opacity=".3"/>
+      <line x1="75" y1="125" x2="385" y2="435" stroke="#E1A337" stroke-width=".3" opacity=".4"/>
+      <line x1="385" y1="125" x2="75" y2="435" stroke="#E1A337" stroke-width=".3" opacity=".4"/>
+      <ellipse cx="230" cy="205" rx="15" ry="55" fill="none" stroke="#E1A337" stroke-width=".4" opacity=".5" transform="rotate(0 230 280)"/>
+      <ellipse cx="230" cy="205" rx="15" ry="55" fill="none" stroke="#E1A337" stroke-width=".4" opacity=".5" transform="rotate(45 230 280)"/>
+      <ellipse cx="230" cy="205" rx="15" ry="55" fill="none" stroke="#E1A337" stroke-width=".4" opacity=".5" transform="rotate(90 230 280)"/>
+      <ellipse cx="230" cy="205" rx="15" ry="55" fill="none" stroke="#E1A337" stroke-width=".4" opacity=".5" transform="rotate(135 230 280)"/>
+      <ellipse cx="230" cy="205" rx="15" ry="55" fill="none" stroke="#E1A337" stroke-width=".4" opacity=".5" transform="rotate(180 230 280)"/>
+      <ellipse cx="230" cy="205" rx="15" ry="55" fill="none" stroke="#E1A337" stroke-width=".4" opacity=".5" transform="rotate(225 230 280)"/>
+      <ellipse cx="230" cy="205" rx="15" ry="55" fill="none" stroke="#E1A337" stroke-width=".4" opacity=".5" transform="rotate(270 230 280)"/>
+      <ellipse cx="230" cy="205" rx="15" ry="55" fill="none" stroke="#E1A337" stroke-width=".4" opacity=".5" transform="rotate(315 230 280)"/>
+      <text x="230" y="292" text-anchor="middle" font-family="'Noto Sans Devanagari',sans-serif" font-size="26" fill="#2B3D52" opacity=".8" font-weight="400">कविता</text>
+      <text x="230" y="65" text-anchor="middle" font-family="'Lato',sans-serif" font-weight="700" font-size="7" fill="#E1A337" opacity=".9" letter-spacing="5">HINDI POETRY</text>
+      <text x="230" y="515" text-anchor="middle" font-family="'Noto Sans Devanagari',sans-serif" font-size="10" fill="#2B3D52" opacity=".6">हिंदी काव्य संग्रह</text>
+    </svg>
+    <div class="float-words">
+      <span class="fw">भावना</span><span class="fw">प्रेम</span><span class="fw">जीवन</span><span class="fw">आत्मा</span><span class="fw">समर्पण</span>
+    </div>
+    <div class="hero-num">4</div>
+  </div>
+</section>
+
+<div class="mq"><div class="mq-i">
+  <span class="mi">स्पर्श एक एहसास</span><span class="md">•</span><span class="mi">आत्म सारांश</span><span class="md">•</span><span class="mi">समर्पण</span><span class="md">•</span><span class="mi">ऐ ज़िन्दगी</span><span class="md">•</span><span class="mi">Sparsh Ek Ehsaas</span><span class="md">•</span><span class="mi">Aatm Saransh</span><span class="md">•</span><span class="mi">Samarpan</span><span class="md">•</span><span class="mi">Ae Zindagi</span><span class="md">•</span><span class="mi">पूजा साँवरिया</span><span class="md">•</span>
+  <span class="mi">स्पर्श एक एहसास</span><span class="md">•</span><span class="mi">आत्म सारांश</span><span class="md">•</span><span class="mi">समर्पण</span><span class="md">•</span><span class="mi">ऐ ज़िन्दगी</span><span class="md">•</span><span class="mi">Sparsh Ek Ehsaas</span><span class="md">•</span><span class="mi">Aatm Saransh</span><span class="md">•</span><span class="mi">Samarpan</span><span class="md">•</span><span class="mi">Ae Zindagi</span><span class="md">•</span><span class="mi">पूजा साँवरिया</span><span class="md">•</span>
+</div></div>
+
+<div id="about-a"></div>
+<div class="alt-bg">
+<section class="about-home">
+  <div class="al reveal"><div class="about-img-wrap"><img src="AUTH 1.jpg" alt="Pooja Sawariya" class="about-img"></div></div>
+  <div class="ac reveal">
+    <h2 class="about-h">A voice that speaks <em>what the heart</em> cannot say aloud</h2>
+    <p class="about-p">पूजा साँवरिया एक हिंदी कवयित्री और लेखिका हैं, जिनकी रचनाएँ मानवीय भावनाओं की गहराई को शब्दों में पिरोती हैं — प्रेम, विरह, आत्मचिंतन और जीवन के वे पल जो अनकहे रह जाते हैं।</p>
+    <p class="about-p">Pooja Sawariya is a Hindi poet and author whose work explores the quiet depths of human emotion — love, longing, reflection, and the everyday moments that shape a life. Her poetry gives language to feelings that often remain unspoken, reaching readers across India and beyond.</p>
+    <p class="about-p">Her writing draws from lived experience and societal observation. Published across four collections — from her debut <em>Samarpan</em> to the acclaimed <em>Ae Zindagi</em> — her work stands as a testament to the enduring power of Hindi poetry in the contemporary literary landscape.</p>
+    <div class="stats">
+      <div class="stat reveal rd1"><span class="n">4</span><span class="l">Published Books</span></div>
+      <div class="stat reveal rd2"><span class="n">500+</span><span class="l">Pages of Poetry</span></div>
+      <div class="stat reveal rd3"><span class="n">2022</span><span class="l">Debut Year</span></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ═══ NEW RELEASE: HUMSAFAR ═══ -->
+<section class="new-release-sec">
+  <div class="nr-container">
+    <div class="nr-book-visual reveal rd1">
+      <div class="nr-disc">
+        <div class="nr-disc-label"></div>
+      </div>
+      <div class="nr-book-cover"></div>
+    </div>
+    <div class="nr-content reveal rd2">
+      <span class="sec-eyebrow">Upcoming Masterpiece</span>
+      <h2 class="nr-title">हमसफ़र<br><em>Humsafar</em></h2>
+      <span class="nr-pub">Published by Astitva Publications</span>
+      <p class="nr-desc">Prepare for a groundbreaking artistic experience. "Humsafar" is not just a book; it is a multisensory journey through poetry and music that explores the companionship of life.</p>
+      
+      <div class="nr-features">
+        <div class="nr-f-item">
+          <div class="nr-f-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+          </div>
+          <div class="nr-f-text">
+            <h4>The Musical Album</h4>
+            <p>Launching alongside the book, an exclusive album featuring 30 soulful songs derived directly from the verses within.</p>
+          </div>
+        </div>
+        <div class="nr-f-item">
+          <div class="nr-f-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><path d="m8 21 4-4 4 4"></path></svg>
+          </div>
+          <div class="nr-f-text">
+            <h4>Full Video Series</h4>
+            <p>Each of the 30 songs is accompanied by a professionally produced video, bringing the visual essence of the poetry to life.</p>
+          </div>
+        </div>
+        <div class="nr-f-item">
+          <div class="nr-f-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15V6a2 2 0 0 0-2-2H7l-2 2H3v9h2l2 2h12a2 2 0 0 0 2-2ZM7 8v5"></path></svg>
+          </div>
+          <div class="nr-f-text">
+            <h4>Global Availability</h4>
+            <p>Coming soon to YouTube and all major streaming platforms worldwide.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="books-a"></div>
+<section class="bks-home">
+  <div class="sh reveal">
+    <div><span class="sec-eyebrow">Literary Works</span><h2 class="sec-title">The <em>Complete</em> Collection</h2></div>
+  </div>
+  <div class="bks-grid">
+    <div class="bk reveal rd1" onclick="showBook('sparsh')">
+      <div class="bk-cover" style="background-color: var(--indigo); background-image: url('sparsh.jpeg'); background-position: right center; background-size: auto 100%;"></div>
+      <div class="bk-title">Sparsh Ek Ehsaas</div>
+      <div class="bk-sub">स्पर्श एक एहसास</div>
+      <p class="bk-desc">A tender collection exploring the gentle touch of emotions — feelings that define our deepest connections.</p>
+      <span class="bk-more">View Details →</span>
+    </div>
+    <div class="bk reveal rd2" onclick="showBook('aatm')">
+      <div class="bk-cover" style="background-color: var(--indigo); background-image: url('aatm saransh.jpeg'); background-position: right center; background-size: auto 100%;"></div>
+      <div class="bk-title">Aatm Saransh</div>
+      <div class="bk-sub">आत्म सारांश</div>
+      <p class="bk-desc">A courageous collection that speaks of society's unspoken truths — poems that illuminate what many prefer to leave in shadow.</p>
+      <span class="bk-more">View Details →</span>
+    </div>
+    <div class="bk reveal rd3" onclick="showBook('samarpan')">
+      <div class="bk-cover" style="background-color: var(--indigo); background-image: url('samarpan.jpeg'); background-position: right center; background-size: auto 100%;"></div>
+      <div class="bk-title">Samarpan</div>
+      <div class="bk-sub">समर्पण</div>
+      <p class="bk-desc">The debut collection — an intimate offering of the poet's heart, conveying personal feelings through poetry.</p>
+      <span class="bk-more">View Details →</span>
+    </div>
+    <div class="bk reveal rd4" onclick="showBook('zindagi')">
+      <div class="bk-cover" style="background-color: var(--indigo); background-image: url('e jindagi front.jpeg'); background-position: center; background-size: cover;"></div>
+      <div class="bk-title">Ae Zindagi</div>
+      <div class="bk-sub">ऐ ज़िन्दगी</div>
+      <p class="bk-desc">A direct address to life itself — poems that grapple with joy, grief, acceptance, and the beauty of simply being alive.</p>
+      <span class="bk-more">View Details →</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AWARD GALLERY SECTION ═══ -->
+<div id="awards-a"></div>
+<section class="awards-preview-sec">
+  <div class="reveal">
+    <span class="sec-eyebrow">Achievements</span>
+    <h2 class="serif" style="font-size: clamp(2.2rem,3vw,3.5rem); color: var(--indigo);">Honors & <em>Awards</em></h2>
+    <p style="color: var(--indigo-muted); font-size: 1.15rem; margin-top: 1rem; max-width: 600px;">Recognizing the impact of verse and the power of literary contribution in the world of Hindi literature.</p>
+  </div>
+  
+  <div class="awards-grid-preview">
+    <div class="award-preview-card reveal rd1">
+      <img src="award 1.jpeg" class="award-preview-img" alt="Award 1">
+    </div>
+    <div class="award-preview-card reveal rd2">
+      <img src="award 2.jpeg" class="award-preview-img" alt="Award 2">
+    </div>
+    <div class="award-preview-card reveal rd3">
+      <img src="book 16.jpeg" class="award-preview-img" alt="Recognition Ceremony">
+    </div>
+  </div>
+  
+  <div style="text-align: center;" class="reveal">
+    <a class="btn-primary" onclick="showAwardGallery()"><span>View All Achievements</span></a>
+  </div>
+</section>
+
+<div class="quote-wrap">
+<section class="quote-sec">
+  <div class="reveal rd1">
+    <div class="quote-img-wrap">
+      <img src="AUTH 3.jpg" class="quote-img" alt="Pooja Sawariya">
+    </div>
+  </div>
+  <div class="quote-content reveal rd2">
+    <span class="q-mark">"</span>
+    <p class="q-text">Poetry is not just written words — it is the breath between heartbeats, the pause before tears, the silence after a name is spoken.</p>
+    <p class="q-hi">कविता बस शब्द नहीं, यह दिल की सबसे गहरी आवाज़ है।</p>
+    <div class="q-div"></div>
+    <p class="q-attr">— पूजा साँवरिया &nbsp;·&nbsp; Pooja Sawariya</p>
+  </div>
+</section>
+</div>
+
+<div id="connect-a"></div>
+<section class="connect-sec">
+  <div class="cl reveal">
+    <span class="sec-eyebrow">Acquire the Books</span>
+    <h2 class="cl-title">Available in<br><em>Print &amp; Digital</em></h2>
+    <p class="cl-sub">All four collections are available in paperback. Each book is a new journey — pick one and let the words find you.</p>
+    <div class="amazon-list">
+      <a href="https://www.amazon.in/Sparsh-Ek-Ehsaas-Pooja-Sawariya/dp/8119251725/" target="_blank" class="al-row"><div class="al-dot d1"></div><div class="al-info"><span class="al-en">Sparsh Ek Ehsaas</span><span class="al-hi">स्पर्श एक एहसास</span></div><span class="al-arr">→</span></a>
+      <a href="https://www.amazon.in/Aatm-Saransh-Pooja-Sawariya/dp/B0CR7FZ4BM/" target="_blank" class="al-row"><div class="al-dot d2"></div><div class="al-info"><span class="al-en">Aatm Saransh</span><span class="al-hi">आत्म सारांश</span></div><span class="al-arr">→</span></a>
+      <a href="https://www.amazon.in/Samarpan-%E0%A4%B8%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%AA%E0%A4%A3-Pooja-Sawariya/dp/B0GTBSN49T/" target="_blank" class="al-row"><div class="al-dot d3"></div><div class="al-info"><span class="al-en">Samarpan</span><span class="al-hi">समर्पण</span></div><span class="al-arr">→</span></a>
+      <a href="https://www.amazon.in/Ae-Zindagi-Pooja-Sawariya/dp/9369546790/" target="_blank" class="al-row"><div class="al-dot d4"></div><div class="al-info"><span class="al-en">Ae Zindagi</span><span class="al-hi">ऐ ज़िन्दगी</span></div><span class="al-arr">→</span></a>
+    </div>
+  </div>
+  <div class="reveal rd2" style="display:flex;flex-direction:column;justify-content:center;">
+    <span class="sec-eyebrow" style="display:block;margin-bottom:1.2rem;color:var(--saffron);">The Author's Voice</span>
+    <h2 class="cr-title">A poet who writes<br><em>from experience</em></h2>
+    <div class="cr-img-wrap">
+      <img src="AUTH 4.jpg" class="cr-img" alt="Pooja Sawariya in London" style="object-position: center 70%;">
+    </div>
+    <p class="cr-p">Pooja Sawariya's poetry emerges from a deep well of personal experience and societal observation. Her four books represent a continuum — from devotion and dedication, through self-reflection, to a direct conversation with life itself.</p>
+    <div class="cr-quote-box">
+      <p class="cr-quote-hi">"शब्दों में वो ताकत है जो दिलों को छू जाती है, जो आँखें नम कर देती है।"</p>
+      <p class="cr-quote-en">"Words have the power to touch hearts and bring tears to eyes."</p>
+    </div>
+    <div class="contact-block">
+      <span class="sec-eyebrow" style="margin-bottom: 0.8rem; color: var(--saffron);">Connect Directly</span>
+      <a href="mailto:sawariyaa.pooja@gmail.com" class="contact-link">sawariyaa.pooja@gmail.com</a>
+      <div class="social-links">
+        <a href="https://www.instagram.com/sawariyaa.pooja" target="_blank" class="social-link">Instagram</a>
+        <a href="https://www.youtube.com/@sawariyaa_pooja" target="_blank" class="social-link">YouTube</a>
+        <a href="https://x.com/sawariyaa_pooja" target="_blank" class="social-link">X (Twitter)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team-sec">
+  <div class="reveal">
+    <span class="team-eyebrow">Gratitude & Support</span>
+    <h2 class="team-title">The People <em>Behind</em> Pooja Sawariya</h2>
+    <p class="team-desc">A poet's journey is profoundly shaped by those who stand with her. Pooja's literary endeavors are deeply supported by her loving family, her dedicated publishing partners, and the devoted readers.</p>
+    <div class="team-grid">
+      <div class="team-member"><span class="team-role">Unwavering Support</span><span class="team-name">The Family</span><span class="team-name-hi">परिवार का सहयोग</span></div>
+      <div class="team-member"><span class="team-role">Literary Partners</span><span class="team-name">Publishing Teams</span><span class="team-name-hi">प्रकाशन दल</span></div>
+      <div class="team-member"><span class="team-role">The True Inspiration</span><span class="team-name">The Readers</span><span class="team-name-hi">प्रिय पाठक</span></div>
+    </div>
+    <div style="margin-top: 4.5rem; display: flex; justify-content: center;">
+      <a class="btn-primary" onclick="showFamily()"><span>Meet the Family</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><span class="f-name-en">Pooja Sawariya</span><span class="f-name-hi">पूजा साँवरिया</span></div>
+  <div class="f-tag">हिंदी काव्य संग्रह &nbsp;✦&nbsp; Hindi Poetry</div>
+  <div class="f-copy">© 2026 All rights reserved</div>
+</footer>
+</div>
+
+<!-- ══════════════ BOOK PAGE ══════════════ -->
+<div id="page-book" class="page">
+  <div id="book-content"></div>
+</div>
+
+<!-- ══════════════ AWARD GALLERY PAGE ══════════════ -->
+<div id="page-gallery" class="page">
+  <div class="gallery-pg-wrap">
+    <div class="back-btn-wrap">
+      <button class="bp-back" onclick="goHome()">← Back to Home</button>
+    </div>
+    
+    <div class="reveal">
+      <span class="fam-eyebrow">A Journey of Recognition</span>
+      <h1 class="fam-title">Honors & <em>Achievements</em></h1>
+      <p class="fam-desc">Moments of celebration, recognition, and milestones that mark the path of this literary journey.</p>
+    </div>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item reveal rd1"><img src="award 1.jpeg" class="gallery-img"></div>
+      <div class="gallery-item reveal rd2"><img src="award 2.jpeg" class="gallery-img"></div>
+      <div class="gallery-item reveal rd3"><img src="award 3.jpeg" class="gallery-img"></div>
+      <div class="gallery-item reveal rd4"><img src="award 4.jpeg" class="gallery-img"></div>
+      <div class="gallery-item reveal rd1"><img src="book 16.jpeg" class="gallery-img"></div>
+    </div>
+  </div>
+  <footer>
+    <div><span class="f-name-en">Pooja Sawariya</span><span class="f-name-hi">पूजा साँवरिया</span></div>
+    <div class="f-tag">हिंदी काव्य संग्रह &nbsp;✦&nbsp; Hindi Poetry</div>
+    <div class="f-copy">© 2026 All rights reserved</div>
+  </footer>
+</div>
+
+<!-- ══════════════ FAMILY PAGE ══════════════ -->
+<div id="page-family" class="page">
+  <div class="page-family-wrap">
+    <div class="back-btn-wrap">
+      <button class="bp-back" onclick="goHome()">← Back to Home</button>
+    </div>
+    <div class="fam-head reveal">
+      <span class="fam-eyebrow">My Pillars of Strength</span>
+      <h1 class="fam-title">The People <em>Behind</em> the Poet</h1>
+      <div style="width: 100%; aspect-ratio: 16/9; max-height: 500px; overflow: hidden; border-radius: 4px; margin: 3.5rem 0; border: 1px solid var(--border); box-shadow: 8px 16px 40px rgba(0,0,0,0.12);">
+        <img src="Auth Fam.jpg" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;" alt="Pooja Sawariya and Family">
+      </div>
+      <p class="fam-desc">Every word I write carries the silent support, love, and encouragement of my family.</p>
+    </div>
+    <div class="fam-row reveal">
+      <div class="fam-img-wrap"><img src="auth%20hus.jpg" alt="Husband" class="fam-img"></div>
+      <div class="fam-info">
+        <h3>My Husband</h3>
+        <h4>The Foundation</h4>
+        <p>His unwavering belief in my passion has been the bedrock of my writing journey. He stood by me when I first picked up the pen, offering the quiet confidence and stability I needed to transform my private thoughts into published poetry.</p>
+      </div>
+    </div>
+    <div class="fam-row reveal">
+      <div class="fam-img-wrap"><img src="auth%20child.jpg" alt="Children" class="fam-img"></div>
+      <div class="fam-info">
+        <h3>My Children</h3>
+        <h4>The Inspiration & The Catalyst</h4>
+        <p>My daughter gives firsthand motivation to write, and my son is credited for the publishing success of all my works, pushing me to explore new creative boundaries.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div><span class="f-name-en">Pooja Sawariya</span><span class="f-name-hi">पूजा साँवरिया</span></div>
+    <div class="f-copy">© 2026 All rights reserved</div>
+  </footer>
+</div>
+
+<script>
+const B = {
+  sparsh:{en:'Sparsh Ek Ehsaas',hi:'स्पर्श एक एहसास', img:'sparsh.jpeg', bgPos:'right center', bgSize:'auto 100%',
+    isbn:'978-8119251728',pub:'Rajmangal Publishers',pgs:'—',lang:'Hindi',fmt:'Paperback',yr:'2023',
+    links:[
+      {name:'Amazon',url:'https://www.amazon.in/Sparsh-Ek-Ehsaas-Pooja-Sawariya/dp/8119251725/'},
+      {name:'Flipkart',url:'https://www.flipkart.com/sparsh-ek-ehsaas/p/itm7aff8c798f728'},
+      {name:'Rajmangal',url:'https://www.rajmangalpublishers.com/product-page/sparsh-ek-ehsaas'}
+    ],
+    tag:'The Poetry of Touch — Feelings that leave an imprint on the soul.',
+    tagHi:'स्पर्श — वो भावनाएँ जो दिल पर अपनी छाप छोड़ जाती हैं।',
+    desc:`<p>In <em>Sparsh Ek Ehsaas</em>, Pooja Sawariya captures the subtle, imperceptible moments that define emotional life. A touch, a glance, a word spoken or unspoken — the poems examine how smallest things carry the deepest weight.</p>`,
+    theme:'Emotion • Connection • Sensation • Memory',themeHi:'भावना • संबंध • अनुभव • स्मृति',
+    details:[{k:'Genre',v:'Hindi Poetry'},{k:'ISBN',v:'978-8119251728'},{k:'Publisher',v:'Rajmangal Publishers'},{k:'Language',v:'Hindi'},{k:'Format',v:'Paperback'},{k:'Available On',v:'Amazon India'}]},
+  aatm:{en:'Aatm Saransh',hi:'आत्म सारांश', img:'aatm saransh.jpeg', bgPos:'right center', bgSize:'auto 100%',
+    isbn:'978-9356217003',pub:'Orangebooks Publication',pgs:'166',lang:'Hindi',fmt:'Paperback — 6" × 9"',yr:'December 2023',
+    links:[
+      {name:'Amazon',url:'https://www.amazon.in/Aatm-Saransh-Pooja-Sawariya/dp/B0CR7FZ4BM/'},
+      {name:'Flipkart',url:'https://www.flipkart.com/aatm-saransh/p/itm940e30134e529'},
+      {name:'Wissen',url:'https://wissenbookstore.com/product/aatma-saransh/'}
+    ],
+    tag:'A Mirror to Society — Poems that say what no one dares to speak.',
+    tagHi:'समाज का आईना — वो बातें जो कोई कहना नहीं चाहता।',
+    desc:`<p><em>Aatm Saransh</em> is a bold and introspective collection reflecting on the world with unflinching honesty. It addresses incidents in common life, social evils, and raw human emotion.</p>`,
+    theme:'Society • Truth • Courage • Self-Reflection',themeHi:'समाज • सत्य • साहस • आत्मचिंतन',
+    details:[{k:'Genre',v:'Hindi Poetry / Social Commentary'},{k:'ISBN-13',v:'978-9356217003'},{k:'Publisher',v:'Orangebooks Publication'},{k:'Language',v:'Hindi'},{k:'Pages',v:'166'},{k:'Format',v:'Paperback'}]},
+  samarpan:{en:'Samarpan',hi:'समर्पण', img:'samarpan.jpeg', bgPos:'right center', bgSize:'auto 100%',
+    isbn:'9798887048789',pub:'Notion Press',pgs:'—',lang:'Hindi',fmt:'Paperback',yr:'2022',
+    links:[
+      {name:'Amazon',url:'https://www.amazon.in/Samarpan-%E0%A4%B8%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%AA%E0%A4%A3-Pooja-Sawariya/dp/B0GTBSN49T/'},
+      {name:'Flipkart',url:'https://www.flipkart.com/samarpan/p/itmb5a6342cffd2f'},
+      {name:'Notion Press',url:'https://notionpress.com/in/read/samarpan-1372025-hardcover'}
+    ],
+    tag:'An Offering of the Heart — Poetry as Devotion, Dedication, and Love.',
+    tagHi:'दिल की भेंट — कविता एक समर्पण के रूप में।',
+    desc:`<p><em>Samarpan</em> is Pooja Sawariya's debut collection. The title speaks to the spirit of the book: an offering devoted to the full range of human experience.</p>
+    <div class="bps" style="margin-top: 3.5rem;">
+      <h2 class="bps-title">Book Inauguration <span>/ पुस्तक विमोचन</span></h2>
+      <div class="inaug-gallery">
+        <div class="inaug-item"><img src="book%2014.jpeg" class="inaug-img"><div class="inaug-caption">Book Launch Ceremony</div></div>
+        <div class="inaug-item"><img src="book%2015.jpeg" class="inaug-img"><div class="inaug-caption">Unveiling of Samarpan</div></div>
+        <div class="inaug-item"><img src="book%2016.jpeg" class="inaug-img"><div class="inaug-caption">Receiving Honors</div></div>
+        <div class="inaug-item"><img src="book%2017.jpeg" class="inaug-img"><div class="inaug-caption">Ceremony Highlights</div></div>
+        <div class="inaug-item"><img src="book%2013.jpeg" class="inaug-img"><div class="inaug-caption">With Esteemed Guests</div></div>
+        <div class="inaug-item"><img src="book%2011.jpeg" class="inaug-img"><div class="inaug-caption">Press Coverage - Amar Prabhat</div></div>
+        <div class="inaug-item"><img src="book%2012.jpeg" class="inaug-img"><div class="inaug-caption">Media Recognition</div></div>
+      </div>
+    </div>`,
+    theme:'Dedication • Love • Life Experiences • Hope',themeHi:'समर्पण • प्रेम • जीवन अनुभव • आशा',
+    details:[{k:'Genre',v:'Hindi Poetry — Debut'},{k:'ISBN',v:'9798887048789'},{k:'Publisher',v:'Notion Press'},{k:'Language',v:'Hindi'},{k:'Category',v:'Inspirational Poetry'}]},
+  zindagi:{en:'Ae Zindagi',hi:'ऐ ज़िन्दगी', img:'e jindagi front.jpeg', bgPos:'center', bgSize:'cover',
+    isbn:'978-9369546790',pub:'BookLeaf Publishing',pgs:'—',lang:'Hindi',fmt:'Paperback',yr:'2024–25',
+    links:[
+      {name:'Amazon',url:'https://www.amazon.in/Ae-Zindagi-Pooja-Sawariya/dp/9369546790/'},
+      {name:'BookLeaf',url:'https://ebooks.bookleafpub.com/product-page/%E0%A4%8F-%E0%A4%9C-%E0%A4%A6%E0%A4%97'},
+      {name:'Books-A-Million',url:'https://www.booksamillion.com/p/Pooja-Sawariya/9789369546794'}
+    ],
+    tag:'A Letter to Life — Poetry that dares to speak directly to existence itself.',
+    tagHi:'ज़िन्दगी से एक बात — सीधे अस्तित्व से बात करती कविताएँ।',
+    desc:`<p><em>Ae Zindagi</em> is Pooja Sawariya's most personal and wide-ranging collection—a direct conversation with life as a companion both kind and cruel.</p>`,
+    theme:'Life • Joy • Grief • Acceptance • Existence',themeHi:'जीवन • खुशी • दुख • स्वीकृति • अस्तित्व',
+    details:[{k:'Genre',v:'Hindi Poetry / Philosophical'},{k:'ISBN',v:'978-9369546790'},{k:'Language',v:'Hindi'},{k:'Format',v:'Paperback'},{k:'Published',v:'2024–25'}]}
+};
+
+const OTHERS = {sparsh:['aatm','samarpan','zindagi'],aatm:['sparsh','samarpan','zindagi'],samarpan:['sparsh','aatm','zindagi'],zindagi:['sparsh','aatm','samarpan']};
+
+function makeCover(k,size){
+  const b=B[k];const s=size==='sm';
+  const w=s?'52px':'100%';const sh=s?'3px 5px 14px rgba(0,0,0,.38)':'20px 30px 60px rgba(0,0,0,.3)';
+  return `<div style="width:${w};aspect-ratio:3/4.2;background-color:var(--indigo);background-image:url('${b.img}');background-size:${b.bgSize};background-position:${b.bgPos};background-repeat:no-repeat;overflow:hidden;box-shadow:${sh};border-radius:2px;position:relative;"></div>`;
+}
+
+function showBook(key){
+  const b=B[key];
+  const others=OTHERS[key].map(k=>`
+    <div class="also-card" onclick="showBook('${k}')">
+      <div class="also-thumb">${makeCover(k,'sm')}</div>
+      <div class="also-info"><span class="also-en">${B[k].en}</span><span class="also-hi">${B[k].hi}</span><span class="also-cta-lnk">View Details →</span></div>
+    </div>`).join('');
+  const dcards=b.details.map(d=>`<div class="dcard"><span class="dk">${d.k}</span><span class=\"dv\">${d.v}</span></div>`).join('');
+  const actionLinks = (b.links || []).map((lnk, i) => 
+    `<a href="${lnk.url}" target="_blank" class="${i === 0 ? 'btn-primary' : 'btn-secondary'}"><span>Buy on ${lnk.name}</span></a>`
+  ).join('');
+
+  document.getElementById('book-content').innerHTML=`
+    <section class="book-pg">
+      <div class="bp-hero">
+        <div class="bp-hl"><div class="bp-cover-wrap"><div class="bp-cover-box" style="background-image:url('${b.img}');background-position:${b.bgPos};background-size:${b.bgSize};"><div class="bp-spine"></div></div></div></div>
+        <div class="bp-hr">
+          <button class="bp-back" onclick="goHome()">← Back to Home</button>
+          <p class="bp-eyebrow">पूजा साँवरिया &nbsp;·&nbsp; Pooja Sawariya</p>
+          <h1 class="bp-title-en">${b.en}</h1>
+          <p class="bp-title-hi">${b.hi}</p>
+          <p class="bp-tagline">${b.tag}<span class="bp-tagline-hi">${b.tagHi}</span></p>
+          <div class="bp-meta">
+            <div><span class="bmk">Publisher</span><span class="bmv">${b.pub}</span></div>
+            <div><span class="bmk">Year</span><span class="bmv">${b.yr}</span></div>
+            <div><span class="bmk">Language</span><span class="bmv">${b.lang}</span></div>
+            <div><span class="bmk">Format</span><span class="bmv">${b.fmt}</span></div>
+          </div>
+          <div class="bp-actions">${actionLinks}</div>
+        </div>
+      </div>
+      <div class="bp-body">
+        <div class="bps"><h2 class="bps-title">About the Book <span>/ पुस्तक के बारे में</span></h2><div class="bps-text">${b.desc}</div></div>
+        <div class="bps"><h2 class="bps-title">Themes <span>/ विषय-वस्तु</span></h2><p style="font-size:1.15rem;color:var(--indigo-muted);line-height:1.8;">${b.theme}</p></div>
+        <div class="bps"><h2 class="bps-title">Book Details <span>/ विवरण</span></h2><div class="detail-grid">${dcards}</div></div>
+        <div class="bp-author-strip">
+          <div class="bp-auth-info"><h4>Pooja Sawariya</h4><p>Weaving the unspoken language of the heart — verse by verse, feeling by feeling.</p></div>
+        </div>
+      </div>
+      <div class="also-by"><div class="also-inner"><h3 class="also-h">Also by <em>Pooja Sawariya</em></h3><div class="also-grid">${others}</div></div></div>
+      <footer>
+        <div><span class="f-name-en">Pooja Sawariya</span><span class="f-name-hi">पूजा साँवरिया</span></div>
+        <div class="f-tag">हिंदी काव्य संग्रह &nbsp;✦&nbsp; Hindi Poetry</div>
+        <div class="f-copy">© 2026 All rights reserved</div>
+      </footer>
+    </section>`;
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-book').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goHome(){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-home').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showFamily(){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-family').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showAwardGallery(){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-gallery').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function smoothTo(id){
+  setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});},80);}
+
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
