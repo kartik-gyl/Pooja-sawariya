@@ -45,7 +45,6 @@ h1, h2, h3, h4, .serif {
 nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0.6rem 5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(253, 251, 241, 0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
 .nav-logo{cursor:pointer; display:flex; align-items:center; gap: 0.8rem;}
 .nav-logo-icon { height: 55px; width: auto; transition: transform 0.3s ease; }
-/* Script Text Logo Style - Adjusted margin to bring text down */
 .nav-name-script { 
   font-family: 'Alex Brush', cursive; 
   font-size: 2.4rem; 
@@ -71,7 +70,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0.6rem 5rem;display:
 /* ═══ HOME HERO ═══ */
 .hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden;background:var(--parchment);}
 .hero-left{display:flex;flex-direction:column;justify-content:center;padding:9rem 4rem 6rem 5rem;z-index:2;}
-/* Golden Eyebrow Boldness */
 .hero-eyebrow{font-family:'Lato',sans-serif;font-weight:900;font-size:.75rem;letter-spacing:.3em;color:var(--saffron);text-transform:uppercase;margin-bottom:1.8rem;animation:fadeUp 1s ease .2s both;}
 .hero-name{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,5.5vw,6.5rem);font-weight:400;line-height:1.05;color:var(--indigo);animation:fadeUp 1s ease .4s both;}
 .hero-name em{font-style:italic;color:var(--saffron);}
@@ -123,7 +121,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0.6rem 5rem;display:
 .nr-book-cover::after { content: 'हमसफ़र'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Noto Sans Devanagari', sans-serif; font-size: 2.5rem; color: var(--saffron); font-weight: 500;}
 @keyframes spin { from { transform: translateX(80px) rotate(0deg); } to { transform: translateX(80px) rotate(360deg); } }
 
-/* Bold golden eyebrows */
 .nr-content .sec-eyebrow { color: var(--saffron); font-weight: 900; font-size: 0.75rem; letter-spacing: 0.3em; }
 .nr-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; }
 .nr-title em { color: var(--saffron); font-style: italic; }
@@ -137,7 +134,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0.6rem 5rem;display:
 
 /* ═══ BOOKS HOME ═══ */
 .bks-home{padding:8rem 5rem;background:var(--parchment);position:relative;overflow:hidden; border-top: 1px solid var(--border);}
-.bks-home::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(43, 61, 82,.05),transparent 70%);pointer-events:none;}
 .sh{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:5rem;}
 .sec-eyebrow{font-family:'Lato',sans-serif;font-weight:900;font-size:.75rem;letter-spacing:.3em;color:var(--saffron);text-transform:uppercase;display:block;margin-bottom:1rem;}
 .sec-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,3vw,3.5rem);font-weight:400;color:var(--indigo);line-height:1.1;}
@@ -148,7 +144,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0.6rem 5rem;display:
 .bk-cover{width:100%;aspect-ratio:3/4.2;position:relative;overflow:hidden;margin-bottom:1.8rem;box-shadow:8px 16px 40px rgba(0,0,0,.15);transition:box-shadow .4s;border-radius:2px;background-size:cover;background-repeat:no-repeat;}
 .bk:hover .bk-cover{box-shadow:12px 24px 60px rgba(0,0,0,.25);}
 .bk-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--indigo);margin-bottom:.3rem;letter-spacing:.02em;}
-/* Bold golden book subtitle */
 .bk-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:.85rem;font-weight:700;color:var(--saffron);margin-bottom:.8rem;}
 .bk-desc{font-family:'Lato',sans-serif;font-weight:300;font-size:.9rem;color:var(--indigo-muted);line-height:1.7;margin-bottom:1.2rem;}
 .bk-more{font-family:'Lato',sans-serif;font-weight:900;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--saffron);cursor:pointer;border-bottom:2px solid rgba(225, 163, 55, 0.4);padding-bottom:.2rem;transition:all .3s;display:inline-block;}
@@ -170,7 +165,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0.6rem 5rem;display:
 .q-text{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.5vw,2.8rem);font-weight:400;font-style:italic;color:var(--indigo);line-height:1.5;margin:0 0 1.5rem;position:relative;z-index:2;}
 .q-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(1.1rem,1.6vw,1.7rem);font-weight:300;color:var(--indigo-muted);margin-top:1rem;position:relative;z-index:2;}
 .q-div{width:80px;height:1px;background:var(--saffron);margin:2.5rem 0;}
-/* Bold quote attribution */
 .q-attr{font-family:'Lato',sans-serif;font-weight:900;font-size:.75rem;letter-spacing:.3em;color:var(--indigo);text-transform:uppercase;position:relative;z-index:2;}
 
 /* ═══ CONNECT ═══ */
@@ -217,11 +211,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0.6rem 5rem;display:
 .team-name-hi { font-family: 'Noto Sans Devanagari', sans-serif; font-size: .9rem; color: var(--indigo-muted); margin-top: .4rem; font-weight: 300; }
 
 /* ═══ FOOTER ═══ */
-footer{background:var(--indigo);padding:3rem 5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-light);}
-.f-name-en{font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.25em;color:var(--parchment);display:block;text-transform:uppercase;}
-.f-name-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:.85rem;font-weight:600;color:var(--saffron);margin-top:.3rem;display:block;}
-.f-tag{font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--saffron);text-align:center;font-weight:700;}
-.f-copy{font-family:'Lato',sans-serif;font-size:.75rem;color:rgba(253, 251, 241,.4);letter-spacing:.1em;text-transform:uppercase;}
+footer{background:var(--indigo);padding:3.5rem 5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-light);}
+.footer-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; cursor: pointer; }
+.footer-logo-icon { height: 40px; width: auto; filter: brightness(0) invert(1); } /* Makes icon white */
+.footer-name-script { 
+  font-family: 'Alex Brush', cursive; 
+  font-size: 1.8rem; 
+  color: #fff; 
+  letter-spacing: 0; 
+  margin-top: 8px;
+  white-space: nowrap;
+}
+.f-copy{font-family:'Lato',sans-serif;font-size:.75rem;color:rgba(253, 251, 241,.6);letter-spacing:.1em;text-transform:uppercase; font-weight: 700;}
 
 /* ═══ BOOK DETAIL ═══ */
 .book-pg{padding-top:85px;}
@@ -342,7 +343,8 @@ nav{padding:1.2rem 2.5rem;}
 .team-sec{padding:6rem 2.5rem;}
 .page-family-wrap { padding: 100px 2.5rem 4rem; }
 .fam-row, .fam-row:nth-child(even) { grid-template-columns: 1fr; direction: ltr; gap: 2rem; }
-footer{padding:2.5rem 2.5rem;flex-direction:column;gap:1.2rem;text-align:center;}
+footer{padding:2.5rem 2.5rem;flex-direction:column;gap:1.5rem;text-align:center;}
+.footer-name-script { font-size: 1.5rem; }
 .quote-sec{grid-template-columns: 1fr; padding:6rem 2.5rem; gap: 4rem;}
 .quote-img-wrap { max-width: 450px; margin: 0 auto; aspect-ratio: 4/3; }
 .quote-content { text-align: center; }
@@ -372,7 +374,7 @@ footer{padding:2.5rem 2.5rem;flex-direction:column;gap:1.2rem;text-align:center;
   <div class="nav-logo" onclick="goHome()">
     <!-- Branded Icon -->
     <img src="icon.png" alt="Logo Icon" class="nav-logo-icon">
-    <!-- Styled Script Text instead of Text.png -->
+    <!-- Styled Script Text -->
     <span class="nav-name-script">Pooja Sawariya</span>
   </div>
   <ul class="nav-links">
@@ -514,7 +516,7 @@ footer{padding:2.5rem 2.5rem;flex-direction:column;gap:1.2rem;text-align:center;
       <span class="bk-more">View Details →</span>
     </div>
     <div class="bk reveal rd4" onclick="showBook('zindagi')">
-      <div class="bk-cover" style="background-image: url('e jindagi front.jpeg'); background-position: center; background-size: cover;"></div>
+      <div class="bk-cover" style="background-color: var(--indigo); background-image: url('e jindagi front.jpeg'); background-position: center; background-size: cover;"></div>
       <div class="bk-title">Ae Zindagi</div>
       <div class="bk-sub">ऐ ज़िन्दगी</div>
       <p class="bk-desc">A direct address to life itself — poems that grapple with joy, grief, acceptance, and the beauty of simply being alive.</p>
@@ -559,7 +561,6 @@ footer{padding:2.5rem 2.5rem;flex-direction:column;gap:1.2rem;text-align:center;
   <div class="quote-content reveal rd2">
     <span class="q-mark">"</span>
     <p class="q-text">Poetry is not just written words — it is the breath between heartbeats, the pause before tears, the silence after a name is spoken.</p>
-    <p class="q-hi">कविता बस शब्द नहीं, यह दिल की सबसे गहरी आवाज़ है।</p>
     <div class="q-div"></div>
     <p class="q-attr">— पूजा साँवरिया &nbsp;·&nbsp; Pooja Sawariya</p>
   </div>
@@ -619,9 +620,11 @@ footer{padding:2.5rem 2.5rem;flex-direction:column;gap:1.2rem;text-align:center;
 </section>
 
 <footer>
-  <div><span class="f-name-en">Pooja Sawariya</span><span class="f-name-hi">पूजा साँवरिया</span></div>
-  <div class="f-tag">हिंदी काव्य संग्रह &nbsp;✦&nbsp; Hindi Poetry</div>
-  <div class="f-copy">© 2026 All rights reserved</div>
+  <div class="footer-logo" onclick="goHome()">
+    <img src="icon.png" alt="Logo Icon" class="footer-logo-icon">
+    <span class="footer-name-script">Pooja Sawariya</span>
+  </div>
+  <div class="f-copy">Proudly Created by Kartik Goyal</div>
 </footer>
 </div>
 
@@ -652,9 +655,11 @@ footer{padding:2.5rem 2.5rem;flex-direction:column;gap:1.2rem;text-align:center;
     </div>
   </div>
   <footer>
-    <div><span class="f-name-en">Pooja Sawariya</span><span class="f-name-hi">पूजा साँवरिया</span></div>
-    <div class="f-tag">हिंदी काव्य संग्रह &nbsp;✦&nbsp; Hindi Poetry</div>
-    <div class="f-copy">© 2026 All rights reserved</div>
+    <div class="footer-logo" onclick="goHome()">
+      <img src="icon.png" alt="Logo Icon" class="footer-logo-icon">
+      <span class="footer-name-script">Pooja Sawariya</span>
+    </div>
+    <div class="f-copy">Proudly Created by Kartik Goyal</div>
   </footer>
 </div>
 
@@ -687,9 +692,11 @@ footer{padding:2.5rem 2.5rem;flex-direction:column;gap:1.2rem;text-align:center;
     </div>
   </div>
   <footer>
-    <div><span class="f-name-en">Pooja Sawariya</span><span class="f-name-hi">पूजा साँवरिया</span></div>
-    <div class="f-tag">हिंदी काव्य संग्रह &nbsp;✦&nbsp; Hindi Poetry</div>
-    <div class="f-copy">© 2026 All rights reserved</div>
+    <div class="footer-logo" onclick="goHome()">
+      <img src="icon.png" alt="Logo Icon" class="footer-logo-icon">
+      <span class="footer-name-script">Pooja Sawariya</span>
+    </div>
+    <div class="f-copy">Proudly Created by Kartik Goyal</div>
   </footer>
 </div>
 
@@ -801,9 +808,11 @@ function showBook(key){
       </div>
       <div class="also-by"><div class="also-inner"><h3 class="also-h">Also by <em>Pooja Sawariya</em></h3><div class="also-grid">${others}</div></div></div>
       <footer>
-        <div><span class="f-name-en">Pooja Sawariya</span><span class="f-name-hi">पूजा साँवरिया</span></div>
-        <div class="f-tag">हिंदी काव्य संग्रह &nbsp;✦&nbsp; Hindi Poetry</div>
-        <div class="f-copy">© 2026 All rights reserved</div>
+        <div class="footer-logo" onclick="goHome()">
+          <img src="icon.png" alt="Logo Icon" class="footer-logo-icon">
+          <span class="footer-name-script">Pooja Sawariya</span>
+        </div>
+        <div class="f-copy">Proudly Created by Kartik Goyal</div>
       </footer>
     </section>`;
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
