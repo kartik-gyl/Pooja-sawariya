@@ -1,15 +1,645 @@
 <!DOCTYPE html>
 <html lang="en">
-<html lang="en"><head><script>(function(w,i,g){w[g]=w[g]||[];if(typeof w[g].push=='function')w[g].push(i)})
-(window,'G-GK2GKZJRW1','google_tags_first_party');</script><script async="" src="/g0ab/"></script>
-			<script>
-				window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
-				gtag('js', new Date());
-				gtag('set', 'developer_id.dY2E1Nz', true);
-				
-			</script>
-			
+<html lang="en"><head><script data-bard-injected="true">(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6IjBmNDhjMDQxMTUxMmM3NTM4NjJkMmFkZWVmYjg0NTczZTAyZmFlMjMiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIwNTA1NTc2NjkwNTgzNTY1MDg1MCIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjXzNmMWE0ZDRiODI4OGEzNzdfcXIuaHRtbC00NzAifSwiZXhwIjoxNzgyNjM5OTQ0LCJpYXQiOjE3ODI2MzYzNDQsImFsZyI6IlJTMjU2In0.G9ttDjkVWe3y2J0QKs3OzWgV2RcfixtYzVVQeUlz7OV_iSNIlKllSrL1T2XIn65Fuynp-w5G2hSK08ijqyvGNmTvjX6Lb7kF6Ixm5O-HSXCwdYWOObNGJmN1GQfl8EEy8VCCVxCCpmG4UspUDPNALYMODXfQfgZmXH9bNi8sotJEgTne-ZyO9BrPqiHczGbq1dpKwSSRViPR6TXf88OVwxwF1CUHAxo9m5PeJpIMnhIpVaeTvl65PFOiWPV17GwEZQD8_q1GButyvY59R-pyzMeVJykct5beKjGG6wtyFRLn7OonDqC53lLzCrkoEqUT9nYC5BlcunpSnPRP-t7Q2A","c_3f1a4d4b8288a377_qr.html-470")</script><script data-bard-injected="true">(function() {
+  document.addEventListener('mouseup', function(e) {
+    const selection = window.getSelection();
+    const selectedText = selection ? selection.toString().trim() : '';
+    if (selectedText.length > 0) {
+      const range = selection.getRangeAt(0);
+      // Clone the original user selection range before DOM manipulation. In browser DOM mechanics,
+      // removing temporary nodes from within an active selection invalidates and collapses the selection pointers.
+      const originalRange = range.cloneRange();
+      const rect = range.getBoundingClientRect();
+
+      const startTag = document.createTextNode('<selection-tag>');
+      const endTag = document.createTextNode('</selection-tag>');
+
+      const rangeStart = range.cloneRange();
+      rangeStart.collapse(true);
+
+      const rangeEnd = range.cloneRange();
+      rangeEnd.collapse(false);
+
+      // Insert end tag first to avoid shifting start boundary if they are in the same node.
+      rangeEnd.insertNode(endTag);
+      rangeStart.insertNode(startTag);
+
+      const fullTextWithTags = document.body.innerText;
+
+      if (startTag.parentNode) {
+        startTag.parentNode.removeChild(startTag);
+      }
+      if (endTag.parentNode) {
+        endTag.parentNode.removeChild(endTag);
+      }
+
+      // Explicitly restore the user's original selection range. Without this restoration, the selection collapses
+      // instantly, causing subsequent mouse movements or clicks to evaluate window.getSelection() as empty,
+      // which triggers a premature textSelectionCleared post-message that wipes out artifactTextWithTags in the store.
+      selection.removeAllRanges();
+      selection.addRange(originalRange);
+
+      window.parent.postMessage({
+        type: 'textSelection',
+        text: selectedText,
+        fullTextWithTags: fullTextWithTags,
+        rect: {
+          top: rect.top,
+          left: rect.left,
+          bottom: rect.bottom,
+          right: rect.right,
+          width: rect.width,
+          height: rect.height,
+        },
+      }, '*');
+    } else {
+      window.parent.postMessage({
+        type: 'textSelectionCleared',
+      }, '*');
+    }
+  }, true);
+})();</script><script data-bard-injected="true">(function(){'use strict';window.addEventListener("message",a=>{a.data&&a.data.type==="SUPPLEMENTAL_DATA_UPDATE"&&window.dispatchEvent(new CustomEvent("supplementaldataupdate",{detail:a.data.data}))});}).call(this);
+</script><script data-bard-injected="true">(function(){'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){var d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);var c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{var a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){var b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{var c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){var c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{var c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){var c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);var e=yield c.blob();return new Promise((f,g)=>{var k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){var c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){var c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());try{let f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});var e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){var b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");let c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;var c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){var c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{var g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){let g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){var b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{let e=d?(new URL(b,d||void 0)).toString():b,f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){let [c,,e]=ia.exec(d)||[];if(!e)return"";if(e===b)return`src: ${c};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;var c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c,e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){var d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){var d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){var d=a.cssText,c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){var g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];var b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){var d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){let g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}var d=new Set;b(a);return d}function ua(a,b){return t(function*(){var d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){var d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){let c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){var {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){var {width:d,height:c}=A(a,b),e=yield wa(a,b);e=yield B(e);var f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384));
+f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;let c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){var a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){var b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){var b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+})();</script><script data-bard-injected="true">(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script data-bard-injected="true">
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script ws-interception-config="{&quot;parentOrigin&quot;:&quot;https://gemini.google.com&quot;,&quot;proxiedDomains&quot;:[]}" data-bard-injected="true">(function(){'use strict';var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,d,e){if(b==Array.prototype||b==Object.prototype)return b;b[d]=e.value;return b};function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var d=0;d<b.length;++d){var e=b[d];if(e&&e.Math==Math)return e}throw Error("Cannot find global object");}var w=v(this);
+function y(b,d){if(d)a:{var e=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var k=b[h];if(!(k in e))break a;e=e[k]}b=b[b.length-1];h=e[b];d=d(h);d!=h&&d!=null&&u(e,b,{configurable:!0,writable:!0,value:d})}}function z(b){function d(h){return b.next(h)}function e(h){return b.throw(h)}return new Promise(function(h,k){function m(n){n.done?h(n.value):Promise.resolve(n.value).then(d,e).then(m,k)}m(b.next())})}y("globalThis",function(b){return b||w});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+function A(b,d){function e(){}e.prototype=d.prototype;b.i=d.prototype;b.prototype=new e;b.prototype.constructor=b;b.g=function(h,k,m){for(var n=Array(arguments.length-2),p=2;p<arguments.length;p++)n[p-2]=arguments[p];return d.prototype[k].apply(h,n)}};function B(b,d,e="*"){function h(a){if(typeof a==="string")return F.encode(a).buffer;if(a instanceof ArrayBuffer)return a.slice(0);if(ArrayBuffer.isView(a))return a.buffer.slice(a.byteOffset,a.byteOffset+a.byteLength);throw Error("Invalid data type");}function k(a){a=h(a);var f={type:"send",data:new Uint8Array(a)},g;(g=r)==null||g.postMessage(f,[a])}function m(){if(!r)throw Error("Data port not captured yet.");r.onmessage=a=>{if(a.data.type==="message"){a=new MessageEvent("message",{data:G.decode(a.data.data)});
+let f;(f=c.onmessage)==null||f.call(c,a);c.dispatchEvent(a)}}}function n(){if(!t)throw Error("Control port not captured yet.");t.onmessage=a=>{switch(a.data.type){case "open":l=1;var f=new Event("open"),g;(g=c.onopen)==null||g.call(c,f);c.dispatchEvent(f);q.forEach(H=>{k(H)});q=[];break;case "close":g=a.data;l=3;g=new CloseEvent("close",{code:g.code,reason:g.reason,wasClean:g.wasClean});(f=c.onclose)==null||f.call(c,g);c.dispatchEvent(g);break;case "error":l=3;f=new Event("error");let x;(x=c.onerror)==
+null||x.call(c,f);c.dispatchEvent(f)}}}function p(a){return z(function*(){var f=new MessageChannel;t=f.port1;var g=new MessageChannel;r=g.port1;n();m();window.parent.postMessage({type:"websocket_open",portOrdering:["control","data"],url:b,protocols:a||[],connectionId:I},e,[f.port2,g.port2])}())}var c=Reflect.construct(EventTarget,[],new.target);c.CONNECTING=0;c.OPEN=1;c.CLOSING=2;c.CLOSED=3;c.url=b;c.binaryType="arraybuffer";c.protocol="";c.h="";var l=0,t=null,r=null,q=[],F=new TextEncoder,G=new TextDecoder;
+c.onopen=null;c.onmessage=null;c.onclose=null;c.onerror=null;Object.defineProperty(c,"readyState",{get:()=>l,enumerable:!0,configurable:!0});Object.defineProperty(c,"bufferedAmount",{get:()=>{var a=0;q.forEach(f=>{a+=typeof f==="string"?f.length:f.byteLength});return a},enumerable:!0,configurable:!0});var I=function(){var a;return((a=globalThis.crypto)==null?0:a.randomUUID)?globalThis.crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,f=>{var g=Math.random()*16|0;return(f===
+"x"?g:g&3|8).toString(16)})}();c.send=a=>{if(l===1)a instanceof Blob?a.arrayBuffer().then(f=>{k(f)}):k(a);else if(l===0)if(typeof a==="string")q.push(a);else if(a instanceof ArrayBuffer||ArrayBuffer.isView(a))q.push(h(a));else throw Error("Sending Blob is not supported before the connection is open.");else console.debug("WebSocket send called in CLOSING or CLOSED state; ignored.")};c.close=(a=1E3,f="")=>{if(l!==2&&l!==3){l=2;a={type:"close",code:a,reason:f,wasClean:a===1E3};var g;(g=t)==null||g.postMessage(a)}};
+Promise.resolve().then(()=>p(d));return c}A(B,EventTarget);var C=document.currentScript,D=C==null?void 0:C.getAttribute("ws-interception-config");if(!D)throw Error("WebSocket Interceptor: Missing ws-interception-config attribute in the script tag.");var E=JSON.parse(D);if(!E.parentOrigin||typeof E.parentOrigin!=="string")throw Error("WebSocket Interceptor: Invalid parentOrigin in ws-interception-config");
+(function(b){var d=Object.getOwnPropertyDescriptor(window,"WebSocket");if(!d||d.writable||d.configurable)d=Object.assign(function(e,h){try{let k=(new URL(e)).hostname;if(b.proxiedDomains.some(m=>k===m||k.endsWith(`.${m}`)))return new B(e,h,b.parentOrigin)}catch(k){throw window.parent.postMessage({type:"websocket_blocked",url:e,reason:"blocked_invalid_url"},b.parentOrigin),new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");}window.parent.postMessage({type:"websocket_blocked",
+url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");},{CONNECTING:0,OPEN:1,CLOSING:2,CLOSED:3}),Object.defineProperty(window,"WebSocket",{value:d,writable:!1,configurable:!1})})({proxiedDomains:E.proxiedDomains||[],parentOrigin:E.parentOrigin});}).call(this);
+</script><script data-bard-injected="true">((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedGenerateImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedImageTransformModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-3-flash-preview","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-3.1-flash-image","imageTransformModelName":"gemini-3-pro-image","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20","gemini-2.5-flash-preview-09-2025"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"],"deprecatedGenerateImageModelNames":["gemini-2.5-flash-image-preview","gemini-2.5-flash-image","gemini-3.1-flash-image-preview"],"deprecatedImageTransformModelNames":["gemini-3-pro-image-preview-11-2025"]})</script><script data-bard-injected="true">(function(){'use strict';function a(){window.parent.postMessage({type:"interaction"},"*")}window.addEventListener("click",a,{capture:!0,passive:!0});window.addEventListener("touchstart",a,{capture:!0,passive:!0});window.addEventListener("keydown",a,{capture:!0,passive:!0});}).call(this);
+</script><script data-bard-injected="true">(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pooja Sawariya | Dynamic QR Hub</title>
@@ -19,7 +649,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Symbols" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
     <!-- QRCode.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" crossorigin="anonymous"></script>
 
     <style>
         :root {
@@ -58,21 +688,49 @@
             background: var(--gold);
         }
     </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-right-12{right:-3rem}.-top-12{top:-3rem}.top-0{top:0px}.bottom-6{bottom:1.5rem}.left-3{left:0.75rem}.right-6{right:1.5rem}.top-28{top:7rem}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-6{margin-bottom:1.5rem}.mt-1{margin-top:0.25rem}.mb-1{margin-bottom:0.25rem}.mb-4{margin-bottom:1rem}.mt-1\.5{margin-top:0.375rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-square{aspect-ratio:1 / 1}.h-24{height:6rem}.h-28{height:7rem}.h-10{height:2.5rem}.min-h-screen{min-height:100vh}.w-24{width:6rem}.w-28{width:7rem}.w-full{width:100%}.w-10{width:2.5rem}.max-w-7xl{max-width:80rem}.max-w-\[240px\]{max-width:240px}.max-w-lg{max-width:32rem}.max-w-\[180px\]{max-width:180px}.max-w-xs{max-width:20rem}.grow{flex-grow:1}.border-collapse{border-collapse:collapse}.translate-y-20{--tw-translate-y:5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-not-allowed{cursor:not-allowed}.cursor-pointer{cursor:pointer}.list-inside{list-style-position:inside}.list-decimal{list-style-type:decimal}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-\[\#2D2F38\] > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(45 47 56 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded{border-radius:0.25rem}.border{border-width:1px}.border-4{border-width:4px}.border-0{border-width:0px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-\[\#2D2F38\]{--tw-border-opacity:1;border-color:rgb(45 47 56 / var(--tw-border-opacity, 1))}.border-\[\#D4AF37\]{--tw-border-opacity:1;border-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.border-b-\[\#D4AF37\]{--tw-border-opacity:1;border-bottom-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.border-l-transparent{border-left-color:transparent}.border-r-transparent{border-right-color:transparent}.border-t-\[\#D4AF37\]{--tw-border-opacity:1;border-top-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.bg-\[\#12131A\]{--tw-bg-opacity:1;background-color:rgb(18 19 26 / var(--tw-bg-opacity, 1))}.bg-\[\#1A1B23\]{--tw-bg-opacity:1;background-color:rgb(26 27 35 / var(--tw-bg-opacity, 1))}.bg-\[\#2D2F38\]{--tw-bg-opacity:1;background-color:rgb(45 47 56 / var(--tw-bg-opacity, 1))}.bg-\[\#D4AF37\]{--tw-bg-opacity:1;background-color:rgb(212 175 55 / var(--tw-bg-opacity, 1))}.bg-\[\#12131A\]\/50{background-color:rgb(18 19 26 / 0.5)}.bg-\[\#12131a\]\/85{background-color:rgb(18 19 26 / 0.85)}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-3{padding:0.75rem}.p-1\.5{padding:0.375rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pl-56{padding-left:14rem}.pt-2{padding-top:0.5rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[10px\]{font-size:10px}.font-bold{font-weight:700}.font-semibold{font-weight:600}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-\[\#12131A\]{--tw-text-opacity:1;color:rgb(18 19 26 / var(--tw-text-opacity, 1))}.text-\[\#8E919A\]{--tw-text-opacity:1;color:rgb(142 145 154 / var(--tw-text-opacity, 1))}.text-\[\#D4AF37\]{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-5{opacity:0.05}.opacity-0{opacity:0}.opacity-80{opacity:0.8}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-\[\#D4AF37\]{--tw-ring-opacity:1;--tw-ring-color:rgb(212 175 55 / var(--tw-ring-opacity, 1))}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:border-\[\#D4AF37\]:hover{--tw-border-opacity:1;border-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.hover\:bg-\[\#F3E5AB\]:hover{--tw-bg-opacity:1;background-color:rgb(243 229 171 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#1C1E26\]:hover{--tw-bg-opacity:1;background-color:rgb(28 30 38 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#2D2F38\]:hover{--tw-bg-opacity:1;background-color:rgb(45 47 56 / var(--tw-bg-opacity, 1))}.hover\:text-\[\#D4AF37\]:hover{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-red-400:hover{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}.sm\:p-6{padding:1.5rem}}@media (min-width: 1024px){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:p-8{padding:2rem}}</style><style>
-  .imageye-selected {
-    outline: 2px solid black !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
-  }
-</style><style>.hv-extension-countdown{display:none;width:100%;height:100%;z-index:100000}#hvLinkedInCookiePermissionBtn{padding:0.625rem 1.5rem;border-radius:8px;background:#eb602d;color:#fff;border-radius:0.5rem !important;font-size:14px;font-weight:600;cursor:pointer}.hv-icon-hover-transform:hover{-ms-transform:scale(1.2);-webkit-transform:scale(1.2);transform:scale(1.2)}.hv-icon-unslected #hvPauseImgActive{display:none}.hv-icon-unslected #hvPauseImg{display:block}.hv-icon-unslected #hvPlayImgActive{display:none}.hv-icon-unslected #hvPlayImg{display:block}.hv-close-highlights #hvMinimizeImgActive{display:none}.hv-close-highlights:hover #hvMinimizeImg{display:none}.hv-close-highlights:hover #hvMinimizeImgActive{display:block;transform:scale(1.2)}.hv-highlight-options-div .hv-icon-hover-transform #hvCursorAnimationImg{display:none}.hv-highlight-options-div .hv-icon-hover-transform #hvCursorAnimationImgActive{display:block}.hv-highlight-options-div .hv-icon-hover-transform #hvPenImg{display:none}.hv-highlight-options-div .hv-icon-hover-transform #hvPenImgActive{display:block}.hv-highlight-options-div .hv-icon-hover-transform #hvFocusImg{display:none}.hv-highlight-options-div .hv-icon-hover-transform #hvFocusImgActive{display:block}.hv-highlight-options-div .hv-icon-hover-transform #hvEraseImg{display:none}.hv-highlight-options-div .hv-icon-hover-transform #hvEraseImgActive{display:block}.hv-highlight-options-div .hv-icon-hover-transform #hvClearImg{display:none}.hv-highlight-options-div .hv-icon-hover-transform #hvClearImgActive{display:block}.hv-highlight-options-div .hv-icon-hover-transform #hvWebCamImg{display:none}.hv-highlight-options-div .hv-icon-hover-transform #hvWebCamImgActive{display:block}.hv-highlight-options-div .hv-icon-hover-transform #hvStopImg{display:none}.hv-highlight-options-div .hv-icon-hover-transform #hvStopImgActive{display:block}.hv-highlight-options-div .hv-icon-hover-transform #hvPauseImg{display:none}.hv-highlight-options-div .hv-icon-hover-transform #hvPauseImgActive{display:block}.hv-highlight-options-div .hv-icon-hover-transform #hvPlayImg{display:none}.hv-highlight-options-div .hv-icon-hover-transform #hvPlayImgActive{display:block}.hv-icon-hover #hvCollapseImg{display:none}.hv-icon-hover #hvCollapseImgActive{display:block}.hv-act-comp-bottom-left,.hv-act-comp-bottom-right{position:fixed;bottom:10px;-background-color:#424242cc;background-color:rgba(49,49,49,0.85);max-height:37px;-overflow:hidden;border:0;-border-radius:0px 5px 5px 0px;cursor:default;z-index:10000001;min-width:251px}.hv-act-comp-bottom-right{right:60px}.hv-act-comp-bottom-left{left:50px}.hv-collapsed{box-sizing:content-box;width:17px;height:17px;display:flex;justify-content:center;background-color:rgba(49,49,49,0.85);border-radius:50%;padding:10px;position:absolute;top:-40px;right:0px;max-height:37px;cursor:pointer;transition:all 300ms ease-out}.hv-collapsed-icon{height:20px;margin-top:-1px}#collapsDotsIconActive{display:none}.hv-icon-hover #collapsDotsIconActive{display:block}.hv-icon-hover #collapsDotsIcon{display:none}.hv-tooltip-panel{width:105%;left:0px;right:-43px;position:absolute;bottom:37px;-background-color:#424242cc;background-color:rgba(49,49,49,0.85);padding:12px 0px;border-radius:5px 5px 0 0;font-size:11px;font-weight:lighter;color:#ffffff;text-align:center;letter-spacing:0.3px;margin:0 auto;transition:all 300ms ease-out;line-height:17px;white-space:pre-line}.hv-tooltip-panel-toggle{bottom:-50px}.hv-highlight-options-div img{width:12px;height:12px}.hv-icon-out-space{display:inline-block;cursor:pointer;padding:11px 0px 15px 10px;box-sizing:content-box;vertical-align:top;padding:13px 10px}.hv-icon-out-space img{cursor:pointer}.hv-icon-out-disable{position:relative;opacity:0.3;top:0px;height:37px;box-sizing:border-box;vertical-align:top}.hv-icon-out-disable img{margin-bottom:20px}.hv-togarrow-spacer{position:absolute;background-color:rgba(49,49,49,0.85);display:inline-block;border-radius:0 5px 5px 0;cursor:pointer;padding:0px;width:44px;height:37px}.hv-act-comp-bottom-left .hv-togarrow-spacer{left:-34px;border-radius:5px 0px 0px 5px;width:34px}.hv-togarrow,.hv-togarrow-left{padding:13px;box-sizing:content-box}.hv-choose-color-panel{width:max-content}
-</style><style data-styled="active" data-styled-version="5.3.6"></style></head>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-right-12{right:-3rem}.-top-12{top:-3rem}.bottom-6{bottom:1.5rem}.left-3{left:0.75rem}.right-6{right:1.5rem}.top-0{top:0px}.top-28{top:7rem}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-1{margin-top:0.25rem}.mt-1\.5{margin-top:0.375rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-square{aspect-ratio:1 / 1}.h-10{height:2.5rem}.h-24{height:6rem}.h-28{height:7rem}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-24{width:6rem}.w-28{width:7rem}.w-full{width:100%}.max-w-7xl{max-width:80rem}.max-w-\[240px\]{max-width:240px}.max-w-lg{max-width:32rem}.max-w-\[180px\]{max-width:180px}.max-w-xs{max-width:20rem}.grow{flex-grow:1}.border-collapse{border-collapse:collapse}.translate-y-20{--tw-translate-y:5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-not-allowed{cursor:not-allowed}.cursor-pointer{cursor:pointer}.list-inside{list-style-position:inside}.list-decimal{list-style-type:decimal}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-\[\#2D2F38\] > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(45 47 56 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-0{border-width:0px}.border-4{border-width:4px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-\[\#2D2F38\]{--tw-border-opacity:1;border-color:rgb(45 47 56 / var(--tw-border-opacity, 1))}.border-\[\#D4AF37\]{--tw-border-opacity:1;border-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.border-b-\[\#D4AF37\]{--tw-border-opacity:1;border-bottom-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.border-l-transparent{border-left-color:transparent}.border-r-transparent{border-right-color:transparent}.border-t-\[\#D4AF37\]{--tw-border-opacity:1;border-top-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.bg-\[\#12131A\]{--tw-bg-opacity:1;background-color:rgb(18 19 26 / var(--tw-bg-opacity, 1))}.bg-\[\#12131A\]\/50{background-color:rgb(18 19 26 / 0.5)}.bg-\[\#12131a\]\/85{background-color:rgb(18 19 26 / 0.85)}.bg-\[\#1A1B23\]{--tw-bg-opacity:1;background-color:rgb(26 27 35 / var(--tw-bg-opacity, 1))}.bg-\[\#2D2F38\]{--tw-bg-opacity:1;background-color:rgb(45 47 56 / var(--tw-bg-opacity, 1))}.bg-\[\#D4AF37\]{--tw-bg-opacity:1;background-color:rgb(212 175 55 / var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-1\.5{padding:0.375rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pl-56{padding-left:14rem}.pt-2{padding-top:0.5rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-\[\#12131A\]{--tw-text-opacity:1;color:rgb(18 19 26 / var(--tw-text-opacity, 1))}.text-\[\#8E919A\]{--tw-text-opacity:1;color:rgb(142 145 154 / var(--tw-text-opacity, 1))}.text-\[\#D4AF37\]{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-5{opacity:0.05}.opacity-80{opacity:0.8}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:border-\[\#D4AF37\]:hover{--tw-border-opacity:1;border-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.hover\:bg-\[\#F3E5AB\]:hover{--tw-bg-opacity:1;background-color:rgb(243 229 171 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#1C1E26\]:hover{--tw-bg-opacity:1;background-color:rgb(28 30 38 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#2D2F38\]:hover{--tw-bg-opacity:1;background-color:rgb(45 47 56 / var(--tw-bg-opacity, 1))}.hover\:text-\[\#D4AF37\]:hover{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-red-400:hover{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}.sm\:p-6{padding:1.5rem}}@media (min-width: 1024px){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:p-8{padding:2rem}}</style></head>
 <body class="min-h-screen flex flex-col justify-between">
 
     <script>
         // --- 1. THE REDIRECT ROUTING MAP ---
-        // Add, change, or update these values. They are the global defaults.
-        // The Admin Dashboard generates a freshly updated code snippet containing your changes!
+        // Pre-configured with your 30 dynamic song links pointing to your home page.
+        // You can easily re-route any of these visually through your dashboard panel!
         const GLOBAL_REDIRECTS = {
-          "song1": "https://www.google.com"
+          "website": "https://poojasawariya.com",
+          "samarpan": "https://www.amazon.in/Samarpan-Pooja-Sawariya/dp/B0GTBSN49T/",
+          "instagram": "https://instagram.com/sawariyaa_pooja",
+          "youtube": "https://youtube.com/@sawariyaa_pooja",
+          "humsafar": "https://poojasawariya.com",
+          "song1": "https://poojasawariya.com",
+          "song2": "https://poojasawariya.com",
+          "song3": "https://poojasawariya.com",
+          "song4": "https://poojasawariya.com",
+          "song5": "https://poojasawariya.com",
+          "song6": "https://poojasawariya.com",
+          "song7": "https://poojasawariya.com",
+          "song8": "https://poojasawariya.com",
+          "song9": "https://poojasawariya.com",
+          "song10": "https://poojasawariya.com",
+          "song11": "https://poojasawariya.com",
+          "song12": "https://poojasawariya.com",
+          "song13": "https://poojasawariya.com",
+          "song14": "https://poojasawariya.com",
+          "song15": "https://poojasawariya.com",
+          "song16": "https://poojasawariya.com",
+          "song17": "https://poojasawariya.com",
+          "song18": "https://poojasawariya.com",
+          "song19": "https://poojasawariya.com",
+          "song20": "https://poojasawariya.com",
+          "song21": "https://poojasawariya.com",
+          "song22": "https://poojasawariya.com",
+          "song23": "https://poojasawariya.com",
+          "song24": "https://poojasawariya.com",
+          "song25": "https://poojasawariya.com",
+          "song26": "https://poojasawariya.com",
+          "song27": "https://poojasawariya.com",
+          "song28": "https://poojasawariya.com",
+          "song29": "https://poojasawariya.com",
+          "song30": "https://poojasawariya.com"
 };
 
         // Helper to ensure URLs have a protocol (http/https) so they don't redirect relatively
@@ -146,7 +804,7 @@
                         <h2 class="font-serif-brand text-xl text-white tracking-wide">Active Routing Directory</h2>
                         <p class="text-xs text-[#8E919A]">These links are currently active in your code mapping.</p>
                     </div>
-                    <span class="bg-[#2D2F38] text-xs text-white px-3 py-1 rounded-full font-mono" id="total-count">1 Active Link(s)</span>
+                    <span class="bg-[#2D2F38] text-xs text-white px-3 py-1 rounded-full font-mono" id="total-count">35 Active Link(s)</span>
                 </div>
 
                 <!-- Table Container -->
@@ -161,20 +819,700 @@
                         </thead>
                         <tbody id="routes-table-body" class="divide-y divide-[#2D2F38] text-sm"><tr class="hover:bg-[#1C1E26] transition-all group">
                     <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>humsafar
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('humsafar')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('humsafar', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('humsafar')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>instagram
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://instagram.com/sawariyaa_pooja" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://instagram.com/sawariyaa_pooja</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('instagram')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('instagram', 'https://instagram.com/sawariyaa_pooja')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('instagram')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>samarpan
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://www.amazon.in/Samarpan-Pooja-Sawariya/dp/B0GTBSN49T/" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://www.amazon.in/Samarpan-Pooja-Sawariya/dp/B0GTBSN49T/</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('samarpan')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('samarpan', 'https://www.amazon.in/Samarpan-Pooja-Sawariya/dp/B0GTBSN49T/')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('samarpan')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>website
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('website')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('website', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('website')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>youtube
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://youtube.com/@sawariyaa_pooja" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://youtube.com/@sawariyaa_pooja</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('youtube')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('youtube', 'https://youtube.com/@sawariyaa_pooja')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('youtube')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
                         <span class="text-[#D4AF37]">/qr.html?id=</span>song1
                     </td>
                     <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
-                        <a href="https://www.google.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://www.google.com</a>
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
                     </td>
                     <td class="py-4 px-4 text-right">
                         <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
                             <button onclick="copyLink('song1')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
                                 <span class="google-symbols text-sm">content_copy</span>
                             </button>
-                            <button onclick="openEditModal('song1', 'https://www.google.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                            <button onclick="openEditModal('song1', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
                                 <span class="google-symbols text-sm">edit</span>
                             </button>
                             <button onclick="deleteRoute('song1')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song2
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song2')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song2', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song2')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song3
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song3')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song3', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song3')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song4
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song4')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song4', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song4')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song5
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song5')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song5', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song5')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song6
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song6')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song6', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song6')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song7
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song7')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song7', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song7')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song8
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song8')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song8', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song8')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song9
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song9')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song9', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song9')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song10
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song10')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song10', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song10')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song11
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song11')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song11', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song11')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song12
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song12')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song12', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song12')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song13
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song13')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song13', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song13')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song14
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song14')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song14', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song14')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song15
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song15')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song15', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song15')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song16
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song16')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song16', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song16')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song17
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song17')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song17', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song17')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song18
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song18')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song18', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song18')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song19
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song19')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song19', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song19')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song20
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song20')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song20', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song20')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song21
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song21')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song21', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song21')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song22
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song22')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song22', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song22')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song23
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song23')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song23', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song23')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song24
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song24')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song24', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song24')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song25
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song25')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song25', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song25')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song26
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song26')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song26', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song26')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song27
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song27')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song27', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song27')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song28
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song28')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song28', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song28')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song29
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song29')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song29', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song29')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr><tr class="hover:bg-[#1C1E26] transition-all group">
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>song30
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="https://poojasawariya.com" target="_blank" class="hover:text-[#D4AF37] hover:underline">https://poojasawariya.com</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('song30')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('song30', 'https://poojasawariya.com')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('song30')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
                                 <span class="google-symbols text-sm">delete</span>
                             </button>
                         </div>
@@ -184,7 +1522,7 @@
                 </div>
             </div>
 
-            <div id="publish-section" class="bg-[#1A1B23] border border-[#D4AF37] rounded-xl p-6 shadow-xl relative overflow-hidden ring-2 ring-[#D4AF37]">
+            <div id="publish-section" class="bg-[#1A1B23] border border-[#D4AF37] rounded-xl p-6 shadow-xl relative overflow-hidden">
                 <div class="absolute -right-12 -top-12 w-28 h-28 bg-[#D4AF37] opacity-5 rounded-full pointer-events-none"></div>
                 <div class="flex items-start gap-4">
                     <span class="google-symbols text-[#D4AF37] text-3xl mt-1">cloud_upload</span>
@@ -223,14 +1561,14 @@
 
                 <!-- Visualizer Block -->
                 <div class="bg-white p-6 rounded-lg flex flex-col items-center justify-center relative shadow-inner mx-auto max-w-[240px] aspect-square mb-6">
-                    <div id="qr-canvas" class="flex items-center justify-center" title="https://poojasawariya.com/qr?id=song1"><canvas width="200" height="200" style="display: none;"></canvas><img src="data:image/png;base64,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" style="display: block;"></div>
+                    <div id="qr-canvas" class="flex items-center justify-center" title="https://2elgzkjv5cv8yeq7oixlmbls7ybsj6lxhw4tn668yh12mj5urj-h936707426.scf.usercontent.googhttps://2elgzkjv5cv8yeq7oixlmbls7ybsj6lxhw4tn668yh12mj5urj-h936707426.scf.usercontent.goog/14011186-6fef-4fb7-a7f0-58985144330b?id=humsafar"><canvas width="200" height="200" style="display: none;"></canvas><img src="data:image/png;base64,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" style="display: block;"></div>
                 </div>
 
                 <!-- Customizer Fields -->
                 <div class="space-y-4 text-xs text-[#8E919A]">
                     <div>
                         <label class="block text-white mb-2 uppercase tracking-wider font-semibold">Active Design Preview</label>
-                        <select id="preview-selector" onchange="updateQrPreview()" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 gold-glow"><option value="song1">qr.html?id=song1</option></select>
+                        <select id="preview-selector" onchange="updateQrPreview()" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 gold-glow"><option value="humsafar">qr.html?id=humsafar</option><option value="instagram">qr.html?id=instagram</option><option value="samarpan">qr.html?id=samarpan</option><option value="website">qr.html?id=website</option><option value="youtube">qr.html?id=youtube</option><option value="song1">qr.html?id=song1</option><option value="song2">qr.html?id=song2</option><option value="song3">qr.html?id=song3</option><option value="song4">qr.html?id=song4</option><option value="song5">qr.html?id=song5</option><option value="song6">qr.html?id=song6</option><option value="song7">qr.html?id=song7</option><option value="song8">qr.html?id=song8</option><option value="song9">qr.html?id=song9</option><option value="song10">qr.html?id=song10</option><option value="song11">qr.html?id=song11</option><option value="song12">qr.html?id=song12</option><option value="song13">qr.html?id=song13</option><option value="song14">qr.html?id=song14</option><option value="song15">qr.html?id=song15</option><option value="song16">qr.html?id=song16</option><option value="song17">qr.html?id=song17</option><option value="song18">qr.html?id=song18</option><option value="song19">qr.html?id=song19</option><option value="song20">qr.html?id=song20</option><option value="song21">qr.html?id=song21</option><option value="song22">qr.html?id=song22</option><option value="song23">qr.html?id=song23</option><option value="song24">qr.html?id=song24</option><option value="song25">qr.html?id=song25</option><option value="song26">qr.html?id=song26</option><option value="song27">qr.html?id=song27</option><option value="song28">qr.html?id=song28</option><option value="song29">qr.html?id=song29</option><option value="song30">qr.html?id=song30</option></select>
                     </div>
 
                     <div class="grid grid-cols-2 gap-3">
@@ -290,7 +1628,7 @@
         </div>
     </div>
 
-    <div id="edit-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12131a]/85 backdrop-blur-sm hidden">
+    <div id="edit-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12131a]/85 backdrop-blur-sm">
         <div class="bg-[#1A1B23] border border-[#2D2F38] w-full max-w-lg rounded-xl overflow-hidden shadow-2xl">
             <div class="bg-[#12131A] p-6 border-b border-[#2D2F38] flex justify-between items-center">
                 <h3 class="font-serif-brand text-lg text-white tracking-wide">Edit Redirection Route</h3>
@@ -299,7 +1637,7 @@
                 </button>
             </div>
             <div class="p-6 space-y-4">
-                <input type="hidden" id="edit-route-id-hidden" value="song1">
+                <input type="hidden" id="edit-route-id-hidden">
                 <div>
                     <label class="block text-xs uppercase text-[#8E919A] tracking-wider font-semibold mb-2">Route ID</label>
                     <input type="text" id="edit-route-id" disabled="" class="w-full bg-[#12131A]/50 border border-[#2D2F38] text-[#8E919A] rounded-lg p-3 text-sm font-mono cursor-not-allowed">
@@ -316,9 +1654,9 @@
         </div>
     </div>
 
-    <div id="hud-message" class="fixed bottom-6 right-6 z-50 bg-[#1A1B23] border border-[#D4AF37] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform transition-all duration-300 translate-y-20 opacity-0">
-        <span class="google-symbols text-[#D4AF37]" id="hud-icon">published_with_changes</span>
-        <span class="text-sm tracking-wide" id="hud-text">Redirection updated for /song1!</span>
+    <div id="hud-message" class="fixed bottom-6 right-6 z-50 bg-[#1A1B23] border border-[#D4AF37] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <span class="google-symbols text-[#D4AF37]" id="hud-icon">info</span>
+        <span class="text-sm tracking-wide" id="hud-text">Successfully actioned!</span>
     </div>
 
     <footer class="border-t border-[#2D2F38] bg-[#12131A] py-6 text-center text-xs text-[#8E919A]">
@@ -334,6 +1672,13 @@
             const stored = localStorage.getItem('pooja_qr_routes');
             if (stored) {
                 routes = JSON.parse(stored);
+                // Smart merge: ensure new predefined default global paths exist in the user's workspace
+                Object.keys(GLOBAL_REDIRECTS).forEach(key => {
+                    if (routes[key] === undefined) {
+                        routes[key] = GLOBAL_REDIRECTS[key];
+                    }
+                });
+                localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
             } else {
                 routes = { ...GLOBAL_REDIRECTS };
                 localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
@@ -347,7 +1692,20 @@
             const tbody = document.getElementById('routes-table-body');
             tbody.innerHTML = '';
             
-            const keys = Object.keys(routes);
+            // Sort keys so website, books, and social media links stay at the top and song1-30 are ordered
+            const keys = Object.keys(routes).sort((a, b) => {
+                const aIsSong = a.startsWith('song');
+                const bIsSong = b.startsWith('song');
+                if (aIsSong && !bIsSong) return 1;
+                if (!aIsSong && bIsSong) return -1;
+                if (aIsSong && bIsSong) {
+                    const numA = parseInt(a.replace('song', ''), 10);
+                    const numB = parseInt(b.replace('song', ''), 10);
+                    return numA - numB;
+                }
+                return a.localeCompare(b);
+            });
+
             document.getElementById('total-count').textContent = `${keys.length} Active Link(s)`;
 
             keys.forEach(key => {
@@ -390,7 +1748,20 @@
             const currentValue = selector.value;
             selector.innerHTML = '';
             
-            Object.keys(routes).forEach(key => {
+            const keys = Object.keys(routes).sort((a, b) => {
+                const aIsSong = a.startsWith('song');
+                const bIsSong = b.startsWith('song');
+                if (aIsSong && !bIsSong) return 1;
+                if (!aIsSong && bIsSong) return -1;
+                if (aIsSong && bIsSong) {
+                    const numA = parseInt(a.replace('song', ''), 10);
+                    const numB = parseInt(b.replace('song', ''), 10);
+                    return numA - numB;
+                }
+                return a.localeCompare(b);
+            });
+
+            keys.forEach(key => {
                 const opt = document.createElement('option');
                 opt.value = key;
                 opt.textContent = `qr.html?id=${key}`;
@@ -566,6 +1937,7 @@
             openModal('edit-modal');
         }
 
+        // Save modification
         function saveEditedRoute() {
             const key = document.getElementById('edit-route-id-hidden').value;
             let target = document.getElementById('edit-route-target').value.trim();
@@ -614,8 +1986,6 @@
             }
         });
     </script>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;0d2785d88de943e7bdaf7ae8031d3b96&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
 
-
-<input type="hidden" id="hippowiz-ass-injected" value="true"><div id="hv-extension-countdown" class="hv-extension-countdown"><div class="sc-bcXHqe khsqwT"><div class="sc-gswNZR pmzdc"><div class="sc-dkrFOg jsSskX">3</div></div></div></div><input type="hidden" id="hvTabId" value="1209648299"><input type="hidden" id="hvWindowId" value="1209648187"><button class="copy-to-clipboard" id="hvCopyToClipboard" style="display: none;"></button></body></html>
+</body></html>
 </html>
