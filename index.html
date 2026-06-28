@@ -120,12 +120,73 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0.6rem 5rem;display:
 .new-release-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 70% 30%, rgba(225, 163, 55, 0.1), transparent 60%); pointer-events: none; }
 .nr-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
 .nr-book-visual { position: relative; display: flex; justify-content: center; align-items: center; }
-.nr-disc { position: absolute; width: 320px; height: 320px; background: #111; border-radius: 50%; border: 2px solid #333; z-index: 1; transform: translateX(80px); box-shadow: 0 15px 40px rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; animation: spin 20s linear infinite; }
-.nr-disc-label { width: 100px; height: 100px; background: var(--saffron); border-radius: 50%; border: 1px solid #000; position: relative; overflow: hidden;}
-.nr-disc-label::after { content: ''; position: absolute; inset: 35%; border-radius: 50%; background: #111;}
+.nr-disc { 
+  position: absolute; 
+  width: 320px; 
+  height: 320px; 
+  background: conic-gradient(
+    from 0deg,
+    #0d0906 0deg, #241910 30deg, #4d3622 60deg, #241910 90deg, #0d0906 120deg,
+    #0d0906 180deg, #241910 210deg, #4d3622 240deg, #241910 270deg, #0d0906 300deg
+  ), repeating-radial-gradient(rgba(0,0,0,0) 0px, rgba(0,0,0,0.5) 1px, rgba(255,255,255,0.03) 3px, rgba(0,0,0,0.6) 5px);
+  background-blend-mode: overlay;
+  border-radius: 50%; 
+  border: 4px solid var(--saffron); 
+  z-index: 1; 
+  transform: translateX(80px); 
+  box-shadow: 0 15px 40px rgba(0,0,0,0.65), inset 0 0 40px rgba(0,0,0,0.9); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  animation: spin 20s linear infinite; 
+}
+.nr-disc-label { 
+  width: 120px; 
+  height: 120px; 
+  background: linear-gradient(135deg, var(--sand), var(--parchment)); 
+  border-radius: 50%; 
+  border: 3px double var(--indigo); 
+  position: relative; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 5;
+}
+.nr-disc-label::before {
+  content: 'हमसफ़र';
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--indigo);
+  letter-spacing: 0.05em;
+  transform: rotate(-15deg);
+}
+.nr-disc-label::after { 
+  content: ''; 
+  position: absolute; 
+  inset: 40%; 
+  border-radius: 50%; 
+  background: var(--indigo);
+  border: 2px solid var(--saffron);
+}
 .nr-book-cover { width: 280px; aspect-ratio: 3/4.2; z-index: 2; box-shadow: 15px 25px 50px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; position: relative; overflow: hidden; background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('humsafar%20cover%20blurred.png'); background-size: cover; background-position: center;}
 .nr-book-cover::after { content: 'हमसफ़र'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Noto Sans Devanagari', sans-serif; font-size: 2.5rem; color: var(--saffron); font-weight: 500;}
 @keyframes spin { from { transform: translateX(80px) rotate(0deg); } to { transform: translateX(80px) rotate(360deg); } }
+
+.nr-content { text-align: left; }
+.nr-content .sec-eyebrow { color: var(--saffron); font-weight: 900; font-size: 0.75rem; letter-spacing: 0.3em; }
+.nr-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; }
+.nr-title em { color: var(--saffron); font-style: italic; }
+.nr-pub { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.8rem; letter-spacing: 0.2em; color: var(--sand); text-transform: uppercase; margin-bottom: 2rem; display: block; }
+.nr-desc { font-size: 1.15rem; line-height: 1.8; color: rgba(253, 251, 241, 0.85); margin-bottom: 2.5rem; font-weight: 300; }
+.nr-features { display: flex; flex-direction: column; gap: 1.5rem; }
+.nr-f-item { display: flex; align-items: flex-start; gap: 1.2rem; text-align: left; }
+.nr-f-icon { width: 44px; height: 44px; background: rgba(225, 163, 55, 0.15); border: 2px solid var(--saffron); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--saffron); }
+.nr-f-text { flex: 1; }
+.nr-f-text h4 { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.9rem; color: var(--parchment); margin-bottom: 0.3rem; letter-spacing: 0.05em; }
+.nr-f-text p { font-size: 0.95rem; color: rgba(253, 251, 241, 0.65); line-height: 1.5; }
 
 /* ═══ BOOKS HOME ═══ */
 .bks-home{padding:8rem 5rem;background:var(--parchment);position:relative;overflow:hidden; border-top: 1px solid var(--border);}
@@ -251,7 +312,7 @@ footer{background:var(--indigo);padding:3.5rem 5rem;display:flex;justify-content
 .detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 .dcard{padding:1.6rem;border:1px solid var(--border);background:var(--sand);}
 .dcard .dk{font-family:'Lato',sans-serif;font-weight:900;font-size:.7rem;letter-spacing:.25em;color:var(--saffron);text-transform:uppercase;display:block;margin-bottom:.4rem;}
-.dcard .dv覆{font-family:'Lato',sans-serif;font-size:1.05rem;color:var(--indigo);font-weight:400;}
+.dcard .dv{font-family:'Lato',sans-serif;font-size:1.05rem;color:var(--indigo);font-weight:400;}
 
 .bp-author-strip { display: flex; align-items: center; gap: 1.5rem; margin-top: 4.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
 .bp-auth-info h4 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--indigo); margin-bottom: 0.3rem; }
