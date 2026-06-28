@@ -4,17 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pooja Sawariya | Dynamic QR Hub</title>
-
-    <!-- Google Analytics (GA4) Tracking Snippet -->
-    <!-- REPLACE "G-TRACKING-ID" WITH YOUR ACTUAL MEASUREMENT ID FROM GOOGLE ANALYTICS -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRACKING-ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-TRACKING-ID');
-    </script>
-
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Symbols & Fonts -->
@@ -65,8 +54,6 @@
 
     <script>
         // --- 1. THE REDIRECT ROUTING MAP ---
-        // Pre-configured with your 30 dynamic song links pointing to your home page.
-        // You can easily re-route any of these visually through your dashboard panel!
         const GLOBAL_REDIRECTS = {
             "website": "https://poojasawariya.com",
             "samarpan": "https://www.amazon.in/Samarpan-Pooja-Sawariya/dp/B0GTBSN49T/",
@@ -118,6 +105,7 @@
         // Instant redirect handler (Runs immediately before page rendering to prevent flicker)
         const urlParams = new URLSearchParams(window.location.search);
         const routeId = urlParams.get('id') || urlParams.get('r');
+        const manageKey = urlParams.get('manage') || urlParams.get('admin');
 
         // SMART GUARD: Do not redirect if we are inside an iframe (like the editor preview)
         // or on the Google/local development preview hostnames.
@@ -126,39 +114,47 @@
                               window.location.hostname.includes('localhost') || 
                               window.location.hostname.includes('127.0.0.1');
 
+        // Check secret key
+        if (manageKey && manageKey.toLowerCase().trim() === "pooja2026") {
+            try {
+                localStorage.setItem('qr_admin_authorized', 'true');
+            } catch(e) {
+                window.isInMemoryAuthorized = true;
+            }
+        }
+
+        // Run visitor redirection
         if (routeId && !isIframe && !isPreviewHost) {
             const targetUrl = GLOBAL_REDIRECTS[routeId.toLowerCase()];
             if (targetUrl) {
-                // Instantly force the loading screen to draw before rendering anything else
-                document.write('<style>#redirecting-screen { display: flex !important; } header, main, footer { display: none !important; }</style>');
-
-                // Send a custom event to Google Analytics to log this scan
-                if (typeof gtag === 'function') {
-                    gtag('event', 'qr_scan', {
-                        'qr_id': routeId.toLowerCase(),
-                        'destination_url': sanitizeUrl(targetUrl)
-                    });
-                }
-
-                // Wait 1.5 seconds so Google Analytics has plenty of time to record details, then redirect
-                setTimeout(() => {
-                    window.location.replace(sanitizeUrl(targetUrl));
-                }, 1500);
+                window.location.replace(sanitizeUrl(targetUrl));
             } else {
-                // If ID is not found, fallback to main website
+                window.location.replace("https://poojasawariya.com");
+            }
+        } else if (!routeId && !isIframe && !isPreviewHost) {
+            // Guard: If they visit qr.html directly, check if they are authorized
+            let isAuth = false;
+            try {
+                isAuth = localStorage.getItem('qr_admin_authorized') === 'true';
+            } catch(e) {
+                isAuth = window.isInMemoryAuthorized;
+            }
+
+            // If not authorized, boot them out to the homepage immediately
+            if (!isAuth) {
                 window.location.replace("https://poojasawariya.com");
             }
         }
     </script>
 
+    <!-- LOADING SCREEN -->
     <div id="redirecting-screen" class="hidden fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#12131A] text-center p-6">
         <div class="w-24 h-24 mb-6 border-4 border-t-[#D4AF37] border-r-transparent border-b-[#D4AF37] border-l-transparent rounded-full animate-spin"></div>
         <h2 class="font-serif-brand text-[#D4AF37] text-2xl tracking-widest mb-2">Pooja Sawariya</h2>
         <p class="text-sm text-[#8E919A] tracking-wider">Connecting you to your destination...</p>
     </div>
 
-    <!-- --- 3. THE ADMIN DASHBOARD INTERFACE --- -->
-    <!-- Revealed only to authorized users -->
+    <!-- ADMIN DASHBOARD CONTAINER -->
     <div id="dashboard-wrapper" class="grow flex flex-col justify-between">
         <header class="border-b border-[#2D2F38] bg-[#1A1B23] py-4 px-6 sticky top-0 z-40">
             <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -187,7 +183,6 @@
         </header>
 
         <main class="max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 grow grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
             <!-- Left 2 Columns: Dynamic Link Table -->
             <div class="lg:col-span-2 space-y-6">
                 <div class="bg-[#1A1B23] border border-[#2D2F38] rounded-xl p-6 shadow-xl">
@@ -246,7 +241,7 @@
                 </div>
             </div>
 
-            <!-- Right 1 Column: QR Customizer -->
+            <!-- Right Column: QR Studio -->
             <div class="space-y-6">
                 <div class="bg-[#1A1B23] border border-[#2D2F38] rounded-xl p-6 shadow-xl sticky top-28">
                     <h3 class="font-serif-brand text-lg text-white tracking-wide mb-4 flex items-center gap-2">
@@ -297,7 +292,7 @@
         </main>
     </div>
 
-    <!-- Create Route Modal -->
+    <!-- MODALS -->
     <div id="add-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12131a]/85 backdrop-blur-sm">
         <div class="bg-[#1A1B23] border border-[#2D2F38] w-full max-w-lg rounded-xl overflow-hidden shadow-2xl">
             <div class="bg-[#12131A] p-6 border-b border-[#2D2F38] flex justify-between items-center">
@@ -327,7 +322,6 @@
         </div>
     </div>
 
-    <!-- Edit Route Modal -->
     <div id="edit-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12131a]/85 backdrop-blur-sm">
         <div class="bg-[#1A1B23] border border-[#2D2F38] w-full max-w-lg rounded-xl overflow-hidden shadow-2xl">
             <div class="bg-[#12131A] p-6 border-b border-[#2D2F38] flex justify-between items-center">
@@ -354,24 +348,22 @@
         </div>
     </div>
 
-    <!-- Complete Visual Delete Confirmation Modal (Zero Native Alerts/Confirms) -->
-    <div id="confirm-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12131a]/90 backdrop-blur-sm">
-        <div class="bg-[#1A1B23] border border-red-500/30 w-full max-w-md rounded-2xl p-6 shadow-2xl space-y-6 text-center">
-            <div class="inline-flex p-3 bg-red-500/10 text-red-500 rounded-full">
-                <span class="google-symbols text-4xl">warning</span>
+    <!-- CUSTOM CONFIRM MODAL -->
+    <div id="confirm-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12131a]/85 backdrop-blur-sm">
+        <div class="bg-[#1A1B23] border border-[#2D2F38] w-full max-w-md rounded-xl overflow-hidden shadow-2xl">
+            <div class="bg-[#12131A] p-6 border-b border-[#2D2F38] flex justify-between items-center">
+                <h3 class="font-serif-brand text-lg text-red-400 font-semibold tracking-wide">Confirm Deletion</h3>
             </div>
-            <div class="space-y-2">
-                <h3 class="font-serif-brand text-xl text-white tracking-wide">Delete Redirection?</h3>
-                <p id="confirm-modal-message" class="text-xs text-[#8E919A] leading-relaxed">This action cannot be undone. Readers scanning QR codes associated with this short link will no longer be redirected.</p>
+            <div class="p-6">
+                <p id="confirm-modal-text" class="text-sm text-[#8E919A]"></p>
             </div>
-            <div class="flex gap-3 justify-center">
-                <button id="confirm-cancel-btn" class="bg-[#2D2F38] text-white font-semibold text-xs px-5 py-2.5 rounded-lg transition-all hover:bg-neutral-700">Cancel</button>
-                <button id="confirm-delete-btn" class="bg-red-500 hover:bg-red-600 text-white font-semibold text-xs px-5 py-2.5 rounded-lg transition-all">Delete Permanently</button>
+            <div class="p-6 border-t border-[#2D2F38] flex gap-3 justify-end">
+                <button id="confirm-cancel" class="text-xs text-[#8E919A] hover:text-white px-4 py-2 font-semibold">Cancel</button>
+                <button id="confirm-submit" class="bg-red-500 hover:bg-red-600 text-white text-xs font-bold px-4 py-2 rounded-lg">Delete</button>
             </div>
         </div>
     </div>
 
-    <!-- Toast Notification Message Layer -->
     <div id="hud-message" class="fixed bottom-6 right-6 z-50 bg-[#1A1B23] border border-[#D4AF37] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
         <span class="google-symbols text-[#D4AF37]" id="hud-icon">info</span>
         <span class="text-sm tracking-wide" id="hud-text">Successfully actioned!</span>
@@ -381,6 +373,16 @@
         <p class="font-serif-brand tracking-widest text-[#D4AF37] text-sm mb-1">POOJA SAWARIYA</p>
         <p>© 2026 Pooja Sawariya. Designed for flawless offline & online visual marketing campaigns.</p>
     </footer>
+
+    <!-- OFFICIAL GOOGLE ANALYTICS (GA4) INTEGRATION -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GK2GKZJRW1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        // Configure standard options
+        gtag('config', 'G-GK2GKZJRW1', { 'anonymize_ip': true });
+    </script>
 
     <script>
         // Use localStorage as runtime scratchpad, but fallback to global definitions if blank
@@ -403,15 +405,6 @@
             }
         } catch(e) {
             routes = { ...GLOBAL_REDIRECTS };
-        }
-
-        // --- 4. SECURE LOGOUT UTILITIES ---
-        function logOutAdmin() {
-            try {
-                localStorage.removeItem('qr_admin_authorized');
-            } catch(e) {}
-            // Redirect immediately to the homepage to hide dashboard
-            window.location.replace("https://poojasawariya.com");
         }
 
         // Initialize State & Tables
@@ -457,7 +450,7 @@
                             <button onclick="openEditModal('${cleanKey}', '${rawTarget}')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
                                 <span class="google-symbols text-sm">edit</span>
                             </button>
-                            <button onclick="triggerDelete('${cleanKey}')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                            <button onclick="deleteRoute('${cleanKey}')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
                                 <span class="google-symbols text-sm">delete</span>
                             </button>
                         </div>
@@ -682,30 +675,37 @@
             showHUD(`Redirection updated for /${key}!`, "published_with_changes");
         }
 
-        // Custom Delete Confirmation trigger to prevent native dialog blocking
-        let activeDeletionKey = null;
-        function triggerDelete(key) {
-            activeDeletionKey = key;
-            document.getElementById('confirm-modal-message').innerHTML = `Are you sure you want to permanently delete the dynamic link <span class="text-white font-mono font-bold">/${key}</span>? Scanning this QR code will no longer redirect readers.`;
+        // CUSTOM MODAL CONFIRMATION
+        let pendingDeleteKey = null;
+        function deleteRoute(key) {
+            pendingDeleteKey = key;
+            document.getElementById('confirm-modal-text').textContent = `Are you sure you want to permanently delete the dynamic link /${key}?`;
             openModal('confirm-modal');
         }
 
-        // Confirm button handlers
-        document.getElementById('confirm-delete-btn').addEventListener('click', () => {
-            if (activeDeletionKey && routes[activeDeletionKey]) {
-                delete routes[activeDeletionKey];
+        document.getElementById('confirm-cancel').onclick = function() {
+            closeModal('confirm-modal');
+            pendingDeleteKey = null;
+        };
+
+        document.getElementById('confirm-submit').onclick = function() {
+            if (pendingDeleteKey) {
+                delete routes[pendingDeleteKey];
                 localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
                 renderTable();
-                showHUD(`Removed dynamic link /${activeDeletionKey}`, "delete_sweep");
+                showHUD(`Removed dynamic link /${pendingDeleteKey}`, "delete_sweep");
             }
-            activeDeletionKey = null;
             closeModal('confirm-modal');
-        });
+            pendingDeleteKey = null;
+        };
 
-        document.getElementById('confirm-cancel-btn').addEventListener('click', () => {
-            activeDeletionKey = null;
-            closeModal('confirm-modal');
-        });
+        // Log out admin
+        function logOutAdmin() {
+            try {
+                localStorage.removeItem('qr_admin_authorized');
+            } catch(e) {}
+            window.location.replace("https://poojasawariya.com");
+        }
 
         // HUD notification toast alert
         function showHUD(text, icon = "info") {
@@ -719,13 +719,50 @@
             }, 3000);
         }
 
-        // On Load Initializers
+        // EXECUTION & LAUNCH LOGIC
+        // Runs immediately on loading the page
         window.addEventListener('load', () => {
-            const isRedirecting = (urlParams.get('id') || urlParams.get('r'));
-            if (isRedirecting && !isIframe && !isPreviewHost) {
-                document.getElementById('redirecting-screen').classList.remove('hidden');
+            const isRedirecting = (routeId && !isIframe && !isPreviewHost);
+            
+            if (isRedirecting) {
+                const targetUrl = GLOBAL_REDIRECTS[routeId.toLowerCase()];
+                if (targetUrl) {
+                    // 1. Reveal transition screen
+                    document.getElementById('redirecting-screen').classList.remove('hidden');
+
+                    // 2. Track Event with Beacon fallback transport to ensure payload completion
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'qr_scan', {
+                            'qr_id': routeId.toLowerCase(),
+                            'destination_url': sanitizeUrl(targetUrl),
+                            'transport_type': 'beacon'
+                        });
+                    }
+
+                    // 3. Keep loading active for exactly 1.2s to log analytics, then forward
+                    setTimeout(() => {
+                        window.location.replace(sanitizeUrl(targetUrl));
+                    }, 1200);
+
+                } else {
+                    // Fallback to home page if invalid code ID
+                    window.location.replace("https://poojasawariya.com");
+                }
             } else {
-                renderTable();
+                // If not redirecting, check auth and open table directory
+                let isAuth = false;
+                try {
+                    isAuth = localStorage.getItem('qr_admin_authorized') === 'true';
+                } catch(e) {
+                    isAuth = window.isInMemoryAuthorized;
+                }
+
+                // Redirect to homepage if they tried to visit directly without auth
+                if (!isAuth && !isIframe && !isPreviewHost) {
+                    window.location.replace("https://poojasawariya.com");
+                } else {
+                    renderTable();
+                }
             }
         });
     </script>
