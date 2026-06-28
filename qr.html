@@ -3,75 +3,576 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    
-    <!-- 1. GOOGLE ANALYTICS TRACKING SCRIPT -->
-    <!-- REPLACE 'G-XXXXXXXXXX' WITH YOUR ACTUAL GOOGLE ANALYTICS MEASUREMENT ID LATER -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <title>Pooja Sawariya | Dynamic QR Hub</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Symbols & Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Symbols" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- QRCode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-    <script>
-        // 2. DEFINE YOUR TEMPORARY ROUTES HERE
-        // You can generate the QR codes for these IDs today.
-        // Change the links below LATER when you get the final Amazon/Spotify URLs.
-        const qrRoutes = {
-            "humsafar": "https://poojasawariya.com", // Placeholder for upcoming project
-            "samarpan": "https://www.amazon.in/Samarpan-Pooja-Sawariya/dp/B0GTBSN49T/", // Active link
-            "aatm-saransh": "https://poojasawariya.com", // Placeholder
-            "sparsh": "https://poojasawariya.com" // Placeholder
-        };
-
-        function handleRedirect() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const qrId = urlParams.get('id');
-
-            if (qrId && qrRoutes[qrId]) {
-                const destination = qrRoutes[qrId];
-
-                // Log the scan event to Google Analytics before redirecting
-                if (typeof gtag === 'function') {
-                    gtag('event', 'qr_scan', {
-                        'qr_id': qrId,
-                        'destination_url': destination
-                    });
-                }
-
-                // Small delay to ensure Analytics registers the scan, then redirect
-                setTimeout(() => {
-                    window.location.href = destination;
-                }, 300);
-            } else {
-                // If no ID or wrong ID, send them to the main website home page
-                window.location.href = "https://poojasawariya.com";
-            }
-        }
-
-        window.onload = handleRedirect;
-    </script>
     <style>
-        body {
-            background-color: #121212;
-            color: #d4af37;
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+        :root {
+            --gold: #D4AF37;
+            --gold-hover: #F3E5AB;
+            --charcoal: #12131A;
+            --dark-card: #1A1B23;
+            --border: #2D2F38;
+            --text-muted: #8E919A;
         }
-        .loader {
-            text-align: center;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--charcoal);
+            color: #FFFFFF;
+        }
+        .font-serif-brand {
+            font-family: 'Cinzel', serif;
+        }
+        .gold-glow:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.25);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--charcoal);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
         }
     </style>
 </head>
-<body>
-    <div class="loader">
-        <h2>Connecting you to the verses...</h2>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <script>
+        // --- 1. THE REDIRECT ROUTING MAP ---
+        // Add, change, or update these values. They are the global defaults.
+        // The Admin Dashboard generates a freshly updated code snippet containing your changes!
+        const GLOBAL_REDIRECTS = {
+            "website": "https://poojasawariya.com",
+            "samarpan": "https://www.amazon.in/Samarpan-Pooja-Sawariya/dp/B0GTBSN49T/",
+            "instagram": "https://instagram.com/sawariyaa_pooja",
+            "youtube": "https://youtube.com/@sawariyaa_pooja",
+            "humsafar": "https://poojasawariya.com"
+        };
+
+        // Instant redirect handler (Runs immediately before page rendering to prevent flicker)
+        const urlParams = new URLSearchParams(window.location.search);
+        const routeId = urlParams.get('id') || urlParams.get('r');
+
+        // SMART GUARD: Do not redirect if we are inside an iframe (like the editor preview)
+        // or on the Google/local development preview hostnames.
+        const isIframe = window.self !== window.top;
+        const isPreviewHost = window.location.hostname.includes('usercontent.goog') || 
+                              window.location.hostname.includes('localhost') || 
+                              window.location.hostname.includes('127.0.0.1');
+
+        if (routeId && !isIframe && !isPreviewHost) {
+            const targetUrl = GLOBAL_REDIRECTS[routeId.toLowerCase()];
+            if (targetUrl) {
+                // Instantly redirect visitor
+                window.location.replace(targetUrl);
+            } else {
+                // If ID is not found, fallback to main website
+                window.location.replace("https://poojasawariya.com");
+            }
+        }
+    </script>
+
+    <div id="redirecting-screen" class="hidden fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#12131A] text-center p-6">
+        <div class="w-24 h-24 mb-6 border-4 border-t-[#D4AF37] border-r-transparent border-b-[#D4AF37] border-l-transparent rounded-full animate-spin"></div>
+        <h2 class="font-serif-brand text-[#D4AF37] text-2xl tracking-widest mb-2">Pooja Sawariya</h2>
+        <p class="text-sm text-[#8E919A] tracking-wider">Connecting you to your destination...</p>
     </div>
+
+    <header class="border-b border-[#2D2F38] bg-[#1A1B23] py-4 px-6 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="google-symbols text-[#D4AF37] text-3xl">qr_code_2</span>
+                <div>
+                    <h1 class="font-serif-brand text-lg text-white font-semibold tracking-wider">POOJA SAWARIYA</h1>
+                    <p class="text-xs text-[#8E919A] uppercase tracking-test">Dynamic QR Hub & Redirect Manager</p>
+                </div>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="openModal('add-modal')" class="bg-[#D4AF37] hover:bg-[#F3E5AB] text-[#12131A] font-semibold text-sm px-4 py-2 rounded-lg flex items-center gap-2 transition-all">
+                    <span class="google-symbols font-bold text-lg">add</span>
+                    New Dynamic Link
+                </button>
+                <button onclick="scrollToExporter()" class="border border-[#2D2F38] hover:border-[#D4AF37] hover:text-[#D4AF37] text-white font-semibold text-sm px-4 py-2 rounded-lg flex items-center gap-2 transition-all">
+                    <span class="google-symbols text-lg">sync</span>
+                    Publish Changes
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 grow grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Left 2 Columns: Dynamic Link Table -->
+        <div class="lg:col-span-2 space-y-6">
+            <div class="bg-[#1A1B23] border border-[#2D2F38] rounded-xl p-6 shadow-xl">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="font-serif-brand text-xl text-white tracking-wide">Active Routing Directory</h2>
+                        <p class="text-xs text-[#8E919A]">These links are currently active in your code mapping.</p>
+                    </div>
+                    <span class="bg-[#2D2F38] text-xs text-white px-3 py-1 rounded-full font-mono" id="total-count">5 Active Link(s)</span>
+                </div>
+
+                <!-- Table Container -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-[#2D2F38] text-xs text-[#8E919A] uppercase tracking-wider">
+                                <th class="py-3 px-4 font-semibold">Short URL Code</th>
+                                <th class="py-3 px-4 font-semibold">Target Destination</th>
+                                <th class="py-3 px-4 text-right font-semibold">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="routes-table-body" class="divide-y divide-[#2D2F38] text-sm">
+                            <!-- Dynamic Content Inserted Here by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="publish-section" class="bg-[#1A1B23] border border-[#D4AF37] rounded-xl p-6 shadow-xl relative overflow-hidden">
+                <div class="absolute -right-12 -top-12 w-28 h-28 bg-[#D4AF37] opacity-5 rounded-full pointer-events-none"></div>
+                <div class="flex items-start gap-4">
+                    <span class="google-symbols text-[#D4AF37] text-3xl mt-1">cloud_upload</span>
+                    <div class="space-y-3 w-full">
+                        <h3 class="font-serif-brand text-lg text-white tracking-wide">Synchronize Changes to Cloudflare</h3>
+                        <p class="text-sm text-[#8E919A]">
+                            Because Cloudflare Pages serves purely static content, changes are completely serverless. To update your redirection rules permanently:
+                        </p>
+                        <ol class="list-decimal list-inside text-xs space-y-2 text-white bg-[#12131A] p-4 rounded-lg border border-[#2D2F38]">
+                            <li>Add or update your routes in the manager above.</li>
+                            <li>Click <strong>Copy Updated HTML</strong> below.</li>
+                            <li>Open your <code class="text-[#D4AF37] font-mono">qr.html</code> file on GitHub/Local Repo, replace all content, and save.</li>
+                            <li>Cloudflare will auto-build the changes globally inside 10 seconds!</li>
+                        </ol>
+                        <div class="flex gap-3 pt-2">
+                            <button onclick="copyUpdatedHtml()" class="bg-[#D4AF37] hover:bg-[#F3E5AB] text-[#12131A] text-xs font-bold px-4 py-2.5 rounded-lg flex items-center gap-2 transition-all">
+                                <span class="google-symbols text-sm">content_copy</span>
+                                Copy Updated HTML Code
+                            </button>
+                            <button onclick="downloadHtmlFile()" class="border border-[#2D2F38] text-white hover:border-[#D4AF37] text-xs font-bold px-4 py-2.5 rounded-lg flex items-center gap-2 transition-all">
+                                <span class="google-symbols text-sm">download</span>
+                                Download qr.html Directly
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <div class="bg-[#1A1B23] border border-[#2D2F38] rounded-xl p-6 shadow-xl sticky top-28">
+                <h3 class="font-serif-brand text-lg text-white tracking-wide mb-4 flex items-center gap-2">
+                    <span class="google-symbols text-[#D4AF37]">palette</span>
+                    QR Code Studio
+                </h3>
+
+                <!-- Visualizer Block -->
+                <div class="bg-white p-6 rounded-lg flex flex-col items-center justify-center relative shadow-inner mx-auto max-w-[240px] aspect-square mb-6">
+                    <div id="qr-canvas" class="flex items-center justify-center"></div>
+                </div>
+
+                <!-- Customizer Fields -->
+                <div class="space-y-4 text-xs text-[#8E919A]">
+                    <div>
+                        <label class="block text-white mb-2 uppercase tracking-wider font-semibold">Active Design Preview</label>
+                        <select id="preview-selector" onchange="updateQrPreview()" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 gold-glow">
+                            <!-- Dynamic selector choices -->
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-white mb-2 uppercase tracking-wider font-semibold">Dark Color</label>
+                            <div class="flex gap-2">
+                                <input type="color" id="qr-color-dark" value="#12131a" onchange="updateQrPreview()" class="w-10 h-10 border-0 rounded cursor-pointer bg-transparent">
+                                <input type="text" id="qr-color-dark-hex" value="#12131a" oninput="syncColorInput('dark')" class="w-full bg-[#12131A] text-white border border-[#2D2F38] rounded-lg text-center font-mono">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-white mb-2 uppercase tracking-wider font-semibold">Light Color</label>
+                            <div class="flex gap-2">
+                                <input type="color" id="qr-color-light" value="#ffffff" onchange="updateQrPreview()" class="w-10 h-10 border-0 rounded cursor-pointer bg-transparent">
+                                <input type="text" id="qr-color-light-hex" value="#ffffff" oninput="syncColorInput('light')" class="w-full bg-[#12131A] text-white border border-[#2D2F38] rounded-lg text-center font-mono">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex flex-col gap-2">
+                        <button onclick="downloadQR()" class="w-full bg-[#D4AF37] hover:bg-[#F3E5AB] text-[#12131A] font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-all">
+                            <span class="google-symbols text-lg">download</span>
+                            Download High-Res PNG
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="add-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12131a]/85 backdrop-blur-sm">
+        <div class="bg-[#1A1B23] border border-[#2D2F38] w-full max-w-lg rounded-xl overflow-hidden shadow-2xl">
+            <div class="bg-[#12131A] p-6 border-b border-[#2D2F38] flex justify-between items-center">
+                <h3 class="font-serif-brand text-lg text-white tracking-wide">Create Dynamic Redirection Link</h3>
+                <button onclick="closeModal('add-modal')" class="text-[#8E919A] hover:text-white transition-all">
+                    <span class="google-symbols">close</span>
+                </button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <label class="block text-xs uppercase text-[#8E919A] tracking-wider font-semibold mb-2">Short URL Code ID</label>
+                    <div class="relative flex items-center">
+                        <span class="absolute left-3 text-xs text-[#8E919A] font-mono">poojasawariya.com/qr.html?id=</span>
+                        <input type="text" id="new-route-id" placeholder="samarpan" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 pl-56 text-sm gold-glow font-mono">
+                    </div>
+                    <p class="text-[10px] text-[#8E919A] mt-1.5">No spaces, keep it short, lower-case, and dynamic.</p>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-[#8E919A] tracking-wider font-semibold mb-2">Destination Target URL</label>
+                    <input type="url" id="new-route-target" placeholder="https://www.amazon.in/dp/..." class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 text-sm gold-glow">
+                </div>
+            </div>
+            <div class="p-6 border-t border-[#2D2F38] flex gap-3 justify-end">
+                <button onclick="closeModal('add-modal')" class="text-xs text-[#8E919A] hover:text-white px-4 py-2 font-semibold">Cancel</button>
+                <button onclick="saveNewRoute()" class="bg-[#D4AF37] hover:bg-[#F3E5AB] text-[#12131A] text-xs font-bold px-4 py-2 rounded-lg">Create Mapping</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12131a]/85 backdrop-blur-sm">
+        <div class="bg-[#1A1B23] border border-[#2D2F38] w-full max-w-lg rounded-xl overflow-hidden shadow-2xl">
+            <div class="bg-[#12131A] p-6 border-b border-[#2D2F38] flex justify-between items-center">
+                <h3 class="font-serif-brand text-lg text-white tracking-wide">Edit Redirection Route</h3>
+                <button onclick="closeModal('edit-modal')" class="text-[#8E919A] hover:text-white transition-all">
+                    <span class="google-symbols">close</span>
+                </button>
+            </div>
+            <div class="p-6 space-y-4">
+                <input type="hidden" id="edit-route-id-hidden">
+                <div>
+                    <label class="block text-xs uppercase text-[#8E919A] tracking-wider font-semibold mb-2">Route ID</label>
+                    <input type="text" id="edit-route-id" disabled class="w-full bg-[#12131A]/50 border border-[#2D2F38] text-[#8E919A] rounded-lg p-3 text-sm font-mono cursor-not-allowed">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-[#8E919A] tracking-wider font-semibold mb-2">New Target Destination</label>
+                    <input type="url" id="edit-route-target" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 text-sm gold-glow">
+                </div>
+            </div>
+            <div class="p-6 border-t border-[#2D2F38] flex gap-3 justify-end">
+                <button onclick="closeModal('edit-modal')" class="text-xs text-[#8E919A] hover:text-white px-4 py-2 font-semibold">Cancel</button>
+                <button onclick="saveEditedRoute()" class="bg-[#D4AF37] hover:bg-[#F3E5AB] text-[#12131A] text-xs font-bold px-4 py-2 rounded-lg">Update Destination</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="hud-message" class="fixed bottom-6 right-6 z-50 bg-[#1A1B23] border border-[#D4AF37] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <span class="google-symbols text-[#D4AF37]" id="hud-icon">info</span>
+        <span class="text-sm tracking-wide" id="hud-text">Successfully actioned!</span>
+    </div>
+
+    <footer class="border-t border-[#2D2F38] bg-[#12131A] py-6 text-center text-xs text-[#8E919A]">
+        <p class="font-serif-brand tracking-widest text-[#D4AF37] text-sm mb-1">POOJA SAWARIYA</p>
+        <p>© 2026 Pooja Sawariya. Designed for flawless offline & online visual marketing campaigns.</p>
+    </footer>
+
+    <script>
+        // Use localStorage as runtime scratchpad, but fallback to global definitions if blank
+        let routes = {};
+        
+        try {
+            const stored = localStorage.getItem('pooja_qr_routes');
+            if (stored) {
+                routes = JSON.parse(stored);
+            } else {
+                routes = { ...GLOBAL_REDIRECTS };
+                localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
+            }
+        } catch(e) {
+            routes = { ...GLOBAL_REDIRECTS };
+        }
+
+        // Initialize State & Tables
+        function renderTable() {
+            const tbody = document.getElementById('routes-table-body');
+            tbody.innerHTML = '';
+            
+            const keys = Object.keys(routes);
+            document.getElementById('total-count').textContent = `${keys.length} Active Link(s)`;
+
+            keys.forEach(key => {
+                const target = routes[key];
+                const cleanKey = key.toLowerCase().trim();
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-[#1C1E26] transition-all group";
+                
+                tr.innerHTML = `
+                    <td class="py-4 px-4 font-mono font-medium text-white max-w-[180px] truncate">
+                        <span class="text-[#D4AF37]">/qr.html?id=</span>${cleanKey}
+                    </td>
+                    <td class="py-4 px-4 text-[#8E919A] max-w-xs truncate font-mono text-xs">
+                        <a href="${target}" target="_blank" class="hover:text-[#D4AF37] hover:underline">${target}</a>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                        <div class="flex gap-2 justify-end items-center opacity-80 group-hover:opacity-100 transition-all">
+                            <button onclick="copyLink('${cleanKey}')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Copy Short Link">
+                                <span class="google-symbols text-sm">content_copy</span>
+                            </button>
+                            <button onclick="openEditModal('${cleanKey}', '${target}')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
+                                <span class="google-symbols text-sm">edit</span>
+                            </button>
+                            <button onclick="deleteRoute('${cleanKey}')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                                <span class="google-symbols text-sm">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            populateSelector();
+        }
+
+        // Fill selection dynamic listings for QR customization preview
+        function populateSelector() {
+            const selector = document.getElementById('preview-selector');
+            const currentValue = selector.value;
+            selector.innerHTML = '';
+            
+            Object.keys(routes).forEach(key => {
+                const opt = document.createElement('option');
+                opt.value = key;
+                opt.textContent = `qr.html?id=${key}`;
+                selector.appendChild(opt);
+            });
+
+            if (currentValue && routes[currentValue]) {
+                selector.value = currentValue;
+            }
+            updateQrPreview();
+        }
+
+        // Color sync utilities
+        function syncColorInput(type) {
+            const hexInput = document.getElementById(`qr-color-${type}-hex`);
+            const colorInput = document.getElementById(`qr-color-${type}`);
+            if (hexInput.value.match(/^#[0-9A-F]{6}$/i)) {
+                colorInput.value = hexInput.value;
+                updateQrPreview();
+            }
+        }
+
+        document.getElementById('qr-color-dark').addEventListener('input', (e) => {
+            document.getElementById('qr-color-dark-hex').value = e.target.value;
+        });
+        document.getElementById('qr-color-light').addEventListener('input', (e) => {
+            document.getElementById('qr-color-light-hex').value = e.target.value;
+        });
+
+        // Generate dynamic QR render in canvas preview
+        let qrGeneratorInstance = null;
+        function updateQrPreview() {
+            const targetId = document.getElementById('preview-selector').value;
+            if (!targetId) return;
+
+            const host = window.location.origin + window.location.pathname;
+            const fullUrl = `${host}?id=${targetId}`;
+
+            const canvas = document.getElementById('qr-canvas');
+            canvas.innerHTML = '';
+
+            qrGeneratorInstance = new QRCode(canvas, {
+                text: fullUrl,
+                width: 200,
+                height: 200,
+                colorDark: document.getElementById('qr-color-dark').value,
+                colorLight: document.getElementById('qr-color-light').value,
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        // Download PNG Image
+        // Canvas-safe clipboard copy / download helper
+        function downloadQR() {
+            const canvasImg = document.getElementById('qr-canvas').querySelector('img');
+            const selectedId = document.getElementById('preview-selector').value;
+            if (canvasImg && canvasImg.src) {
+                const link = document.createElement('a');
+                link.download = `PoojaSawariya-QR-${selectedId}.png`;
+                link.href = canvasImg.src;
+                link.click();
+                showHUD("QR Code Downloaded successfully", "check_circle");
+            }
+        }
+
+        // Sync & Exporter logic (Zero database Static Syncing)
+        function getRedirectionMapString() {
+            return JSON.stringify(routes, null, 12)
+                .replace(/^\{/, '{\n')
+                .replace(/\}$/, '\n        }');
+        }
+
+        function copyUpdatedHtml() {
+            // Read self HTML template, replace current routing definition with newly modified JSON config
+            let currentFullHtml = document.documentElement.outerHTML;
+            const routePlaceholderRegex = /const GLOBAL_REDIRECTS = \{[\s\S]*?\};/;
+            
+            const updatedRedirectionBlock = `const GLOBAL_REDIRECTS = ${JSON.stringify(routes, null, 12)};`;
+            const freshlyMergedHTML = `<!DOCTYPE html>\n<html lang="en">\n${currentFullHtml}\n</html>`
+                .replace(routePlaceholderRegex, updatedRedirectionBlock);
+
+            // Copy to clipboard fallback logic
+            const tempTextarea = document.createElement('textarea');
+            tempTextarea.value = freshlyMergedHTML;
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextarea);
+
+            showHUD("Copied Updated HTML Code to Clipboard! Paste into qr.html in GitHub.", "cloud_done");
+        }
+
+        function downloadHtmlFile() {
+            let currentFullHtml = document.documentElement.outerHTML;
+            const routePlaceholderRegex = /const GLOBAL_REDIRECTS = \{[\s\S]*?\};/;
+            const updatedRedirectionBlock = `const GLOBAL_REDIRECTS = ${JSON.stringify(routes, null, 12)};`;
+            
+            const freshlyMergedHTML = `<!DOCTYPE html>\n<html lang="en">\n${currentFullHtml}\n</html>`
+                .replace(routePlaceholderRegex, updatedRedirectionBlock);
+
+            const blob = new Blob([freshlyMergedHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'qr.html';
+            link.click();
+            URL.revokeObjectURL(url);
+            showHUD("Downloaded ready-to-publish qr.html file!", "cloud_done");
+        }
+
+        // Modal Action Interfaces
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        // Smooth scroll
+        function scrollToExporter() {
+            document.getElementById('publish-section').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('publish-section').classList.add('ring-2', 'ring-[#D4AF37]');
+            setTimeout(() => {
+                document.getElementById('publish-section').classList.remove('ring-2', 'ring-[#D4AF37]');
+            }, 1500);
+        }
+
+        // Copy short link helper
+        function copyLink(key) {
+            const host = window.location.origin + window.location.pathname;
+            const fullUrl = `${host}?id=${key}`;
+            const tempInput = document.createElement('input');
+            tempInput.value = fullUrl;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showHUD(`Copied Dynamic URL for /${key}!`, "content_copy");
+        }
+
+        // CRUD Operations
+        function saveNewRoute() {
+            const key = document.getElementById('new-route-id').value.toLowerCase().replace(/[^a-z0-9_-]/g, '').trim();
+            const target = document.getElementById('new-route-target').value.trim();
+
+            if (!key || !target) {
+                showHUD("Short ID and Target URL cannot be empty", "error");
+                return;
+            }
+
+            if (routes[key]) {
+                showHUD("This Short Code ID already exists", "warning");
+                return;
+            }
+
+            routes[key] = target;
+            localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
+            renderTable();
+            closeModal('add-modal');
+            
+            // Clear fields
+            document.getElementById('new-route-id').value = '';
+            document.getElementById('new-route-target').value = '';
+            showHUD("New dynamic redirect mapped successfully!", "check_circle");
+        }
+
+        function openEditModal(key, target) {
+            document.getElementById('edit-route-id-hidden').value = key;
+            document.getElementById('edit-route-id').value = key;
+            document.getElementById('edit-route-target').value = target;
+            openModal('edit-modal');
+        }
+
+        function saveEditedRoute() {
+            const key = document.getElementById('edit-route-id-hidden').value;
+            const target = document.getElementById('edit-route-target').value.trim();
+
+            if (!target) {
+                showHUD("Destination target cannot be empty", "error");
+                return;
+            }
+
+            routes[key] = target;
+            localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
+            renderTable();
+            closeModal('edit-modal');
+            showHUD(`Redirection updated for /${key}!`, "published_with_changes");
+        }
+
+        function deleteRoute(key) {
+            if (confirm(`Are you sure you want to permanently delete the dynamic link /${key}?`)) {
+                delete routes[key];
+                localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
+                renderTable();
+                showHUD(`Removed dynamic link /${key}`, "delete_sweep");
+            }
+        }
+
+        // HUD notification toast alert
+        function showHUD(text, icon = "info") {
+            const hud = document.getElementById('hud-message');
+            document.getElementById('hud-text').textContent = text;
+            document.getElementById('hud-icon').textContent = icon;
+            
+            hud.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                hud.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // On Load Initializers
+        window.addEventListener('load', () => {
+            const isRedirecting = (urlParams.get('id') || urlParams.get('r'));
+            if (isRedirecting && !isIframe && !isPreviewHost) {
+                document.getElementById('redirecting-screen').classList.remove('hidden');
+            } else {
+                renderTable();
+            }
+        });
+    </script>
 </body>
 </html>
