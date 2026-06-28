@@ -93,9 +93,8 @@
         };
 
         // --- 2. SECURITY CONFIGURATION ---
-        // SHA-256 Hash of default password 'pooja2026'
-        // If you change the password using the utility, paste the new hash below!
-        const ADMIN_HASH = "b713426fe4be0e65427eb3268482ee6b0c26c1c2ef33d59648931215b3c2bb0e";
+        // Your secret URL keyword value. Keep this safe!
+        const SECRET_ACCESS_KEY = "pooja2026"; 
 
         // Helper to ensure URLs have a protocol (http/https) so they don't redirect relatively
         function sanitizeUrl(url) {
@@ -110,6 +109,7 @@
         // Instant redirect handler (Runs immediately before page rendering to prevent flicker)
         const urlParams = new URLSearchParams(window.location.search);
         const routeId = urlParams.get('id') || urlParams.get('r');
+        const manageKey = urlParams.get('manage') || urlParams.get('admin');
 
         // SMART GUARD: Do not redirect if we are inside an iframe (like the editor preview)
         // or on the Google/local development preview hostnames.
@@ -118,47 +118,50 @@
                               window.location.hostname.includes('localhost') || 
                               window.location.hostname.includes('127.0.0.1');
 
+        // Authenticate visually if the correct secret URL keyword is passed
+        if (manageKey && manageKey.toLowerCase().trim() === SECRET_ACCESS_KEY) {
+            try {
+                localStorage.setItem('qr_admin_authorized', 'true');
+            } catch(e) {
+                // local memory fallback
+                window.isInMemoryAuthorized = true;
+            }
+        }
+
+        // Run visitor redirection
         if (routeId && !isIframe && !isPreviewHost) {
             const targetUrl = GLOBAL_REDIRECTS[routeId.toLowerCase()];
             if (targetUrl) {
-                // Instantly redirect visitor to absolute URL
                 window.location.replace(sanitizeUrl(targetUrl));
             } else {
-                // If ID is not found, fallback to main website
+                window.location.replace("https://poojasawariya.com");
+            }
+        } else if (!routeId && !isIframe && !isPreviewHost) {
+            // Guard: If they visit qr.html directly, check if they are authorized
+            let isAuth = false;
+            try {
+                isAuth = localStorage.getItem('qr_admin_authorized') === 'true';
+            } catch(e) {
+                isAuth = window.isInMemoryAuthorized;
+            }
+
+            // If not authorized, boot them out to the homepage immediately
+            if (!isAuth) {
                 window.location.replace("https://poojasawariya.com");
             }
         }
     </script>
 
+    <!-- Loading Screen (Visible briefly for redirects) -->
     <div id="redirecting-screen" class="hidden fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#12131A] text-center p-6">
         <div class="w-24 h-24 mb-6 border-4 border-t-[#D4AF37] border-r-transparent border-b-[#D4AF37] border-l-transparent rounded-full animate-spin"></div>
         <h2 class="font-serif-brand text-[#D4AF37] text-2xl tracking-widest mb-2">Pooja Sawariya</h2>
         <p class="text-sm text-[#8E919A] tracking-wider">Connecting you to your destination...</p>
     </div>
 
-    <!-- The login screen is displayed by default, keeping the dashboard strictly hidden until authorized -->
-    <div id="login-container" class="flex flex-col items-center justify-center grow p-6 bg-[#12131A]">
-        <div class="w-full max-w-md bg-[#1A1B23] border border-[#2D2F38] rounded-2xl p-8 shadow-2xl text-center space-y-6">
-            <div class="inline-flex p-4 bg-[#12131A] border border-[#D4AF37] rounded-full text-[#D4AF37] mb-2 animate-pulse">
-                <span class="google-symbols text-4xl">lock</span>
-            </div>
-            <div>
-                <h2 class="font-serif-brand text-2xl text-white tracking-widest">ADMIN SECURE ENTRY</h2>
-                <p class="text-xs text-[#8E919A] uppercase tracking-wider mt-1">Authenticating Dashboard Access</p>
-            </div>
-            
-            <div class="space-y-4">
-                <input type="password" id="auth-password" onkeydown="handleLoginKeyPress(event)" placeholder="Enter Admin Password" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 text-center gold-glow font-mono tracking-widest">
-                <button onclick="attemptAuthentication()" class="w-full bg-[#D4AF37] hover:bg-[#F3E5AB] text-[#12131A] font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2">
-                    <span class="google-symbols font-bold">vpn_key</span>
-                    Unlock Dashboard
-                </button>
-            </div>
-            <p class="text-[10px] text-[#8E919A]">Authorized personnel only. Sessions auto-expire on closure.</p>
-        </div>
-    </div>
-
-    <div id="dashboard-wrapper" class="hidden grow flex flex-col justify-between">
+    <!-- --- 3. THE ADMIN DASHBOARD INTERFACE --- -->
+    <!-- Revealed only to authorized users -->
+    <div id="dashboard-wrapper" class="grow flex flex-col justify-between">
         <header class="border-b border-[#2D2F38] bg-[#1A1B23] py-4 px-6 sticky top-0 z-40">
             <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div class="flex items-center gap-3">
@@ -179,6 +182,7 @@
                     </button>
                     <button onclick="logOutAdmin()" class="border border-red-500/30 hover:bg-red-500 hover:text-[#12131A] text-red-400 font-semibold text-sm px-3 py-2 rounded-lg flex items-center gap-2 transition-all" title="Secure Exit">
                         <span class="google-symbols text-lg">logout</span>
+                        Lock Access
                     </button>
                 </div>
             </div>
@@ -244,6 +248,7 @@
                 </div>
             </div>
 
+            <!-- Right 1 Column: QR Customizer -->
             <div class="space-y-6">
                 <div class="bg-[#1A1B23] border border-[#2D2F38] rounded-xl p-6 shadow-xl sticky top-28">
                     <h3 class="font-serif-brand text-lg text-white tracking-wide mb-4 flex items-center gap-2">
@@ -282,24 +287,11 @@
                             </div>
                         </div>
 
-                        <div class="pt-4 flex flex-col gap-2 border-b border-[#2D2F38] pb-4">
+                        <div class="pt-4 flex flex-col gap-2">
                             <button onclick="downloadQR()" class="w-full bg-[#D4AF37] hover:bg-[#F3E5AB] text-[#12131A] font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-all">
                                 <span class="google-symbols text-lg">download</span>
                                 Download High-Res PNG
                             </button>
-                        </div>
-
-                        <div class="pt-2">
-                            <h4 class="font-serif-brand text-white text-sm mb-2">Change Password</h4>
-                            <p class="text-[10px] text-[#8E919A] mb-3">To update your password, type a new one below, copy the hash, and replace the ADMIN_HASH in your qr.html file.</p>
-                            <div class="space-y-3">
-                                <input type="text" id="new-password-field" placeholder="Type new password" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-2 font-mono">
-                                <button onclick="generateSecureHash()" class="w-full border border-[#2D2F38] hover:border-[#D4AF37] hover:text-[#D4AF37] text-white py-2 rounded-lg transition-all text-xs font-semibold">Generate Secure Hash</button>
-                                <div id="hash-output-container" class="hidden bg-[#12131A] p-2 rounded border border-[#2D2F38] relative">
-                                    <input type="text" readonly id="hash-output-field" class="w-full bg-transparent text-[10px] font-mono text-[#D4AF37] select-all outline-none pr-8">
-                                    <button onclick="copyGeneratedHash()" class="absolute right-2 top-2 text-[#8E919A] hover:text-[#D4AF37]"><span class="google-symbols text-sm">content_copy</span></button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -307,6 +299,7 @@
         </main>
     </div>
 
+    <!-- Create Route Modal -->
     <div id="add-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12131a]/85 backdrop-blur-sm">
         <div class="bg-[#1A1B23] border border-[#2D2F38] w-full max-w-lg rounded-xl overflow-hidden shadow-2xl">
             <div class="bg-[#12131A] p-6 border-b border-[#2D2F38] flex justify-between items-center">
@@ -336,6 +329,7 @@
         </div>
     </div>
 
+    <!-- Edit Route Modal -->
     <div id="edit-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12131a]/85 backdrop-blur-sm">
         <div class="bg-[#1A1B23] border border-[#2D2F38] w-full max-w-lg rounded-xl overflow-hidden shadow-2xl">
             <div class="bg-[#12131A] p-6 border-b border-[#2D2F38] flex justify-between items-center">
@@ -362,6 +356,24 @@
         </div>
     </div>
 
+    <!-- Complete Visual Delete Confirmation Modal (Zero Native Alerts/Confirms) -->
+    <div id="confirm-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#12131a]/90 backdrop-blur-sm">
+        <div class="bg-[#1A1B23] border border-red-500/30 w-full max-w-md rounded-2xl p-6 shadow-2xl space-y-6 text-center">
+            <div class="inline-flex p-3 bg-red-500/10 text-red-500 rounded-full">
+                <span class="google-symbols text-4xl">warning</span>
+            </div>
+            <div class="space-y-2">
+                <h3 class="font-serif-brand text-xl text-white tracking-wide">Delete Redirection?</h3>
+                <p id="confirm-modal-message" class="text-xs text-[#8E919A] leading-relaxed">This action cannot be undone. Readers scanning QR codes associated with this short link will no longer be redirected.</p>
+            </div>
+            <div class="flex gap-3 justify-center">
+                <button id="confirm-cancel-btn" class="bg-[#2D2F38] text-white font-semibold text-xs px-5 py-2.5 rounded-lg transition-all hover:bg-neutral-700">Cancel</button>
+                <button id="confirm-delete-btn" class="bg-red-500 hover:bg-red-600 text-white font-semibold text-xs px-5 py-2.5 rounded-lg transition-all">Delete Permanently</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Message Layer -->
     <div id="hud-message" class="fixed bottom-6 right-6 z-50 bg-[#1A1B23] border border-[#D4AF37] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
         <span class="google-symbols text-[#D4AF37]" id="hud-icon">info</span>
         <span class="text-sm tracking-wide" id="hud-text">Successfully actioned!</span>
@@ -373,141 +385,7 @@
     </footer>
 
     <script>
-        // Standard, pure JS implementation of FIPS 180-4 SHA-256 algorithm.
-        // It does not depend on secure contexts (HTTPS), making it completely secure and functional on any HTTP / HTTPS host.
-        function sha256(ascii) {
-            function rightRotate(value, amount) {
-                return (value >>> amount) | (value << (32 - amount));
-            }
-
-            // Initial hash values (first 32 bits of fractional parts of square roots of first 8 primes)
-            var hash = [
-                0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
-                0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19
-            ];
-
-            // Constants (first 32 bits of fractional parts of cube roots of first 64 primes)
-            var k = [
-                0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
-                0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
-                0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
-                0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
-                0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
-                0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
-                0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
-                0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
-            ];
-
-            var asciiLength = ascii.length;
-            var words = [];
-            
-            ascii += '\x80';
-            while (ascii.length % 64 - 56) ascii += '\x00';
-            
-            for (var i = 0; i < ascii.length; i++) {
-                var j = ascii.charCodeAt(i);
-                words[i >> 2] |= j << ((3 - i % 4) * 8);
-            }
-            
-            var maxWord = Math.pow(2, 32);
-            words[words.length] = ((asciiLength * 8) / maxWord) | 0;
-            words[words.length] = (asciiLength * 8) | 0;
-            
-            for (var j = 0; j < words.length;) {
-                var w = words.slice(j, j += 16);
-                var oldHash = hash.slice(0);
-                
-                for (var i = 0; i < 64; i++) {
-                    var w16 = w[i - 16], w15 = w[i - 15], w2 = w[i - 2], w7 = w[i - 7];
-                    
-                    var s0 = rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3);
-                    var s1 = rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10);
-                    
-                    var ch = (oldHash[4] & oldHash[5]) ^ (~oldHash[4] & oldHash[6]);
-                    var maj = (oldHash[0] & oldHash[1]) ^ (oldHash[0] & oldHash[2]) ^ (oldHash[1] & oldHash[2]);
-                    
-                    var temp1 = oldHash[7] + (rightRotate(oldHash[4], 6) ^ rightRotate(oldHash[4], 11) ^ rightRotate(oldHash[4], 25)) + ch + k[i] + (w[i] = (i < 16) ? w[i] : (w16 + s0 + w7 + s1) | 0);
-                    var temp2 = (rightRotate(oldHash[0], 2) ^ rightRotate(oldHash[0], 13) ^ rightRotate(oldHash[0], 22)) + maj;
-                    
-                    oldHash = [(temp1 + temp2) | 0].concat(oldHash);
-                    oldHash[4] = (oldHash[4] + temp1) | 0;
-                    oldHash.length = 8;
-                }
-                
-                for (var i = 0; i < 8; i++) {
-                    hash[i] = (hash[i] + oldHash[i]) | 0;
-                }
-            }
-            
-            var result = '';
-            for (var i = 0; i < 8; i++) {
-                var byte = hash[i];
-                if (byte < 0) byte += maxWord;
-                var byteString = byte.toString(16);
-                while (byteString.length < 8) byteString = '0' + byteString;
-                result += byteString;
-            }
-            
-            return result;
-        }
-
-        // --- SESSION AND PASSWORD CHECK UTILITIES ---
-        function attemptAuthentication() {
-            const passwordInput = document.getElementById('auth-password').value;
-            const hashedInput = sha256(passwordInput);
-
-            if (hashedInput === ADMIN_HASH) {
-                // Correct Password! Save session state and open dashboard
-                sessionStorage.setItem('qr_authenticated', 'true');
-                showDashboard();
-                showHUD("Welcome back, Admin!", "verified");
-            } else {
-                showHUD("Invalid password code. Please try again.", "error");
-                document.getElementById('auth-password').value = '';
-                document.getElementById('auth-password').focus();
-            }
-        }
-
-        function handleLoginKeyPress(e) {
-            if (e.key === 'Enter') {
-                attemptAuthentication();
-            }
-        }
-
-        function showDashboard() {
-            document.getElementById('login-container').classList.add('hidden');
-            document.getElementById('dashboard-wrapper').classList.remove('hidden');
-            renderTable();
-        }
-
-        function logOutAdmin() {
-            sessionStorage.removeItem('qr_authenticated');
-            document.getElementById('auth-password').value = '';
-            document.getElementById('dashboard-wrapper').classList.add('hidden');
-            document.getElementById('login-container').classList.remove('hidden');
-            showHUD("Dashboard locked successfully.", "lock");
-        }
-
-        function generateSecureHash() {
-            const val = document.getElementById('new-password-field').value.trim();
-            if (!val) {
-                showHUD("Type a password before hashing", "warning");
-                return;
-            }
-            const hash = sha256(val);
-            document.getElementById('hash-output-field').value = hash;
-            document.getElementById('hash-output-container').classList.remove('hidden');
-            showHUD("Secure SHA-256 Hash generated!", "key");
-        }
-
-        function copyGeneratedHash() {
-            const field = document.getElementById('hash-output-field');
-            field.select();
-            document.execCommand('copy');
-            showHUD("Hash code copied! Replace in your qr.html file.", "content_copy");
-        }
-
-        // --- CORE ADMIN DASHBOARD CRUD ACTIONS ---
+        // Use localStorage as runtime scratchpad, but fallback to global definitions if blank
         let routes = {};
         
         try {
@@ -527,6 +405,15 @@
             }
         } catch(e) {
             routes = { ...GLOBAL_REDIRECTS };
+        }
+
+        // --- 4. SECURE LOGOUT UTILITIES ---
+        function logOutAdmin() {
+            try {
+                localStorage.removeItem('qr_admin_authorized');
+            } catch(e) {}
+            // Redirect immediately to the homepage to hide dashboard
+            window.location.replace("https://poojasawariya.com");
         }
 
         // Initialize State & Tables
@@ -572,7 +459,7 @@
                             <button onclick="openEditModal('${cleanKey}', '${rawTarget}')" class="text-[#8E919A] hover:text-[#D4AF37] p-1.5 rounded hover:bg-[#2D2F38]" title="Edit Target">
                                 <span class="google-symbols text-sm">edit</span>
                             </button>
-                            <button onclick="deleteRoute('${cleanKey}')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
+                            <button onclick="triggerDelete('${cleanKey}')" class="text-[#8E919A] hover:text-red-400 p-1.5 rounded hover:bg-[#2D2F38]" title="Remove Route">
                                 <span class="google-symbols text-sm">delete</span>
                             </button>
                         </div>
@@ -656,6 +543,7 @@
         }
 
         // Download PNG Image
+        // Canvas-safe clipboard copy / download helper
         function downloadQR() {
             const canvasImg = document.getElementById('qr-canvas').querySelector('img');
             const selectedId = document.getElementById('preview-selector').value;
@@ -668,13 +556,23 @@
             }
         }
 
+        // Sync & Exporter logic (Zero database Static Syncing)
+        function getRedirectionMapString() {
+            return JSON.stringify(routes, null, 12)
+                .replace(/^\{/, '{\n')
+                .replace(/\}$/, '\n        }');
+        }
+
         function copyUpdatedHtml() {
+            // Read self HTML template, replace current routing definition with newly modified JSON config
             let currentFullHtml = document.documentElement.outerHTML;
             const routePlaceholderRegex = /const GLOBAL_REDIRECTS = \{[\s\S]*?\};/;
+            
             const updatedRedirectionBlock = `const GLOBAL_REDIRECTS = ${JSON.stringify(routes, null, 12)};`;
             const freshlyMergedHTML = `<!DOCTYPE html>\n<html lang="en">\n${currentFullHtml}\n</html>`
                 .replace(routePlaceholderRegex, updatedRedirectionBlock);
 
+            // Copy to clipboard fallback logic
             const tempTextarea = document.createElement('textarea');
             tempTextarea.value = freshlyMergedHTML;
             document.body.appendChild(tempTextarea);
@@ -689,6 +587,7 @@
             let currentFullHtml = document.documentElement.outerHTML;
             const routePlaceholderRegex = /const GLOBAL_REDIRECTS = \{[\s\S]*?\};/;
             const updatedRedirectionBlock = `const GLOBAL_REDIRECTS = ${JSON.stringify(routes, null, 12)};`;
+            
             const freshlyMergedHTML = `<!DOCTYPE html>\n<html lang="en">\n${currentFullHtml}\n</html>`
                 .replace(routePlaceholderRegex, updatedRedirectionBlock);
 
@@ -702,6 +601,7 @@
             showHUD("Downloaded ready-to-publish qr.html file!", "cloud_done");
         }
 
+        // Modal Action Interfaces
         function openModal(id) {
             document.getElementById(id).classList.remove('hidden');
         }
@@ -710,6 +610,7 @@
             document.getElementById(id).classList.add('hidden');
         }
 
+        // Smooth scroll
         function scrollToExporter() {
             document.getElementById('publish-section').scrollIntoView({ behavior: 'smooth' });
             document.getElementById('publish-section').classList.add('ring-2', 'ring-[#D4AF37]');
@@ -718,6 +619,7 @@
             }, 1500);
         }
 
+        // Copy short link helper
         function copyLink(key) {
             const host = window.location.origin + window.location.pathname;
             const fullUrl = `${host}?id=${key}`;
@@ -730,6 +632,7 @@
             showHUD(`Copied Dynamic URL for /${key}!`, "content_copy");
         }
 
+        // CRUD Operations
         function saveNewRoute() {
             const key = document.getElementById('new-route-id').value.toLowerCase().replace(/[^a-z0-9_-]/g, '').trim();
             let target = document.getElementById('new-route-target').value.trim();
@@ -750,6 +653,7 @@
             renderTable();
             closeModal('add-modal');
             
+            // Clear fields
             document.getElementById('new-route-id').value = '';
             document.getElementById('new-route-target').value = '';
             showHUD("New dynamic redirect mapped successfully!", "check_circle");
@@ -762,6 +666,7 @@
             openModal('edit-modal');
         }
 
+        // Save modification
         function saveEditedRoute() {
             const key = document.getElementById('edit-route-id-hidden').value;
             let target = document.getElementById('edit-route-target').value.trim();
@@ -779,13 +684,41 @@
             showHUD(`Redirection updated for /${key}!`, "published_with_changes");
         }
 
-        function deleteRoute(key) {
-            if (confirm(`Are you sure you want to permanently delete the dynamic link /${key}?`)) {
-                delete routes[key];
+        // Custom Delete Confirmation trigger to prevent native dialog blocking
+        let activeDeletionKey = null;
+        function triggerDelete(key) {
+            activeDeletionKey = key;
+            document.getElementById('confirm-modal-message').innerHTML = `Are you sure you want to permanently delete the dynamic link <span class="text-white font-mono font-bold">/${key}</span>? Scanning this QR code will no longer redirect readers.`;
+            openModal('confirm-modal');
+        }
+
+        // Confirm button handlers
+        document.getElementById('confirm-delete-btn').addEventListener('click', () => {
+            if (activeDeletionKey && routes[activeDeletionKey]) {
+                delete routes[activeDeletionKey];
                 localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
                 renderTable();
-                showHUD(`Removed dynamic link /${key}`, "delete_sweep");
+                showHUD(`Removed dynamic link /${activeDeletionKey}`, "delete_sweep");
             }
+            activeDeletionKey = null;
+            closeModal('confirm-modal');
+        });
+
+        document.getElementById('confirm-cancel-btn').addEventListener('click', () => {
+            activeDeletionKey = null;
+            closeModal('confirm-modal');
+        });
+
+        // HUD notification toast alert
+        function showHUD(text, icon = "info") {
+            const hud = document.getElementById('hud-message');
+            document.getElementById('hud-text').textContent = text;
+            document.getElementById('hud-icon').textContent = icon;
+            
+            hud.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                hud.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
         }
 
         // On Load Initializers
@@ -794,14 +727,7 @@
             if (isRedirecting && !isIframe && !isPreviewHost) {
                 document.getElementById('redirecting-screen').classList.remove('hidden');
             } else {
-                // If it is NOT a redirect, check if they are already logged in
-                const isAuthenticated = sessionStorage.getItem('qr_authenticated') === 'true';
-                if (isAuthenticated || isIframe || isPreviewHost) {
-                    showDashboard();
-                } else {
-                    document.getElementById('login-container').classList.remove('hidden');
-                    document.getElementById('auth-password').focus();
-                }
+                renderTable();
             }
         });
     </script>
