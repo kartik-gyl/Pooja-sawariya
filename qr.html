@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pooja Sawariya | Dynamic QR Hub</title>
+
+    <!-- Google Analytics (GA4) Tracking Snippet -->
+    <!-- REPLACE "G-TRACKING-ID" WITH YOUR ACTUAL MEASUREMENT ID FROM GOOGLE ANALYTICS -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRACKING-ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TRACKING-ID');
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Symbols & Fonts -->
@@ -54,6 +65,8 @@
 
     <script>
         // --- 1. THE REDIRECT ROUTING MAP ---
+        // Pre-configured with your 30 dynamic song links pointing to your home page.
+        // You can easily re-route any of these visually through your dashboard panel!
         const GLOBAL_REDIRECTS = {
             "website": "https://poojasawariya.com",
             "samarpan": "https://www.amazon.in/Samarpan-Pooja-Sawariya/dp/B0GTBSN49T/",
@@ -92,10 +105,6 @@
             "song30": "https://poojasawariya.com"
         };
 
-        // --- 2. SECURITY CONFIGURATION ---
-        // Your secret URL keyword value. Keep this safe!
-        const SECRET_ACCESS_KEY = "pooja2026"; 
-
         // Helper to ensure URLs have a protocol (http/https) so they don't redirect relatively
         function sanitizeUrl(url) {
             if (!url) return '';
@@ -109,7 +118,6 @@
         // Instant redirect handler (Runs immediately before page rendering to prevent flicker)
         const urlParams = new URLSearchParams(window.location.search);
         const routeId = urlParams.get('id') || urlParams.get('r');
-        const manageKey = urlParams.get('manage') || urlParams.get('admin');
 
         // SMART GUARD: Do not redirect if we are inside an iframe (like the editor preview)
         // or on the Google/local development preview hostnames.
@@ -118,41 +126,31 @@
                               window.location.hostname.includes('localhost') || 
                               window.location.hostname.includes('127.0.0.1');
 
-        // Authenticate visually if the correct secret URL keyword is passed
-        if (manageKey && manageKey.toLowerCase().trim() === SECRET_ACCESS_KEY) {
-            try {
-                localStorage.setItem('qr_admin_authorized', 'true');
-            } catch(e) {
-                // local memory fallback
-                window.isInMemoryAuthorized = true;
-            }
-        }
-
-        // Run visitor redirection
         if (routeId && !isIframe && !isPreviewHost) {
             const targetUrl = GLOBAL_REDIRECTS[routeId.toLowerCase()];
             if (targetUrl) {
-                window.location.replace(sanitizeUrl(targetUrl));
-            } else {
-                window.location.replace("https://poojasawariya.com");
-            }
-        } else if (!routeId && !isIframe && !isPreviewHost) {
-            // Guard: If they visit qr.html directly, check if they are authorized
-            let isAuth = false;
-            try {
-                isAuth = localStorage.getItem('qr_admin_authorized') === 'true';
-            } catch(e) {
-                isAuth = window.isInMemoryAuthorized;
-            }
+                // Instantly force the loading screen to draw before rendering anything else
+                document.write('<style>#redirecting-screen { display: flex !important; } header, main, footer { display: none !important; }</style>');
 
-            // If not authorized, boot them out to the homepage immediately
-            if (!isAuth) {
+                // Send a custom event to Google Analytics to log this scan
+                if (typeof gtag === 'function') {
+                    gtag('event', 'qr_scan', {
+                        'qr_id': routeId.toLowerCase(),
+                        'destination_url': sanitizeUrl(targetUrl)
+                    });
+                }
+
+                // Wait 1.5 seconds so Google Analytics has plenty of time to record details, then redirect
+                setTimeout(() => {
+                    window.location.replace(sanitizeUrl(targetUrl));
+                }, 1500);
+            } else {
+                // If ID is not found, fallback to main website
                 window.location.replace("https://poojasawariya.com");
             }
         }
     </script>
 
-    <!-- Loading Screen (Visible briefly for redirects) -->
     <div id="redirecting-screen" class="hidden fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#12131A] text-center p-6">
         <div class="w-24 h-24 mb-6 border-4 border-t-[#D4AF37] border-r-transparent border-b-[#D4AF37] border-l-transparent rounded-full animate-spin"></div>
         <h2 class="font-serif-brand text-[#D4AF37] text-2xl tracking-widest mb-2">Pooja Sawariya</h2>
