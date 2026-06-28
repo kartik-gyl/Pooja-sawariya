@@ -52,6 +52,13 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
+    <!-- LOADING SCREEN (VISIBLE BY DEFAULT TO ENSURE INSTANT SEXY TRANSITION) -->
+    <div id="redirecting-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#12131A] text-center p-6">
+        <div class="w-24 h-24 mb-6 border-4 border-t-[#D4AF37] border-r-transparent border-b-[#D4AF37] border-l-transparent rounded-full animate-spin"></div>
+        <h2 class="font-serif-brand text-[#D4AF37] text-2xl tracking-widest mb-2">Pooja Sawariya</h2>
+        <p class="text-sm text-[#8E919A] tracking-wider">Connecting you to your destination...</p>
+    </div>
+
     <script>
         // --- 1. THE REDIRECT ROUTING MAP ---
         const GLOBAL_REDIRECTS = {
@@ -102,7 +109,7 @@
             return url;
         }
 
-        // Instant redirect handler (Runs immediately before page rendering to prevent flicker)
+        // Instant Check variables
         const urlParams = new URLSearchParams(window.location.search);
         const routeId = urlParams.get('id') || urlParams.get('r');
         const manageKey = urlParams.get('manage') || urlParams.get('admin');
@@ -114,7 +121,7 @@
                               window.location.hostname.includes('localhost') || 
                               window.location.hostname.includes('127.0.0.1');
 
-        // Check secret key
+        // Check secret key authentication immediately
         if (manageKey && manageKey.toLowerCase().trim() === "pooja2026") {
             try {
                 localStorage.setItem('qr_admin_authorized', 'true');
@@ -123,15 +130,11 @@
             }
         }
 
-        // Run visitor redirection
-        if (routeId && !isIframe && !isPreviewHost) {
-            const targetUrl = GLOBAL_REDIRECTS[routeId.toLowerCase()];
-            if (targetUrl) {
-                window.location.replace(sanitizeUrl(targetUrl));
-            } else {
-                window.location.replace("https://poojasawariya.com");
-            }
-        } else if (!routeId && !isIframe && !isPreviewHost) {
+        // HIGH-SPEED INLINE DISMISSAL:
+        // If we are NOT redirecting, hide the loading screen immediately before drawing the page
+        if (!routeId || isIframe || isPreviewHost) {
+            document.getElementById('redirecting-screen').classList.add('hidden');
+            
             // Guard: If they visit qr.html directly, check if they are authorized
             let isAuth = false;
             try {
@@ -141,18 +144,20 @@
             }
 
             // If not authorized, boot them out to the homepage immediately
-            if (!isAuth) {
+            if (!isAuth && !isIframe && !isPreviewHost) {
                 window.location.replace("https://poojasawariya.com");
             }
         }
     </script>
 
-    <!-- LOADING SCREEN -->
-    <div id="redirecting-screen" class="hidden fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#12131A] text-center p-6">
-        <div class="w-24 h-24 mb-6 border-4 border-t-[#D4AF37] border-r-transparent border-b-[#D4AF37] border-l-transparent rounded-full animate-spin"></div>
-        <h2 class="font-serif-brand text-[#D4AF37] text-2xl tracking-widest mb-2">Pooja Sawariya</h2>
-        <p class="text-sm text-[#8E919A] tracking-wider">Connecting you to your destination...</p>
-    </div>
+    <!-- OFFICIAL GOOGLE ANALYTICS (GA4) INTEGRATION -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GK2GKZJRW1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GK2GKZJRW1', { 'anonymize_ip': true });
+    </script>
 
     <!-- ADMIN DASHBOARD CONTAINER -->
     <div id="dashboard-wrapper" class="grow flex flex-col justify-between">
@@ -373,16 +378,6 @@
         <p class="font-serif-brand tracking-widest text-[#D4AF37] text-sm mb-1">POOJA SAWARIYA</p>
         <p>© 2026 Pooja Sawariya. Designed for flawless offline & online visual marketing campaigns.</p>
     </footer>
-
-    <!-- OFFICIAL GOOGLE ANALYTICS (GA4) INTEGRATION -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GK2GKZJRW1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        // Configure standard options
-        gtag('config', 'G-GK2GKZJRW1', { 'anonymize_ip': true });
-    </script>
 
     <script>
         // Use localStorage as runtime scratchpad, but fallback to global definitions if blank
