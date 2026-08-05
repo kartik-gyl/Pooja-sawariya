@@ -380,24 +380,21 @@
     </footer>
 
     <script>
-        // Use localStorage as runtime scratchpad, but fallback to global definitions if blank
-        let routes = {};
-        
+        // Synchronize routes directly with GLOBAL_REDIRECTS
+        let routes = { ...GLOBAL_REDIRECTS };
+
         try {
             const stored = localStorage.getItem('pooja_qr_routes');
             if (stored) {
-                routes = JSON.parse(stored);
-                // Smart merge: ensure default global paths exist in the user's workspace
-                Object.keys(GLOBAL_REDIRECTS).forEach(key => {
-                    if (routes[key] === undefined) {
-                        routes[key] = GLOBAL_REDIRECTS[key];
+                const storedRoutes = JSON.parse(stored);
+                // Merge stored routes while ensuring global defaults override outdated defaults
+                Object.keys(storedRoutes).forEach(key => {
+                    if (!GLOBAL_REDIRECTS[key]) {
+                        routes[key] = storedRoutes[key];
                     }
                 });
-                localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
-            } else {
-                routes = { ...GLOBAL_REDIRECTS };
-                localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
             }
+            localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
         } catch(e) {
             routes = { ...GLOBAL_REDIRECTS };
         }
@@ -407,7 +404,6 @@
             const tbody = document.getElementById('routes-table-body');
             tbody.innerHTML = '';
             
-            // Sort keys so website, books, and social media links stay at the top and song1-30 are ordered
             const keys = Object.keys(routes).sort((a, b) => {
                 const aIsSong = a.startsWith('song');
                 const bIsSong = b.startsWith('song');
@@ -457,7 +453,6 @@
             populateSelector();
         }
 
-        // Fill selection dynamic listings for QR customization preview
         function populateSelector() {
             const selector = document.getElementById('preview-selector');
             const currentValue = selector.value;
@@ -489,7 +484,6 @@
             updateQrPreview();
         }
 
-        // Color sync utilities
         function syncColorInput(type) {
             const hexInput = document.getElementById(`qr-color-${type}-hex`);
             const colorInput = document.getElementById(`qr-color-${type}`);
@@ -506,7 +500,6 @@
             document.getElementById('qr-color-light-hex').value = e.target.value;
         });
 
-        // Generate dynamic QR render in canvas preview
         let qrGeneratorInstance = null;
         function updateQrPreview() {
             const targetId = document.getElementById('preview-selector').value;
@@ -528,7 +521,6 @@
             });
         }
 
-        // Download PNG Image
         function downloadQR() {
             const canvasImg = document.getElementById('qr-canvas').querySelector('img');
             const selectedId = document.getElementById('preview-selector').value;
@@ -541,7 +533,6 @@
             }
         }
 
-        // Sync & Exporter logic
         function copyUpdatedHtml() {
             let currentFullHtml = document.documentElement.outerHTML;
             const routePlaceholderRegex = /const GLOBAL_REDIRECTS = \{[\s\S]*?\};/;
@@ -578,7 +569,6 @@
             showHUD("Downloaded ready-to-publish qr.html file!", "cloud_done");
         }
 
-        // Modal Action Interfaces
         function openModal(id) {
             document.getElementById(id).classList.remove('hidden');
         }
@@ -587,7 +577,6 @@
             document.getElementById(id).classList.add('hidden');
         }
 
-        // Smooth scroll
         function scrollToExporter() {
             document.getElementById('publish-section').scrollIntoView({ behavior: 'smooth' });
             document.getElementById('publish-section').classList.add('ring-2', 'ring-[#D4AF37]');
@@ -596,7 +585,6 @@
             }, 1500);
         }
 
-        // Copy short link helper
         function copyLink(key) {
             const host = window.location.origin + window.location.pathname;
             const fullUrl = `${host}?id=${key}`;
@@ -609,7 +597,6 @@
             showHUD(`Copied Dynamic URL for /${key}!`, "content_copy");
         }
 
-        // CRUD Operations
         function saveNewRoute() {
             const key = document.getElementById('new-route-id').value.toLowerCase().replace(/[^a-z0-9_-]/g, '').trim();
             let target = document.getElementById('new-route-target').value.trim();
@@ -659,7 +646,6 @@
             showHUD(`Redirection updated for /${key}!`, "published_with_changes");
         }
 
-        // CUSTOM MODAL CONFIRMATION
         let pendingDeleteKey = null;
         function deleteRoute(key) {
             pendingDeleteKey = key;
@@ -683,7 +669,6 @@
             pendingDeleteKey = null;
         };
 
-        // Log out admin
         function logOutAdmin() {
             try {
                 localStorage.removeItem('qr_admin_authorized');
@@ -691,7 +676,6 @@
             window.location.replace("https://poojasawariya.com");
         }
 
-        // HUD notification toast alert
         function showHUD(text, icon = "info") {
             const hud = document.getElementById('hud-message');
             document.getElementById('hud-text').textContent = text;
@@ -703,17 +687,14 @@
             }, 3000);
         }
 
-        // EXECUTION & LAUNCH LOGIC
         window.addEventListener('load', () => {
             const isRedirecting = (routeId && !isIframe && !isPreviewHost);
             
             if (isRedirecting) {
                 const targetUrl = GLOBAL_REDIRECTS[routeId.toLowerCase()];
                 if (targetUrl) {
-                    // 1. Reveal transition screen
                     document.getElementById('redirecting-screen').classList.remove('hidden');
 
-                    // 2. Track Event with Beacon fallback transport
                     if (typeof gtag === 'function') {
                         gtag('event', 'qr_scan', {
                             'qr_id': routeId.toLowerCase(),
@@ -722,7 +703,6 @@
                         });
                     }
 
-                    // 3. Keep loading active for exactly 1.2s to log analytics, then forward
                     setTimeout(() => {
                         window.location.replace(sanitizeUrl(targetUrl));
                     }, 1200);
