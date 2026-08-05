@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GK2GKZJRW1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GK2GKZJRW1');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musical Journey — Humsafar | Pooja Sawariya</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --parchment: #FDFBF1;
+      --sand: #D9BFAB;
+      --indigo: #2B3D52;
+      --indigo-muted: #536780;
+      --saffron: #E1A337;
+      --border: rgba(43, 61, 82, 0.15);
+      --border-light: rgba(253, 251, 241, 0.15);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--parchment);color:var(--indigo);font-family:'Lato',sans-serif;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;}
+
+    body::after {
+      content:'';
+      position:fixed;
+      inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      pointer-events:none;
+      z-index:9999;
+      mix-blend-mode: multiply;
+    }
+
+    h1, h2, h3, h4, .serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ═══ NAV ═══ */
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0.6rem 5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(253, 251, 241, 0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+    .nav-logo{cursor:pointer; display:flex; align-items:center; gap: 0.8rem; text-decoration:none;}
+    .nav-logo-icon { height: 55px; width: auto; transition: transform 0.3s ease; }
+    .nav-name-script { 
+      font-family: 'Alex Brush', cursive; 
+      font-size: 2.4rem; 
+      color: var(--indigo); 
+      letter-spacing: 0; 
+      margin-top: 12px;
+      white-space: nowrap;
+    }
+    .nav-logo:hover .nav-logo-icon { transform: scale(1.05); }
+
+    .nav-links{display:flex;gap:3rem;list-style:none;}
+    .nav-links a{font-family:'Lato',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.15em;color:var(--indigo-muted);text-decoration:none;text-transform:uppercase;transition:color .3s;position:relative;cursor:pointer;}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--saffron);transition:width .4s cubic-bezier(0.2, 0.8, 0.2, 1);}
+    .nav-links a:hover{color:var(--saffron);}
+    .nav-links a:hover::after{width:100%;}
+
+    /* ═══ BUTTONS ═══ */
+    .btn-primary{font-family:'Lato',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;padding:1.1rem 2.4rem;background:var(--saffron);color:var(--indigo);text-decoration:none;cursor:pointer;border:none;transition:all .4s ease;display:inline-block;}
+    .btn-primary:hover{background:var(--indigo);color:var(--saffron);}
+    .btn-secondary{font-family:'Lato',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;padding:1.05rem 2.4rem;background:transparent;color:var(--indigo);text-decoration:none;border:1px solid var(--indigo);cursor:pointer;transition:all .4s ease;display:inline-block;}
+    .btn-secondary:hover{border-color:var(--saffron);color:var(--indigo);background:var(--saffron);}
+
+    /* ═══ MARQUEE ═══ */
+    .mq{overflow:hidden;background:var(--saffron);padding:0.8rem 0;white-space:nowrap;border-top:1px solid var(--indigo);border-bottom:1px solid var(--indigo);margin-top:85px;}
+    .mq-i{display:inline-flex;animation:marquee 32s linear infinite;gap:2rem;align-items:center;}
+    .mi{font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--indigo);letter-spacing:.08em;padding:0 .8rem;font-weight:800;}
+    .md{color:var(--parchment);font-size:.5rem;}
+    @keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+    /* ═══ HERO / COMING SOON SECTION ═══ */
+    .songs-hero { padding: 5rem 5rem; background: var(--indigo); color: var(--parchment); position: relative; overflow: hidden; flex-grow: 1; display: flex; align-items: center; }
+    .songs-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 40%, rgba(225, 163, 55, 0.15), transparent 70%); pointer-events: none; }
+    .sh-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: center; width: 100%; z-index: 2; }
+    
+    .sh-visual { position: relative; display: flex; justify-content: center; align-items: center; padding: 2rem 0; }
+    .sh-disc { 
+      position: absolute; 
+      width: 340px; 
+      height: 340px; 
+      background: conic-gradient(
+        from 0deg,
+        #0d0906 0deg, #241910 30deg, #4d3622 60deg, #241910 90deg, #0d0906 120deg,
+        #0d0906 180deg, #241910 210deg, #4d3622 240deg, #241910 270deg, #0d0906 300deg
+      ), repeating-radial-gradient(rgba(0,0,0,0) 0px, rgba(0,0,0,0.5) 1px, rgba(255,255,255,0.03) 3px, rgba(0,0,0,0.6) 5px);
+      background-blend-mode: overlay;
+      border-radius: 50%; 
+      border: 4px solid var(--saffron); 
+      z-index: 1; 
+      transform: translateX(60px); 
+      box-shadow: 0 15px 40px rgba(0,0,0,0.65), inset 0 0 40px rgba(0,0,0,0.9); 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      animation: spin 18s linear infinite; 
+    }
+    .sh-disc-label { 
+      width: 130px; 
+      height: 130px; 
+      background: linear-gradient(135deg, var(--sand), var(--parchment)); 
+      border-radius: 50%; 
+      border: 3px double var(--indigo); 
+      position: relative; 
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      z-index: 5;
+    }
+    .sh-disc-label::before {
+      content: 'हमसफ़र';
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--indigo);
+      letter-spacing: 0.05em;
+      transform: rotate(-15deg);
+    }
+    .sh-disc-label::after { 
+      content: ''; 
+      position: absolute; 
+      inset: 40%; 
+      border-radius: 50%; 
+      background: var(--indigo);
+      border: 2px solid var(--saffron);
+    }
+    .sh-book-cover { width: 270px; aspect-ratio: 3/4.2; z-index: 2; box-shadow: 15px 25px 50px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; position: relative; overflow: hidden; background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('humsafar cover blurred.jpg'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .sh-book-cover::after { content: 'हमसफ़र'; position: absolute; font-family: 'Noto Sans Devanagari', sans-serif; font-size: 2.6rem; color: var(--saffron); font-weight: 500;}
+    @keyframes spin { from { transform: translateX(60px) rotate(0deg); } to { transform: translateX(60px) rotate(360deg); } }
+
+    .sh-content { text-align: left; }
+    .sh-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(225, 163, 55, 0.15); border: 1px solid var(--saffron); padding: 0.4rem 1rem; border-radius: 50px; color: var(--saffron); font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .sh-badge-pulse { width: 8px; height: 8px; background: var(--saffron); border-radius: 50%; box-shadow: 0 0 10px var(--saffron); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
+
+    .sh-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4.5vw, 4.2rem); line-height: 1.1; margin-bottom: 1rem; color: var(--parchment); }
+    .sh-title em { color: var(--saffron); font-style: italic; }
+    .sh-subtitle-hi { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 1.4rem; color: var(--sand); font-weight: 300; margin-bottom: 1.8rem; letter-spacing: 0.04em; }
+    .sh-desc { font-size: 1.15rem; line-height: 1.8; color: rgba(253, 251, 241, 0.85); margin-bottom: 2.2rem; font-weight: 300; max-width: 580px; }
+    
+    .track-status-box { background: rgba(18, 25, 35, 0.6); border: 1px solid rgba(225, 163, 55, 0.3); border-left: 3px solid var(--saffron); padding: 1.5rem; border-radius: 2px; margin-bottom: 2.5rem; backdrop-filter: blur(5px); }
+    .ts-header { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--saffron); text-transform: uppercase; margin-bottom: 0.4rem; display: block; }
+    .ts-text { font-size: 1.05rem; color: var(--parchment); font-weight: 400; line-height: 1.5; }
+    .ts-text-hi { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 0.95rem; color: var(--sand); margin-top: 0.4rem; font-style: italic; }
+
+    .sh-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
+
+    /* ═══ FOOTER ═══ */
+    footer{background:var(--indigo);padding:2.5rem 5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-light);}
+    .footer-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; cursor: pointer; }
+    .footer-logo-icon { height: 40px; width: auto; filter: brightness(0) invert(1); }
+    .footer-name-script { 
+      font-family: 'Alex Brush', cursive; 
+      font-size: 1.8rem; 
+      color: #fff; 
+      letter-spacing: 0; 
+      margin-top: 8px;
+      white-space: nowrap;
+    }
+    .f-copy{font-family:'Lato',sans-serif;font-size:.75rem;color:rgba(253, 251, 241,.6);letter-spacing:.1em;text-transform:uppercase; font-weight: 700;}
+
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:1024px){
+      nav{padding:1.2rem 2.5rem;}
+      .nav-name-script { font-size: 1.8rem; margin-top: 8px; }
+      .nav-logo-icon { height: 45px; }
+      .mq { margin-top: 75px; }
+      .songs-hero { padding: 4rem 2.5rem; }
+      .sh-container { grid-template-columns: 1fr; gap: 3.5rem; text-align: center; }
+      .sh-content { text-align: center; }
+      .sh-badge { margin: 0 auto 1.5rem; }
+      .sh-desc { margin: 0 auto 2.2rem; }
+      .track-status-box { text-align: left; }
+      .sh-actions { justify-content: center; }
+      .sh-visual { margin-bottom: 1rem; }
+      footer{padding:2.5rem 2.5rem;flex-direction:column;gap:1.5rem;text-align:center;}
+      .footer-name-script { font-size: 1.5rem; }
+    }
+    @media(max-width:640px){
+      .nav-links{display:none;}
+      .nav-name-script { font-size: 1.5rem; margin-top: 6px; }
+      .nav-logo-icon { height: 40px; }
+      .sh-disc { width: 220px; height: 220px; transform: translateX(30px); }
+      .sh-book-cover { width: 190px; }
+      .sh-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <img src="icon.png" alt="Logo Icon" class="nav-logo-icon">
+      <span class="nav-name-script">Pooja Sawariya</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about-a">About</a></li>
+      <li><a href="index.html#books-a">Books</a></li>
+      <li><a href="index.html#awards-a">Awards</a></li>
+      <li><a href="index.html#connect-a">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- Animated Marquee Banner -->
+  <div class="mq">
+    <div class="mq-i">
+      <span class="mi">हमसफ़र — संगीतमय काव्य यात्रा</span><span class="md">•</span>
+      <span class="mi">Humsafar — 30 Musical Compositions</span><span class="md">•</span>
+      <span class="mi">Coming Soon on YouTube &amp; Audio Platforms</span><span class="md">•</span>
+      <span class="mi">पूजा साँवरिया</span><span class="md">•</span>
+      <span class="mi">हमसफ़र — संगीतमय काव्य यात्रा</span><span class="md">•</span>
+      <span class="mi">Humsafar — 30 Musical Compositions</span><span class="md">•</span>
+      <span class="mi">Coming Soon on YouTube &amp; Audio Platforms</span><span class="md">•</span>
+      <span class="mi">पूजा साँवरिया</span><span class="md">•</span>
+    </div>
+  </div>
+
+  <!-- Main Hero / Prelude Section -->
+  <main class="songs-hero">
+    <div class="sh-container">
+      
+      <!-- Left Column: Album Vinyl Visual -->
+      <div class="sh-visual">
+        <div class="sh-disc">
+          <div class="sh-disc-label"></div>
+        </div>
+        <div class="sh-book-cover"></div>
+      </div>
+
+      <!-- Right Column: Information & Status -->
+      <div class="sh-content">
+        <div class="sh-badge">
+          <span class="sh-badge-pulse"></span>
+          <span>Musical Album Prelude</span>
+        </div>
+
+        <h1 class="sh-title">हमसफ़र<br><em>The Musical Journey</em></h1>
+        <p class="sh-subtitle-hi">30 कविताएँ · 30 गीत · एक अटूट संगीतमय काव्य यात्रा</p>
+
+        <p class="sh-desc">
+          You have unlocked a musical dimension of Pooja Sawariya's latest book, <strong>Humsafar</strong>. Each QR code in the published volume corresponds to one of 30 specially composed songs, blending classic Hindi poetic cadence with rich musical orchestration.
+        </p>
+
+        <div class="track-status-box">
+          <span class="ts-header">Production &amp; Release Status</span>
+          <div class="ts-text">The official studio recordings and visual performances are currently in final release preparation.</div>
+          <div class="ts-text-hi">"शीघ्र ही YouTube एवं सभी प्रमुख म्यूज़िक प्लेटफ़ॉर्म्स पर उपलब्ध होगा।"</div>
+        </div>
+
+        <div class="sh-actions">
+          <a href="https://www.youtube.com/@sawariyaa_pooja" target="_blank" class="btn-primary">
+            <span>Subscribe on YouTube</span>
+          </a>
+          <a href="index.html" class="btn-secondary">
+            <span>Explore The Main Website</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <a class="footer-logo" href="index.html">
+      <img src="icon.png" alt="Logo Icon" class="footer-logo-icon">
+      <span class="footer-name-script">Pooja Sawariya</span>
+    </a>
+    <div class="f-copy">Proudly Created by Kartik Goyal</div>
+  </footer>
+
+</body>
+</html>
