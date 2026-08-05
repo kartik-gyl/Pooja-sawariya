@@ -66,37 +66,37 @@
             "samarpan": "https://www.amazon.in/Samarpan-Pooja-Sawariya/dp/B0GTBSN49T/",
             "instagram": "https://instagram.com/sawariyaa_pooja",
             "youtube": "https://youtube.com/@sawariyaa_pooja",
-            "humsafar": "https://poojasawariya.com",
-            "song1": "https://poojasawariya.com",
-            "song2": "https://poojasawariya.com",
-            "song3": "https://poojasawariya.com",
-            "song4": "https://poojasawariya.com",
-            "song5": "https://poojasawariya.com",
-            "song6": "https://poojasawariya.com",
-            "song7": "https://poojasawariya.com",
-            "song8": "https://poojasawariya.com",
-            "song9": "https://poojasawariya.com",
-            "song10": "https://poojasawariya.com",
-            "song11": "https://poojasawariya.com",
-            "song12": "https://poojasawariya.com",
-            "song13": "https://poojasawariya.com",
-            "song14": "https://poojasawariya.com",
-            "song15": "https://poojasawariya.com",
-            "song16": "https://poojasawariya.com",
-            "song17": "https://poojasawariya.com",
-            "song18": "https://poojasawariya.com",
-            "song19": "https://poojasawariya.com",
-            "song20": "https://poojasawariya.com",
-            "song21": "https://poojasawariya.com",
-            "song22": "https://poojasawariya.com",
-            "song23": "https://poojasawariya.com",
-            "song24": "https://poojasawariya.com",
-            "song25": "https://poojasawariya.com",
-            "song26": "https://poojasawariya.com",
-            "song27": "https://poojasawariya.com",
-            "song28": "https://poojasawariya.com",
-            "song29": "https://poojasawariya.com",
-            "song30": "https://poojasawariya.com"
+            "humsafar": "https://poojasawariya.com/songs.html",
+            "song1": "https://poojasawariya.com/songs.html",
+            "song2": "https://poojasawariya.com/songs.html",
+            "song3": "https://poojasawariya.com/songs.html",
+            "song4": "https://poojasawariya.com/songs.html",
+            "song5": "https://poojasawariya.com/songs.html",
+            "song6": "https://poojasawariya.com/songs.html",
+            "song7": "https://poojasawariya.com/songs.html",
+            "song8": "https://poojasawariya.com/songs.html",
+            "song9": "https://poojasawariya.com/songs.html",
+            "song10": "https://poojasawariya.com/songs.html",
+            "song11": "https://poojasawariya.com/songs.html",
+            "song12": "https://poojasawariya.com/songs.html",
+            "song13": "https://poojasawariya.com/songs.html",
+            "song14": "https://poojasawariya.com/songs.html",
+            "song15": "https://poojasawariya.com/songs.html",
+            "song16": "https://poojasawariya.com/songs.html",
+            "song17": "https://poojasawariya.com/songs.html",
+            "song18": "https://poojasawariya.com/songs.html",
+            "song19": "https://poojasawariya.com/songs.html",
+            "song20": "https://poojasawariya.com/songs.html",
+            "song21": "https://poojasawariya.com/songs.html",
+            "song22": "https://poojasawariya.com/songs.html",
+            "song23": "https://poojasawariya.com/songs.html",
+            "song24": "https://poojasawariya.com/songs.html",
+            "song25": "https://poojasawariya.com/songs.html",
+            "song26": "https://poojasawariya.com/songs.html",
+            "song27": "https://poojasawariya.com/songs.html",
+            "song28": "https://poojasawariya.com/songs.html",
+            "song29": "https://poojasawariya.com/songs.html",
+            "song30": "https://poojasawariya.com/songs.html"
         };
 
         // Helper to ensure URLs have a protocol (http/https) so they don't redirect relatively
@@ -317,7 +317,7 @@
                 </div>
                 <div>
                     <label class="block text-xs uppercase text-[#8E919A] tracking-wider font-semibold mb-2">Destination Target URL</label>
-                    <input type="url" id="new-route-target" placeholder="https://www.amazon.in/dp/..." class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 text-sm gold-glow">
+                    <input type="url" id="new-route-target" placeholder="https://poojasawariya.com/songs.html" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 text-sm gold-glow">
                 </div>
             </div>
             <div class="p-6 border-t border-[#2D2F38] flex gap-3 justify-end">
@@ -387,7 +387,7 @@
             const stored = localStorage.getItem('pooja_qr_routes');
             if (stored) {
                 routes = JSON.parse(stored);
-                // Smart merge: ensure new predefined default global paths exist in the user's workspace
+                // Smart merge: ensure default global paths exist in the user's workspace
                 Object.keys(GLOBAL_REDIRECTS).forEach(key => {
                     if (routes[key] === undefined) {
                         routes[key] = GLOBAL_REDIRECTS[key];
@@ -529,7 +529,6 @@
         }
 
         // Download PNG Image
-        // Canvas-safe clipboard copy / download helper
         function downloadQR() {
             const canvasImg = document.getElementById('qr-canvas').querySelector('img');
             const selectedId = document.getElementById('preview-selector').value;
@@ -542,15 +541,8 @@
             }
         }
 
-        // Sync & Exporter logic (Zero database Static Syncing)
-        function getRedirectionMapString() {
-            return JSON.stringify(routes, null, 12)
-                .replace(/^\{/, '{\n')
-                .replace(/\}$/, '\n        }');
-        }
-
+        // Sync & Exporter logic
         function copyUpdatedHtml() {
-            // Read self HTML template, replace current routing definition with newly modified JSON config
             let currentFullHtml = document.documentElement.outerHTML;
             const routePlaceholderRegex = /const GLOBAL_REDIRECTS = \{[\s\S]*?\};/;
             
@@ -558,7 +550,6 @@
             const freshlyMergedHTML = `<!DOCTYPE html>\n<html lang="en">\n${currentFullHtml}\n</html>`
                 .replace(routePlaceholderRegex, updatedRedirectionBlock);
 
-            // Copy to clipboard fallback logic
             const tempTextarea = document.createElement('textarea');
             tempTextarea.value = freshlyMergedHTML;
             document.body.appendChild(tempTextarea);
@@ -639,7 +630,6 @@
             renderTable();
             closeModal('add-modal');
             
-            // Clear fields
             document.getElementById('new-route-id').value = '';
             document.getElementById('new-route-target').value = '';
             showHUD("New dynamic redirect mapped successfully!", "check_circle");
@@ -652,7 +642,6 @@
             openModal('edit-modal');
         }
 
-        // Save modification
         function saveEditedRoute() {
             const key = document.getElementById('edit-route-id-hidden').value;
             let target = document.getElementById('edit-route-target').value.trim();
@@ -715,7 +704,6 @@
         }
 
         // EXECUTION & LAUNCH LOGIC
-        // Runs immediately on loading the page
         window.addEventListener('load', () => {
             const isRedirecting = (routeId && !isIframe && !isPreviewHost);
             
@@ -725,7 +713,7 @@
                     // 1. Reveal transition screen
                     document.getElementById('redirecting-screen').classList.remove('hidden');
 
-                    // 2. Track Event with Beacon fallback transport to ensure payload completion
+                    // 2. Track Event with Beacon fallback transport
                     if (typeof gtag === 'function') {
                         gtag('event', 'qr_scan', {
                             'qr_id': routeId.toLowerCase(),
@@ -740,11 +728,9 @@
                     }, 1200);
 
                 } else {
-                    // Fallback to home page if invalid code ID
                     window.location.replace("https://poojasawariya.com");
                 }
             } else {
-                // If not redirecting, check auth and open table directory
                 let isAuth = false;
                 try {
                     isAuth = localStorage.getItem('qr_admin_authorized') === 'true';
@@ -752,7 +738,6 @@
                     isAuth = window.isInMemoryAuthorized;
                 }
 
-                // Redirect to homepage if they tried to visit directly without auth
                 if (!isAuth && !isIframe && !isPreviewHost) {
                     window.location.replace("https://poojasawariya.com");
                 } else {
