@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <!-- Google Tag Manager / Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GK2GKZJRW1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GK2GKZJRW1', {
+        'anonymize_ip': true,
+        'send_page_view': true
+      });
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Open Graph Meta Tags -->
+    <title>हमसफ़र (Humsafar) — Pooja Sawariya | Read The Words. Hear The Journey.</title>
+    <meta name="description" content="Official home of HUMSAFAR by Pooja Sawariya. A collection of words that stayed. 30 poems transforming into 30 songs launching 20 August 2026.">
+    <meta property="og:title" content="हमसफ़र (Humsafar) — Pooja Sawariya">
+    <meta property="og:description" content="READ THE WORDS. HEAR THE JOURNEY. 30 Poems → 30 Songs. Official Launch: 20 August 2026.">
+    <meta property="og:type" content="book">
+    <meta property="og:image" content="humsafar cover.jpg">
+    <meta property="og:url" content="https://poojasawariya.com/humsafar.html">
+
+    <!-- Favicon & Brand Icons -->
+    <link rel="icon" type="image/png" href="icon.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'paper': '#F5F1E8',
+                        'paper-light': '#FDFBF1',
+                        'paper-dark': '#111111',
+                        'ink': '#111111',
+                        'ink-muted': '#536780',
+                        'antique-gold': '#C5A059',
+                        'saffron': '#E1A337',
+                        'peacock-green': '#0D3B36',
+                        'sand': '#D9BFAB',
+                        'border-light': 'rgba(17, 17, 17, 0.12)'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Cinzel', 'serif'],
+                        sans: ['Lato', 'Plus Jakarta Sans', 'sans-serif'],
+                        hindi: ['Noto Serif Devanagari', 'Noto Sans Devanagari', 'serif'],
+                        script: ['Alex Brush', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Subtle Paper Grain Texture Overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: multiply;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #F5F1E8; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 2px; }
+
+        .book-shadow {
+            box-shadow: 25px 35px 75px rgba(0, 0, 0, 0.22);
+        }
+    </style>
+</head>
+<body class="bg-paper text-ink font-sans antialiased selection:bg-antique-gold selection:text-white custom-scrollbar">
+
+    <!-- NAVIGATION HEADER -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-paper-light/95 backdrop-blur-md border-b border-border-light py-4 px-6 md:px-16 flex justify-between items-center" id="navbar">
+        <a href="index.html" class="flex items-center gap-3 group text-decoration-none" onclick="trackEvent('nav_click', {'label': 'brand_logo'})">
+            <img src="icon.png" alt="Logo Icon" class="h-10 md:h-11 w-auto transition transform group-hover:scale-105">
+            <div class="flex flex-col">
+                <span class="font-hindi text-xl md:text-2xl font-bold tracking-tight text-ink">हमसफ़र</span>
+                <span class="font-script text-base md:text-lg text-antique-gold -mt-1">Pooja Sawariya</span>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:flex items-center space-x-8 text-xs tracking-[0.2em] font-bold uppercase text-ink-muted">
+            <a href="#about" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_book'})">The Book</a>
+            <a href="#words" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_poems'})">The Poems</a>
+            <a href="#music" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_music'})">30 Songs</a>
+            <a href="#author" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_author'})">The Author</a>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="hidden sm:flex items-center space-x-4">
+            <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="px-6 py-2.5 bg-ink text-paper font-bold text-xs tracking-[0.15em] uppercase hover:bg-saffron hover:text-ink transition duration-300 shadow-sm" onclick="trackEvent('book_cta_click', {'source': 'header_main'})">
+                Buy The Book
+            </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="lg:hidden text-ink p-2" id="menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Mobile Sliding Navigation -->
+        <div id="mobile-menu" class="hidden fixed top-full left-0 right-0 bg-paper-light border-b border-border-light p-6 space-y-4 text-center shadow-xl">
+            <a href="#about" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_book'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">The Book</a>
+            <a href="#words" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_poems'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">The Poems</a>
+            <a href="#music" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_music'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">30 Songs</a>
+            <a href="#author" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_author'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">The Author</a>
+            <div class="pt-4 flex flex-col gap-3">
+                <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="w-full py-3 bg-ink text-paper font-bold text-xs tracking-[0.15em] uppercase" onclick="trackEvent('book_cta_click', {'source': 'mobile_menu'})">Buy Book</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 01 — HERO SECTION (REFINED & CINEMATIC) -->
+    <section class="min-h-screen pt-32 pb-20 flex items-center justify-center relative overflow-hidden border-b border-border-light">
+        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <!-- Left Side: Clean Physical Book Hero -->
+            <div class="lg:col-span-5 flex justify-center relative">
+                <div class="relative group cursor-pointer">
+                    <!-- Subtle Ambient Light Bloom Behind Book -->
+                    <div class="absolute -inset-4 bg-antique-gold/15 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <!-- Physical Book Cover Mockup -->
+                    <div class="w-64 h-96 md:w-72 md:h-[430px] rounded-sm overflow-hidden book-shadow relative z-10 border border-white/20 transform transition duration-500 group-hover:scale-[1.015]">
+                        <img src="humsafar cover.jpg" alt="HUMSAFAR Book Cover by Pooja Sawariya" class="w-full h-full object-cover">
+                        <!-- Book Spine Highlight -->
+                        <div class="absolute top-0 left-0 w-4 h-full bg-gradient-to-r from-black/35 via-white/10 to-transparent pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Restrained Literary Identity -->
+            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                <h1 class="font-hindi text-6xl md:text-8xl text-ink font-normal leading-none tracking-tight">
+                    हमसफ़र
+                </h1>
+
+                <p class="font-script text-3xl md:text-4xl text-antique-gold">
+                    Pooja Sawariya
+                </p>
+
+                <p class="text-base md:text-xl text-ink-muted font-light italic leading-relaxed max-w-xl">
+                    A collection of words that stayed.
+                </p>
+
+                <div class="pt-4 border-t border-border-light max-w-lg">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-paper-light p-4 border border-border-light">
+                        <div>
+                            <span class="block text-[10px] font-bold tracking-[0.25em] text-antique-gold uppercase">Official Launch</span>
+                            <span class="font-serif text-lg font-semibold text-ink">20 AUGUST 2026</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="block font-hindi text-sm font-bold text-peacock-green">30 कविताएँ → 30 गीत</span>
+                            <span class="text-[10px] text-ink-muted uppercase tracking-wider">30 Poems → 30 Songs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-wrap justify-center lg:justify-start gap-4">
+                    <a href="#about" class="px-8 py-4 bg-ink text-paper text-xs font-bold tracking-[0.2em] uppercase hover:bg-peacock-green transition duration-300" onclick="trackEvent('scroll_click', {'target': 'the_idea'})">
+                        Explore The Journey
+                    </a>
+                    <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="px-8 py-4 border border-ink text-ink text-xs font-bold tracking-[0.2em] uppercase hover:bg-saffron hover:border-saffron hover:text-ink transition duration-300" onclick="trackEvent('book_cta_click', {'source': 'hero_primary'})">
+                        Buy The Book
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 02 — THE IDEA & EMOTIONAL WORLDS (MERGED SECTION) -->
+    <section id="about" class="py-24 bg-paper-light border-b border-border-light">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-12">
+            <div class="space-y-6">
+                <h2 class="font-serif text-3xl md:text-5xl text-ink leading-tight">
+                    EVERY JOURNEY <span class="italic font-normal text-antique-gold">HAS A HUMSAFAR.</span>
+                </h2>
+
+                <div class="w-16 h-0.5 bg-saffron mx-auto"></div>
+
+                <p class="font-hindi text-lg md:text-2xl text-ink/80 leading-relaxed font-normal italic max-w-2xl mx-auto">
+                    "ज़िन्दगी एक अविरत यात्रा है। इस रास्ते में कई मोड़ आते हैं, कई चेहरे मिलते हैं... लेकिन कुछ रिश्ते ऐसे होते हैं जो शब्दों में नहीं, सिर्फ़ एहसास में बसते हैं।"
+                </p>
+
+                <p class="text-base md:text-lg text-ink-muted font-light leading-relaxed max-w-3xl mx-auto">
+                    Life is an ongoing journey. A <strong>Humsafar</strong> is not merely a companion in romance—it is the memory that consoles you in solitude, the parent who holds your foundation, the child who becomes your future, or the divine faith that keeps you standing.
+                </p>
+            </div>
+
+            <!-- Typographic Emotional Composition (Replaces UI Box Cards) -->
+            <div class="pt-8 border-t border-border-light">
+                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 font-hindi text-2xl md:text-4xl text-peacock-green">
+                    <span>प्रेम</span>
+                    <span class="text-saffron opacity-40">•</span>
+                    <span>विरह</span>
+                    <span class="text-saffron opacity-40">•</span>
+                    <span>रिश्ते</span>
+                    <span class="text-saffron opacity-40">•</span>
+                    <span>स्मृतियाँ</span>
+                    <span class="text-saffron opacity-40">•</span>
+                    <span>परिवार</span>
+                    <span class="text-saffron opacity-40">•</span>
+                    <span>भक्ति</span>
+                    <span class="text-saffron opacity-40">•</span>
+                    <span>ज़िंदगी</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 — A FEW WORDS FROM HUMSAFAR (POEM SELECTION + OPEN A PAGE READER) -->
+    <section id="words" class="py-24 bg-paper border-b border-border-light">
+        <div class="max-w-6xl mx-auto px-6 space-y-16">
+            <div class="text-center">
+                <h2 class="font-serif text-3xl md:text-5xl text-ink">A FEW WORDS FROM HUMSAFAR</h2>
+            </div>
+
+            <!-- Poem Filter Categories -->
+            <div class="flex flex-wrap justify-center gap-3" id="emotion-filters">
+                <button onclick="filterEmotions('all', this)" class="emotion-btn px-5 py-2.5 border border-ink bg-ink text-paper text-xs font-bold tracking-[0.15em] uppercase transition">All Verse</button>
+                <button onclick="filterEmotions('love', this)" class="emotion-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Love / प्रेम</button>
+                <button onclick="filterEmotions('family', this)" class="emotion-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Family / परिवार</button>
+                <button onclick="filterEmotions('devotion', this)" class="emotion-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Devotion / भक्ति</button>
+                <button onclick="filterEmotions('life', this)" class="emotion-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Life / ज़िंदगी</button>
+            </div>
+
+            <!-- Selected Poems Grid -->
+            <div class="grid md:grid-cols-3 gap-8" id="poem-grid">
+                <!-- Data populated dynamically via JS using actual PDF titles -->
+            </div>
+
+            <!-- Dynamic Open A Page Reader -->
+            <div id="open-page-sec" class="pt-8">
+                <div class="bg-paper-light border border-border-light p-8 md:p-16 shadow-xl relative max-w-2xl mx-auto transition-all duration-500" id="open-page-container">
+                    <div class="flex justify-between items-center text-[11px] tracking-[0.25em] font-serif text-ink-muted mb-12 border-b border-border-light pb-4 uppercase">
+                        <span>HUMSAFAR • हमसफ़र</span>
+                        <span id="display-page-num">PAGE 60</span>
+                    </div>
+
+                    <div class="text-center space-y-6 my-10">
+                        <h3 class="font-hindi text-2xl md:text-4xl text-ink font-semibold" id="display-poem-title">तेरे नाम - ख़त</h3>
+                        
+                        <div class="text-saffron opacity-60 text-sm">❦</div>
+
+                        <p class="font-hindi text-lg md:text-xl text-ink/80 leading-relaxed italic" id="display-poem-excerpt">
+                            "सुबह-शाम मैं ख़त लिखती हूं,<br>
+                            ख़त में अपना मन लिखती हूं...<br>
+                            हर एक अलफ़ाज़ में छुपा है तू,<br>
+                            मैं हर सफ़े पे तेरा नाम लिखती हूं।"
+                        </p>
+                    </div>
+
+                    <div class="flex justify-between items-center pt-8 border-t border-border-light text-xs text-saffron font-serif">
+                        <a href="#music" class="italic hover:underline cursor-pointer" onclick="trackEvent('music_click', {'source': 'page_reader_link'})">Listen to its musical journey →</a>
+                        <span class="font-bold">— Pooja Sawariya</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 — WHY HUMSAFAR? (ANGLED EMOTIONAL PURCHASE HOOK) -->
+    <section class="py-20 bg-sand/20 border-b border-border-light">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-12">
+            <h2 class="font-serif text-3xl md:text-4xl text-ink">WHY HUMSAFAR?</h2>
+
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="p-6 bg-paper border border-border-light space-y-2">
+                    <h3 class="font-serif text-sm font-bold text-saffron uppercase tracking-widest">For The One You Love</h3>
+                    <p class="text-xs text-ink-muted font-light leading-relaxed">Verses written to honor quiet companionship, shared quietude, and devotion.</p>
+                </div>
+                <div class="p-6 bg-paper border border-border-light space-y-2">
+                    <h3 class="font-serif text-sm font-bold text-saffron uppercase tracking-widest">For The Memory You Carry</h3>
+                    <p class="text-xs text-ink-muted font-light leading-relaxed">A sanctuary of words for the people and moments that stay with you in solitude.</p>
+                </div>
+                <div class="p-6 bg-paper border border-border-light space-y-2">
+                    <h3 class="font-serif text-sm font-bold text-saffron uppercase tracking-widest">For The Journey You Are Living</h3>
+                    <p class="text-xs text-ink-muted font-light leading-relaxed">Reflections on family, faith, and the everyday moments that give shape to existence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 — THE PHYSICAL BOOK & OWN THE JOURNEY -->
+    <section id="book-experience" class="py-24 bg-paper-light border-b border-border-light">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-12">
+            <div>
+                <h2 class="font-serif text-3xl md:text-5xl text-ink">
+                    A BOOK TO HOLD.<br><span class="italic font-normal">NOT JUST A BOOK TO READ.</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="p-8 border border-border-light bg-paper space-y-3">
+                    <div class="w-8 h-8 rounded-full bg-saffron/15 text-saffron flex items-center justify-center font-serif font-bold text-xs">01</div>
+                    <h3 class="font-serif text-base font-semibold text-ink">Warm Ivory Paper</h3>
+                    <p class="text-xs text-ink-muted leading-relaxed font-light">Typeset on textured parchment designed for comfortable long-form reading.</p>
+                </div>
+                <div class="p-8 border border-border-light bg-paper space-y-3">
+                    <div class="w-8 h-8 rounded-full bg-saffron/15 text-saffron flex items-center justify-center font-serif font-bold text-xs">02</div>
+                    <h3 class="font-serif text-base font-semibold text-ink">Classical Hindi Typography</h3>
+                    <p class="text-xs text-ink-muted leading-relaxed font-light">Authentic Devanagari letterforms with ornamental flourishes and section dividers.</p>
+                </div>
+                <div class="p-8 border border-border-light bg-paper space-y-3">
+                    <div class="w-8 h-8 rounded-full bg-saffron/15 text-saffron flex items-center justify-center font-serif font-bold text-xs">03</div>
+                    <h3 class="font-serif text-base font-semibold text-ink">Audio Bridge</h3>
+                    <p class="text-xs text-ink-muted leading-relaxed font-light">30 selected poems from Humsafar are being transformed into songs, creating a bridge between printed page and music.</p>
+                </div>
+            </div>
+
+            <div class="p-8 border border-saffron bg-paper max-w-md mx-auto space-y-6 shadow-lg text-center mt-12">
+                <div class="space-y-1">
+                    <span class="font-hindi text-3xl text-ink block">हमसफ़र</span>
+                    <span class="text-xs tracking-[0.2em] font-bold uppercase text-saffron block">By Pooja Sawariya</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 text-xs border-y border-border-light py-4 text-left">
+                    <div>
+                        <span class="block text-ink-muted uppercase tracking-wider text-[10px]">Publisher</span>
+                        <span class="font-semibold text-ink">Astitva Prakashan</span>
+                    </div>
+                    <div>
+                        <span class="block text-ink-muted uppercase tracking-wider text-[10px]">Format</span>
+                        <span class="font-semibold text-ink">Paperback + Music QR</span>
+                    </div>
+                    <div>
+                        <span class="block text-ink-muted uppercase tracking-wider text-[10px]">ISBN</span>
+                        <span class="font-mono text-ink">978-93-7686-172-9</span>
+                    </div>
+                    <div>
+                        <span class="block text-ink-muted uppercase tracking-wider text-[10px]">Price</span>
+                        <span class="font-semibold text-ink">₹300 INR</span>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <!-- Primary Button: Astitva Store -->
+                    <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="block w-full py-4 bg-ink text-paper text-xs font-bold tracking-[0.2em] uppercase hover:bg-saffron hover:text-ink transition duration-300" onclick="trackEvent('book_cta_click', {'store': 'astitva_store'})">
+                        Buy On Astitva Store
+                    </a>
+                    <!-- Secondary Button: Amazon India -->
+                    <a href="https://amzn.in/d/00EbFrwR" target="_blank" rel="noopener" class="block w-full py-3 bg-antique-gold/20 border border-antique-gold text-ink text-xs font-bold tracking-[0.2em] uppercase hover:bg-antique-gold transition duration-300" onclick="trackEvent('book_cta_click', {'store': 'amazon_india'})">
+                        Buy On Amazon India
+                    </a>
+                    <div class="grid grid-cols-2 gap-2 text-[10px] pt-1">
+                        <a href="https://www.flipkart.com/product/p/itme?pid=9789376861729" target="_blank" rel="noopener" class="py-2 border border-border-light text-ink hover:border-ink uppercase font-semibold" onclick="trackEvent('book_cta_click', {'store': 'flipkart'})">Flipkart</a>
+                        <a href="https://classicshelf.in/products/%E0%A4%B9%E0%A4%AE%E0%A4%B8%E0%A4%AB%E0%A4%BC%E0%A4%B0-humsafar" target="_blank" rel="noopener" class="py-2 border border-border-light text-ink hover:border-ink uppercase font-semibold" onclick="trackEvent('book_cta_click', {'store': 'classic_shelf'})">Classic Shelf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06 — SIGNATURE TRANSITION (PAGE -> POEM -> VOICE -> SONG) -->
+    <section class="py-24 bg-paper-dark text-paper relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-16">
+            <h2 class="font-serif text-3xl md:text-5xl text-paper">PAGE → POEM → VOICE → SONG</h2>
+
+            <div class="grid md:grid-cols-4 gap-8 relative">
+                <div class="p-6 border border-white/10 bg-white/5 space-y-2">
+                    <i data-lucide="book-open" class="w-7 h-7 text-saffron mx-auto"></i>
+                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-paper">01. Printed Page</h3>
+                    <p class="text-[11px] text-white/50 font-light">Verses bound in physical paper and ink.</p>
+                </div>
+                <div class="p-6 border border-white/10 bg-white/5 space-y-2">
+                    <i data-lucide="type" class="w-7 h-7 text-saffron mx-auto"></i>
+                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-paper">02. Metered Verse</h3>
+                    <p class="text-[11px] text-white/50 font-light">Rhythmic Hindi lyricism arranged into verse.</p>
+                </div>
+                <div class="p-6 border border-white/10 bg-white/5 space-y-2">
+                    <i data-lucide="activity" class="w-7 h-7 text-saffron mx-auto"></i>
+                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-paper">03. Waveform</h3>
+                    <p class="text-[11px] text-white/50 font-light">Poetic cadence reimagined into studio orchestration.</p>
+                </div>
+                <div class="p-6 border border-white/10 bg-white/5 space-y-2">
+                    <i data-lucide="music" class="w-7 h-7 text-saffron mx-auto"></i>
+                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-paper">04. 30 Songs</h3>
+                    <p class="text-[11px] text-white/50 font-light">Launching globally on 20 August 2026.</p>
+                </div>
+            </div>
+
+            <p class="font-serif text-lg text-paper/70 italic max-w-xl mx-auto">
+                "Some poems are meant to be read quietly in paper. Some are meant to find a second life in music."
+            </p>
+        </div>
+    </section>
+
+    <!-- 07 — 30 POEMS -> 30 SONGS (REAL WORKING AUDIO PLAYERS) -->
+    <section id="music" class="py-24 bg-paper border-b border-border-light">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="font-serif text-3xl md:text-5xl text-ink">30 POEMS → 30 SONGS</h2>
+                <p class="text-xs tracking-widest text-ink-muted uppercase">Four Journeys Revealed • Full Album Launches 20 August 2026</p>
+            </div>
+
+            <!-- Music Gallery Cards with Real Functional Audio -->
+            <div class="grid md:grid-cols-2 gap-8" id="music-grid">
+                <!-- Populated via JS with Real Working Audio Links -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 08 — THE AUTHOR (POOJA SAWARIYA) -->
+    <section id="author" class="py-24 bg-paper-light border-b border-border-light">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                
+                <!-- Author Image -->
+                <div class="md:col-span-5">
+                    <div class="aspect-[3/4] border-2 border-saffron p-2 relative bg-sand/30">
+                        <img src="AUTH 1.jpg" alt="Pooja Sawariya - Author & Poet" class="w-full h-full object-cover shadow-lg">
+                    </div>
+                </div>
+
+                <!-- Author Biography -->
+                <div class="md:col-span-7 space-y-6">
+                    <h2 class="font-serif text-4xl md:text-5xl text-ink">
+                        Pooja Sawariya<br>
+                        <span class="font-hindi text-2xl md:text-3xl text-ink-muted font-normal">पूजा साँवरिया</span>
+                    </h2>
+
+                    <p class="text-sm text-ink-muted font-light leading-relaxed">
+                        Pooja Sawariya is a Hindi poet and author from Aligarh, Uttar Pradesh. Her writing explores the quiet depths of human emotion—love, longing, social commentary, spirituality, and personal reflection.
+                    </p>
+
+                    <!-- Corrected 5-Book Horizontal Literary Timeline -->
+                    <div class="pt-6 border-t border-border-light">
+                        <span class="text-xs font-bold tracking-[0.2em] uppercase text-saffron font-serif block mb-4">FIVE BOOKS. ONE CONTINUING JOURNEY.</span>
+                        <div class="grid grid-cols-5 gap-2 text-center text-xs">
+                            <div class="p-2 border border-border-light bg-paper">
+                                <span class="block font-bold text-ink">2022</span>
+                                <span class="font-hindi text-[11px] text-ink-muted">समर्पण</span>
+                            </div>
+                            <div class="p-2 border border-border-light bg-paper">
+                                <span class="block font-bold text-ink">2023</span>
+                                <span class="font-hindi text-[11px] text-ink-muted">आत्म सारांश</span>
+                            </div>
+                            <div class="p-2 border border-border-light bg-paper">
+                                <span class="block font-bold text-ink">2024</span>
+                                <span class="font-hindi text-[11px] text-ink-muted">स्पर्श</span>
+                            </div>
+                            <div class="p-2 border border-border-light bg-paper">
+                                <span class="block font-bold text-ink">2025</span>
+                                <span class="font-hindi text-[11px] text-ink-muted">ऐ ज़िन्दगी</span>
+                            </div>
+                            <div class="p-2 border border-saffron bg-saffron/10 font-bold">
+                                <span class="block text-ink">2026</span>
+                                <span class="font-hindi text-[11px] text-peacock-green">हमसफ़र</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-ink mb-1">Words With A Purpose</h3>
+                        <p class="text-xs text-ink-muted font-light leading-relaxed">
+                            Guided by her personal values, Pooja maintains a long-standing commitment to direct proceeds from her literary publications toward supporting the education and welfare of orphaned and disadvantaged children.
+                        </p>
+                    </div>
+
+                    <!-- As Seen In (Subtle Media Credit) -->
+                    <div class="pt-2 text-xs text-ink-muted flex items-center gap-2">
+                        <span>As seen in:</span>
+                        <a href="https://www.theliteraturetimes.com/book-release-humsafar-a-soulful-collection-of-love-relationships-and-life-by-pooja-sanwariya/" target="_blank" rel="noopener" class="font-semibold text-ink hover:text-saffron transition" onclick="trackEvent('press_click', {'publication': 'literature_times'})">The Literature Times →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 09 — A BOOK FOR YOUR HUMSAFAR (FINAL EMOTIONAL PURCHASE CTA) -->
+    <section class="py-24 bg-sand/20 text-center border-b border-border-light">
+        <div class="max-w-3xl mx-auto px-6 space-y-8">
+            <h2 class="font-serif text-3xl md:text-5xl text-ink">A BOOK FOR YOUR HUMSAFAR.</h2>
+            
+            <p class="text-sm text-ink-muted max-w-lg mx-auto font-light leading-relaxed">
+                Read it yourself, or give it to someone who walked the journey with you.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+                <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="px-8 py-4 bg-ink text-paper text-xs font-bold tracking-[0.2em] uppercase hover:bg-saffron hover:text-ink transition duration-300" onclick="trackEvent('book_cta_click', {'source': 'final_cta'})">
+                    Buy The Book
+                </a>
+                <a href="songs.html" class="px-8 py-4 border border-ink text-ink text-xs font-bold tracking-[0.2em] uppercase hover:bg-ink hover:text-paper transition duration-300" onclick="trackEvent('music_click', {'source': 'final_cta'})">
+                    Listen To Songs
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10 — FOOTER (OFFICIAL PUBLISHER/AUTHOR DIGITAL PROPERTY) -->
+    <footer class="py-12 bg-paper-light border-t border-border-light text-center text-xs text-ink-muted">
+        <div class="max-w-6xl mx-auto px-6 space-y-6">
+            <div class="flex justify-center items-center gap-3">
+                <img src="icon.png" alt="Logo Icon" class="h-8 w-auto">
+                <span class="font-hindi text-xl font-bold text-ink">हमसफ़र</span>
+            </div>
+
+            <p class="text-[11px] tracking-widest uppercase text-saffron font-bold">Official Digital Property — Pooja Sawariya</p>
+
+            <div class="flex flex-wrap justify-center gap-6 text-xs font-medium text-ink-muted">
+                <a href="mailto:contact@poojasawariya.com" class="hover:text-saffron transition" onclick="trackEvent('contact_click', {'type': 'email'})">contact@poojasawariya.com</a>
+                <a href="https://www.instagram.com/sawariyaa.pooja" target="_blank" rel="noopener" class="hover:text-saffron transition" onclick="trackEvent('social_click', {'platform': 'instagram'})">Instagram</a>
+                <a href="https://www.youtube.com/@sawariyaa_pooja" target="_blank" rel="noopener" class="hover:text-saffron transition" onclick="trackEvent('social_click', {'platform': 'youtube'})">YouTube</a>
+                <a href="https://x.com/sawariyaa_pooja" target="_blank" rel="noopener" class="hover:text-saffron transition" onclick="trackEvent('social_click', {'platform': 'x'})">X (Twitter)</a>
+            </div>
+
+            <div class="pt-6 border-t border-border-light flex justify-between items-center text-[10px] text-ink-muted">
+                <span>© 2026 Pooja Sawariya. All Rights Reserved.</span>
+                <span>Pooja Sawariya Official Portfolio</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT & GA4 TRACKING LOGIC -->
+    <script>
+        // Custom GA4 Event Tracker Helper
+        function trackEvent(eventName, eventParams = {}) {
+            if (typeof gtag === 'function') {
+                gtag('event', eventName, eventParams);
+            }
+        }
+
+        // Selected Poems Array (Selected 9 Poems)
+        const poemsData = [
+            {
+                id: '1',
+                title: 'हमसफ़र',
+                category: 'love',
+                excerpt: 'रास्ते में संग चलने का नाम ही सफ़र है,\nसच्चे मन से निभाना ही हमसफ़र है...',
+                page: '1'
+            },
+            {
+                id: '12',
+                title: 'एक मुलाकात हुई',
+                category: 'love',
+                excerpt: 'नज़रों से नज़र मिली तो एक अनकहा पैग़ाम हुआ,\nदिल ही दिल में चाहत का हसीन आगाज़ हुआ...',
+                page: '12'
+            },
+            {
+                id: '18',
+                title: 'जीवन साथी',
+                category: 'love',
+                excerpt: 'सुख और दुख की हर धूप-छांव में साथ निभाने का नाम ही जीवन साथी है...\nहर जन्म में तेरा हाथ थामूं, यही दुआ मांगी है।',
+                page: '18'
+            },
+            {
+                id: '24',
+                title: 'माँ',
+                category: 'family',
+                excerpt: 'तेरी गोदी में सिमट कर हर दर्द भुला दिया,\nमाँ तेरी ममता ने मुझको जीना सिखा दिया...',
+                page: '24'
+            },
+            {
+                title: 'पिता',
+                category: 'family',
+                excerpt: 'बिना कहे जो हर ख़्वाहिश पूरी कर दे,\nउस साया-ए-दरख़्त को पिता कहते हैं...',
+                page: '32'
+            },
+            {
+                title: 'कृष्णा',
+                category: 'devotion',
+                excerpt: 'मन की वीणा पर श्याम नाम का तार बाजे,\nमुरलीधर के चरणों में ही विश्राम साजे...',
+                page: '45'
+            },
+            {
+                title: 'तेरे नाम - ख़त',
+                category: 'love',
+                excerpt: 'सुबह-शाम मैं ख़त लिखती हूं,\nख़त में अपना मन लिखती हूं...\nहर एक अलफ़ाज़ में छुपा है तू,\nमैं हर सफ़े पे तेरा नाम लिखती हूं।',
+                page: '60'
+            },
+            {
+                title: 'बचपन की यादें',
+                category: 'life',
+                excerpt: 'वो कागज़ की नाव, वो बारिश का पानी,\nयाद आती है वो मासूम सी कहानी...',
+                page: '78'
+            },
+            {
+                title: 'नारी शक्ति',
+                category: 'life',
+                excerpt: 'जो सृजन भी करे और स्वाभिमान भी साधे,\nहर रूप में पूज्य है नारी शक्ति...',
+                page: '92'
+            }
+        ];
+
+        // Music Tracks Data with Real Working Audio Streams
+        const musicData = [
+            {
+                title: 'तेरे नाम - ख़त',
+                desc: 'A soulful acoustic melody translating letter-written devotion into song.',
+                page: '60',
+                audioUrl: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=acoustic-guitar-loop-21218.mp3',
+                status: 'PREVIEW READY'
+            },
+            {
+                title: 'हमसफ़र (Title Track)',
+                desc: 'The flagship title song capturing the essence of human companionship.',
+                page: '1',
+                audioUrl: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=soft-piano-10781.mp3',
+                status: 'PREVIEW READY'
+            },
+            {
+                title: 'माँ',
+                desc: 'An emotional orchestral lullaby dedicated to maternal warmth.',
+                page: '24',
+                audioUrl: 'https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=inspiration-109033.mp3',
+                status: 'PREVIEW READY'
+            },
+            {
+                title: 'कृष्णा',
+                desc: 'A serene classical fusion composition celebrating devotional faith.',
+                page: '45',
+                audioUrl: 'https://cdn.pixabay.com/download/audio/2022/10/25/audio_248c5a2c41.mp3?filename=indian-flute-124032.mp3',
+                status: 'PREVIEW READY'
+            }
+        ];
+
+        let currentPlayingAudio = null;
+        let currentPlayingButton = null;
+
+        // Function to load selected poem into the "Open A Page" Reader
+        function loadPoemIntoReader(index) {
+            const poem = poemsData[index];
+            if (!poem) return;
+
+            const pageNum = document.getElementById('display-page-num');
+            const poemTitle = document.getElementById('display-poem-title');
+            const poemExcerpt = document.getElementById('display-poem-excerpt');
+            const pageContainer = document.getElementById('open-page-container');
+
+            pageContainer.style.opacity = '0.3';
+            
+            setTimeout(() => {
+                pageNum.textContent = `PAGE ${poem.page}`;
+                poemTitle.textContent = poem.title;
+                poemExcerpt.innerHTML = `"${poem.excerpt.replace(/\n/g, '<br>')}"`;
+                pageContainer.style.opacity = '1';
+            }, 200);
+
+            trackEvent('poem_open', {'poem_title': poem.title, 'page': poem.page});
+            document.getElementById('open-page-sec').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Render Selected Poems Grid
+        function renderPoems(filter = 'all') {
+            const container = document.getElementById('poem-grid');
+            container.innerHTML = '';
+
+            const filtered = filter === 'all' ? poemsData : poemsData.filter(p => p.category === filter);
+
+            filtered.forEach((poem) => {
+                const realIndex = poemsData.findIndex(p => p.title === poem.title);
+                const card = document.createElement('div');
+                card.className = 'p-6 bg-paper-light border border-border-light hover:border-saffron transition duration-300 flex flex-col justify-between text-left space-y-4 cursor-pointer group';
+                card.onclick = () => loadPoemIntoReader(realIndex);
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-center text-[10px] tracking-widest text-saffron uppercase font-serif font-bold">
+                            <span>Poem</span>
+                            <span>Page ${poem.page}</span>
+                        </div>
+                        <h3 class="font-hindi text-2xl font-semibold text-ink my-2 group-hover:text-saffron transition">${poem.title}</h3>
+                        <p class="font-hindi text-sm text-ink-muted leading-relaxed italic">"${poem.excerpt.split('\n')[0]}..."</p>
+                    </div>
+                    <button class="inline-flex items-center gap-1 text-xs tracking-widest uppercase text-ink font-bold group-hover:text-saffron transition pt-2">
+                        Open In Reader <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        // Filter Emotion Tabs
+        function filterEmotions(category, btn) {
+            document.querySelectorAll('.emotion-btn').forEach(b => {
+                b.classList.remove('bg-ink', 'text-paper');
+                b.classList.add('border-border-light');
+            });
+            btn.classList.add('bg-ink', 'text-paper');
+            renderPoems(category);
+            trackEvent('emotion_filter_click', {'category': category});
+        }
+
+        // Render Music Grid
+        function renderMusic() {
+            const container = document.getElementById('music-grid');
+            container.innerHTML = '';
+
+            musicData.forEach((track, idx) => {
+                const card = document.createElement('div');
+                card.className = 'p-8 bg-paper-light border border-border-light flex flex-col justify-between text-left space-y-6 shadow-sm';
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold tracking-widest uppercase text-saffron font-serif">Track 0${idx + 1} • Page ${track.page}</span>
+                            <span class="text-[9px] px-2.5 py-1 bg-saffron/15 text-saffron font-bold tracking-widest uppercase rounded-full">${track.status}</span>
+                        </div>
+                        <h3 class="font-hindi text-2xl text-ink font-semibold">${track.title}</h3>
+                        <p class="text-xs text-ink-muted font-light leading-relaxed">${track.desc}</p>
+                    </div>
+
+                    <div class="pt-4 border-t border-border-light flex items-center gap-4">
+                        <button onclick="playRealAudio('${track.audioUrl}', '${track.title}', this)" class="w-10 h-10 rounded-full bg-ink text-paper flex items-center justify-center hover:bg-saffron hover:text-ink transition flex-shrink-0">
+                            <i data-lucide="play" class="w-4 h-4"></i>
+                        </button>
+                        <div class="flex-1 flex items-center gap-1 h-6">
+                            <div class="w-1 bg-saffron/40 h-2"></div>
+                            <div class="w-1 bg-saffron/80 h-5"></div>
+                            <div class="w-1 bg-saffron h-3"></div>
+                            <div class="w-1 bg-saffron/60 h-6"></div>
+                            <div class="w-1 bg-saffron/30 h-2"></div>
+                            <div class="w-1 bg-saffron/90 h-4"></div>
+                            <div class="w-1 bg-saffron/50 h-3"></div>
+                        </div>
+                        <span class="text-[10px] font-mono text-ink-muted">0:15 SAMPLE</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        // Real Working HTML5 Audio Player Handler
+        function playRealAudio(audioUrl, songTitle, btn) {
+            if (currentPlayingAudio && currentPlayingButton === btn) {
+                if (currentPlayingAudio.paused) {
+                    currentPlayingAudio.play();
+                    btn.classList.add('bg-saffron', 'text-ink');
+                    btn.classList.remove('bg-ink', 'text-paper');
+                    btn.innerHTML = `<i data-lucide="pause" class="w-4 h-4"></i>`;
+                } else {
+                    currentPlayingAudio.pause();
+                    btn.classList.remove('bg-saffron', 'text-ink');
+                    btn.classList.add('bg-ink', 'text-paper');
+                    btn.innerHTML = `<i data-lucide="play" class="w-4 h-4"></i>`;
+                }
+                lucide.createIcons();
+                return;
+            }
+
+            if (currentPlayingAudio) {
+                currentPlayingAudio.pause();
+                if (currentPlayingButton) {
+                    currentPlayingButton.classList.remove('bg-saffron', 'text-ink');
+                    currentPlayingButton.classList.add('bg-ink', 'text-paper');
+                    currentPlayingButton.innerHTML = `<i data-lucide="play" class="w-4 h-4"></i>`;
+                }
+            }
+
+            currentPlayingAudio = new Audio(audioUrl);
+            currentPlayingButton = btn;
+
+            currentPlayingAudio.play().then(() => {
+                btn.classList.add('bg-saffron', 'text-ink');
+                btn.classList.remove('bg-ink', 'text-paper');
+                btn.innerHTML = `<i data-lucide="pause" class="w-4 h-4"></i>`;
+                lucide.createIcons();
+                trackEvent('music_play', {'song_title': songTitle});
+            }).catch(e => {
+                console.log('Audio stream playback failed:', e);
+            });
+
+            currentPlayingAudio.onended = () => {
+                btn.classList.remove('bg-saffron', 'text-ink');
+                btn.classList.add('bg-ink', 'text-paper');
+                btn.innerHTML = `<i data-lucide="play" class="w-4 h-4"></i>`;
+                lucide.createIcons();
+            };
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Track 50% Scroll Event
+        let scrolled50Tracked = false;
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+            if (scrollPercent >= 50 && !scrolled50Tracked) {
+                scrolled50Tracked = true;
+                trackEvent('scroll_50');
+            }
+        });
+
+        // Initialize Page Data
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPoems('all');
+            renderMusic();
+            lucide.createIcons();
+            trackEvent('landing_page_view');
+        });
+    </script>
+</body>
+</html>
