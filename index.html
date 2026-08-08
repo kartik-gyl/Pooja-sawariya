@@ -268,7 +268,7 @@
   /* ═══ FOOTER ═══ */
   footer{background:var(--indigo);padding:3.5rem 5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-light);}
   .footer-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; cursor: pointer; }
-  .footer-logo-icon { height: 40px; width: auto; filter: brightness(0) invert(1); } /* Makes icon white */
+  .footer-logo-icon { height: 40px; width: auto; filter: brightness(0) invert(1); }
   .footer-name-script { 
     font-family: 'Alex Brush', cursive; 
     font-size: 1.8rem; 
@@ -330,12 +330,10 @@
   .also-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:.8rem;color:var(--saffron);margin-bottom:.5rem;display:block;font-weight:700;}
   .also-cta-lnk{font-family:'Lato',sans-serif;font-weight:900;font-size:.65rem;letter-spacing:.2em;color:var(--saffron);text-transform:uppercase;}
 
-  /* Inauguration Gallery Styles */
-  .inaug-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
-  .inaug-item { border-radius: 4px; overflow: hidden; border: 1px solid var(--border); background: var(--sand); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
-  .inaug-item:hover { transform: translateY(-5px); }
-  .inaug-img { width: 100%; height: auto; display: block; }
-  .inaug-caption { padding: 1rem; font-size: 0.9rem; color: var(--indigo-muted); font-style: italic; border-top: 1px solid var(--border); text-align: center; }
+  /* Press Card Extra Styles */
+  .press-card { margin-top: 2.5rem; padding: 2.2rem; border: 1px solid var(--border); background: var(--sand); border-left: 4px solid var(--saffron); display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .press-info h4 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--indigo); margin-bottom: 0.4rem; }
+  .press-info p { font-size: 1rem; color: var(--indigo-muted); font-style: italic; }
 
   /* ═══ AWARD GALLERY PAGE ═══ */
   .gallery-pg-wrap { padding: 120px 5rem 6rem; max-width: 1200px; margin: 0 auto; }
@@ -503,7 +501,7 @@
     <div class="nr-content reveal rd2">
       <span class="sec-eyebrow">Musical Album Launching August 20, 2026</span>
       <h2 class="nr-title">हमसफ़र<br><em>Humsafar</em></h2>
-      <span class="nr-pub">Published by Astitva Publications</span>
+      <span class="nr-pub">Published by Astitva Prakashan</span>
       <p class="nr-desc">Prepare for a groundbreaking artistic experience. "Humsafar" is a multisensory journey through poetry and music that explores the companionship of life. On August 20, 2026 — celebrating the author's birthday — the complete musical album will officially launch.</p>
       
       <div class="nr-features">
@@ -622,7 +620,7 @@
     <h2 class="cl-title">Available in<br><em>Print &amp; Digital</em></h2>
     <p class="cl-sub">All five collections are available in paperback. Each book is a new journey — pick one and let the words find you.</p>
     <div class="amazon-list">
-      <a href="songs.html" class="al-row"><div class="al-dot d5"></div><div class="al-info"><span class="al-en">Humsafar (Music & Book)</span><span class="al-hi">हमसफ़र</span></div><span class="al-arr">→</span></a>
+      <a href="https://amzn.in/d/00EbFrwR" target="_blank" class="al-row"><div class="al-dot d5"></div><div class="al-info"><span class="al-en">Humsafar</span><span class="al-hi">हमसफ़र</span></div><span class="al-arr">→</span></a>
       <a href="https://www.amazon.in/Sparsh-Ek-Ehsaas-Pooja-Sawariya/dp/8119251725/" target="_blank" class="al-row"><div class="al-dot d1"></div><div class="al-info"><span class="al-en">Sparsh Ek Ehsaas</span><span class="al-hi">स्पर्श एक एहसास</span></div><span class="al-arr">→</span></a>
       <a href="https://www.amazon.in/Aatm-Saransh-Pooja-Sawariya/dp/B0CR7FZ4BM/" target="_blank" class="al-row"><div class="al-dot d2"></div><div class="al-info"><span class="al-en">Aatm Saransh</span><span class="al-hi">आत्म सारांश</span></div><span class="al-arr">→</span></a>
       <a href="https://www.amazon.in/Samarpan-%E0%A4%B8%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%AA%E0%A4%A3-Pooja-Sawariya/dp/B0GTBSN49T/" target="_blank" class="al-row"><div class="al-dot d3"></div><div class="al-info"><span class="al-en">Samarpan</span><span class="al-hi">समर्पण</span></div><span class="al-arr">→</span></a>
@@ -749,15 +747,19 @@
 <script>
 const B = {
   humsafar:{en:'Humsafar',hi:'हमसफ़र', img:'humsafar cover.jpg', bgPos:'center', bgSize:'cover',
-    isbn:'—',pub:'Astitva Publications',pgs:'—',lang:'Hindi',fmt:'Paperback with Audio QR',yr:'2026',
+    isbn:'978-9376861729',pub:'Astitva Prakashan',pgs:'—',lang:'Hindi',fmt:'Paperback with Audio QR',yr:'2026',
     links:[
-      {name:'Songs & Prelude Page',url:'songs.html'}
+      {name:'Amazon India',url:'https://amzn.in/d/00EbFrwR'},
+      {name:'Flipkart',url:'https://www.flipkart.com/product/p/itme?pid=9789376861729'},
+      {name:'Astitva Store',url:'https://astitvaprakashan.com/product/humsafar/'},
+      {name:'Classic Shelf',url:'https://classicshelf.in/products/%E0%A4%B9%E0%A4%AE%E0%A4%B8%E0%A4%AB%E0%A4%BC%E0%A4%B0-humsafar'}
     ],
+    press:{title:'Book Release Coverage on The Literature Times',url:'https://www.theliteraturetimes.com/book-release-humsafar-a-soulful-collection-of-love-relationships-and-life-by-pooja-sanwariya/'},
     tag:'A Multisensory Journey — 30 Poems Paired with 30 Soulful Compositions.',
     tagHi:'संगीतमय काव्य यात्रा — 30 कविताएँ और 30 अद्भुत रचनाएँ।',
     desc:`<p><em>Humsafar</em> is Pooja Sawariya's fifth and most ambitious work—a groundbreaking multisensory experience blending classical Hindi verse with an official 30-song soundtrack launching on August 20, 2026, honoring the author's birthday.</p>`,
     theme:'Companionship • Music • Poetry • Life Journey',themeHi:'हमसफ़र • संगीत • कविता • जीवन यात्रा',
-    details:[{k:'Genre',v:'Hindi Poetry & Music Album'},{k:'Publisher',v:'Astitva Publications'},{k:'Language',v:'Hindi'},{k:'Format',v:'Paperback & Digital Audio'},{k:'Album Release',v:'August 20, 2026'}]},
+    details:[{k:'Genre',v:'Hindi Poetry & Music Album'},{k:'ISBN',v:'978-9376861729'},{k:'Publisher',v:'Astitva Prakashan'},{k:'Language',v:'Hindi'},{k:'Format',v:'Paperback & Digital Audio'},{k:'Album Release',v:'August 20, 2026'}]},
   sparsh:{en:'Sparsh Ek Ehsaas',hi:'स्पर्श एक एहसास', img:'sparsh.jpeg', bgPos:'right center', bgSize:'auto 100%',
     isbn:'978-8119251728',pub:'Rajmangal Publishers',pgs:'—',lang:'Hindi',fmt:'Paperback',yr:'2023',
     links:[
@@ -840,8 +842,18 @@ function showBook(key){
     </div>`).join('');
   const dcards=b.details.map(d=>`<div class="dcard"><span class="dk">${d.k}</span><span class="dv">${d.v}</span></div>`).join('');
   const actionLinks = (b.links || []).map((lnk, i) => 
-    `<a href="${lnk.url}" ${lnk.url.startsWith('http') ? 'target="_blank"' : ''} class="${i === 0 ? 'btn-primary' : 'btn-secondary'}"><span>${lnk.name.includes('Buy') || lnk.name.includes('Page') ? '' : 'Buy on '}${lnk.name}</span></a>`
+    `<a href="${lnk.url}" ${lnk.url.startsWith('http') ? 'target="_blank"' : ''} class="${i === 0 ? 'btn-primary' : 'btn-secondary'}"><span>${lnk.name.startsWith('Buy') || lnk.name.includes('Page') ? '' : 'Buy on '}${lnk.name}</span></a>`
   ).join('');
+
+  const pressBlock = b.press ? `
+    <div class="press-card">
+      <div class="press-info">
+        <h4>${b.press.title}</h4>
+        <p>Featured release coverage in The Literature Times.</p>
+      </div>
+      <a href="${b.press.url}" target="_blank" class="btn-primary"><span>Read Press Article →</span></a>
+    </div>
+  ` : '';
 
   document.getElementById('book-content').innerHTML=`
     <section class="book-pg">
@@ -861,7 +873,7 @@ function showBook(key){
         </div>
       </div>
       <div class="bp-body">
-        <div class="bps"><h2 class="bps-title">About the Book <span>/ पुस्तक के बारे में</span></h2><div class="bps-text">${b.desc}</div></div>
+        <div class="bps"><h2 class="bps-title">About the Book <span>/ पुस्तक के बारे में</span></h2><div class="bps-text">${b.desc}</div>${pressBlock}</div>
         <div class="bps"><h2 class="bps-title">Themes <span>/ विषय-वस्तु</span></h2><p style="font-size:1.15rem;color:var(--indigo-muted);line-height:1.8;font-weight:400;">${b.theme}</p></div>
         <div class="bps"><h2 class="bps-title">Book Details <span>/ विवरण</span></h2><div class="detail-grid">${dcards}</div></div>
         <div class="bp-author-strip">
