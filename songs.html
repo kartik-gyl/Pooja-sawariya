@@ -1,284 +1,645 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi" class="scroll-smooth">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GK2GKZJRW1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GK2GKZJRW1');
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Musical Journey — Humsafar | Pooja Sawariya</title>
-  <link rel="icon" type="image/png" href="icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --parchment: #FDFBF1;
-      --sand: #D9BFAB;
-      --indigo: #2B3D52;
-      --indigo-muted: #536780;
-      --saffron: #E1A337;
-      --border: rgba(43, 61, 82, 0.15);
-      --border-light: rgba(253, 251, 241, 0.15);
-    }
-
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{background:var(--parchment);color:var(--indigo);font-family:'Lato',sans-serif;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;}
-
-    body::after {
-      content:'';
-      position:fixed;
-      inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-      pointer-events:none;
-      z-index:9999;
-      mix-blend-mode: multiply;
-    }
-
-    h1, h2, h3, h4, .serif {
-      font-family: 'Playfair Display', serif;
-    }
-
-    /* ═══ NAV ═══ */
-    nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0.6rem 5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(253, 251, 241, 0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
-    .nav-logo{cursor:pointer; display:flex; align-items:center; gap: 0.8rem; text-decoration:none;}
-    .nav-logo-icon { height: 55px; width: auto; transition: transform 0.3s ease; }
-    .nav-name-script { 
-      font-family: 'Alex Brush', cursive; 
-      font-size: 2.4rem; 
-      color: var(--indigo); 
-      letter-spacing: 0; 
-      margin-top: 12px;
-      white-space: nowrap;
-    }
-    .nav-logo:hover .nav-logo-icon { transform: scale(1.05); }
-
-    .nav-links{display:flex;gap:3rem;list-style:none;}
-    .nav-links a{font-family:'Lato',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.15em;color:var(--indigo-muted);text-decoration:none;text-transform:uppercase;transition:color .3s;position:relative;cursor:pointer;}
-    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--saffron);transition:width .4s cubic-bezier(0.2, 0.8, 0.2, 1);}
-    .nav-links a:hover{color:var(--saffron);}
-    .nav-links a:hover::after{width:100%;}
-
-    /* ═══ BUTTONS ═══ */
-    .btn-primary{font-family:'Lato',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;padding:1.1rem 2.4rem;background:var(--saffron);color:var(--indigo);text-decoration:none;cursor:pointer;border:none;transition:all .4s ease;display:inline-block;}
-    .btn-primary:hover{background:var(--indigo);color:var(--saffron);}
-    .btn-secondary{font-family:'Lato',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;padding:1.05rem 2.4rem;background:transparent;color:var(--indigo);text-decoration:none;border:1px solid var(--indigo);cursor:pointer;transition:all .4s ease;display:inline-block;}
-    .btn-secondary:hover{border-color:var(--saffron);color:var(--indigo);background:var(--saffron);}
-
-    /* ═══ MARQUEE ═══ */
-    .mq{overflow:hidden;background:var(--saffron);padding:0.8rem 0;white-space:nowrap;border-top:1px solid var(--indigo);border-bottom:1px solid var(--indigo);margin-top:85px;}
-    .mq-i{display:inline-flex;animation:marquee 32s linear infinite;gap:2rem;align-items:center;}
-    .mi{font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--indigo);letter-spacing:.08em;padding:0 .8rem;font-weight:800;}
-    .md{color:var(--parchment);font-size:.5rem;}
-    @keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-
-    /* ═══ HERO / COMING SOON SECTION ═══ */
-    .songs-hero { padding: 5rem 5rem; background: var(--indigo); color: var(--parchment); position: relative; overflow: hidden; flex-grow: 1; display: flex; align-items: center; }
-    .songs-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 40%, rgba(225, 163, 55, 0.15), transparent 70%); pointer-events: none; }
-    .sh-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: center; width: 100%; z-index: 2; }
+    <!-- Google Tag Manager / Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GK2GKZJRW1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GK2GKZJRW1', {
+        'anonymize_ip': true,
+        'send_page_view': true
+      });
+    </script>
     
-    .sh-visual { position: relative; display: flex; justify-content: center; align-items: center; padding: 2rem 0; }
-    .sh-disc { 
-      position: absolute; 
-      width: 340px; 
-      height: 340px; 
-      background: conic-gradient(
-        from 0deg,
-        #0d0906 0deg, #241910 30deg, #4d3622 60deg, #241910 90deg, #0d0906 120deg,
-        #0d0906 180deg, #241910 210deg, #4d3622 240deg, #241910 270deg, #0d0906 300deg
-      ), repeating-radial-gradient(rgba(0,0,0,0) 0px, rgba(0,0,0,0.5) 1px, rgba(255,255,255,0.03) 3px, rgba(0,0,0,0.6) 5px);
-      background-blend-mode: overlay;
-      border-radius: 50%; 
-      border: 4px solid var(--saffron); 
-      z-index: 1; 
-      transform: translateX(60px); 
-      box-shadow: 0 15px 40px rgba(0,0,0,0.65), inset 0 0 40px rgba(0,0,0,0.9); 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      animation: spin 18s linear infinite; 
-    }
-    .sh-disc-label { 
-      width: 130px; 
-      height: 130px; 
-      background: linear-gradient(135deg, var(--sand), var(--parchment)); 
-      border-radius: 50%; 
-      border: 3px double var(--indigo); 
-      position: relative; 
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      z-index: 5;
-    }
-    .sh-disc-label::before {
-      content: 'हमसफ़र';
-      font-family: 'Noto Sans Devanagari', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--indigo);
-      letter-spacing: 0.05em;
-      transform: rotate(-15deg);
-    }
-    .sh-disc-label::after { 
-      content: ''; 
-      position: absolute; 
-      inset: 40%; 
-      border-radius: 50%; 
-      background: var(--indigo);
-      border: 2px solid var(--saffron);
-    }
-    .sh-book-cover { width: 270px; aspect-ratio: 3/4.2; z-index: 2; box-shadow: 15px 25px 50px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; position: relative; overflow: hidden; background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('humsafar cover blurred.jpg'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-    .sh-book-cover::after { content: 'हमसफ़र'; position: absolute; font-family: 'Noto Sans Devanagari', sans-serif; font-size: 2.6rem; color: var(--saffron); font-weight: 500;}
-    @keyframes spin { from { transform: translateX(60px) rotate(0deg); } to { transform: translateX(60px) rotate(360deg); } }
-
-    .sh-content { text-align: left; }
-    .sh-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(225, 163, 55, 0.15); border: 1px solid var(--saffron); padding: 0.4rem 1rem; border-radius: 50px; color: var(--saffron); font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem; }
-    .sh-badge-pulse { width: 8px; height: 8px; background: var(--saffron); border-radius: 50%; box-shadow: 0 0 10px var(--saffron); animation: pulse 2s infinite; }
-    @keyframes pulse { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
-
-    .sh-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4.5vw, 4.2rem); line-height: 1.1; margin-bottom: 1rem; color: var(--parchment); }
-    .sh-title em { color: var(--saffron); font-style: italic; }
-    .sh-subtitle-hi { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 1.4rem; color: var(--sand); font-weight: 300; margin-bottom: 1.8rem; letter-spacing: 0.04em; }
-    .sh-desc { font-size: 1.15rem; line-height: 1.8; color: rgba(253, 251, 241, 0.85); margin-bottom: 2.2rem; font-weight: 300; max-width: 580px; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    .track-status-box { background: rgba(18, 25, 35, 0.6); border: 1px solid rgba(225, 163, 55, 0.3); border-left: 3px solid var(--saffron); padding: 1.5rem; border-radius: 2px; margin-bottom: 2.5rem; backdrop-filter: blur(5px); }
-    .ts-header { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--saffron); text-transform: uppercase; margin-bottom: 0.4rem; display: block; }
-    .ts-text { font-size: 1.05rem; color: var(--parchment); font-weight: 400; line-height: 1.5; }
-    .ts-text-hi { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 0.95rem; color: var(--sand); margin-top: 0.4rem; font-style: italic; }
+    <!-- SEO & Open Graph Meta Tags -->
+    <title>Humsafar — 30 Poems, 30 Songs | Pooja Sawariya</title>
+    <meta name="description" content="Explore the 30 poems from Humsafar by Pooja Sawariya and follow their journey from the printed page to music, launching 20 August 2026.">
+    <meta property="og:title" content="Humsafar — 30 Poems, 30 Songs | Pooja Sawariya">
+    <meta property="og:description" content="THE WORDS ARE HERE. THE MUSIC ARRIVES 20 AUGUST 2026. Discover the 30-poem musical index by Pooja Sawariya.">
+    <meta property="og:type" content="music.album">
+    <meta property="og:image" content="humsafar cover.jpg">
+    <meta property="og:url" content="https://poojasawariya.com/songs.html">
 
-    .sh-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
+    <!-- Favicon & Brand Icons -->
+    <link rel="icon" type="image/png" href="icon.png">
 
-    /* ═══ FOOTER ═══ */
-    footer{background:var(--indigo);padding:2.5rem 5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-light);}
-    .footer-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; cursor: pointer; }
-    .footer-logo-icon { height: 40px; width: auto; filter: brightness(0) invert(1); }
-    .footer-name-script { 
-      font-family: 'Alex Brush', cursive; 
-      font-size: 1.8rem; 
-      color: #fff; 
-      letter-spacing: 0; 
-      margin-top: 8px;
-      white-space: nowrap;
-    }
-    .f-copy{font-family:'Lato',sans-serif;font-size:.75rem;color:rgba(253, 251, 241,.6);letter-spacing:.1em;text-transform:uppercase; font-weight: 700;}
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'paper': '#F5F1E8',
+                        'paper-light': '#FDFBF1',
+                        'paper-dark': '#111111',
+                        'ink': '#111111',
+                        'ink-muted': '#536780',
+                        'antique-gold': '#C5A059',
+                        'saffron': '#E1A337',
+                        'peacock-green': '#0D3B36',
+                        'sand': '#D9BFAB',
+                        'border-light': 'rgba(17, 17, 17, 0.12)'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Cinzel', 'serif'],
+                        sans: ['Lato', 'Plus Jakarta Sans', 'sans-serif'],
+                        hindi: ['Noto Serif Devanagari', 'Noto Sans Devanagari', 'serif'],
+                        script: ['Alex Brush', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
 
-    /* ═══ RESPONSIVE ═══ */
-    @media(max-width:1024px){
-      nav{padding:1.2rem 2.5rem;}
-      .nav-name-script { font-size: 1.8rem; margin-top: 8px; }
-      .nav-logo-icon { height: 45px; }
-      .mq { margin-top: 75px; }
-      .songs-hero { padding: 4rem 2.5rem; }
-      .sh-container { grid-template-columns: 1fr; gap: 3.5rem; text-align: center; }
-      .sh-content { text-align: center; }
-      .sh-badge { margin: 0 auto 1.5rem; }
-      .sh-desc { margin: 0 auto 2.2rem; }
-      .track-status-box { text-align: left; }
-      .sh-actions { justify-content: center; }
-      .sh-visual { margin-bottom: 1rem; }
-      footer{padding:2.5rem 2.5rem;flex-direction:column;gap:1.5rem;text-align:center;}
-      .footer-name-script { font-size: 1.5rem; }
-    }
-    @media(max-width:640px){
-      .nav-links{display:none;}
-      .nav-name-script { font-size: 1.5rem; margin-top: 6px; }
-      .nav-logo-icon { height: 40px; }
-      .sh-disc { width: 220px; height: 220px; transform: translateX(30px); }
-      .sh-book-cover { width: 190px; }
-      .sh-actions { flex-direction: column; width: 100%; }
-      .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-    }
-  </style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Subtle Paper Grain Texture Overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: multiply;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #F5F1E8; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 2px; }
+
+        .book-shadow {
+            box-shadow: 25px 35px 75px rgba(0, 0, 0, 0.22);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-paper text-ink font-sans antialiased selection:bg-antique-gold selection:text-white custom-scrollbar">
 
-  <!-- Navigation Bar -->
-  <nav>
-    <a class="nav-logo" href="index.html">
-      <img src="icon.png" alt="Logo Icon" class="nav-logo-icon">
-      <span class="nav-name-script">Pooja Sawariya</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html#about-a">About</a></li>
-      <li><a href="index.html#books-a">Books</a></li>
-      <li><a href="index.html#awards-a">Awards</a></li>
-      <li><a href="index.html#connect-a">Connect</a></li>
-    </ul>
-  </nav>
+    <!-- NAVIGATION HEADER -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-paper-light/95 backdrop-blur-md border-b border-border-light py-4 px-6 md:px-16 flex justify-between items-center" id="navbar">
+        <a href="humsafar.html" class="flex items-center gap-3 group text-decoration-none" onclick="trackEvent('nav_click', {'label': 'brand_logo'})">
+            <img src="icon.png" alt="Logo Icon" class="h-10 md:h-11 w-auto transition transform group-hover:scale-105">
+            <div class="flex flex-col">
+                <span class="font-hindi text-xl md:text-2xl font-bold tracking-tight text-ink">हमसफ़र</span>
+                <span class="font-script text-base md:text-lg text-antique-gold -mt-1">Pooja Sawariya</span>
+            </div>
+        </a>
 
-  <!-- Animated Marquee Banner -->
-  <div class="mq">
-    <div class="mq-i">
-      <span class="mi">हमसफ़र — संगीतमय काव्य यात्रा</span><span class="md">•</span>
-      <span class="mi">Humsafar — 30 Musical Compositions</span><span class="md">•</span>
-      <span class="mi">Coming Soon on YouTube &amp; Audio Platforms</span><span class="md">•</span>
-      <span class="mi">पूजा साँवरिया</span><span class="md">•</span>
-      <span class="mi">हमसफ़र — संगीतमय काव्य यात्रा</span><span class="md">•</span>
-      <span class="mi">Humsafar — 30 Musical Compositions</span><span class="md">•</span>
-      <span class="mi">Coming Soon on YouTube &amp; Audio Platforms</span><span class="md">•</span>
-      <span class="mi">पूजा साँवरिया</span><span class="md">•</span>
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:flex items-center space-x-8 text-xs tracking-[0.2em] font-bold uppercase text-ink-muted">
+            <a href="#story" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_story'})">The Story</a>
+            <a href="#poems-index" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_30_poems'})">The 30 Poems</a>
+            <a href="#book-origin" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_book'})">The Book</a>
+            <a href="#launch-date" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_launch'})">The Launch</a>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="hidden sm:flex items-center space-x-4">
+            <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="px-6 py-2.5 bg-ink text-paper font-bold text-xs tracking-[0.15em] uppercase hover:bg-saffron hover:text-ink transition duration-300 shadow-sm" onclick="trackEvent('book_cta_click', {'source': 'header_main'})">
+                Buy The Book
+            </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="lg:hidden text-ink p-2" id="menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Mobile Sliding Navigation -->
+        <div id="mobile-menu" class="hidden fixed top-full left-0 right-0 bg-paper-light border-b border-border-light p-6 space-y-4 text-center shadow-xl">
+            <a href="#story" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_story'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">The Story</a>
+            <a href="#poems-index" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_30_poems'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">The 30 Poems</a>
+            <a href="#book-origin" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_book'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">The Book</a>
+            <a href="#launch-date" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_launch'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">The Launch</a>
+            <div class="pt-4 flex flex-col gap-3">
+                <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="w-full py-3 bg-ink text-paper font-bold text-xs tracking-[0.15em] uppercase" onclick="trackEvent('book_cta_click', {'source': 'mobile_menu'})">Buy Book</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 01 — HERO (PRE-LAUNCH STATEMENT) -->
+    <section class="min-h-screen pt-36 pb-20 flex items-center justify-center relative overflow-hidden border-b border-border-light">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-saffron/15 border border-saffron/40 text-saffron text-xs font-bold tracking-[0.25em] uppercase">
+                <span class="w-2 h-2 rounded-full bg-saffron animate-pulse"></span>
+                Pre-Launch Archive • 30 Poems → 30 Songs
+            </div>
+
+            <h1 class="font-hindi text-6xl md:text-8xl text-ink font-normal leading-none tracking-tight">
+                हमसफ़र
+            </h1>
+
+            <p class="font-serif text-xl md:text-2xl text-ink-muted italic font-light max-w-xl mx-auto">
+                "A journey that began on paper is about to find its voice."
+            </p>
+
+            <div class="py-6 border-y border-border-light max-w-lg mx-auto space-y-2">
+                <span class="text-xs font-bold tracking-[0.3em] uppercase text-saffron block">Official Launch Celebration</span>
+                <span class="font-serif text-4xl md:text-5xl font-bold text-ink block tracking-tight">20 AUGUST 2026</span>
+                <p class="text-xs text-ink-muted font-light tracking-wider uppercase pt-1">
+                    3:00 PM – 6:00 PM • Kalyan Singh Habitat Centre, Aligarh
+                </p>
+            </div>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="#launch-date" class="px-8 py-4 bg-ink text-paper text-xs font-bold tracking-[0.2em] uppercase hover:bg-peacock-green transition duration-300" onclick="trackEvent('scroll_click', {'target': 'explore_launch_event'})">
+                    Event Invitation
+                </a>
+                <a href="#poems-index" class="px-8 py-4 border border-ink text-ink text-xs font-bold tracking-[0.2em] uppercase hover:bg-saffron hover:border-saffron hover:text-ink transition duration-300" onclick="trackEvent('scroll_click', {'target': 'explore_30_poems'})">
+                    Explore The 30 Poems
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 02 — THE IDEA -->
+    <section id="story" class="py-24 bg-paper-light border-b border-border-light">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+            <span class="text-xs font-bold tracking-[0.3em] text-saffron uppercase font-serif block">Origin Story</span>
+            
+            <h2 class="font-serif text-3xl md:text-5xl text-ink leading-tight">
+                BEFORE THEY BECAME SONGS,<br>
+                <span class="italic font-normal text-antique-gold">THEY WERE WORDS.</span>
+            </h2>
+
+            <div class="w-16 h-0.5 bg-saffron mx-auto"></div>
+
+            <p class="font-hindi text-lg md:text-xl text-ink/80 leading-relaxed font-normal italic max-w-2xl mx-auto">
+                "30 कविताएँ जो पहले पन्नों पर रची गईं, अब संगीत के सुरों में ढल चुकी हैं।"
+            </p>
+
+            <p class="text-base md:text-lg text-ink-muted font-light leading-relaxed max-w-3xl mx-auto">
+                Humsafar began as an intimate printed volume of classical Hindi poetry by Pooja Sawariya. Thirty selected poems from these printed pages were chosen to undergo a second transformation—reimagined with studio orchestration, melody, and vocal arrangement. On 20 August 2026, this digital index will unlock its full musical layer.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 03 — THE JOURNEY -->
+    <section class="py-24 bg-paper-dark text-paper relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-16">
+            <h2 class="font-serif text-3xl md:text-5xl text-paper">THE JOURNEY OF THE VERSE</h2>
+
+            <div class="grid md:grid-cols-4 gap-8 relative">
+                <div class="p-6 border border-white/10 bg-white/5 space-y-2">
+                    <span class="text-saffron font-serif font-bold text-xs">STEP 01</span>
+                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-paper">PAGE</h3>
+                    <p class="text-[11px] text-white/50 font-light">30 poems bound in paper and ink.</p>
+                </div>
+                <div class="p-6 border border-white/10 bg-white/5 space-y-2">
+                    <span class="text-saffron font-serif font-bold text-xs">STEP 02</span>
+                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-paper">POEM</h3>
+                    <p class="text-[11px] text-white/50 font-light">Metered Hindi lyricism and emotion.</p>
+                </div>
+                <div class="p-6 border border-white/10 bg-white/5 space-y-2">
+                    <span class="text-saffron font-serif font-bold text-xs">STEP 03</span>
+                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-paper">VOICE</h3>
+                    <p class="text-[11px] text-white/50 font-light">Melodic composition and vocals.</p>
+                </div>
+                <div class="p-6 border-2 border-saffron bg-saffron/10 space-y-2 relative">
+                    <span class="text-saffron font-serif font-bold text-xs">FINAL STEP</span>
+                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-saffron">20 AUGUST 2026</h3>
+                    <p class="text-[11px] text-paper/80 font-semibold">The Music Arrives Globally.</p>
+                </div>
+            </div>
+
+            <p class="font-serif text-lg text-paper/70 italic max-w-xl mx-auto">
+                "The words are already here. Explore the index below while the music prepares to unfold."
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 04 & 05 — THE 30 POEMS EDITORIAL INDEX -->
+    <section id="poems-index" class="py-24 bg-paper border-b border-border-light">
+        <div class="max-w-5xl mx-auto px-6 space-y-12">
+            <div class="text-center space-y-3">
+                <span class="text-xs font-bold tracking-[0.3em] text-saffron uppercase font-serif block">Complete Digital Archive</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-ink">THE 30 POEMS</h2>
+                <p class="text-xs text-ink-muted uppercase tracking-widest font-light">Thirty Poems • Thirty Journeys • One Humsafar</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-3" id="theme-filters">
+                <button onclick="filterCategory('all', this)" class="filter-btn px-5 py-2.5 border border-ink bg-ink text-paper text-xs font-bold tracking-[0.15em] uppercase transition">All 30 Poems</button>
+                <button onclick="filterCategory('love', this)" class="filter-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Love / प्रेम</button>
+                <button onclick="filterCategory('family', this)" class="filter-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Family / परिवार</button>
+                <button onclick="filterCategory('devotion', this)" class="filter-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Devotion / भक्ति</button>
+                <button onclick="filterCategory('life', this)" class="filter-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Life / ज़िंदगी</button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="max-w-md mx-auto relative">
+                <input type="text" id="search-input" onkeyup="searchPoems()" placeholder="Search title or excerpt..." class="w-full bg-paper-light border border-border-light px-5 py-3 text-xs tracking-wider text-ink focus:outline-none focus:border-saffron font-hindi">
+                <i data-lucide="search" class="w-4 h-4 text-ink-muted absolute right-4 top-3.5 pointer-events-none"></i>
+            </div>
+
+            <!-- Editorial Table/Index Container -->
+            <div class="divide-y divide-border-light border-y border-border-light" id="poems-list-container">
+                <!-- Rendered dynamically via JS using the exact 30 PDF poem list -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 06 — READ THE POEM MODAL / READER POPUP -->
+    <div id="reader-modal" class="fixed inset-0 z-50 bg-paper-dark/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-paper-light border border-border-light p-8 md:p-12 max-w-xl w-full shadow-2xl relative space-y-6 text-center">
+            <button onclick="closeReaderModal()" class="absolute top-4 right-4 text-ink-muted hover:text-ink p-2" aria-label="Close Modal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="flex justify-between items-center text-[10px] tracking-[0.25em] font-serif text-saffron uppercase border-b border-border-light pb-3">
+                <span>HUMSAFAR ARCHIVE</span>
+                <span id="modal-page-num">PAGE --</span>
+            </div>
+
+            <div class="space-y-4 my-6">
+                <h3 class="font-hindi text-3xl font-semibold text-ink" id="modal-poem-title">Poem Title</h3>
+                <div class="text-saffron opacity-60 text-sm">❦</div>
+                <p class="font-hindi text-base md:text-lg text-ink/80 leading-relaxed italic" id="modal-poem-excerpt">Excerpt...</p>
+            </div>
+
+            <div class="pt-4 border-t border-border-light flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-serif">
+                <span class="text-saffron italic">The Song Arrives On 20 August 2026</span>
+                <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="px-5 py-2 bg-ink text-paper text-[11px] font-bold tracking-widest uppercase hover:bg-saffron hover:text-ink transition">Buy The Book</a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- Main Hero / Prelude Section -->
-  <main class="songs-hero">
-    <div class="sh-container">
-      
-      <!-- Left Column: Album Vinyl Visual -->
-      <div class="sh-visual">
-        <div class="sh-disc">
-          <div class="sh-disc-label"></div>
+    <!-- SECTION 07 — THE PHYSICAL BOOK -->
+    <section id="book-origin" class="py-24 bg-paper-light border-b border-border-light">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-12">
+            <div>
+                <span class="text-xs font-bold tracking-[0.3em] text-saffron uppercase font-serif block mb-2">Printed Anchor</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-ink">
+                    BEFORE THE MUSIC,<br><span class="italic font-normal text-antique-gold">THERE WAS THE BOOK.</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-8 items-center text-left">
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="w-56 h-80 rounded-sm overflow-hidden book-shadow border border-border-light">
+                        <img src="humsafar cover.jpg" alt="Humsafar Book Cover" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:col-span-7 space-y-6">
+                    <p class="text-sm text-ink-muted font-light leading-relaxed">
+                        Thirty poems from these printed pages were selected to begin a second journey. Every copy of the physical volume holds the complete verses, typeset in classical Devanagari letterforms on textured parchment.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="humsafar.html" class="px-6 py-3 border border-ink text-ink text-xs font-bold tracking-[0.15em] uppercase hover:bg-ink hover:text-paper transition">
+                            Explore Landing Page
+                        </a>
+                        <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="px-6 py-3 bg-ink text-paper text-xs font-bold tracking-[0.15em] uppercase hover:bg-saffron hover:text-ink transition" onclick="trackEvent('book_cta_click', {'source': 'book_origin_section'})">
+                            Buy Humsafar (₹300)
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="sh-book-cover"></div>
-      </div>
+    </section>
 
-      <!-- Right Column: Information & Status -->
-      <div class="sh-content">
-        <div class="sh-badge">
-          <span class="sh-badge-pulse"></span>
-          <span>Musical Album Prelude</span>
+    <!-- SECTION 08 — THE HUMSAFAR LAUNCH (EVENT & INITIATIVE ANNOUNCEMENT) -->
+    <section id="launch-date" class="py-28 bg-paper-dark text-paper text-center relative border-b border-white/10">
+        <div class="max-w-5xl mx-auto px-6 space-y-12">
+            
+            <!-- Connection to 30 Poems -> 30 Songs -->
+            <div class="space-y-3">
+                <span class="text-xs font-bold tracking-[0.3em] uppercase text-saffron font-serif">30 Poems. 30 Songs.</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-paper">THE JOURNEY FINDS ITS VOICE.</h2>
+            </div>
+
+            <div class="w-16 h-0.5 bg-saffron mx-auto"></div>
+
+            <!-- Event Card Container -->
+            <div class="p-8 md:p-14 border border-saffron/40 bg-white/5 max-w-3xl mx-auto space-y-10 relative">
+                
+                <div class="space-y-2">
+                    <span class="text-xs font-bold tracking-[0.35em] text-saffron uppercase block">Official Invitation</span>
+                    <h3 class="font-serif text-3xl md:text-5xl text-paper tracking-wide">THE HUMSAFAR LAUNCH</h3>
+                    <p class="text-xs text-paper/70 font-light italic max-w-lg mx-auto pt-2">
+                        "Join us for the launch of Humsafar by Pooja Sawariya — an evening of poetry, music, celebration and giving."
+                    </p>
+                </div>
+
+                <!-- Event Details Grid -->
+                <div class="grid md:grid-cols-3 gap-6 text-left border-y border-white/10 py-8">
+                    <!-- WHEN -->
+                    <div class="space-y-2 border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-4">
+                        <span class="text-[10px] font-bold tracking-[0.25em] text-saffron uppercase block">Date &amp; Time</span>
+                        <div class="font-serif text-xl text-paper font-semibold">20 AUGUST 2026</div>
+                        <div class="text-xs text-paper/80 font-mono">3:00 PM – 6:00 PM</div>
+                    </div>
+
+                    <!-- WHERE -->
+                    <div class="space-y-2 border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-4">
+                        <span class="text-[10px] font-bold tracking-[0.25em] text-saffron uppercase block">Venue</span>
+                        <div class="font-serif text-base text-paper font-semibold leading-tight">Kalyan Singh Habitat Centre</div>
+                        <div class="text-xs text-paper/70">Auditorium · 4th Floor</div>
+                        <div class="text-[11px] text-saffron">Aligarh, Uttar Pradesh</div>
+                    </div>
+
+                    <!-- ACCESS -->
+                    <div class="space-y-2 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold tracking-[0.25em] text-saffron uppercase block">Entry</span>
+                            <div class="font-serif text-xl text-paper font-bold tracking-wider">OPEN FOR ALL</div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="https://share.google/XlCx9kwW57EaQuyuG" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 bg-saffron text-ink font-bold text-xs tracking-[0.15em] uppercase hover:bg-paper hover:text-ink transition duration-300" onclick="trackEvent('event_directions_click', {'venue': 'kalyan_singh_habitat_centre'})">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Get Directions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wheelchair Initiative (A Journey of Giving) -->
+                <div class="p-6 border border-saffron/30 bg-peacock-green/30 text-left space-y-2">
+                    <div class="flex items-center gap-2 text-saffron">
+                        <i data-lucide="heart" class="w-4 h-4"></i>
+                        <span class="text-xs font-bold tracking-[0.2em] uppercase font-serif">A Journey of Giving</span>
+                    </div>
+                    <p class="text-xs text-paper/90 font-light leading-relaxed">
+                        As part of the Humsafar launch, 10 wheelchairs will be gifted to people who need them.
+                    </p>
+                </div>
+
+                <!-- Dynamic Countdown Display -->
+                <div class="space-y-4 pt-2">
+                    <span class="text-[10px] tracking-[0.25em] text-white/50 uppercase block">Countdown To Launch</span>
+                    <div class="grid grid-cols-4 gap-3 max-w-xs mx-auto font-serif text-saffron" id="countdown-timer">
+                        <div class="p-2.5 border border-white/10 bg-white/5">
+                            <span id="days" class="text-xl md:text-2xl font-bold block">--</span>
+                            <span class="text-[8px] text-white/50 tracking-widest uppercase block">Days</span>
+                        </div>
+                        <div class="p-2.5 border border-white/10 bg-white/5">
+                            <span id="hours" class="text-xl md:text-2xl font-bold block">--</span>
+                            <span class="text-[8px] text-white/50 tracking-widest uppercase block">Hours</span>
+                        </div>
+                        <div class="p-2.5 border border-white/10 bg-white/5">
+                            <span id="minutes" class="text-xl md:text-2xl font-bold block">--</span>
+                            <span class="text-[8px] text-white/50 tracking-widest uppercase block">Mins</span>
+                        </div>
+                        <div class="p-2.5 border border-white/10 bg-white/5">
+                            <span id="seconds" class="text-xl md:text-2xl font-bold block">--</span>
+                            <span class="text-[8px] text-white/50 tracking-widest uppercase block">Secs</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <h1 class="sh-title">हमसफ़र<br><em>The Musical Journey</em></h1>
-        <p class="sh-subtitle-hi">30 कविताएँ · 30 गीत · एक अटूट संगीतमय काव्य यात्रा</p>
+    <!-- SECTION 11 — FINAL PRE-LAUNCH CTA -->
+    <section class="py-24 bg-paper text-center border-b border-border-light">
+        <div class="max-w-2xl mx-auto px-6 space-y-8" id="final-cta-container">
+            <div class="space-y-2">
+                <h2 class="font-serif text-3xl md:text-4xl text-ink" id="final-cta-heading">THE WORDS ARE HERE.</h2>
+                <p class="font-serif text-xl text-saffron italic" id="final-cta-sub">THE MUSIC IS COMING 20 AUGUST 2026.</p>
+            </div>
 
-        <p class="sh-desc">
-          You have unlocked a musical dimension of Pooja Sawariya's latest book, <strong>Humsafar</strong>. Each QR code in the published volume corresponds to one of 30 specially composed songs, blending classic Hindi poetic cadence with rich musical orchestration.
-        </p>
-
-        <div class="track-status-box">
-          <span class="ts-header">Production &amp; Release Status</span>
-          <div class="ts-text">The official studio recordings and visual performances are currently in final release preparation.</div>
-          <div class="ts-text-hi">"शीघ्र ही YouTube एवं सभी प्रमुख म्यूज़िक प्लेटफ़ॉर्म्स पर उपलब्ध होगा।"</div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+                <a href="humsafar.html" class="px-8 py-4 border border-ink text-ink text-xs font-bold tracking-[0.2em] uppercase hover:bg-ink hover:text-paper transition duration-300">
+                    Read Humsafar
+                </a>
+                <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="px-8 py-4 bg-ink text-paper text-xs font-bold tracking-[0.2em] uppercase hover:bg-saffron hover:text-ink transition duration-300" onclick="trackEvent('book_cta_click', {'source': 'final_cta'})">
+                    Buy The Book
+                </a>
+            </div>
         </div>
+    </section>
 
-        <div class="sh-actions">
-          <a href="https://www.youtube.com/@sawariyaa_pooja" target="_blank" class="btn-primary">
-            <span>Subscribe on YouTube</span>
-          </a>
-          <a href="index.html" class="btn-secondary">
-            <span>Explore The Main Website</span>
-          </a>
+    <!-- FOOTER -->
+    <footer class="py-12 bg-paper-light border-t border-border-light text-center text-xs text-ink-muted">
+        <div class="max-w-6xl mx-auto px-6 space-y-6">
+            <div class="flex justify-center items-center gap-3">
+                <img src="icon.png" alt="Logo Icon" class="h-8 w-auto">
+                <span class="font-hindi text-xl font-bold text-ink">हमसफ़र</span>
+            </div>
+
+            <p class="text-[11px] tracking-widest uppercase text-saffron font-bold">Official Music Index — Pooja Sawariya</p>
+
+            <div class="flex flex-wrap justify-center gap-6 text-xs font-medium text-ink-muted">
+                <a href="mailto:contact@poojasawariya.com" class="hover:text-saffron transition" onclick="trackEvent('contact_click', {'type': 'email'})">contact@poojasawariya.com</a>
+                <a href="https://www.instagram.com/sawariyaa.pooja" target="_blank" rel="noopener" class="hover:text-saffron transition" onclick="trackEvent('social_click', {'platform': 'instagram'})">Instagram</a>
+                <a href="https://www.youtube.com/@sawariyaa_pooja" target="_blank" rel="noopener" class="hover:text-saffron transition" onclick="trackEvent('social_click', {'platform': 'youtube'})">YouTube</a>
+                <a href="https://x.com/sawariyaa_pooja" target="_blank" rel="noopener" class="hover:text-saffron transition" onclick="trackEvent('social_click', {'platform': 'x'})">X (Twitter)</a>
+            </div>
+
+            <div class="pt-6 border-t border-border-light flex justify-between items-center text-[10px] text-ink-muted">
+                <span>© 2026 Pooja Sawariya. All Rights Reserved.</span>
+                <span>Pooja Sawariya Official Digital Property</span>
+            </div>
         </div>
-      </div>
+    </footer>
 
-    </div>
-  </main>
+    <!-- FUTURE-READY DATA ARCHITECTURE & JAVASCRIPT LOGIC -->
+    <script>
+        // Custom GA4 Event Tracker
+        function trackEvent(eventName, eventParams = {}) {
+            if (typeof gtag === 'function') {
+                gtag('event', eventName, eventParams);
+            }
+        }
 
-  <!-- Footer -->
-  <footer>
-    <a class="footer-logo" href="index.html">
-      <img src="icon.png" alt="Logo Icon" class="footer-logo-icon">
-      <span class="footer-name-script">Pooja Sawariya</span>
-    </a>
-    <div class="f-copy">Proudly Created by Kartik Goyal</div>
-  </footer>
+        // Target Launch Date: 20 August 2026
+        const LAUNCH_DATE = new Date('2026-08-20T00:00:00+05:30').getTime();
 
+        // THE COMPLETE 30 POEMS DATASET
+        // Pre-launch: audioUrl & platform URLs are null.
+        // Post-launch: Simply populate these fields to automatically reveal audio players & streaming buttons.
+        const poems30Database = [
+            { number: 1, title: 'हमसफ़र', category: 'love', page: 1, mood: 'Companionship / Title Track', excerpt: 'रास्ते में संग चलने का नाम ही सफ़र है, सच्चे मन से निभाना ही हमसफ़र है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 2, title: 'ओ रे पिया', category: 'love', page: 6, mood: 'Longing & Devotional Romance', excerpt: 'ओ रे पिया, तेरे बिना मन की बगिया सूनी लागे...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 3, title: 'चल साथ चल', category: 'life', page: 10, mood: 'Life Journey / Hope', excerpt: 'हर कठिन मोड़ पर हाथ थामे चल, चल साथ चल...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 4, title: 'एक मुलाकात हुई', category: 'love', page: 12, mood: 'Romantic / First Meeting', excerpt: 'नज़रों से नज़र मिली तो एक अनकहा पैग़ाम हुआ, दिल ही दिल में चाहत का हसीन आगाज़ हुआ...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 5, title: 'तेरी यादें', category: 'love', page: 15, mood: 'Memories / Solitude', excerpt: 'रात ढले जब ख़ामोशी छाती है, तेरी यादों की महफ़िल सज जाती है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 6, title: 'जीवन साथी', category: 'family', page: 18, mood: 'Marital Bond / Trust', excerpt: 'सुख और दुख की हर धूप-छांव में साथ निभाने का नाम ही जीवन साथी है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 7, title: 'अधूरी कहानी', category: 'love', page: 21, mood: 'Unspoken Words / Nostalgia', excerpt: 'कुछ पन्ने किताबों के अनकहे रह गए, कुछ ख़्वाब आंखों में अधूरे रह गए...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 8, title: 'माँ', category: 'family', page: 24, mood: 'Maternal Warmth / Gratitude', excerpt: 'तेरी गोदी में सिमट कर हर दर्द भुला दिया, माँ तेरी ममता ने मुझको जीना सिखा दिया...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 9, title: 'सफ़र की शाम', category: 'life', page: 28, mood: 'Reflection / Evening Calm', excerpt: 'ढलती हुई शाम से एक सबक सीखा है, हर अंत में एक नई सुबह का तराना छुपा है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 10, title: 'पिता', category: 'family', page: 32, mood: 'Paternal Strength / Support', excerpt: 'बिना कहे जो हर ख़्वाहिश पूरी कर दे, उस साया-ए-दरख़्त को पिता कहते हैं...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 11, title: 'हम तुम', category: 'love', page: 36, mood: 'Intimate Togetherness', excerpt: 'दो राहें जब एक मोड़ पर आ मिलीं, हम और तुम से एक नई दुनिया बनी...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 12, title: 'मीठे ख़्वाब', category: 'love', page: 40, mood: 'Gentle Dreams / Peace', excerpt: 'पलकों के द्वार पर जो सवेरा बनके आए, वो मीठे ख़्वाब दिल को सुकून दे जाएं...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 13, title: 'कृष्णा', category: 'devotion', page: 45, mood: 'Spiritual Faith / Surrender', excerpt: 'मन की वीणा पर श्याम नाम का तार बाजे, मुरलीधर के चरणों में ही विश्राम साजे...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 14, title: 'दिल की बात', category: 'love', page: 50, mood: 'Quiet Confession', excerpt: 'लफ़्ज़ों में पिरो ना सके जो जज़्बात, वो नज़रों से कह दी दिल की बात...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 15, title: 'बदलते रिश्ते', category: 'family', page: 54, mood: 'Social Reflection / Time', excerpt: 'वक्त के साथ जो रंग बदलते देखे हैं, अपनों की भीड़ में तन्हा चेहरे देखे हैं...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 16, title: 'तेरे नाम - ख़त', category: 'love', page: 60, mood: 'Written Devotion / Acoustic', excerpt: 'सुबह-शाम मैं ख़त लिखती हूं, ख़त में अपना मन लिखती हूं... हर एक अलफ़ाज़ में छुपा है तू, मैं हर सफ़े पे तेरा नाम लिखती हूं।', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 17, title: 'सारा जहां मिल गया', category: 'love', page: 65, mood: 'Fulfillment / Joy', excerpt: 'तुम मिले तो ऐसा लगा जैसे खोई हुई मंज़िल मिल गई...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 18, title: 'गुस्ताखियां माफ़ करना सनम', category: 'love', page: 70, mood: 'Playful Affection', excerpt: 'अगर नज़रों ने कोई ख़ता की हो, तो गुस्ताखियां माफ़ करना सनम...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 19, title: 'तेरा ही ख़्याल है', category: 'love', page: 74, mood: 'Continuous Thought', excerpt: 'दिन की धूप हो या रात की चांदनी, हर पल तेरा ही ख़्याल रहता है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 20, title: 'बचपन की यादें', category: 'life', page: 78, mood: 'Nostalgia / Youth', excerpt: 'वो कागज़ की नाव, वो बारिश का पानी, याद आती है वो मासूम सी कहानी...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 21, title: 'मंज़िल की तलाश', category: 'life', page: 82, mood: 'Perseverance / Purpose', excerpt: 'कदम थके हैं पर हौसला अब भी बाकी है, मंज़िल दूर सही पर उम्मीद अब भी ताज़ा है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 22, title: 'श्याम रंग', category: 'devotion', page: 86, mood: 'Devotional Bliss / Bhakti', excerpt: 'रंग गई मैं तो श्याम के रंग में, अब कोई दूजा रंग ना चढ़े...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 23, title: 'नारी शक्ति', category: 'life', page: 92, mood: 'Empowerment / Strength', excerpt: 'जो सृजन भी करे और स्वाभिमान भी साधे, हर रूप में पूज्य है नारी शक्ति...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 24, title: 'ख़ामोशी', category: 'life', page: 96, mood: 'Inner Silence', excerpt: 'जब शब्द ख़ामोश हो जाते हैं, तब एहसास बोलने लगते हैं...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 25, title: 'दुआ', category: 'devotion', page: 100, mood: 'Prayer / Hope', excerpt: 'हाथ उठाकर जो मांगी है दुआ, रब करे पूरी हो हर रज़ा...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 26, title: 'सुर और संगीत', category: 'life', page: 105, mood: 'Music Philosophy', excerpt: 'सांसों की ताल पर जब सुर मिलते हैं, जीवन के सारे बिखरे तार जुड़ जाते हैं...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 27, title: 'विश्वास', category: 'devotion', page: 108, mood: 'Faith / Inner Anchor', excerpt: 'टूटे हुए दिल को जो संभाल ले, वही तो अटूट विश्वास है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 28, title: 'सफ़र के साथी', category: 'life', page: 112, mood: 'Companionship / Gratitude', excerpt: 'रास्ते बदलते रहे, पर यादों के चिराग जलते रहे...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 29, title: 'मृत्यु अटल है', category: 'life', page: 118, mood: 'Philosophical Truth', excerpt: 'जीवन एक पड़ाव है, मृत्यु अंतिम विश्राम... सत्य यही है संसार का।', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
+            { number: 30, title: 'आख़िरी पन्ना', category: 'life', page: 124, mood: 'Conclusion / Peace', excerpt: 'किताब बंद होती है, पर सफ़र जारी रहता है... यादों के झरोखे में हर चेहरा ज़िंदा रहता है।', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null }
+        ];
+
+        let activeFilter = 'all';
+
+        // Render Editorial 30 Poems Index
+        function renderPoemsIndex(filter = 'all', searchQuery = '') {
+            const container = document.getElementById('poems-list-container');
+            container.innerHTML = '';
+
+            const isPostLaunch = Date.now() >= LAUNCH_DATE;
+
+            let filtered = poems30Database;
+            if (filter !== 'all') {
+                filtered = filtered.filter(p => p.category === filter);
+            }
+            if (searchQuery.trim() !== '') {
+                const q = searchQuery.toLowerCase();
+                filtered = filtered.filter(p => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q) || p.mood.toLowerCase().includes(q));
+            }
+
+            filtered.forEach((poem) => {
+                const row = document.createElement('div');
+                row.className = 'py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-sand/10 px-4 transition duration-300';
+                
+                // Formulate Post-Launch Platform Buttons if links exist
+                let platformButtonsHtml = '';
+                if (isPostLaunch || poem.spotifyUrl || poem.youtubeUrl) {
+                    let linksHtml = '';
+                    if (poem.spotifyUrl) linksHtml += `<a href="${poem.spotifyUrl}" target="_blank" class="px-3 py-1 bg-peacock-green text-paper text-[10px] font-bold tracking-widest uppercase">Spotify</a>`;
+                    if (poem.youtubeUrl) linksHtml += `<a href="${poem.youtubeUrl}" target="_blank" class="px-3 py-1 bg-red-800 text-paper text-[10px] font-bold tracking-widest uppercase">YouTube</a>`;
+                    if (poem.appleMusicUrl) linksHtml += `<a href="${poem.appleMusicUrl}" target="_blank" class="px-3 py-1 bg-ink text-paper text-[10px] font-bold tracking-widest uppercase">Apple</a>`;
+                    
+                    platformButtonsHtml = `
+                        <div class="flex flex-wrap items-center gap-2 pt-2 md:pt-0">
+                            ${linksHtml || `<span class="text-[10px] font-bold tracking-widest text-peacock-green uppercase">LISTEN NOW</span>`}
+                        </div>
+                    `;
+                } else {
+                    platformButtonsHtml = `
+                        <div class="text-right">
+                            <span class="text-[10px] font-bold tracking-[0.2em] text-saffron uppercase font-serif block">THE SONG ARRIVES ON 20 AUGUST</span>
+                        </div>
+                    `;
+                }
+
+                const displayNum = poem.number < 10 ? `0${poem.number}` : poem.number;
+
+                row.innerHTML = `
+                    <div class="flex items-start md:items-center gap-6 cursor-pointer flex-1" onclick="openReaderModal(${poem.number - 1})">
+                        <span class="font-serif text-2xl md:text-3xl text-saffron/60 font-bold group-hover:text-saffron transition">${displayNum}</span>
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-3">
+                                <h3 class="font-hindi text-xl md:text-2xl font-semibold text-ink group-hover:text-saffron transition">${poem.title}</h3>
+                                <span class="text-[10px] text-ink-muted font-serif tracking-widest uppercase">Page ${poem.page}</span>
+                            </div>
+                            <p class="text-xs text-ink-muted font-light italic">${poem.mood}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between md:justify-end gap-6 pt-2 md:pt-0 border-t md:border-t-0 border-border-light/40">
+                        <button onclick="openReaderModal(${poem.number - 1})" class="text-xs font-bold tracking-widest uppercase text-ink hover:text-saffron transition whitespace-nowrap">
+                            Read Excerpt →
+                        </button>
+                        ${platformButtonsHtml}
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        // Open Reader Modal Popup
+        function openReaderModal(index) {
+            const poem = poems30Database[index];
+            if (!poem) return;
+
+            document.getElementById('modal-page-num').textContent = `PAGE ${poem.page}`;
+            document.getElementById('modal-poem-title').textContent = poem.title;
+            document.getElementById('modal-poem-excerpt').innerHTML = `"${poem.excerpt.replace(/\n/g, '<br>')}"`;
+            
+            document.getElementById('reader-modal').classList.remove('hidden');
+            trackEvent('poem_index_click', {'poem_title': poem.title, 'page': poem.page});
+        }
+
+        function closeReaderModal() {
+            document.getElementById('reader-modal').classList.add('hidden');
+        }
+
+        // Filter Category Handler
+        function filterCategory(cat, btn) {
+            activeFilter = cat;
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('bg-ink', 'text-paper');
+                b.classList.add('border-border-light');
+            });
+            btn.classList.add('bg-ink', 'text-paper');
+            renderPoemsIndex(activeFilter, document.getElementById('search-input').value);
+            trackEvent('category_filter_click', {'category': cat});
+        }
+
+        // Search Input Handler
+        function searchPoems() {
+            const q = document.getElementById('search-input').value;
+            renderPoemsIndex(activeFilter, q);
+        }
+
+        // Countdown Timer Handler
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = LAUNCH_DATE - now;
+
+            if (diff <= 0) {
+                // POST-LAUNCH AUTOMATIC TRANSFORMATION
+                document.getElementById('launch-heading').textContent = "THE MUSIC IS HERE.";
+                document.getElementById('launch-subheading').textContent = "Listen to the 30 songs of Humsafar globally now.";
+                document.getElementById('countdown-timer').classList.add('hidden');
+                
+                document.getElementById('final-cta-heading').textContent = "THE WORDS HAVE FOUND THEIR VOICE.";
+                document.getElementById('final-cta-sub').textContent = "30 POEMS → 30 SONGS";
+
+                renderPoemsIndex(activeFilter);
+                return;
+            }
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = d < 10 ? `0${d}` : d;
+            document.getElementById('hours').textContent = h < 10 ? `0${h}` : h;
+            document.getElementById('minutes').textContent = m < 10 ? `0${m}` : m;
+            document.getElementById('seconds').textContent = s < 10 ? `0${s}` : s;
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Initialize Page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPoemsIndex();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            lucide.createIcons();
+            trackEvent('page_view', {'page_name': 'humsafar_30_songs_prelaunch_index'});
+        });
+    </script>
 </body>
 </html>
