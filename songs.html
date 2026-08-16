@@ -1,645 +1,1925 @@
 <!DOCTYPE html>
-<html lang="hi" class="scroll-smooth">
+<html lang="hi" class="h-full w-full overflow-hidden bg-black text-[#FDFBF1]">
 <head>
-    <!-- Google Tag Manager / Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GK2GKZJRW1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-GK2GKZJRW1', {
-        'anonymize_ip': true,
-        'send_page_view': true
-      });
-    </script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Open Graph Meta Tags -->
-    <title>Humsafar — 30 Poems, 30 Songs | Pooja Sawariya</title>
-    <meta name="description" content="Explore the 30 poems from Humsafar by Pooja Sawariya and follow their journey from the printed page to music, launching 20 August 2026.">
-    <meta property="og:title" content="Humsafar — 30 Poems, 30 Songs | Pooja Sawariya">
-    <meta property="og:description" content="THE WORDS ARE HERE. THE MUSIC ARRIVES 20 AUGUST 2026. Discover the 30-poem musical index by Pooja Sawariya.">
-    <meta property="og:type" content="music.album">
-    <meta property="og:image" content="humsafar cover.jpg">
-    <meta property="og:url" content="https://poojasawariya.com/songs.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>HUMSAFAR — हमसफ़र | Pooja Sawariya</title>
+  <meta name="description" content="30 Poems. 30 Songs. One Humsafar. The full-viewport cinematic musical and literary journey by Pooja Sawariya.">
 
-    <!-- Favicon & Brand Icons -->
-    <link rel="icon" type="image/png" href="icon.png">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Noto+Serif+Devanagari:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'paper': '#F5F1E8',
-                        'paper-light': '#FDFBF1',
-                        'paper-dark': '#111111',
-                        'ink': '#111111',
-                        'ink-muted': '#536780',
-                        'antique-gold': '#C5A059',
-                        'saffron': '#E1A337',
-                        'peacock-green': '#0D3B36',
-                        'sand': '#D9BFAB',
-                        'border-light': 'rgba(17, 17, 17, 0.12)'
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Cinzel', 'serif'],
-                        sans: ['Lato', 'Plus Jakarta Sans', 'sans-serif'],
-                        hindi: ['Noto Serif Devanagari', 'Noto Sans Devanagari', 'serif'],
-                        script: ['Alex Brush', 'cursive']
-                    }
-                }
-            }
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            parchment: '#FDFBF1',
+            sand: '#D9BFAB',
+            sandMuted: '#A68D79',
+            saffron: '#E1A337',
+            saffronDark: '#B87B1F',
+            indigoDeep: '#0B1017',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            devanagari: ['Noto Serif Devanagari', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            sans: ['Lato', 'sans-serif'],
+          }
         }
-    </script>
+      }
+    }
+  </script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* Full Viewport Canvas Lock */
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #000000;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
+    }
 
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    ::selection {
+      background-color: #E1A337;
+      color: #000000;
+    }
 
-    <style>
-        /* Subtle Paper Grain Texture Overlay */
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: multiply;
-        }
+    /* Edge-to-Edge Background Layers */
+    .bg-art-layer {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center;
+      transition: opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: opacity;
+    }
 
-        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #F5F1E8; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 2px; }
+    /* Film Atmosphere & Subtle Legibility Protection */
+    .cinema-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.3) 65%, rgba(0, 0, 0, 0.75) 100%),
+                  linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 35%, rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0.55) 100%);
+      pointer-events: none;
+    }
 
-        .book-shadow {
-            box-shadow: 25px 35px 75px rgba(0, 0, 0, 0.22);
-        }
-    </style>
+    /* Subtle Film Grain */
+    .film-grain {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    /* Floating Translucent Player Capsule */
+    .floating-player-capsule {
+      background: rgba(13, 18, 26, 0.75);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid rgba(217, 191, 171, 0.22);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    }
+
+    /* Floating Pill Buttons */
+    .nav-pill-btn {
+      background: rgba(13, 18, 26, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(217, 191, 171, 0.25);
+      transition: all 0.25s ease;
+    }
+    .nav-pill-btn:hover {
+      background: rgba(225, 163, 55, 0.2);
+      border-color: rgba(225, 163, 55, 0.7);
+      color: #E1A337;
+    }
+
+    /* Custom Slider */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: transparent;
+    }
+    input[type=range]:focus {
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 3px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 2px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      background: #E1A337;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -3.5px;
+      box-shadow: 0 0 8px rgba(225, 163, 55, 0.8);
+      transition: transform 0.15s ease;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.35);
+    }
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(217, 191, 171, 0.3);
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #E1A337;
+    }
+  </style>
 </head>
-<body class="bg-paper text-ink font-sans antialiased selection:bg-antique-gold selection:text-white custom-scrollbar">
+<body class="h-full w-full font-sans text-parchment relative">
 
-    <!-- NAVIGATION HEADER -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-paper-light/95 backdrop-blur-md border-b border-border-light py-4 px-6 md:px-16 flex justify-between items-center" id="navbar">
-        <a href="humsafar.html" class="flex items-center gap-3 group text-decoration-none" onclick="trackEvent('nav_click', {'label': 'brand_logo'})">
-            <img src="icon.png" alt="Logo Icon" class="h-10 md:h-11 w-auto transition transform group-hover:scale-105">
-            <div class="flex flex-col">
-                <span class="font-hindi text-xl md:text-2xl font-bold tracking-tight text-ink">हमसफ़र</span>
-                <span class="font-script text-base md:text-lg text-antique-gold -mt-1">Pooja Sawariya</span>
-            </div>
-        </a>
+  <!-- ========================================================================= -->
+  <!-- 01. FULL-SCREEN DUAL ARTWORK CANVAS (100vw x 100vh Edge-to-Edge) -->
+  <!-- ========================================================================= -->
+  <img id="bg-art-layer-a" class="bg-art-layer opacity-100 z-0" src="" alt="Humsafar Visual" />
+  <img id="bg-art-layer-b" class="bg-art-layer opacity-0 z-0" src="" alt="Humsafar Visual Transition" />
+  
+  <div class="cinema-overlay z-10"></div>
+  <div class="film-grain z-10"></div>
 
-        <!-- Desktop Navigation Links -->
-        <div class="hidden lg:flex items-center space-x-8 text-xs tracking-[0.2em] font-bold uppercase text-ink-muted">
-            <a href="#story" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_story'})">The Story</a>
-            <a href="#poems-index" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_30_poems'})">The 30 Poems</a>
-            <a href="#book-origin" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_book'})">The Book</a>
-            <a href="#launch-date" class="hover:text-antique-gold transition" onclick="trackEvent('nav_click', {'label': 'the_launch'})">The Launch</a>
-        </div>
-
-        <!-- Header Actions -->
-        <div class="hidden sm:flex items-center space-x-4">
-            <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="px-6 py-2.5 bg-ink text-paper font-bold text-xs tracking-[0.15em] uppercase hover:bg-saffron hover:text-ink transition duration-300 shadow-sm" onclick="trackEvent('book_cta_click', {'source': 'header_main'})">
-                Buy The Book
-            </a>
-        </div>
-
-        <!-- Mobile Hamburger Button -->
-        <button class="lg:hidden text-ink p-2" id="menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">
-            <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
-
-        <!-- Mobile Sliding Navigation -->
-        <div id="mobile-menu" class="hidden fixed top-full left-0 right-0 bg-paper-light border-b border-border-light p-6 space-y-4 text-center shadow-xl">
-            <a href="#story" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_story'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">The Story</a>
-            <a href="#poems-index" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_30_poems'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">The 30 Poems</a>
-            <a href="#book-origin" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_book'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">The Book</a>
-            <a href="#launch-date" onclick="toggleMobileMenu(); trackEvent('nav_click', {'label': 'mobile_the_launch'})" class="block text-xs font-bold tracking-[0.2em] uppercase text-ink py-2">The Launch</a>
-            <div class="pt-4 flex flex-col gap-3">
-                <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="w-full py-3 bg-ink text-paper font-bold text-xs tracking-[0.15em] uppercase" onclick="trackEvent('book_cta_click', {'source': 'mobile_menu'})">Buy Book</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- SECTION 01 — HERO (PRE-LAUNCH STATEMENT) -->
-    <section class="min-h-screen pt-36 pb-20 flex items-center justify-center relative overflow-hidden border-b border-border-light">
-        <div class="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
-            
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-saffron/15 border border-saffron/40 text-saffron text-xs font-bold tracking-[0.25em] uppercase">
-                <span class="w-2 h-2 rounded-full bg-saffron animate-pulse"></span>
-                Pre-Launch Archive • 30 Poems → 30 Songs
-            </div>
-
-            <h1 class="font-hindi text-6xl md:text-8xl text-ink font-normal leading-none tracking-tight">
-                हमसफ़र
-            </h1>
-
-            <p class="font-serif text-xl md:text-2xl text-ink-muted italic font-light max-w-xl mx-auto">
-                "A journey that began on paper is about to find its voice."
-            </p>
-
-            <div class="py-6 border-y border-border-light max-w-lg mx-auto space-y-2">
-                <span class="text-xs font-bold tracking-[0.3em] uppercase text-saffron block">Official Launch Celebration</span>
-                <span class="font-serif text-4xl md:text-5xl font-bold text-ink block tracking-tight">20 AUGUST 2026</span>
-                <p class="text-xs text-ink-muted font-light tracking-wider uppercase pt-1">
-                    3:00 PM – 6:00 PM • Kalyan Singh Habitat Centre, Aligarh
-                </p>
-            </div>
-
-            <div class="pt-4 flex flex-wrap justify-center gap-4">
-                <a href="#launch-date" class="px-8 py-4 bg-ink text-paper text-xs font-bold tracking-[0.2em] uppercase hover:bg-peacock-green transition duration-300" onclick="trackEvent('scroll_click', {'target': 'explore_launch_event'})">
-                    Event Invitation
-                </a>
-                <a href="#poems-index" class="px-8 py-4 border border-ink text-ink text-xs font-bold tracking-[0.2em] uppercase hover:bg-saffron hover:border-saffron hover:text-ink transition duration-300" onclick="trackEvent('scroll_click', {'target': 'explore_30_poems'})">
-                    Explore The 30 Poems
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SECTION 02 — THE IDEA -->
-    <section id="story" class="py-24 bg-paper-light border-b border-border-light">
-        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
-            <span class="text-xs font-bold tracking-[0.3em] text-saffron uppercase font-serif block">Origin Story</span>
-            
-            <h2 class="font-serif text-3xl md:text-5xl text-ink leading-tight">
-                BEFORE THEY BECAME SONGS,<br>
-                <span class="italic font-normal text-antique-gold">THEY WERE WORDS.</span>
-            </h2>
-
-            <div class="w-16 h-0.5 bg-saffron mx-auto"></div>
-
-            <p class="font-hindi text-lg md:text-xl text-ink/80 leading-relaxed font-normal italic max-w-2xl mx-auto">
-                "30 कविताएँ जो पहले पन्नों पर रची गईं, अब संगीत के सुरों में ढल चुकी हैं।"
-            </p>
-
-            <p class="text-base md:text-lg text-ink-muted font-light leading-relaxed max-w-3xl mx-auto">
-                Humsafar began as an intimate printed volume of classical Hindi poetry by Pooja Sawariya. Thirty selected poems from these printed pages were chosen to undergo a second transformation—reimagined with studio orchestration, melody, and vocal arrangement. On 20 August 2026, this digital index will unlock its full musical layer.
-            </p>
-        </div>
-    </section>
-
-    <!-- SECTION 03 — THE JOURNEY -->
-    <section class="py-24 bg-paper-dark text-paper relative overflow-hidden">
-        <div class="max-w-5xl mx-auto px-6 text-center space-y-16">
-            <h2 class="font-serif text-3xl md:text-5xl text-paper">THE JOURNEY OF THE VERSE</h2>
-
-            <div class="grid md:grid-cols-4 gap-8 relative">
-                <div class="p-6 border border-white/10 bg-white/5 space-y-2">
-                    <span class="text-saffron font-serif font-bold text-xs">STEP 01</span>
-                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-paper">PAGE</h3>
-                    <p class="text-[11px] text-white/50 font-light">30 poems bound in paper and ink.</p>
-                </div>
-                <div class="p-6 border border-white/10 bg-white/5 space-y-2">
-                    <span class="text-saffron font-serif font-bold text-xs">STEP 02</span>
-                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-paper">POEM</h3>
-                    <p class="text-[11px] text-white/50 font-light">Metered Hindi lyricism and emotion.</p>
-                </div>
-                <div class="p-6 border border-white/10 bg-white/5 space-y-2">
-                    <span class="text-saffron font-serif font-bold text-xs">STEP 03</span>
-                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-paper">VOICE</h3>
-                    <p class="text-[11px] text-white/50 font-light">Melodic composition and vocals.</p>
-                </div>
-                <div class="p-6 border-2 border-saffron bg-saffron/10 space-y-2 relative">
-                    <span class="text-saffron font-serif font-bold text-xs">FINAL STEP</span>
-                    <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-saffron">20 AUGUST 2026</h3>
-                    <p class="text-[11px] text-paper/80 font-semibold">The Music Arrives Globally.</p>
-                </div>
-            </div>
-
-            <p class="font-serif text-lg text-paper/70 italic max-w-xl mx-auto">
-                "The words are already here. Explore the index below while the music prepares to unfold."
-            </p>
-        </div>
-    </section>
-
-    <!-- SECTION 04 & 05 — THE 30 POEMS EDITORIAL INDEX -->
-    <section id="poems-index" class="py-24 bg-paper border-b border-border-light">
-        <div class="max-w-5xl mx-auto px-6 space-y-12">
-            <div class="text-center space-y-3">
-                <span class="text-xs font-bold tracking-[0.3em] text-saffron uppercase font-serif block">Complete Digital Archive</span>
-                <h2 class="font-serif text-3xl md:text-5xl text-ink">THE 30 POEMS</h2>
-                <p class="text-xs text-ink-muted uppercase tracking-widest font-light">Thirty Poems • Thirty Journeys • One Humsafar</p>
-            </div>
-
-            <!-- Category Filter Tabs -->
-            <div class="flex flex-wrap justify-center gap-3" id="theme-filters">
-                <button onclick="filterCategory('all', this)" class="filter-btn px-5 py-2.5 border border-ink bg-ink text-paper text-xs font-bold tracking-[0.15em] uppercase transition">All 30 Poems</button>
-                <button onclick="filterCategory('love', this)" class="filter-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Love / प्रेम</button>
-                <button onclick="filterCategory('family', this)" class="filter-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Family / परिवार</button>
-                <button onclick="filterCategory('devotion', this)" class="filter-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Devotion / भक्ति</button>
-                <button onclick="filterCategory('life', this)" class="filter-btn px-5 py-2.5 border border-border-light hover:border-ink text-xs font-bold tracking-[0.15em] uppercase transition">Life / ज़िंदगी</button>
-            </div>
-
-            <!-- Search Bar -->
-            <div class="max-w-md mx-auto relative">
-                <input type="text" id="search-input" onkeyup="searchPoems()" placeholder="Search title or excerpt..." class="w-full bg-paper-light border border-border-light px-5 py-3 text-xs tracking-wider text-ink focus:outline-none focus:border-saffron font-hindi">
-                <i data-lucide="search" class="w-4 h-4 text-ink-muted absolute right-4 top-3.5 pointer-events-none"></i>
-            </div>
-
-            <!-- Editorial Table/Index Container -->
-            <div class="divide-y divide-border-light border-y border-border-light" id="poems-list-container">
-                <!-- Rendered dynamically via JS using the exact 30 PDF poem list -->
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 06 — READ THE POEM MODAL / READER POPUP -->
-    <div id="reader-modal" class="fixed inset-0 z-50 bg-paper-dark/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-paper-light border border-border-light p-8 md:p-12 max-w-xl w-full shadow-2xl relative space-y-6 text-center">
-            <button onclick="closeReaderModal()" class="absolute top-4 right-4 text-ink-muted hover:text-ink p-2" aria-label="Close Modal">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-
-            <div class="flex justify-between items-center text-[10px] tracking-[0.25em] font-serif text-saffron uppercase border-b border-border-light pb-3">
-                <span>HUMSAFAR ARCHIVE</span>
-                <span id="modal-page-num">PAGE --</span>
-            </div>
-
-            <div class="space-y-4 my-6">
-                <h3 class="font-hindi text-3xl font-semibold text-ink" id="modal-poem-title">Poem Title</h3>
-                <div class="text-saffron opacity-60 text-sm">❦</div>
-                <p class="font-hindi text-base md:text-lg text-ink/80 leading-relaxed italic" id="modal-poem-excerpt">Excerpt...</p>
-            </div>
-
-            <div class="pt-4 border-t border-border-light flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-serif">
-                <span class="text-saffron italic">The Song Arrives On 20 August 2026</span>
-                <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="px-5 py-2 bg-ink text-paper text-[11px] font-bold tracking-widest uppercase hover:bg-saffron hover:text-ink transition">Buy The Book</a>
-            </div>
-        </div>
+  <!-- ========================================================================= -->
+  <!-- 02. FLOATING TOP HEADER (Floating Directly over Artwork) -->
+  <!-- ========================================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-30 p-5 md:p-8 flex items-center justify-between pointer-events-none">
+    <!-- Brand Context -->
+    <div class="pointer-events-auto flex items-center gap-4">
+      <div class="flex flex-col">
+        <span class="text-parchment font-serif text-base md:text-lg tracking-[0.25em] drop-shadow-lg leading-tight">HUMSAFAR</span>
+        <span class="text-sandMuted font-devanagari text-xs drop-shadow leading-tight">हमसफ़र — पूजा सांवरिया</span>
+      </div>
+      <div class="hidden sm:block h-5 w-px bg-white/20"></div>
+      <div class="hidden sm:flex items-center gap-2 text-xs font-serif italic text-sand/90 drop-shadow">
+        <span class="text-saffron font-sans not-italic uppercase tracking-widest text-[10px]" id="nav-act-pill">ACT I</span>
+        <span>—</span>
+        <span id="nav-act-title">The First Spark</span>
+      </div>
     </div>
 
-    <!-- SECTION 07 — THE PHYSICAL BOOK -->
-    <section id="book-origin" class="py-24 bg-paper-light border-b border-border-light">
-        <div class="max-w-5xl mx-auto px-6 text-center space-y-12">
-            <div>
-                <span class="text-xs font-bold tracking-[0.3em] text-saffron uppercase font-serif block mb-2">Printed Anchor</span>
-                <h2 class="font-serif text-3xl md:text-5xl text-ink">
-                    BEFORE THE MUSIC,<br><span class="italic font-normal text-antique-gold">THERE WAS THE BOOK.</span>
-                </h2>
-            </div>
+    <!-- Navigation Action Pills -->
+    <div class="pointer-events-auto flex items-center gap-3">
+      <button id="btn-open-journey" class="nav-pill-btn px-4 py-2 rounded-full text-xs font-sans uppercase tracking-widest flex items-center gap-2 shadow-lg">
+        <svg class="w-3.5 h-3.5 text-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+        </svg>
+        <span>Journey • सफ़र</span>
+      </button>
 
-            <div class="grid md:grid-cols-12 gap-8 items-center text-left">
-                <div class="md:col-span-5 flex justify-center">
-                    <div class="w-56 h-80 rounded-sm overflow-hidden book-shadow border border-border-light">
-                        <img src="humsafar cover.jpg" alt="Humsafar Book Cover" class="w-full h-full object-cover">
-                    </div>
-                </div>
-                <div class="md:col-span-7 space-y-6">
-                    <p class="text-sm text-ink-muted font-light leading-relaxed">
-                        Thirty poems from these printed pages were selected to begin a second journey. Every copy of the physical volume holds the complete verses, typeset in classical Devanagari letterforms on textured parchment.
-                    </p>
-                    <div class="flex flex-wrap gap-4 pt-2">
-                        <a href="humsafar.html" class="px-6 py-3 border border-ink text-ink text-xs font-bold tracking-[0.15em] uppercase hover:bg-ink hover:text-paper transition">
-                            Explore Landing Page
-                        </a>
-                        <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="px-6 py-3 bg-ink text-paper text-xs font-bold tracking-[0.15em] uppercase hover:bg-saffron hover:text-ink transition" onclick="trackEvent('book_cta_click', {'source': 'book_origin_section'})">
-                            Buy Humsafar (₹300)
-                        </a>
-                    </div>
-                </div>
-            </div>
+      <button id="btn-open-poem" class="nav-pill-btn px-4 py-2 rounded-full text-xs font-sans uppercase tracking-widest flex items-center gap-2 shadow-lg">
+        <svg class="w-3.5 h-3.5 text-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <span>Read Poem • कविता</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 03. CINEMATIC OVER-ARTWORK TITLE TYPOGRAPHY (Small Act, Grand Hindi Title) -->
+  <!-- ========================================================================= -->
+  <div class="fixed inset-0 z-20 flex flex-col justify-center items-center text-center p-6 pointer-events-none">
+    <div class="max-w-4xl transform -translate-y-6 md:-translate-y-8">
+      <!-- Restrained Small Act Label -->
+      <p class="text-saffron/90 text-[10px] sm:text-xs font-sans tracking-[0.4em] uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] mb-3" id="canvas-act-badge">
+        ACT I — THE FIRST SPARK
+      </p>
+
+      <!-- Prominent Literary Devanagari Headline -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-devanagari font-bold text-parchment tracking-wide drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] leading-tight mb-2" id="canvas-hindi-title">
+        एक मुलाकात हुई
+      </h1>
+
+      <!-- Roman Transliteration -->
+      <p class="text-sand/85 font-serif italic text-base sm:text-xl md:text-2xl tracking-wider drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]" id="canvas-roman-title">
+        Ek Mulaqat Hui
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 04. COMPACT FLOATING MUSIC PLAYER CAPSULE (Bottom Center) -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-5 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30 w-[92%] max-w-2xl pointer-events-auto">
+    <div class="floating-player-capsule rounded-2xl md:rounded-full px-5 py-3 md:py-3.5 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-5 shadow-2xl">
+      
+      <!-- Mini Artwork & Pure Narrative Position (NO original numbers shown) -->
+      <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-start">
+        <div class="w-10 h-10 rounded-full overflow-hidden border border-white/20 shadow-md flex-shrink-0 relative">
+          <img id="player-thumb-img" src="" alt="Thumbnail" class="w-full h-full object-cover" />
         </div>
-    </section>
-
-    <!-- SECTION 08 — THE HUMSAFAR LAUNCH (EVENT & INITIATIVE ANNOUNCEMENT) -->
-    <section id="launch-date" class="py-28 bg-paper-dark text-paper text-center relative border-b border-white/10">
-        <div class="max-w-5xl mx-auto px-6 space-y-12">
-            
-            <!-- Connection to 30 Poems -> 30 Songs -->
-            <div class="space-y-3">
-                <span class="text-xs font-bold tracking-[0.3em] uppercase text-saffron font-serif">30 Poems. 30 Songs.</span>
-                <h2 class="font-serif text-3xl md:text-5xl text-paper">THE JOURNEY FINDS ITS VOICE.</h2>
-            </div>
-
-            <div class="w-16 h-0.5 bg-saffron mx-auto"></div>
-
-            <!-- Event Card Container -->
-            <div class="p-8 md:p-14 border border-saffron/40 bg-white/5 max-w-3xl mx-auto space-y-10 relative">
-                
-                <div class="space-y-2">
-                    <span class="text-xs font-bold tracking-[0.35em] text-saffron uppercase block">Official Invitation</span>
-                    <h3 class="font-serif text-3xl md:text-5xl text-paper tracking-wide">THE HUMSAFAR LAUNCH</h3>
-                    <p class="text-xs text-paper/70 font-light italic max-w-lg mx-auto pt-2">
-                        "Join us for the launch of Humsafar by Pooja Sawariya — an evening of poetry, music, celebration and giving."
-                    </p>
-                </div>
-
-                <!-- Event Details Grid -->
-                <div class="grid md:grid-cols-3 gap-6 text-left border-y border-white/10 py-8">
-                    <!-- WHEN -->
-                    <div class="space-y-2 border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-4">
-                        <span class="text-[10px] font-bold tracking-[0.25em] text-saffron uppercase block">Date &amp; Time</span>
-                        <div class="font-serif text-xl text-paper font-semibold">20 AUGUST 2026</div>
-                        <div class="text-xs text-paper/80 font-mono">3:00 PM – 6:00 PM</div>
-                    </div>
-
-                    <!-- WHERE -->
-                    <div class="space-y-2 border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-4">
-                        <span class="text-[10px] font-bold tracking-[0.25em] text-saffron uppercase block">Venue</span>
-                        <div class="font-serif text-base text-paper font-semibold leading-tight">Kalyan Singh Habitat Centre</div>
-                        <div class="text-xs text-paper/70">Auditorium · 4th Floor</div>
-                        <div class="text-[11px] text-saffron">Aligarh, Uttar Pradesh</div>
-                    </div>
-
-                    <!-- ACCESS -->
-                    <div class="space-y-2 flex flex-col justify-between">
-                        <div>
-                            <span class="text-[10px] font-bold tracking-[0.25em] text-saffron uppercase block">Entry</span>
-                            <div class="font-serif text-xl text-paper font-bold tracking-wider">OPEN FOR ALL</div>
-                        </div>
-                        <div class="pt-2">
-                            <a href="https://share.google/XlCx9kwW57EaQuyuG" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 bg-saffron text-ink font-bold text-xs tracking-[0.15em] uppercase hover:bg-paper hover:text-ink transition duration-300" onclick="trackEvent('event_directions_click', {'venue': 'kalyan_singh_habitat_centre'})">
-                                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Get Directions
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Wheelchair Initiative (A Journey of Giving) -->
-                <div class="p-6 border border-saffron/30 bg-peacock-green/30 text-left space-y-2">
-                    <div class="flex items-center gap-2 text-saffron">
-                        <i data-lucide="heart" class="w-4 h-4"></i>
-                        <span class="text-xs font-bold tracking-[0.2em] uppercase font-serif">A Journey of Giving</span>
-                    </div>
-                    <p class="text-xs text-paper/90 font-light leading-relaxed">
-                        As part of the Humsafar launch, 10 wheelchairs will be gifted to people who need them.
-                    </p>
-                </div>
-
-                <!-- Dynamic Countdown Display -->
-                <div class="space-y-4 pt-2">
-                    <span class="text-[10px] tracking-[0.25em] text-white/50 uppercase block">Countdown To Launch</span>
-                    <div class="grid grid-cols-4 gap-3 max-w-xs mx-auto font-serif text-saffron" id="countdown-timer">
-                        <div class="p-2.5 border border-white/10 bg-white/5">
-                            <span id="days" class="text-xl md:text-2xl font-bold block">--</span>
-                            <span class="text-[8px] text-white/50 tracking-widest uppercase block">Days</span>
-                        </div>
-                        <div class="p-2.5 border border-white/10 bg-white/5">
-                            <span id="hours" class="text-xl md:text-2xl font-bold block">--</span>
-                            <span class="text-[8px] text-white/50 tracking-widest uppercase block">Hours</span>
-                        </div>
-                        <div class="p-2.5 border border-white/10 bg-white/5">
-                            <span id="minutes" class="text-xl md:text-2xl font-bold block">--</span>
-                            <span class="text-[8px] text-white/50 tracking-widest uppercase block">Mins</span>
-                        </div>
-                        <div class="p-2.5 border border-white/10 bg-white/5">
-                            <span id="seconds" class="text-xl md:text-2xl font-bold block">--</span>
-                            <span class="text-[8px] text-white/50 tracking-widest uppercase block">Secs</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <div class="flex flex-col min-w-0 pr-2">
+          <span class="text-[10px] text-saffron uppercase font-sans tracking-wider" id="player-sequence-num">01 / 30</span>
+          <span class="text-xs md:text-sm font-devanagari font-medium text-parchment truncate max-w-[150px] sm:max-w-[200px]" id="player-title-text">
+            एक मुलाकात हुई
+          </span>
         </div>
-    </section>
 
-    <!-- SECTION 11 — FINAL PRE-LAUNCH CTA -->
-    <section class="py-24 bg-paper text-center border-b border-border-light">
-        <div class="max-w-2xl mx-auto px-6 space-y-8" id="final-cta-container">
-            <div class="space-y-2">
-                <h2 class="font-serif text-3xl md:text-4xl text-ink" id="final-cta-heading">THE WORDS ARE HERE.</h2>
-                <p class="font-serif text-xl text-saffron italic" id="final-cta-sub">THE MUSIC IS COMING 20 AUGUST 2026.</p>
-            </div>
-
-            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <a href="humsafar.html" class="px-8 py-4 border border-ink text-ink text-xs font-bold tracking-[0.2em] uppercase hover:bg-ink hover:text-paper transition duration-300">
-                    Read Humsafar
-                </a>
-                <a href="https://astitvaprakashan.com/product/humsafar/" target="_blank" rel="noopener" class="px-8 py-4 bg-ink text-paper text-xs font-bold tracking-[0.2em] uppercase hover:bg-saffron hover:text-ink transition duration-300" onclick="trackEvent('book_cta_click', {'source': 'final_cta'})">
-                    Buy The Book
-                </a>
-            </div>
+        <!-- Mobile Time Display -->
+        <div class="text-[10px] font-sans text-sandMuted md:hidden">
+          <span id="mob-time-curr">0:00</span> / <span id="mob-time-dur">0:00</span>
         </div>
-    </section>
+      </div>
 
-    <!-- FOOTER -->
-    <footer class="py-12 bg-paper-light border-t border-border-light text-center text-xs text-ink-muted">
-        <div class="max-w-6xl mx-auto px-6 space-y-6">
-            <div class="flex justify-center items-center gap-3">
-                <img src="icon.png" alt="Logo Icon" class="h-8 w-auto">
-                <span class="font-hindi text-xl font-bold text-ink">हमसफ़र</span>
-            </div>
+      <!-- Center Controls & Progress Bar -->
+      <div class="flex flex-col items-center gap-1.5 w-full md:flex-1">
+        <!-- Buttons Group -->
+        <div class="flex items-center gap-4 sm:gap-6">
+          <!-- Previous -->
+          <button id="btn-player-prev" class="text-sand hover:text-saffron transition-colors p-1" title="Previous Narrative Chapter">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+            </svg>
+          </button>
 
-            <p class="text-[11px] tracking-widest uppercase text-saffron font-bold">Official Music Index — Pooja Sawariya</p>
+          <!-- Rewind 10s -->
+          <button id="btn-player-rewind" class="text-white/60 hover:text-parchment transition-colors p-1" title="Rewind 10s">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z"/>
+            </svg>
+          </button>
 
-            <div class="flex flex-wrap justify-center gap-6 text-xs font-medium text-ink-muted">
-                <a href="mailto:contact@poojasawariya.com" class="hover:text-saffron transition" onclick="trackEvent('contact_click', {'type': 'email'})">contact@poojasawariya.com</a>
-                <a href="https://www.instagram.com/sawariyaa.pooja" target="_blank" rel="noopener" class="hover:text-saffron transition" onclick="trackEvent('social_click', {'platform': 'instagram'})">Instagram</a>
-                <a href="https://www.youtube.com/@sawariyaa_pooja" target="_blank" rel="noopener" class="hover:text-saffron transition" onclick="trackEvent('social_click', {'platform': 'youtube'})">YouTube</a>
-                <a href="https://x.com/sawariyaa_pooja" target="_blank" rel="noopener" class="hover:text-saffron transition" onclick="trackEvent('social_click', {'platform': 'x'})">X (Twitter)</a>
-            </div>
+          <!-- Main Play / Pause Circle -->
+          <button id="btn-player-play-pause" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-saffron hover:bg-saffronDark text-black flex items-center justify-center transition-transform active:scale-95 shadow-[0_0_15px_rgba(225,163,55,0.4)]" title="Play / Pause">
+            <svg id="icon-play" class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg id="icon-pause" class="w-4 h-4 fill-current hidden" viewBox="0 0 24 24">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+          </button>
 
-            <div class="pt-6 border-t border-border-light flex justify-between items-center text-[10px] text-ink-muted">
-                <span>© 2026 Pooja Sawariya. All Rights Reserved.</span>
-                <span>Pooja Sawariya Official Digital Property</span>
-            </div>
+          <!-- Forward 10s -->
+          <button id="btn-player-forward" class="text-white/60 hover:text-parchment transition-colors p-1" title="Forward 10s">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z"/>
+            </svg>
+          </button>
+
+          <!-- Next -->
+          <button id="btn-player-next" class="text-sand hover:text-saffron transition-colors p-1" title="Next Narrative Chapter">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+            </svg>
+          </button>
         </div>
-    </footer>
 
-    <!-- FUTURE-READY DATA ARCHITECTURE & JAVASCRIPT LOGIC -->
-    <script>
-        // Custom GA4 Event Tracker
-        function trackEvent(eventName, eventParams = {}) {
-            if (typeof gtag === 'function') {
-                gtag('event', eventName, eventParams);
-            }
+        <!-- Scrubber Line with Timestamps -->
+        <div class="w-full flex items-center gap-2.5 px-1">
+          <span class="text-[10px] font-sans text-white/50 w-7 text-right hidden sm:inline" id="desk-time-curr">0:00</span>
+          <div class="flex-1 h-1.5 bg-white/20 rounded-full cursor-pointer relative group" id="scrubber-track">
+            <div id="scrubber-fill" class="h-full bg-saffron rounded-full w-0 relative">
+              <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-2.5 h-2.5 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+          </div>
+          <span class="text-[10px] font-sans text-white/50 w-7 hidden sm:inline" id="desk-time-dur">0:00</span>
+        </div>
+      </div>
+
+      <!-- Utilities (Volume, Share, Streaming) -->
+      <div class="flex items-center gap-3 w-full md:w-auto justify-end">
+        <!-- Volume Control -->
+        <div class="hidden lg:flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-white/50" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.764L4.856 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.856l3.527-3.764a1 1 0 011.027-.16zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd"/>
+          </svg>
+          <input id="volume-range" type="range" min="0" max="1" step="0.01" value="0.85" class="w-14 h-1">
+        </div>
+
+        <!-- Share -->
+        <button id="btn-share-song" class="text-sand/80 hover:text-saffron p-1.5 transition-colors" title="Share Track">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+          </svg>
+        </button>
+
+        <!-- Streaming Destinations -->
+        <button id="btn-open-stream-modal" class="text-sand/80 hover:text-saffron p-1.5 transition-colors" title="Streaming Platforms">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 05. READ THE POEM (Literary Full Poem Sheet - Cleaned from Production Tags) -->
+  <!-- ========================================================================= -->
+  <div id="poem-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-xl flex justify-end opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="poem-sheet" class="w-full max-w-xl h-full bg-[#FAF6ED] text-[#15202E] flex flex-col transform translate-x-full transition-transform duration-300 ease-out shadow-2xl">
+      
+      <!-- Sheet Header -->
+      <div class="p-6 md:p-8 border-b border-sand/40 flex items-center justify-between bg-[#F2ECD9]">
+        <div>
+          <span class="text-[10px] text-saffronDark uppercase tracking-[0.3em] font-sans font-bold" id="poem-sheet-act">ACT I — THE FIRST SPARK</span>
+          <h3 class="text-2xl md:text-3xl font-devanagari font-bold text-indigoDeep mt-1" id="poem-sheet-hindi">एक मुलाकात हुई</h3>
+          <p class="text-sm font-serif italic text-sandMuted" id="poem-sheet-roman">Ek Mulaqat Hui</p>
+        </div>
+        <button id="btn-close-poem" class="p-2 text-indigoDeep hover:text-saffronDark transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Pure Poetry Text (Complete & Vertically Scrollable) -->
+      <div class="flex-1 overflow-y-auto p-8 md:p-10 space-y-6 font-devanagari text-indigoDeep leading-loose">
+        <div id="poem-body-text" class="text-base md:text-lg whitespace-pre-line tracking-wide">
+          <!-- Text Injected Here -->
+        </div>
+
+        <div class="pt-8 border-t border-sand/40 flex items-center justify-between text-xs font-serif italic text-sandMuted">
+          <span>From the book <em>Humsafar</em> by Pooja Sawariya</span>
+          <span>हमसफ़र</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 06. THE JOURNEY (5-Act Chapter Map - Narrative Numbering Only) -->
+  <!-- ========================================================================= -->
+  <div id="journey-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex flex-col opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="px-6 py-5 border-b border-white/10 flex items-center justify-between">
+      <div>
+        <h2 class="text-xl font-serif text-parchment tracking-widest uppercase">THE JOURNEY • सफ़रनामा</h2>
+        <p class="text-xs text-sandMuted font-sans">The 30-Chapter Narrative Path from Awakening to Fulfilment</p>
+      </div>
+      <button id="btn-close-journey" class="p-2 text-sand hover:text-saffron transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- 5 Chapters List -->
+    <div class="flex-1 overflow-y-auto p-6 md:p-10 space-y-8 max-w-5xl mx-auto w-full" id="journey-acts-wrapper">
+      <!-- Injected Dynamically by JS -->
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 07. STREAMING PLATFORMS MODAL -->
+  <!-- ========================================================================= -->
+  <div id="streaming-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="w-full max-w-md bg-[#0D141D] border border-white/15 p-6 shadow-2xl relative rounded-xl">
+      <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
+        <div>
+          <h4 class="text-parchment font-serif text-base">Listen on Official Platforms</h4>
+          <p class="text-xs text-sandMuted font-sans" id="stream-modal-subtitle">एक मुलाकात हुई (Ek Mulaqat Hui)</p>
+        </div>
+        <button id="btn-close-streaming" class="text-sandMuted hover:text-parchment">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="space-y-2 text-xs font-sans" id="streaming-platforms-list">
+        <!-- Injected Dynamically -->
+      </div>
+      
+      <p class="mt-4 text-[10px] text-center text-white/40 uppercase tracking-widest">
+        Official Streaming Mappings • Humsafar by Pooja Sawariya
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 08. TOAST NOTIFICATION -->
+  <!-- ========================================================================= -->
+  <div id="toast-notify" class="fixed bottom-24 right-8 z-50 bg-[#0D141D] border border-saffron px-4 py-2 rounded-lg text-xs text-parchment font-sans shadow-2xl transform translate-y-8 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-2">
+    <span class="text-saffron font-bold">✓</span>
+    <span id="toast-text">Link Copied to Clipboard</span>
+  </div>
+
+  <!-- HTML5 Audio Engine -->
+  <audio id="humsafar-audio-player" preload="metadata"></audio>
+
+  <!-- ========================================================================= -->
+  <!-- 09. CORE JAVASCRIPT & COMPLETE CLEAN POEMS DATASET -->
+  <!-- ========================================================================= -->
+  <script>
+    /**
+     * 30 COMPLETE CLEAN POEMS & METADATA
+     * All production tags, BPM, style notes, and bracketed vocal tags removed.
+     */
+    const SONGS = [
+      {
+        originalNumber: 1,
+        hindiTitle: "एक मुलाकात हुई",
+        romanTitle: "Ek Mulaqat Hui",
+        act: 1,
+        poem: `एक मुलाकात हुई, संग तेरे बात हुई
+कुछ वादे हुए, कुछ सपने बुने
+सफर फलक तक तय किया
+फिर वो हसीं रात हुई
+
+घूंघट जो उठाया तूने, सिमट कर शरमा मैं गई
+जन्मों के लिए तेरी हुई
+जब वो हसीं रात हुई
+
+एक मुलाकात हुई, संग तेरे बात हुई
+एक मुलाकात हुई, संग तेरे बात हुई
+
+रब ने मिलाया हमें, एक दूजे का बनाया हमें
+ये साथ जन्मों तक का, प्रीत के रंग में है रंगा
+अब मैं तेरी हुई
+जब ये हसीं रात हुई
+
+एक मुलाकात हुई, संग तेरे बात हुई
+
+रब से और क्या मांगूं, सब कुछ तुझसे है मिला
+दिल की हर दस्तक पर, बस तेरा नाम है लिखा
+संग तेरे रेशमी डोर से बंधी
+जब ये हसीं रात हुई
+
+एक मुलाकात हुई, संग तेरे बात हुई
+एक मुलाकात हुई...
+जब ये हसीं रात हुई...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 2,
+        hindiTitle: "ओ रे पिया",
+        romanTitle: "O Re Piya",
+        act: 1,
+        poem: `दूर होकर भी पास है, ये कैसा अहसास है
+हमको तुमसे प्यार है, ओ मेरे साथिया
+
+जीवन की गाड़ी तुमसे है, फ़िज़ा में बहारें तुमसे हैं
+तू दूर कितना भी क्यों ना हो, जीवन की खुशियां तुमसे हैं
+
+दूर होकर भी पास है, ये कैसा अहसास है...
+हमको तुमसे प्यार है, ओ मेरे साथिया!
+
+तू दूर कितना भी क्यों ना हो, तू ही दिल के पास है
+प्यार है, इकरार है, हमको तुमसे प्यार है
+
+दूर होकर भी पास है, ये कैसा अहसास है...
+हमको तुमसे प्यार है!
+
+कोई नहीं है तुझ जैसा, तू चांद के जैसा दिखता है
+बेकरारी है, तकरार है, हमको तुमसे प्यार है
+
+दूर होकर भी पास है, ये कैसा अहसास है...
+हमको तुमसे प्यार है!
+
+सांसों में तेरी खुशबू है, बातों से तेरी राहत है
+बेचैनी है, विश्वास है, हमको तुमसे प्यार है
+
+हर सांस में बस तेरा ही नाम है, होठों पे बस तेरी ही सरगम है
+संगीत है तू... साज़ है... हमको तुमसे प्यार है
+
+दूर होकर भी पास है, ये कैसा अहसास है...
+ओ रे पिया...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 3,
+        hindiTitle: "चल साथ चल",
+        romanTitle: "Chal Saath Chal",
+        act: 2,
+        poem: `चल साथ चल, हाथों में लिए हाथ चल!
+चल साथ चल!
+बिन तेरे क्या है जीना, जन्मों तक संग साथ चल
+
+बिन तेरे हर सांस अधूरी, बिन तेरे हर बात अधूरी
+तेरे संग है जन्मों का रिश्ता, बिन तेरे ये ज़िन्दगी अधूरी
+तेरी ही बनकर रहना, जन्मों तक संग साथ चल
+
+चल साथ चल, हाथों में लिए हाथ चल!
+बिन तेरे क्या है जीना, जन्मों तक संग साथ चल
+
+तेरे बिन ना जीना गवारा, तेरे बिन ना मरना गवारा
+तेरे संग बंधी प्रीत की डोरी, जन्मों तक संग साथ चल
+
+चल साथ चल, हाथों में लिए हाथ चल!
+बिन तेरे क्या है जीना, जन्मों तक संग साथ चल
+
+जब तक है ये जीवन साथी, तब तक मेरे बनकर रहना
+हर सुख दुख में साया बनकर, संग साथ तुम चलना
+कभी ना बदले प्रीत ये तेरी, कभी तुम ना बदलना!
+
+चल साथ चल, हाथों में लिए हाथ चल!
+बिन तेरे क्या है जीना, जन्मों तक संग साथ चल
+
+सांसों से सांसों तक की डोरी, जन्मों तक संग साथ चल!
+चल साथ चल!`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 4,
+        hindiTitle: "जीवन साथी - दुआ",
+        romanTitle: "Jeevan Saathi - Dua",
+        act: 2,
+        poem: `हर सांस बस तेरे संग हो, रब से दुआ मैं करती हूं
+हर लम्हा तेरे साथ गुज़ारूं, तुझसे मैं वादा लेती हूं
+
+सांस-सांस पर नाम जुड़ा है, हर धड़कन में बस तू है
+तेरी बाहों में मेरा दम निकले, यही मेरी तमन्ना है
+हर लम्हा तेरे साथ गुज़ारूं, तुझसे मैं वादा लेती हूं
+
+हर सांस बस तेरे संग हो, रब से दुआ मैं करती हूं...
+हर लम्हा तेरे साथ गुज़ारूं, तुझसे मैं वादा लेती हूं
+
+सोने सा तेरा दिल साजन, सागर से भी तू गहरा है
+मेरे सुख दुख में ओ साजन, तू बादल बनकर बहता है
+तुझसे जन्मों की प्रीत जुड़े, ये मैं वादा लेती हूं
+
+हर सांस बस तेरे संग हो, रब से दुआ मैं करती हूं...
+हर लम्हा तेरे साथ गुज़ारूं, तुझसे मैं वादा लेती हूं
+
+सफर जो तेरे संग गुज़ारा, सपनों से भी सुंदर है
+हर लम्हा मेरे पीछे-पीछे, साया बनकर चलता है
+
+हर सांस बस तेरे संग हो, रब से दुआ मैं करती हूं...
+सदा मेरे रंग में रंगा रहे... तुझसे ये वादा लेती हूं!`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 5,
+        hindiTitle: "तेरी यादें",
+        romanTitle: "Teri Yaadein",
+        act: 1,
+        poem: `खोया-खोया सा दिन, खोई-खोई सी रात है
+कैसी ये बेकरारी, कैसी ये बात है
+
+तेरी यादों के सपनों में सोई हूं
+होकर दीवानी मैं, तुझमें ही खोई हूं
+थोड़ी सी पागल मैं... पागल मैं!
+थोड़ी सी क्यूट हूं... क्यूट हूं!
+
+खोई सी रतियां हैं, खोई सी बतियां हैं
+खोया-खोया सा है समां
+
+खोया-खोया सा दिन, खोई-खोई सी रात है...
+कैसी ये बेकरारी, कैसी ये बात है
+
+मुझे क्या हो गया है, मुझे नहीं है पता
+शायद तेरे प्यार का, मुझ पर छाया है नशा
+अब तो सुहानी हर महफिल, और सुहानी हर शाम है
+
+खोया-खोया सा दिन, खोई-खोई सी रात है...
+कैसी ये बेकरारी, कैसी ये बात है
+
+तेरे प्यार में कैसी हर बात है
+हर दस्तक में तेरा ही इंतज़ार है
+तन्हाइयों में भी लगती सी महफिल है
+मेरे जीवन की बगिया गुलज़ार है...
+
+खोया-खोया सा दिन, खोई-खोई सी रात है...
+खोया-खोया सा दिन...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 6,
+        hindiTitle: "गायेगी ये ज़मीं",
+        romanTitle: "Gaayegi Ye Zameen",
+        act: 3,
+        poem: `गाएगी ये ज़मीं! गाएगा आसमां!
+संग साथ तेरे, जन्मों का है वास्ता
+तुझसे मिलकर के, पूरी हुई हूं मैं
+तुझसे ही पूरा है, मेरा ये जहां
+
+बिन तेरे मैं आवारा बादल हूं, उड़ती ही जाती हूं
+तुझसे ही प्रीत है, है जन्मों का वास्ता
+
+गाएगी ये ज़मीं! गाएगा आसमां!
+संग साथ तेरे, जन्मों का है वास्ता
+
+अधूरी ये सांसें हैं, अधूरी कहानी है
+बिन तेरे कुछ नहीं, अधूरी ये जवानी है
+तुझसे ही गीत है, तुझसे ही प्रीत है, जन्मों का वास्ता
+
+गाएगी ये ज़मीं! गाएगा आसमां!
+संग साथ तेरे, जन्मों का है वास्ता
+
+जीवन की गाड़ी में, हम दोनों दो पहिये हैं
+एक दूजे बिन दोनों ही अधूरे हैं
+जीवन की गाड़ी तुझसे है... ये यारी भी तुझसे है!
+
+गाएगी ये ज़मीं! गाएगा आसमां!
+संग साथ तेरे, जन्मों का है वास्ता!
+
+दिल की इस धड़कन पर तेरा ही तराना है...
+गाएगी ये ज़मीं! गाएगा आसमां!`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 7,
+        hindiTitle: "ख्वाबों में आने लगी है",
+        romanTitle: "Khwabon Mein",
+        act: 1,
+        poem: `रातों को जगाने लगी है...
+वो मेरे ख़्वाबों में आने लगी है
+कल तक थे हम दूर कितने
+वो अब पास आने लगी है
+
+सूरज की पहली किरण वो, रात की रोशनी भी वो है
+सांझ की चुंदरी ओढ़े वो, मेरे ख़्वाबों में आने लगी है
+
+रातों को जगाने लगी है...
+वो मेरे ख़्वाबों में आने लगी है
+
+चांद में अक्स उसका है दिखता
+तारों से उसकी ही बातें मैं करता
+बरसात बनकर वो मुझको, सुकूं दिलाने लगी है
+
+रातों को जगाने लगी है...
+वो मेरे ख़्वाबों में आने लगी है
+
+वादियों में उसकी ही गूंज है, फ़िज़ाओं में उसकी महक है
+फूलों सी कोमल है वो, मेरे जीवन को महकाने लगी है
+
+रातों को जगाने लगी है...
+वो मेरे ख़्वाबों में आने लगी है
+
+कोयल सी उसकी है बोली, देती मुझको बेहद सुकूं है
+मेरे जीवन में रंग भर, मुझको रंगने लगी है
+
+रातों को जगाने लगी है, वो मेरे ख़्वाबों में आने लगी है...
+मेरे ख़्वाबों में...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 8,
+        hindiTitle: "दो हन्सो के जोड़े",
+        romanTitle: "Do Hanso Ke Jode",
+        act: 2,
+        poem: `दो हन्सो के जोड़े हैं हम तुम पिया
+मेरा-तेरा प्यार अमर है पिया
+रब की दुआ तुम, वफ़ा भी तुम हो
+तेरा प्यार है जीने की वजह
+
+दो दिल की एक धड़कन हैं हम तुम पिया
+तेरी प्रीत का रंग मुझ पर चढ़ा
+तुम्हीं नसीब मेरा, तुम्हीं दुआ हो
+मेरे जीने की वजह
+
+दो हन्सो के जोड़े हैं हम तुम पिया...
+मेरा-तेरा प्यार अमर है पिया
+
+तू सागर की लहरें, मैं नदियों की धारा
+संग तेरे मिलन है हमारा
+तुम्हीं आरज़ू, तुम्हीं दुआ हो
+मेरे जीने की वजह
+
+दो हन्सो के जोड़े हैं हम तुम पिया...
+मेरा-तेरा प्यार अमर है पिया
+
+दीया और बाती सा साथ है
+संग जलना ही जीवन राग है
+बिन तेरे ना जीना मुझे...
+तेरा प्यार है जीने की वजह
+
+दो हन्सो के जोड़े हैं हम तुम पिया...
+मेरा-तेरा प्यार अमर है पिया...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 9,
+        hindiTitle: "एक कहानी - सूखा पत्ता",
+        romanTitle: "Ek Kahani - Separation",
+        act: 4,
+        poem: `सूखा पत्ता चला... हवा में उड़ा...
+कहा, अब अपनी कोई कहानी नहीं
+ना ठहराव है, ना वजूद है कहीं
+अनकही सी अपनी कहानी है ये
+
+थक चुका है ये मन मेरा
+जीर्ण तन मेरा हुआ है
+तुझ बिन निष्प्राण मैं हूं सदा
+मेरा कोई वजूद नहीं है यहां
+
+सूखा पत्ता चला... हवा में उड़ा...
+अनकही सी अपनी कहानी है ये
+
+लाठी पकड़े हुए चलता हूं मैं
+ना मेरा कोई सहारा है अब
+रात की रोशनी में भी तू दिखती नहीं
+दिन के उजालों में भी तू है कहीं नहीं
+
+सूखा पत्ता चला... हवा में उड़ा...
+अनकही सी अपनी कहानी है ये
+
+तुझ बिन मैं अब बेरंग हूं
+अब ना मेरा कोई वजूद है यहां...
+सूखा पत्ता चला हवा में उड़ा...
+
+उड़ता है मन... और कहता सदा...
+प्रिय, तुझ बिन नहीं है जीना यहां
+ले चल मुझे भी उस लोक में...
+जहां रहती है मेरी दिलरुबा...
+सूखा पत्ता चला... हवा में उड़ा...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 10,
+        hindiTitle: "ना जा चांद तू ठहर जा यहीं",
+        romanTitle: "Na Ja Chand",
+        act: 4,
+        poem: `ना जा चांद... तू ठहर जा यहीं
+बिन तेरे मैं गीत गाता नहीं
+मेरे सुर, मेरे राग तेरे लिए हैं
+तेरे सिवा कोई दिल लुभाता नहीं
+
+मेरे सुर में है तू, मेरे राग में है तू
+मेरी ज़िंदगी की शामों में तू
+महफिलें मेरी सजती हैं तुझसे प्रिय
+मेरे जीवन की चांदनी भी तू है
+
+ना जा चांद, तू ठहर जा यहीं...
+बिन तेरे मैं गीत गाता नहीं
+
+जो तुम रूठ गए, हम ना जी पाएंगे
+जुदाई तेरी, हम ना सह पाएंगे
+खिलती है भोर तुझसे, होती शाम है
+मेरी ज़िंदगी अब तेरे नाम है
+
+ना जा चांद, तू ठहर जा यहीं...
+बिन तेरे मैं गीत गाता नहीं
+
+गीत मिलन के सदा मैं गाता हूं
+तेरी याद में गुनगुनाता हूं
+तू कली, भंवरा हूं मैं
+तेरी खुशबू मेरी सांसों में है
+
+ना जा चांद, तू ठहर जा यहीं...
+बिन तेरे मैं गीत गाता नहीं
+
+पूर्णिमा का तुम चांद हो मेरी प्रिय
+तुमसे ज़िंदगी में उजाला है प्रिय
+तेरी जुल्फों की छांव में सोना चाहता हूं मैं
+तेरे पहलू में सिर रखना चाहता हूं मैं
+
+बीत जाए ये उमरिया संग तेरे प्रिय!
+संग तेरे ज़िंदगी जीना चाहता हूं मैं...
+ना जा चांद... तू ठहर जा यहीं...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 11,
+        hindiTitle: "बिटिया",
+        romanTitle: "Bitiya",
+        act: 3,
+        poem: `सुरमयी अखियां बिटिया तेरी, फूलों सी मुस्कान है
+चले तो अंबर झुके कदमों में, कोमल तेरी काया है
+
+नूतन कली तू इस बगिया की, सौंदर्य बेमिसाल है
+रूप शक्ति का तुझमें बसता, कंठ में सरस्वती वास है
+चले तो अंबर झुके कदमों में, कोमल तेरी काया है
+
+सुरमयी अखियां बिटिया तेरी, फूलों सी मुस्कान है
+चले तो अंबर झुके कदमों में, कोमल तेरी काया है
+
+धन्य हुआ जीवन मेरा, जब से मैंने तुझको पाया है
+प्रफुल्लित हुआ मन मेरा, जब माँ कहकर तूने पुकारा है
+आशीर्वाद है बिटिया ईश्वर का, संपूर्णता को पाया है
+
+सुरमयी अखियां बिटिया तेरी, फूलों सी मुस्कान है
+चले तो अंबर झुके कदमों में, कोमल तेरी काया है
+
+नटखट न्यारी, प्राणों से प्यारी, जोड़ी तुझसे जन्मों की यारी
+मित्र कृष्ण सी, बड़ी अलबेली... पर क्यों तू दूजे घर की रानी?
+
+चंचल चपला, शांति प्रिया, तुझमें ही है जीवन बसता
+दूर तुझ बिन जीना है मुश्किल... कैसे विदा करूं मैं बिटिया?
+सुरमयी अखियां बिटिया तेरी...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 12,
+        hindiTitle: "गुनगुना रहा है समां",
+        romanTitle: "Gunguna Raha Hai Sama",
+        act: 2,
+        poem: `गुनगुना रहा है समां... आज की रात ना जा
+ओढ़कर चुंदरी दुल्हन सी सज, मेरी बाहों में चली आ
+
+ये वक्त थम जाए यहीं, ये रात जाए ना कहीं
+जुल्फों की काली घटा में, सिमट जाए ज़िंदगी मेरी
+
+गुनगुना रहा है समां... आज की रात ना जा
+गुनगुना रहा है समां...
+
+पहरा दे रहा है चांद, तारों से सजी है शाम
+शरमाई इठलाई सी, दुल्हन सी सजी है रात
+संवार दे जीवन को मेरे, ना जा आज की रात
+
+गुनगुना रहा है समां... आज की रात ना जा
+गुनगुना रहा है समां...
+
+आ संवार दूं तेरे केशों को मैं
+चुरा लूं आंखों से काजल तेरा
+चुरा के होठों की लाली...
+तेरे दिल पर नाम लिख दूं अपना...
+
+तेरी छांव में बीत जाए ये उमरिया सारी
+ना बीते ये रात, ठहर जाए ये चांद...
+गुनगुना रहा है समां, आज की रात ना जा...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 13,
+        hindiTitle: "एक दूजे के लिए",
+        romanTitle: "Ek Duje Ke Liye",
+        act: 3,
+        poem: `कदम-कदम पर साथ हूं!
+मैं तेरी ही पहचान हूं!
+रब ने बनाया तेरे लिए
+मैं तेरी ही जान हूं!
+
+तू धूप में तपता पंछी है
+मैं तेरे लिए छांव की चुंदरी ओढ़े हूं
+दो दिल एक धड़कन हूं
+मैं तेरी ही जान हूं
+
+कदम-कदम पर साथ हूं!
+मैं तेरी ही पहचान हूं!
+
+रब ने बनाया हम तुम को, एक दूजे के वास्ते
+सांसों की डोर से बांधा हमको, एक दूजे के वास्ते
+तू मेरा साया है, मैं तेरी ही जान हूं
+
+कदम-कदम पर साथ हूं!
+मैं तेरी ही पहचान हूं!
+
+मंज़िल तुझसे जुड़ी हुई, हर राह तेरे तक जाती है
+हर ख़्वाब में मेरे तू, नींद बनकर आती है
+मैं तेरा ख़्वाब हूं, मैं तेरी ही जान हूं
+
+कदम-कदम पर साथ हूं!
+मैं तेरी ही पहचान हूं!
+
+कदम-कदम पर कांटे हैं, तू फूलों की फुलवारी है
+मिले ज़ख्म जो दुनिया से, मेरा मरहम तू बन जाती है
+माली तू मेरी बगिया का... मैं तेरी ही जान हूं
+
+कदम-कदम पर साथ हूं, मैं तेरी ही पहचान हूं...
+एक दूजे के लिए!`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 14,
+        hindiTitle: "तेरी गली में हम चले आए",
+        romanTitle: "Teri Gali Mein",
+        act: 4,
+        poem: `आज उनकी गली में हम चले आए
+लोग हज़ारों मिले हैं उनसे यहां
+पर उनसे ना हम मिल पाए...
+
+दरवाज़े पर है इंतज़ार हमको उनका
+महक उनकी फलक तक है
+पर उनसे ना हम मिल पाए
+
+आज उनकी गली में हम चले आए...
+पर उनसे ना हम मिल पाए...
+
+दूर बागों में वो केशों को बनाती थीं कभी
+फूलों सी कोमल थीं वो, तितली सी उड़ती जाती थीं वो
+उनके केशों की छांव में बीती जवानी...
+पर फिर भी हम उनसे ना मिल पाए
+
+आज उनकी गली में हम चले आए...
+पर उनसे ना हम मिल पाए...
+
+गुल पतझड़ में भी खिलते थे सदा, जब साथ हमको उनका मिला
+उसने मुस्कान बिखेरी मेरे जीवन में सदा
+पर अब हम उनसे ना मिल पाए
+
+आज उनकी गली में हम चले आए...
+पर उनसे ना हम मिल पाए...
+
+इंतज़ार में पलकें बिछाए बैठे हैं
+फिर कब उनसे मिलेंगे हम लोगों से कहते हैं
+चांद तारों में भी खोजा उनको... पर अब हम उनसे ना मिल पाएंगे
+
+आज उनकी गली में हम चले आए...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 15,
+        hindiTitle: "जीवन साथी - तुम मेरे रहो",
+        romanTitle: "Tum Mere Raho",
+        act: 3,
+        poem: `तुम मेरे रहो, मैं तुम्हारी रहूं
+मज़ा साथ जीने का और सनम आता है!
+मैं मैं ना रहूं, एक दूजे में खो जाएं हम
+मज़ा जीने का और भी आता है!
+
+तेरे दुख में मैं, तेरे सुख में मैं
+साया बनकर के मैं चलता रहूं
+मंज़िल हमारी एक हो सनम... मज़ा साथ जीने का और भी आता है!
+
+तुम मेरे रहो, मैं तुम्हारी रहूं...
+मज़ा साथ जीने का और सनम आता है!
+
+जब रूठूं मैं तुमसे, तब मनाओ पिया
+शिकायतों पर मुस्कुराओ पिया
+हम साथ मुस्कुराते रहें, मज़ा साथ जीने का और भी आता है!
+
+तुम मेरे रहो, मैं तुम्हारी रहूं...
+मज़ा साथ जीने का और सनम आता है!
+
+जब मैं दर्पण देखूं, अक्स हो तेरा
+जब तू देखे दर्पण, प्रतिबिंब हो मेरा
+एक दूजे में सदा हम खोते रहें, मज़ा साथ जीने का और भी आता है!
+
+तुम मेरे रहो, मैं तुम्हारी रहूं...
+मज़ा साथ जीने का और सनम आता है!
+
+बनके दुल्हन तेरी साथ तेरे चलूं
+जन्मों-जन्मों तक मैं तेरी रहूं...
+
+प्रीत का रंग गहरा और गहरा रहे
+मज़ा साथ जीने का और भी आता है सनम!
+तुम मेरे रहो मैं तुम्हारी रहूं...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 16,
+        hindiTitle: "ऐतबार कर",
+        romanTitle: "Aitbaar Kar",
+        act: 1,
+        poem: `प्यार कर, इकरार कर, थोड़ा सा इज़हार कर
+रब ने मिलाया है हमको, थोड़ा सा ऐतबार कर
+
+बिन तेरे मैं कुछ भी नहीं, मैं उड़ता हुआ सा बादल हूं
+तेरी बाँह पकड़कर के मैं, दूर गगन में उड़ता हूं
+रब ने मिलाया है हमको, थोड़ा सा ऐतबार कर
+
+प्यार कर, इकरार कर, थोड़ा सा इज़हार कर
+रब ने मिलाया है हमको, थोड़ा सा ऐतबार कर
+
+तेरे वास्ते मैं फलक से चांद लाता हूं
+तारों की चुंदरी मैं तुझको ओढ़ाता हूं
+तेरे साथ ये सफर है कितना आसान... ऐतबार कर!
+
+प्यार कर, इकरार कर, थोड़ा सा इज़हार कर
+रब ने मिलाया है हमको, थोड़ा सा ऐतबार कर
+
+गुमसुम थे, कहीं बेजान थे हम
+तेरा साथ मिला तो निखरे हम
+मेरी मंज़िल अब बस तू ही है... ऐतबार कर!
+
+बिन तेरे ना कोई कहानी है, बस संग तेरे ही ये ज़िंदगानी है
+ना साथ छोडूंगा तेरा मैं कभी... ऐतबार कर...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 17,
+        hindiTitle: "दुनिया महक उठी",
+        romanTitle: "Duniya Mehak Uthi",
+        act: 2,
+        poem: `मिले हम तुम... दुनिया महक उठी!
+खिली कलियां, बगिया चहक उठी!
+मिले हम तुम!
+
+दिया है रब ने तुझे, तुझसे गुलज़ार हर खुशी
+मांगी थी जितनी मन्नतें, तुझसे मिलकर पूरी हो गईं
+
+मिले हम तुम, दुनिया महक उठी...
+खिली कलियां, बगिया चहक उठी!
+
+ज़िंदगी के पथरीले सफर में हम तुम साथ चले
+थाम के हाथ एक दूजे का, साया बन हम चले
+आसान राहें हुईं, मंज़िल हमको मिल गई!
+
+मिले हम तुम, दुनिया महक उठी...
+खिली कलियां, बगिया चहक उठी!
+
+रब ने मिलाया हमको, फूल खुशियों का खिलाया है सनम
+दर्दे दिल की दवा बनकर, दीप चाहत का जलाया तुमने
+मिले तुम... सुकून-ए-ज़िंदगी हुई!
+
+मिले हम तुम, दुनिया महक उठी!`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 18,
+        hindiTitle: "हम तुम",
+        romanTitle: "Hum Tum",
+        act: 3,
+        poem: `छोटी-छोटी खुशियां, छोटे-छोटे ग़म
+छोटी सी मेरी दुनिया... और हम तुम
+
+छोटा सा है जीवन संग तेरे
+प्यार का जहां है संग तेरे
+थोड़ी सी नादानी, थोड़ी सी नोक-झोंक
+छोटी सी मेरी दुनिया और हम तुम
+
+छोटी-छोटी खुशियां, छोटे-छोटे ग़म
+छोटी सी मेरी दुनिया... और हम तुम
+
+साथ जो तेरा पाया है
+संग तेरे जहां बसाया है
+उसमें थोड़े-थोड़े दुख, थोड़े से हैं सुख
+छोटी सी मेरी दुनिया और हम तुम
+
+छोटी-छोटी खुशियां, छोटे-छोटे ग़म
+छोटी सी मेरी दुनिया... और हम तुम
+
+पल दो पल का जीवन है, पल दो पल की हैं ये खुशियां
+बस सदा तेरा हो साथ, हो हाथों में हाथ
+थोड़ी सी शिकायतें... और ढेर सारा प्यार...
+
+छोटी-छोटी खुशियां, छोटे-छोटे ग़म...
+छोटी सी मेरी दुनिया... और हम तुम...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 19,
+        hindiTitle: "तेरे नाम - खत",
+        romanTitle: "Tere Naam - Khat",
+        act: 4,
+        poem: `सुबह-शाम मैं खत लिखती हूं
+खत में अपना मन लिखती हूं
+प्रीत जो मेरी जन्मों तक है
+उसमें चाहत के रंग भरती हूं
+
+बागों में कलियां खिल गई हैं, छत पर चिड़िया चहक रही हैं
+मेरे दिल का हाल बुरा है, सूना मन का नगर हुआ है
+कब तू आएगा ओ परदेसी, बिटिया बहुत रोती है तेरी...
+
+सुबह-शाम मैं खत लिखती हूं
+खत में अपना मन लिखती हूं...
+
+बागों में झूले पड़ गए हैं, सावन के दिन चल रहे हैं
+ये सावन भी सूना तुझ बिन, सूनी मन की गलियां हुई हैं
+कब तू आएगा ओ परदेसी, माँ तुझ बिन तड़प रही है...
+
+सुबह-शाम मैं खत लिखती हूं
+खत में अपना मन लिखती हूं...
+
+चांद भी रातों को है कहता, कब आएगा पिया अलबेला
+मिलन को व्याकुल मन है मेरा, कौन समझेगा पीड़ा मेरी
+
+कब तू आएगा ओ परदेसी... तुझ बिन अधूरी ज़िंदगी मेरी...
+सुबह-शाम मैं खत लिखती हूं...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 20,
+        hindiTitle: "ना जा सावन",
+        romanTitle: "Na Ja Sawan",
+        act: 4,
+        poem: `ना जा सावन! ना जा सावन!
+जिया में लगे अगन है साजन
+ना जा सावन...
+
+सुकूं ऐ दिल का तुझी से है, तुझी से प्रीत जन्मों की साजन
+ना छोड़ के जा दामन ओ सावन, बहारें ऐ दिल तुझी से साजन
+
+ना जा सावन! ना जा सावन!
+जिया में लगे अगन है साजन
+
+सुकून-ए-दिल जाता जा रहा है, मिलन का पहर बीता जा रहा है
+बेरुखी तेरी ये हमसे, आंखों से धारा बन बह जा रहा है
+
+ना जा सावन! ना जा सावन!
+जिया में लगे अगन है साजन
+
+फलक तक का साथ है तेरा, जन्मों से है तुझसे ये नाता
+प्रीत की लगन तुझसे ही लगी है, और दिल ना कोई भाता
+
+ना जा सावन! ना जा सावन!
+जिया में लगे अगन है साजन
+
+जो टूटा दिल फिर ना जुड़ेगा
+फिर ना तुझसे बंधन जुड़ेगा
+धागे हैं रेशमी, टूटे जो फिर... गांठ बनकर फिर ना जुड़ेगा
+
+ना जा सावन! ना जा सावन!
+जिया में लगे अगन है साजन...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 21,
+        hindiTitle: "लुका छुपी खेलो ना तुम",
+        romanTitle: "Luka Chhupi",
+        act: 3,
+        poem: `लुका छुपी खेलो ना तुम, यूं पियाजी छेड़ो ना तुम!
+बहक उठेगा दिल मेरा, नाजुक सा दिल तोड़ो ना तुम
+
+क्यों सताते हो पिया? क्यों जलाते हो जिया?
+सामने तो आओ मेरे, दिल को ना यूं तड़पाओ पिया
+रूठ जाऊंगी मैं पिया!
+
+लुका छुपी खेलो ना तुम, यूं पियाजी छेड़ो ना तुम!
+
+यूं सताना ठीक नहीं, दिल को जलाना ठीक नहीं
+पलकें झुकाए बैठे हैं हम, तेरे दीवाने हैं सनम
+बात छोटी सी है पिया, दिल को ना यूं तड़पाओ पिया
+
+लुका छुपी खेलो ना तुम, यूं पियाजी छेड़ो ना तुम!
+
+लुक छुप बहुत हुई, सामने आओ मेरे पिया!
+तुझ बिन सूना है जहां, यूं ना तड़पाओ पिया
+मैं चली मायके पिया... जो तुम सामने ना आए पिया!
+
+सामने तेरे ही हूं सजनी मेरी, तुझ बिन ये ज़िंदगी चलती है नहीं
+ये दिल्लगी, दिल की लगी थी, क्यों खफा होती हो तुम...
+ना जाओ मुझे छोड़कर, तुझ बिन लगता नहीं है जिया...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 22,
+        hindiTitle: "रब्बा तूही नसीब है",
+        romanTitle: "Rabba Tuhi Naseeb Hai",
+        act: 5,
+        poem: `रब्बा! तू ही मेरी ज़िंदगी, तू ही नसीब है!
+तू ही मेरी चाहतें, तू ही गुरूर है
+तू ही इश्क है मेरा, तू ही है इबादत
+तू ही तमन्ना और तू ही है चाहतें!
+
+तेरे आने से छाई जीवन में हरियाली है
+पतझड़ में भी वसंत ऋतु आई है
+टेसू के फूल तू, इत्र की महक है
+तू ही मेरी हसरतें, तू ही सुरूर है
+
+रब्बा! तू ही मेरी ज़िंदगी, तू ही नसीब है!
+रब्बा! तू ही मेरी ज़िंदगी...
+
+हाथों की लकीरें मेरी तुझसे जुड़ी हैं
+दिल की गहराइयों में तेरी ही छवि है
+तू ही कंगना, तू ही बिंदिया, तू ही मेरी मांग का सिंदूर है
+
+रब्बा! तू ही मेरी ज़िंदगी, तू ही नसीब है!
+रब्बा! तू ही मेरी ज़िंदगी...
+
+बदरंग जीवन में सतरंगी रंग लाया है
+बनकर धड़कन मेरी, सांसों में समाया है
+सुबह की धूप तू ही, शाम की अज़ान है!
+
+रब्बा! तू ही मेरी ज़िंदगी, तू ही नसीब है!`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 23,
+        hindiTitle: "साजन",
+        romanTitle: "Saajan",
+        act: 3,
+        poem: `तेरे दिल से जुड़ी है मेरी डोर सजना...
+दिल से जुड़ी है डोर...
+सांसों में तेरी खुशबू, दिल में है तेरी सरगम
+तेरी ओर खिंच आई है डोर...
+
+तेरी ही बनकर रहना, तुझसे ही बातें करना
+तेरे ही ख्यालों में खोई हूं मैं
+
+तेरे दिल से जुड़ी है मेरी डोर सजना...
+तेरे दिल से जुड़ी मेरी डोर सजना...
+
+हर कसमें तेरे संग हैं, ये वादे तेरे संग हैं
+सांसों में तेरी हलचल...
+मन खिंचा आए तेरी ओर, ना जाने कैसी है ये डोर
+
+तेरे दिल से जुड़ी है मेरी डोर सजना...
+तेरे दिल से जुड़ी मेरी डोर सजना...
+
+दिल में हैं तेरे अफसाने, होठों पर तेरे तराने
+मन खिंचा आए तेरी ओर, ना जाने कैसी है ये डोर
+
+तेरे दिल से जुड़ी मेरी डोर सजना...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 24,
+        hindiTitle: "एक कहानी - प्रेम",
+        romanTitle: "Ek Kahani - Prem",
+        act: 1,
+        poem: `दिल धड़कता है, सांसें हैं चलती
+संग तेरे एक कहानी है बनती
+
+छाई है दिल में तेरी जो चाहत
+तुझसे मुझको मिलती है राहत
+दिल की धड़कन पर बस नाम है तेरा
+मन में है बस तेरा ही बसेरा
+
+दिल धड़कता है, सांसें हैं चलती...
+संग तेरे एक कहानी है बनती
+
+छाई है दिल में तेरी बेकरारी
+होठों पर है बस तेरे नाम की खुमारी
+तेरी होकर संवरने लगी हूं
+तुझमें ही अब मैं खो गई हूं
+
+दिल धड़कता है, सांसें हैं चलती...
+संग तेरे एक कहानी है बनती
+
+बेकरार मन कहता है तुझसे
+हमको तो तुझसे प्यार हो गया है!
+ये दिल धड़कता है तेरे लिए ही
+तुझपर जीवन कुर्बान हुआ है!
+
+दिल धड़कता है, सांसें हैं चलती...
+संग तेरे एक कहानी है बनती
+
+रब ने मुझको मिलाया है तुझसे, फूल खुशियों का एक खिलाया...
+राह में मिले थे दो अजनबी, एक दूजे का साथी बनाया...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 25,
+        hindiTitle: "तेरा ही ख़्याल है",
+        romanTitle: "Tera Hi Khayal Hai",
+        act: 3,
+        poem: `दिन हो कि रात हो, तेरा ही ख़्याल हो!
+तेरा ही साथ हो कि तेरा विश्वास हो!
+
+सुबह की भोर तुम, जीवन की सांझ तुम
+जीवन के आखिरी पल तेरे ही साथ हों
+
+दिन हो कि रात हो, तेरा ही ख़्याल हो!
+दिन हो कि रात हो, तेरा ही ख़्याल हो...
+
+ख़्वाबों में हो मेरे तुम, ख़्यालों में हो मेरे तुम
+सांसों में हो तेरी खुशबू, तेरा ही प्यार हो
+
+दिन हो कि रात हो, तेरा ही ख़्याल हो!
+दिन हो कि रात हो, तेरा ही ख़्याल हो...
+
+इस दिल पर तेरा नाम हो, होठों पर तेरी बातें सुबह शाम हों!
+तेरी ही बनकर रहना, ऐसी है चाहत मेरी
+ना बिछडूं तुझसे, ऐसी है हसरत मेरी!
+जन्मों का साथ हो, तेरी ही प्रीत हो
+
+दिन हो कि रात हो, तेरा ही ख़्याल हो!
+दिन हो कि रात हो, तेरा ही ख़्याल हो...
+
+आरज़ू संग जीने की, आरज़ू संग मरने की
+संग तेरे मुस्काऊं, तुझ बिन रह नहीं पाऊं...
+तेरा ही ख़्याल हो...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 26,
+        hindiTitle: "बेदर्दी पिया",
+        romanTitle: "Bedardi Piya",
+        act: 4,
+        poem: `जुदा हम हो जाएंगे... ना हम लौटकर आएंगे
+पुकारोगे कितना भी हमको, सजन हम ना मिल पाएंगे...
+
+ये सावन शोर मचाएगा, जिया में आग लगाएगा
+बरखा रिमझिम बरसेगी, चैन ना तुझको आएगा
+
+जुदा हम हो जाएंगे... ना हम लौटकर आएंगे
+जुदा हम हो जाएंगे...
+
+यादें रह जाएंगी, मीठी बातें रह जाएंगी
+जो रूठोगे सजना, तो मेरी याद सताएगी
+नैन हमको तरसेंगे, मगर नहीं हमको पाएंगे
+
+जुदा हम हो जाएंगे... ना हम लौटकर आएंगे
+जुदा हम हो जाएंगे...
+
+यादों के झुरमुट में तस्वीर हमारी होगी!
+दरवाज़े की दस्तक पर उम्मीद हमारी होगी!
+सब तुमको नज़र आएंगे... पर हम ना मिल पाएंगे...
+
+जुदा हम हो जाएंगे... ना हम लौटकर आएंगे...
+
+सूरज जब चमकेगा, ना हमको तुम पाओगे...
+खोजोगे रातों में, पर हम ना नज़र आएंगे...
+जुदा हम हो जाएंगे...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 27,
+        hindiTitle: "रात की खामोशी में",
+        romanTitle: "Raat Ki Khamoshi Mein",
+        act: 2,
+        poem: `रात की खामोशी में जब साज़ गुनगुनाएगा
+तेरी सांसों की खुशबू से दिल धड़क सा जाएगा
+
+जब चांद पहरा देगा, तेरा यौवन खिल जाएगा
+तेरे गोरे मुखड़े पर, गौरी रंग साजन का आएगा
+मन बेकरार होगा, दिल धड़क सा जाएगा
+
+रात की खामोशी में जब साज़ गुनगुनाएगा...
+रात की खामोशी में...
+
+मिलकर के तुझसे साथी, ये जीवन बदल जाएगा
+तेरे साथ मितवा, प्यार का जहां बस जाएगा
+खुशहाल जीवन होगा, ये जीवन बदल सा जाएगा
+
+रात की खामोशी में जब साज़ गुनगुनाएगा...
+रात की खामोशी में...
+
+गठबंधन में बंधकर, जन्मों की प्रीत निभाऊंगा
+तेरी घुंघराली जुल्फों में, अपना जहां बसाऊंगा
+
+जन्मों की प्रीत होगी, ये जीवन बदल जाएगा...
+रात की खामोशी में जब साज़ गुनगुनाएगा...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 28,
+        hindiTitle: "रेशमी धागे",
+        romanTitle: "Reshmi Dhaage",
+        act: 5,
+        poem: `तेरी प्रीत के जो धागे... मुझे तेरी ओर खींचें
+खो जाऊं मैं तुझमें, मुझे तेरी ओर बांधें
+
+रेशम सी है जो डोरी, जन्मों तक है चलती
+सब रंग हैं फीके, तुझ बिन बेनूर दुनिया दिखती
+
+तेरी प्रीत के जो धागे... मुझे तेरी ओर खींचें
+तेरी प्रीत के जो धागे...
+
+खो जाऊं मैं तुझमें, तू मुझमें खो गई
+सफर ज़िंदगी का संग तेरे पूरा हो गया
+
+तेरी प्रीत के जो धागे... मुझे तेरी ओर खींचें
+तेरी प्रीत के जो धागे...
+
+मेरी डोर तेरे हाथों में, तकदीर तेरे हाथों में
+संग तेरे जीना मरना है, ये जीवन तेरे हाथों में
+
+तेरी प्रीत के जो धागे... मुझे तेरी ओर खींचें
+तेरी प्रीत के जो धागे...
+
+रहे ना कोई तमन्ना, जब प्रीत तुझसे जुड़ गई...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 29,
+        hindiTitle: "सारा जहां मिल गया",
+        romanTitle: "Saara Jahan Mil Gaya",
+        act: 5,
+        poem: `सारा जहां मिल गया! तेरी बाहों में आसमां मिल गया!
+एक दूजे की धड़कन बने हम तुम
+तुझसे ही मेरा संसार बस गया!
+
+आया जो तू ज़िंदगी में मेरे, ज़िंदगी मेरी खुशियों से सजने लगी
+ना रहा कोई दुख दर्द मेरे सनम, महफिलें मेरी खुशनुमा होने लगीं!
+
+सारा जहां मिल गया! तेरी बाहों में आसमां मिल गया!
+सारा जहां मिल गया!
+
+एक दूजे का संगीत बन गए हम तुम, दीप खुशियों का जगमग करने लगा
+मदहोश धड़कन बनी है पिया, तुझ बिन सूना है सावन जिया!
+
+सारा जहां मिल गया! तेरी बाहों में आसमां मिल गया!
+सारा जहां मिल गया!
+
+तुम बूंद हो, मैं सीप पिया, तुझ बिन नहीं है जीवन पिया!
+एक दूजे की ढाल बन गए हम तुम, साज़ खुशियों का बजने लगा!
+
+सारा जहां मिल गया! तेरी बाहों में आसमां मिल गया!
+सारा जहां मिल गया!
+
+मिलकर तुझसे ऐसा लगा... जैसे खुदा को पा लिया हो पिया!
+मनमीत है, जीने की उम्मीद है, तुझसे ही जीवन चलने लगा
+सारा जहां मिल गया!`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      },
+      {
+        originalNumber: 30,
+        hindiTitle: "गुस्ताखियां माफ़ करना सनम",
+        romanTitle: "Gustakhiyan Maaf Karna",
+        act: 5,
+        poem: `गुस्ताखियां माफ़ करना सनम
+हुई जो भूल हमसे, खफ़ा हो गए हो तुम
+गुस्ताखियां माफ़ करना सनम...
+
+जो खफ़ा हुए हमसे तुम, हम कहां जाएंगे
+बिन तेरे सजन, ना हम जी पाएंगे
+तुझ पर कुर्बान जान अपनी कर जाएंगे
+
+गुस्ताखियां माफ़ करना सनम...
+हुई जो भूल हमसे, खफ़ा हो गए हो तुम!
+
+गुस्ताखियां बहुत हमने करी हैं
+तेरे दिल पर चोट हमारी लगी है
+कैसे रूठे साथी को मनाएंगे?
+तुझ पर कुर्बान जान अपनी कर जाएंगे
+
+गुस्ताखियां माफ़ करना सनम...
+हुई जो भूल हमसे, खफ़ा हो गए हो तुम!
+
+जीवन के सफर में बिन तेरे ना हम चल पाएंगे
+देके अनेकों परीक्षा, प्रीत तेरी पा जाएंगे
+दिल क्या, जान अपनी कुर्बान तुझ पर कर जाएंगे
+
+गुस्ताखियां माफ़ करना सनम...
+हुई जो भूल हमसे, खफ़ा हो गए हो तुम!
+
+बिन तेरे ये यौवन भी सुख ना दे पाएगा
+होली का रंग बेरंग हो जाएगा
+सावन भी प्यास ना बुझा पाएगा
+तुझ बिन सूने मन को ना चैन आएगा
+
+सताएगी हर रात हमको सनम...
+गुस्ताखियां माफ़ करना सनम...
+गुस्ताखियां माफ़ करना...`,
+        streamingLinks: { spotify: "", amazonMusic: "", youtubeMusic: "", jiosaavn: "", gaana: "" }
+      }
+    ];
+
+    /**
+     * 30-STEP NARRATIVE PLAY ORDER
+     */
+    const NARRATIVE_PLAY_ORDER = [
+      1, 7, 5, 2, 16, 24,       // ACT I
+      3, 4, 8, 17, 27, 12,      // ACT II
+      15, 21, 18, 13, 6, 11, 25, 23, // ACT III
+      19, 20, 10, 14, 9, 26,    // ACT IV
+      22, 28, 30, 29            // ACT V
+    ];
+
+    const ACTS = {
+      1: { roman: "ACT I", title: "THE FIRST SPARK", hindi: "पहला स्पार्क", subtitle: "Meeting → Dreams → Memories → Trust" },
+      2: { roman: "ACT II", title: "CHOOSING EACH OTHER", hindi: "एक-दूजे का चयन", subtitle: "Commitment → Marriage → Intimacy" },
+      3: { roman: "ACT III", title: "THE HUMSAFAR LIFE", hindi: "हमसफ़र ज़िंदगी", subtitle: "Companionship → Everyday Life → Family" },
+      4: { roman: "ACT IV", title: "THE DISTANCE", hindi: "दूरी और विरह", subtitle: "Letters → Yearning → Loneliness" },
+      5: { roman: "ACT V", title: "BEYOND SEPARATION", hindi: "विरह से परे", subtitle: "Devotion → Reconciliation → Fulfilment" }
+    };
+
+    /**
+     * ENGINE STATE
+     */
+    let currentIdx = 0; // 0 to 29
+    let isPlaying = false;
+    let activeLayer = 'A'; // 'A' or 'B'
+    const audio = document.getElementById('humsafar-audio-player');
+
+    function pad(num) {
+      return num < 10 ? `0${num}` : `${num}`;
+    }
+
+    function formatTime(s) {
+      if (isNaN(s) || s < 0) return "0:00";
+      const mins = Math.floor(s / 60);
+      const secs = Math.floor(s % 60);
+      return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    function getSong(origNum) {
+      return SONGS.find(s => s.originalNumber === origNum);
+    }
+
+    /**
+     * MULTI-PATH ASSET RESOLVERS
+     * Automatically attempts standard folder hierarchies and naming conventions.
+     */
+    function getArtworkCandidates(origNum) {
+      const p = pad(origNum);
+      const n = `${origNum}`;
+      return [
+        `assets/artwork/${p}.png`,
+        `assets/artwork/${n}.png`,
+        `artwork/${p}.png`,
+        `artwork/${n}.png`,
+        `/assets/artwork/${p}.png`,
+        `/assets/artwork/${n}.png`,
+        `/artwork/${p}.png`,
+        `/artwork/${n}.png`
+      ];
+    }
+
+    function getAudioCandidates(origNum) {
+      const p = pad(origNum);
+      const n = `${origNum}`;
+      return [
+        `assets/audio/${p}.mp3`,
+        `assets/audio/${n}.mp3`,
+        `audio/${p}.mp3`,
+        `audio/${n}.mp3`,
+        `/assets/audio/${p}.mp3`,
+        `/assets/audio/${n}.mp3`,
+        `/audio/${p}.mp3`,
+        `/audio/${n}.mp3`
+      ];
+    }
+
+    /**
+     * FULL-SCREEN CROSSFADE ARTWORK LOADER
+     */
+    function updateArtworkCanvas(origNum) {
+      const candidates = getArtworkCandidates(origNum);
+      const layerA = document.getElementById('bg-art-layer-a');
+      const layerB = document.getElementById('bg-art-layer-b');
+      const thumb = document.getElementById('player-thumb-img');
+
+      const targetLayer = (activeLayer === 'A') ? layerB : layerA;
+      const outgoingLayer = (activeLayer === 'A') ? layerA : layerB;
+
+      let candidateIndex = 0;
+
+      function tryNextImage() {
+        if (candidateIndex < candidates.length) {
+          const path = candidates[candidateIndex];
+          candidateIndex++;
+
+          const testImg = new Image();
+          testImg.onload = () => {
+            targetLayer.src = path;
+            thumb.src = path;
+            targetLayer.classList.remove('opacity-0');
+            targetLayer.classList.add('opacity-100');
+            outgoingLayer.classList.remove('opacity-100');
+            outgoingLayer.classList.add('opacity-0');
+            activeLayer = (activeLayer === 'A') ? 'B' : 'A';
+          };
+          testImg.onerror = () => {
+            console.warn(`[Asset Resolver] Artwork path not found: ${path}. Trying alternate candidate...`);
+            tryNextImage();
+          };
+          testImg.src = path;
+        } else {
+          console.error(`[Asset Resolver Error] Could not load artwork for Song #${origNum} from any expected paths:`, candidates);
         }
+      }
 
-        // Target Launch Date: 20 August 2026
-        const LAUNCH_DATE = new Date('2026-08-20T00:00:00+05:30').getTime();
+      tryNextImage();
+    }
 
-        // THE COMPLETE 30 POEMS DATASET
-        // Pre-launch: audioUrl & platform URLs are null.
-        // Post-launch: Simply populate these fields to automatically reveal audio players & streaming buttons.
-        const poems30Database = [
-            { number: 1, title: 'हमसफ़र', category: 'love', page: 1, mood: 'Companionship / Title Track', excerpt: 'रास्ते में संग चलने का नाम ही सफ़र है, सच्चे मन से निभाना ही हमसफ़र है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 2, title: 'ओ रे पिया', category: 'love', page: 6, mood: 'Longing & Devotional Romance', excerpt: 'ओ रे पिया, तेरे बिना मन की बगिया सूनी लागे...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 3, title: 'चल साथ चल', category: 'life', page: 10, mood: 'Life Journey / Hope', excerpt: 'हर कठिन मोड़ पर हाथ थामे चल, चल साथ चल...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 4, title: 'एक मुलाकात हुई', category: 'love', page: 12, mood: 'Romantic / First Meeting', excerpt: 'नज़रों से नज़र मिली तो एक अनकहा पैग़ाम हुआ, दिल ही दिल में चाहत का हसीन आगाज़ हुआ...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 5, title: 'तेरी यादें', category: 'love', page: 15, mood: 'Memories / Solitude', excerpt: 'रात ढले जब ख़ामोशी छाती है, तेरी यादों की महफ़िल सज जाती है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 6, title: 'जीवन साथी', category: 'family', page: 18, mood: 'Marital Bond / Trust', excerpt: 'सुख और दुख की हर धूप-छांव में साथ निभाने का नाम ही जीवन साथी है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 7, title: 'अधूरी कहानी', category: 'love', page: 21, mood: 'Unspoken Words / Nostalgia', excerpt: 'कुछ पन्ने किताबों के अनकहे रह गए, कुछ ख़्वाब आंखों में अधूरे रह गए...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 8, title: 'माँ', category: 'family', page: 24, mood: 'Maternal Warmth / Gratitude', excerpt: 'तेरी गोदी में सिमट कर हर दर्द भुला दिया, माँ तेरी ममता ने मुझको जीना सिखा दिया...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 9, title: 'सफ़र की शाम', category: 'life', page: 28, mood: 'Reflection / Evening Calm', excerpt: 'ढलती हुई शाम से एक सबक सीखा है, हर अंत में एक नई सुबह का तराना छुपा है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 10, title: 'पिता', category: 'family', page: 32, mood: 'Paternal Strength / Support', excerpt: 'बिना कहे जो हर ख़्वाहिश पूरी कर दे, उस साया-ए-दरख़्त को पिता कहते हैं...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 11, title: 'हम तुम', category: 'love', page: 36, mood: 'Intimate Togetherness', excerpt: 'दो राहें जब एक मोड़ पर आ मिलीं, हम और तुम से एक नई दुनिया बनी...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 12, title: 'मीठे ख़्वाब', category: 'love', page: 40, mood: 'Gentle Dreams / Peace', excerpt: 'पलकों के द्वार पर जो सवेरा बनके आए, वो मीठे ख़्वाब दिल को सुकून दे जाएं...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 13, title: 'कृष्णा', category: 'devotion', page: 45, mood: 'Spiritual Faith / Surrender', excerpt: 'मन की वीणा पर श्याम नाम का तार बाजे, मुरलीधर के चरणों में ही विश्राम साजे...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 14, title: 'दिल की बात', category: 'love', page: 50, mood: 'Quiet Confession', excerpt: 'लफ़्ज़ों में पिरो ना सके जो जज़्बात, वो नज़रों से कह दी दिल की बात...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 15, title: 'बदलते रिश्ते', category: 'family', page: 54, mood: 'Social Reflection / Time', excerpt: 'वक्त के साथ जो रंग बदलते देखे हैं, अपनों की भीड़ में तन्हा चेहरे देखे हैं...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 16, title: 'तेरे नाम - ख़त', category: 'love', page: 60, mood: 'Written Devotion / Acoustic', excerpt: 'सुबह-शाम मैं ख़त लिखती हूं, ख़त में अपना मन लिखती हूं... हर एक अलफ़ाज़ में छुपा है तू, मैं हर सफ़े पे तेरा नाम लिखती हूं।', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 17, title: 'सारा जहां मिल गया', category: 'love', page: 65, mood: 'Fulfillment / Joy', excerpt: 'तुम मिले तो ऐसा लगा जैसे खोई हुई मंज़िल मिल गई...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 18, title: 'गुस्ताखियां माफ़ करना सनम', category: 'love', page: 70, mood: 'Playful Affection', excerpt: 'अगर नज़रों ने कोई ख़ता की हो, तो गुस्ताखियां माफ़ करना सनम...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 19, title: 'तेरा ही ख़्याल है', category: 'love', page: 74, mood: 'Continuous Thought', excerpt: 'दिन की धूप हो या रात की चांदनी, हर पल तेरा ही ख़्याल रहता है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 20, title: 'बचपन की यादें', category: 'life', page: 78, mood: 'Nostalgia / Youth', excerpt: 'वो कागज़ की नाव, वो बारिश का पानी, याद आती है वो मासूम सी कहानी...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 21, title: 'मंज़िल की तलाश', category: 'life', page: 82, mood: 'Perseverance / Purpose', excerpt: 'कदम थके हैं पर हौसला अब भी बाकी है, मंज़िल दूर सही पर उम्मीद अब भी ताज़ा है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 22, title: 'श्याम रंग', category: 'devotion', page: 86, mood: 'Devotional Bliss / Bhakti', excerpt: 'रंग गई मैं तो श्याम के रंग में, अब कोई दूजा रंग ना चढ़े...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 23, title: 'नारी शक्ति', category: 'life', page: 92, mood: 'Empowerment / Strength', excerpt: 'जो सृजन भी करे और स्वाभिमान भी साधे, हर रूप में पूज्य है नारी शक्ति...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 24, title: 'ख़ामोशी', category: 'life', page: 96, mood: 'Inner Silence', excerpt: 'जब शब्द ख़ामोश हो जाते हैं, तब एहसास बोलने लगते हैं...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 25, title: 'दुआ', category: 'devotion', page: 100, mood: 'Prayer / Hope', excerpt: 'हाथ उठाकर जो मांगी है दुआ, रब करे पूरी हो हर रज़ा...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 26, title: 'सुर और संगीत', category: 'life', page: 105, mood: 'Music Philosophy', excerpt: 'सांसों की ताल पर जब सुर मिलते हैं, जीवन के सारे बिखरे तार जुड़ जाते हैं...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 27, title: 'विश्वास', category: 'devotion', page: 108, mood: 'Faith / Inner Anchor', excerpt: 'टूटे हुए दिल को जो संभाल ले, वही तो अटूट विश्वास है...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 28, title: 'सफ़र के साथी', category: 'life', page: 112, mood: 'Companionship / Gratitude', excerpt: 'रास्ते बदलते रहे, पर यादों के चिराग जलते रहे...', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 29, title: 'मृत्यु अटल है', category: 'life', page: 118, mood: 'Philosophical Truth', excerpt: 'जीवन एक पड़ाव है, मृत्यु अंतिम विश्राम... सत्य यही है संसार का।', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null },
-            { number: 30, title: 'आख़िरी पन्ना', category: 'life', page: 124, mood: 'Conclusion / Peace', excerpt: 'किताब बंद होती है, पर सफ़र जारी रहता है... यादों के झरोखे में हर चेहरा ज़िंदा रहता है।', audioUrl: null, spotifyUrl: null, youtubeUrl: null, appleMusicUrl: null, amazonMusicUrl: null }
-        ];
+    /**
+     * AUDIO SOURCE RESOLVER
+     */
+    function updateAudioSource(origNum, shouldAutoPlay = true) {
+      const candidates = getAudioCandidates(origNum);
+      let candidateIndex = 0;
 
-        let activeFilter = 'all';
+      function tryNextAudio() {
+        if (candidateIndex < candidates.length) {
+          const path = candidates[candidateIndex];
+          candidateIndex++;
 
-        // Render Editorial 30 Poems Index
-        function renderPoemsIndex(filter = 'all', searchQuery = '') {
-            const container = document.getElementById('poems-list-container');
-            container.innerHTML = '';
+          audio.src = path;
+          audio.onerror = () => {
+            console.warn(`[Asset Resolver] Audio path not found: ${path}. Trying alternate candidate...`);
+            tryNextAudio();
+          };
 
-            const isPostLaunch = Date.now() >= LAUNCH_DATE;
-
-            let filtered = poems30Database;
-            if (filter !== 'all') {
-                filtered = filtered.filter(p => p.category === filter);
-            }
-            if (searchQuery.trim() !== '') {
-                const q = searchQuery.toLowerCase();
-                filtered = filtered.filter(p => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q) || p.mood.toLowerCase().includes(q));
-            }
-
-            filtered.forEach((poem) => {
-                const row = document.createElement('div');
-                row.className = 'py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-sand/10 px-4 transition duration-300';
-                
-                // Formulate Post-Launch Platform Buttons if links exist
-                let platformButtonsHtml = '';
-                if (isPostLaunch || poem.spotifyUrl || poem.youtubeUrl) {
-                    let linksHtml = '';
-                    if (poem.spotifyUrl) linksHtml += `<a href="${poem.spotifyUrl}" target="_blank" class="px-3 py-1 bg-peacock-green text-paper text-[10px] font-bold tracking-widest uppercase">Spotify</a>`;
-                    if (poem.youtubeUrl) linksHtml += `<a href="${poem.youtubeUrl}" target="_blank" class="px-3 py-1 bg-red-800 text-paper text-[10px] font-bold tracking-widest uppercase">YouTube</a>`;
-                    if (poem.appleMusicUrl) linksHtml += `<a href="${poem.appleMusicUrl}" target="_blank" class="px-3 py-1 bg-ink text-paper text-[10px] font-bold tracking-widest uppercase">Apple</a>`;
-                    
-                    platformButtonsHtml = `
-                        <div class="flex flex-wrap items-center gap-2 pt-2 md:pt-0">
-                            ${linksHtml || `<span class="text-[10px] font-bold tracking-widest text-peacock-green uppercase">LISTEN NOW</span>`}
-                        </div>
-                    `;
-                } else {
-                    platformButtonsHtml = `
-                        <div class="text-right">
-                            <span class="text-[10px] font-bold tracking-[0.2em] text-saffron uppercase font-serif block">THE SONG ARRIVES ON 20 AUGUST</span>
-                        </div>
-                    `;
-                }
-
-                const displayNum = poem.number < 10 ? `0${poem.number}` : poem.number;
-
-                row.innerHTML = `
-                    <div class="flex items-start md:items-center gap-6 cursor-pointer flex-1" onclick="openReaderModal(${poem.number - 1})">
-                        <span class="font-serif text-2xl md:text-3xl text-saffron/60 font-bold group-hover:text-saffron transition">${displayNum}</span>
-                        <div class="space-y-1">
-                            <div class="flex items-center gap-3">
-                                <h3 class="font-hindi text-xl md:text-2xl font-semibold text-ink group-hover:text-saffron transition">${poem.title}</h3>
-                                <span class="text-[10px] text-ink-muted font-serif tracking-widest uppercase">Page ${poem.page}</span>
-                            </div>
-                            <p class="text-xs text-ink-muted font-light italic">${poem.mood}</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-between md:justify-end gap-6 pt-2 md:pt-0 border-t md:border-t-0 border-border-light/40">
-                        <button onclick="openReaderModal(${poem.number - 1})" class="text-xs font-bold tracking-widest uppercase text-ink hover:text-saffron transition whitespace-nowrap">
-                            Read Excerpt →
-                        </button>
-                        ${platformButtonsHtml}
-                    </div>
-                `;
-                container.appendChild(row);
+          if (shouldAutoPlay && isPlaying) {
+            audio.play().catch(e => {
+              console.log("[Audio Autoplay Handler]:", e);
             });
+          }
+        } else {
+          console.error(`[Asset Resolver Error] Could not load audio for Song #${origNum} from any expected paths:`, candidates);
         }
+      }
 
-        // Open Reader Modal Popup
-        function openReaderModal(index) {
-            const poem = poems30Database[index];
-            if (!poem) return;
+      tryNextAudio();
+    }
 
-            document.getElementById('modal-page-num').textContent = `PAGE ${poem.page}`;
-            document.getElementById('modal-poem-title').textContent = poem.title;
-            document.getElementById('modal-poem-excerpt').innerHTML = `"${poem.excerpt.replace(/\n/g, '<br>')}"`;
-            
-            document.getElementById('reader-modal').classList.remove('hidden');
-            trackEvent('poem_index_click', {'poem_title': poem.title, 'page': poem.page});
-        }
+    /**
+     * RENDER TRACK (Clean, Literary, No internal original numbers in visible UI)
+     */
+    function renderCanvasTrack(narrativeIdx, shouldAutoPlay = true) {
+      const origNum = NARRATIVE_PLAY_ORDER[narrativeIdx];
+      const song = getSong(origNum);
+      const act = ACTS[song.act];
 
-        function closeReaderModal() {
-            document.getElementById('reader-modal').classList.add('hidden');
-        }
+      // Update Floating Top Nav
+      document.getElementById('nav-act-pill').innerText = act.roman;
+      document.getElementById('nav-act-title').innerText = act.title;
 
-        // Filter Category Handler
-        function filterCategory(cat, btn) {
-            activeFilter = cat;
-            document.querySelectorAll('.filter-btn').forEach(b => {
-                b.classList.remove('bg-ink', 'text-paper');
-                b.classList.add('border-border-light');
-            });
-            btn.classList.add('bg-ink', 'text-paper');
-            renderPoemsIndex(activeFilter, document.getElementById('search-input').value);
-            trackEvent('category_filter_click', {'category': cat});
-        }
+      // Update Center Title Typography (Small Act, Grand Devanagari Title)
+      document.getElementById('canvas-act-badge').innerText = `${act.roman} — ${act.title}`;
+      document.getElementById('canvas-hindi-title').innerText = song.hindiTitle;
+      document.getElementById('canvas-roman-title').innerText = song.romanTitle;
 
-        // Search Input Handler
-        function searchPoems() {
-            const q = document.getElementById('search-input').value;
-            renderPoemsIndex(activeFilter, q);
-        }
+      // Update Player Capsule (ONLY Narrative Position 01/30)
+      document.getElementById('player-sequence-num').innerText = `${pad(narrativeIdx + 1)} / 30`;
+      document.getElementById('player-title-text').innerText = song.hindiTitle;
 
-        // Countdown Timer Handler
-        function updateCountdown() {
-            const now = Date.now();
-            const diff = LAUNCH_DATE - now;
+      // Update Full Poem Sheet
+      document.getElementById('poem-sheet-act').innerText = `${act.roman} — ${act.title}`;
+      document.getElementById('poem-sheet-hindi').innerText = song.hindiTitle;
+      document.getElementById('poem-sheet-roman').innerText = song.romanTitle;
+      document.getElementById('poem-body-text').innerText = song.poem;
 
-            if (diff <= 0) {
-                // POST-LAUNCH AUTOMATIC TRANSFORMATION
-                document.getElementById('launch-heading').textContent = "THE MUSIC IS HERE.";
-                document.getElementById('launch-subheading').textContent = "Listen to the 30 songs of Humsafar globally now.";
-                document.getElementById('countdown-timer').classList.add('hidden');
-                
-                document.getElementById('final-cta-heading').textContent = "THE WORDS HAVE FOUND THEIR VOICE.";
-                document.getElementById('final-cta-sub').textContent = "30 POEMS → 30 SONGS";
+      // Update Streaming Modal Subtitle
+      document.getElementById('stream-modal-subtitle').innerText = `${song.hindiTitle} (${song.romanTitle})`;
+      renderStreamingDestinations(song);
 
-                renderPoemsIndex(activeFilter);
-                return;
-            }
+      // Trigger Canvas Artwork Transition
+      updateArtworkCanvas(song.originalNumber);
 
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
+      // Trigger Audio Source Resolver
+      updateAudioSource(song.originalNumber, shouldAutoPlay);
 
-            document.getElementById('days').textContent = d < 10 ? `0${d}` : d;
-            document.getElementById('hours').textContent = h < 10 ? `0${h}` : h;
-            document.getElementById('minutes').textContent = m < 10 ? `0${m}` : m;
-            document.getElementById('seconds').textContent = s < 10 ? `0${s}` : s;
-        }
+      // Sync Deep Link Hash (Uses clean song identifier)
+      const targetHash = `#song-${pad(song.originalNumber)}`;
+      if (window.location.hash !== targetHash) {
+        history.replaceState(null, null, targetHash);
+      }
 
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
+      // Preload next artwork in sequence
+      if (narrativeIdx + 1 < NARRATIVE_PLAY_ORDER.length) {
+        const nextOrig = NARRATIVE_PLAY_ORDER[narrativeIdx + 1];
+        const pre = new Image();
+        pre.src = `assets/artwork/${pad(nextOrig)}.png`;
+      }
+    }
 
-        // Initialize Page
-        document.addEventListener('DOMContentLoaded', () => {
-            renderPoemsIndex();
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-            lucide.createIcons();
-            trackEvent('page_view', {'page_name': 'humsafar_30_songs_prelaunch_index'});
+    /**
+     * STREAMING DESTINATIONS
+     */
+    function renderStreamingDestinations(song) {
+      const container = document.getElementById('streaming-platforms-list');
+      const platforms = [
+        { key: 'spotify', name: 'Spotify', icon: '🎧' },
+        { key: 'amazonMusic', name: 'Amazon Music', icon: '📦' },
+        { key: 'youtubeMusic', name: 'YouTube Music', icon: '▶️' },
+        { key: 'jiosaavn', name: 'JioSaavn', icon: '🎵' },
+        { key: 'gaana', name: 'Gaana', icon: '🎶' }
+      ];
+
+      container.innerHTML = platforms.map(p => {
+        const url = song.streamingLinks[p.key];
+        const isLive = url && url.trim().length > 0;
+        return `
+          <div class="flex items-center justify-between p-2.5 bg-black/60 border border-white/10 rounded-lg">
+            <span class="flex items-center gap-2 text-sand">
+              <span>${p.icon}</span>
+              <span class="font-medium">${p.name}</span>
+            </span>
+            ${isLive ? 
+              `<a href="${url}" target="_blank" rel="noopener" class="text-saffron hover:underline font-bold">Listen →</a>` : 
+              `<span class="text-white/40 italic text-[11px]">Configuring link</span>`}
+          </div>
+        `;
+      }).join('');
+    }
+
+    /**
+     * POPULATE THE JOURNEY MAP (Only Narrative Chapter Numbers)
+     */
+    function buildJourneyChapters() {
+      const container = document.getElementById('journey-acts-wrapper');
+      container.innerHTML = '';
+
+      [1, 2, 3, 4, 5].forEach(actNum => {
+        const act = ACTS[actNum];
+        const songsInAct = [];
+        NARRATIVE_PLAY_ORDER.forEach((orig, idx) => {
+          const s = getSong(orig);
+          if (s.act === actNum) songsInAct.push({ idx, song: s });
         });
-    </script>
+
+        const actSection = document.createElement('div');
+        actSection.className = "border border-white/15 bg-white/5 rounded-xl p-5 md:p-6 backdrop-blur-md";
+        actSection.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-white/10 pb-3 mb-4">
+            <div>
+              <span class="text-saffron font-sans text-xs uppercase tracking-widest">${act.roman}</span>
+              <h3 class="text-lg md:text-xl font-serif text-parchment uppercase">${act.title} <span class="font-devanagari text-sand font-normal text-sm ml-2">(${act.hindi})</span></h3>
+            </div>
+            <p class="text-xs text-sandMuted font-serif italic">${act.subtitle}</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            ${songsInAct.map(item => `
+              <button onclick="jumpToSong(${item.idx})" class="text-left p-3 border border-white/10 hover:border-saffron bg-black/40 hover:bg-black/80 rounded-lg transition-all flex items-start gap-3 group ${item.idx === currentIdx ? 'border-saffron bg-black/90 ring-1 ring-saffron/40' : ''}">
+                <span class="text-saffron font-sans text-xs font-bold pt-0.5">${pad(item.idx + 1)}</span>
+                <div class="min-w-0">
+                  <p class="text-parchment font-devanagari text-sm group-hover:text-saffron transition-colors truncate">${item.song.hindiTitle}</p>
+                  <p class="text-sandMuted text-xs font-serif italic truncate">${item.song.romanTitle}</p>
+                </div>
+              </button>
+            `).join('')}
+          </div>
+        `;
+        container.appendChild(actSection);
+      });
+    }
+
+    /**
+     * AUDIO PLAYBACK & USER GESTURE HANDLING
+     */
+    function togglePlayback() {
+      if (audio.paused) {
+        audio.play().then(() => {
+          isPlaying = true;
+          updatePlayPauseState(true);
+        }).catch(err => {
+          console.warn("[Audio Play Trigger Handler]:", err);
+          isPlaying = true;
+          updatePlayPauseState(true);
+        });
+      } else {
+        audio.pause();
+        isPlaying = false;
+        updatePlayPauseState(false);
+      }
+    }
+
+    function updatePlayPauseState(playing) {
+      document.getElementById('icon-play').classList.toggle('hidden', playing);
+      document.getElementById('icon-pause').classList.toggle('hidden', !playing);
+    }
+
+    function nextTrack() {
+      if (currentIdx < NARRATIVE_PLAY_ORDER.length - 1) {
+        currentIdx++;
+        renderCanvasTrack(currentIdx, true);
+        buildJourneyChapters();
+      } else {
+        showToast("Arrival: सारा जहां मिल गया • The Bond Survives");
+      }
+    }
+
+    function prevTrack() {
+      if (currentIdx > 0) {
+        currentIdx--;
+        renderCanvasTrack(currentIdx, true);
+        buildJourneyChapters();
+      }
+    }
+
+    function jumpToSong(idx) {
+      currentIdx = idx;
+      renderCanvasTrack(currentIdx, true);
+      buildJourneyChapters();
+      closeOverlay('journey-modal');
+    }
+
+    /**
+     * DEEP LINK RESOLVER
+     */
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      const match = hash.match(/#song-(\d+)/);
+      if (match && match[1]) {
+        const orig = parseInt(match[1], 10);
+        const idx = NARRATIVE_PLAY_ORDER.indexOf(orig);
+        if (idx !== -1) {
+          currentIdx = idx;
+          renderCanvasTrack(currentIdx, false);
+          return;
+        }
+      }
+      renderCanvasTrack(0, false);
+    }
+
+    /**
+     * SHARE
+     */
+    function shareTrack() {
+      const orig = NARRATIVE_PLAY_ORDER[currentIdx];
+      const song = getSong(orig);
+      const url = `${window.location.origin}${window.location.pathname}#song-${pad(orig)}`;
+      const title = `HUMSAFAR — ${song.hindiTitle} (${song.romanTitle})`;
+      const text = `Experience "${song.hindiTitle}" from the book Humsafar by Pooja Sawariya:`;
+
+      if (navigator.share) {
+        navigator.share({ title, text, url }).catch(() => copyLink(url));
+      } else {
+        copyLink(url);
+      }
+    }
+
+    function copyLink(t) {
+      navigator.clipboard.writeText(t).then(() => {
+        showToast("Track Link Copied to Clipboard");
+      }).catch(() => {
+        showToast("Link: " + t);
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast-notify');
+      document.getElementById('toast-text').innerText = msg;
+      t.classList.remove('opacity-0', 'translate-y-8');
+      t.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        t.classList.remove('opacity-100', 'translate-y-0');
+        t.classList.add('opacity-0', 'translate-y-8');
+      }, 2800);
+    }
+
+    /**
+     * MODAL TOGGLES
+     */
+    function openOverlay(id) {
+      const m = document.getElementById(id);
+      m.classList.remove('opacity-0', 'pointer-events-none');
+      m.classList.add('opacity-100');
+      if (id === 'poem-modal') {
+        document.getElementById('poem-sheet').classList.remove('translate-x-full');
+      }
+    }
+
+    function closeOverlay(id) {
+      const m = document.getElementById(id);
+      if (id === 'poem-modal') {
+        document.getElementById('poem-sheet').classList.add('translate-x-full');
+        setTimeout(() => {
+          m.classList.add('opacity-0', 'pointer-events-none');
+          m.classList.remove('opacity-100');
+        }, 300);
+      } else {
+        m.classList.add('opacity-0', 'pointer-events-none');
+        m.classList.remove('opacity-100');
+      }
+    }
+
+    /**
+     * INITIALIZE EVENT LISTENERS
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      buildJourneyChapters();
+      handleInitialHash();
+
+      // Controls
+      document.getElementById('btn-player-play-pause').addEventListener('click', togglePlayback);
+      document.getElementById('btn-player-next').addEventListener('click', nextTrack);
+      document.getElementById('btn-player-prev').addEventListener('click', prevTrack);
+      document.getElementById('btn-player-rewind').addEventListener('click', () => { audio.currentTime -= 10; });
+      document.getElementById('btn-player-forward').addEventListener('click', () => { audio.currentTime += 10; });
+
+      // Audio Time Updates
+      audio.addEventListener('timeupdate', () => {
+        const c = audio.currentTime;
+        const d = audio.duration || 0;
+        const pct = d > 0 ? (c / d) * 100 : 0;
+        document.getElementById('scrubber-fill').style.width = `${pct}%`;
+        document.getElementById('desk-time-curr').innerText = formatTime(c);
+        document.getElementById('desk-time-dur').innerText = formatTime(d);
+        document.getElementById('mob-time-curr').innerText = formatTime(c);
+        document.getElementById('mob-time-dur').innerText = formatTime(d);
+      });
+
+      // Auto-Next Narrative Track
+      audio.addEventListener('ended', nextTrack);
+
+      // Scrubber Seek
+      document.getElementById('scrubber-track').addEventListener('click', (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const w = rect.width;
+        if (audio.duration) {
+          audio.currentTime = (clickX / w) * audio.duration;
+        }
+      });
+
+      // Volume Range
+      document.getElementById('volume-range').addEventListener('input', (e) => {
+        audio.volume = e.target.value;
+      });
+
+      // Overlays
+      document.getElementById('btn-open-journey').addEventListener('click', () => openOverlay('journey-modal'));
+      document.getElementById('btn-close-journey').addEventListener('click', () => closeOverlay('journey-modal'));
+
+      document.getElementById('btn-open-poem').addEventListener('click', () => openOverlay('poem-modal'));
+      document.getElementById('btn-close-poem').addEventListener('click', () => closeOverlay('poem-modal'));
+
+      document.getElementById('btn-open-stream-modal').addEventListener('click', () => openOverlay('streaming-modal'));
+      document.getElementById('btn-close-streaming').addEventListener('click', () => closeOverlay('streaming-modal'));
+
+      document.getElementById('btn-share-song').addEventListener('click', shareTrack);
+
+      // Keyboard Controls
+      window.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT') return;
+        if (e.code === 'Space') {
+          e.preventDefault();
+          togglePlayback();
+        } else if (e.code === 'ArrowRight') {
+          audio.currentTime += 5;
+        } else if (e.code === 'ArrowLeft') {
+          audio.currentTime -= 5;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
