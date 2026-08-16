@@ -34,7 +34,6 @@
             border-color: var(--gold);
             box-shadow: 0 0 8px rgba(212, 175, 55, 0.25);
         }
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -52,103 +51,12 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
-    <!-- LOADING SCREEN (VISIBLE BY DEFAULT TO ENSURE INSTANT SEXY TRANSITION) -->
+    <!-- LOADING / REDIRECTING SCREEN -->
     <div id="redirecting-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#12131A] text-center p-6">
         <div class="w-24 h-24 mb-6 border-4 border-t-[#D4AF37] border-r-transparent border-b-[#D4AF37] border-l-transparent rounded-full animate-spin"></div>
         <h2 class="font-serif-brand text-[#D4AF37] text-2xl tracking-widest mb-2">Pooja Sawariya</h2>
         <p class="text-sm text-[#8E919A] tracking-wider">Connecting you to your destination...</p>
     </div>
-
-    <script>
-        // --- 1. THE REDIRECT ROUTING MAP ---
-        const GLOBAL_REDIRECTS = {
-            "website": "https://poojasawariya.com",
-            "samarpan": "https://www.amazon.in/Samarpan-Pooja-Sawariya/dp/B0GTBSN49T/",
-            "instagram": "https://instagram.com/sawariyaa_pooja",
-            "youtube": "https://youtube.com/@sawariyaa_pooja",
-            "humsafar": "https://poojasawariya.com/songs.html",
-            "song1": "https://poojasawariya.com/songs.html",
-            "song2": "https://poojasawariya.com/songs.html",
-            "song3": "https://poojasawariya.com/songs.html",
-            "song4": "https://poojasawariya.com/songs.html",
-            "song5": "https://poojasawariya.com/songs.html",
-            "song6": "https://poojasawariya.com/songs.html",
-            "song7": "https://poojasawariya.com/songs.html",
-            "song8": "https://poojasawariya.com/songs.html",
-            "song9": "https://poojasawariya.com/songs.html",
-            "song10": "https://poojasawariya.com/songs.html",
-            "song11": "https://poojasawariya.com/songs.html",
-            "song12": "https://poojasawariya.com/songs.html",
-            "song13": "https://poojasawariya.com/songs.html",
-            "song14": "https://poojasawariya.com/songs.html",
-            "song15": "https://poojasawariya.com/songs.html",
-            "song16": "https://poojasawariya.com/songs.html",
-            "song17": "https://poojasawariya.com/songs.html",
-            "song18": "https://poojasawariya.com/songs.html",
-            "song19": "https://poojasawariya.com/songs.html",
-            "song20": "https://poojasawariya.com/songs.html",
-            "song21": "https://poojasawariya.com/songs.html",
-            "song22": "https://poojasawariya.com/songs.html",
-            "song23": "https://poojasawariya.com/songs.html",
-            "song24": "https://poojasawariya.com/songs.html",
-            "song25": "https://poojasawariya.com/songs.html",
-            "song26": "https://poojasawariya.com/songs.html",
-            "song27": "https://poojasawariya.com/songs.html",
-            "song28": "https://poojasawariya.com/songs.html",
-            "song29": "https://poojasawariya.com/songs.html",
-            "song30": "https://poojasawariya.com/songs.html"
-        };
-
-        // Helper to ensure URLs have a protocol (http/https) so they don't redirect relatively
-        function sanitizeUrl(url) {
-            if (!url) return '';
-            url = url.trim();
-            if (!/^https?:\/\//i.test(url)) {
-                return 'https://' + url;
-            }
-            return url;
-        }
-
-        // Instant Check variables
-        const urlParams = new URLSearchParams(window.location.search);
-        const routeId = urlParams.get('id') || urlParams.get('r');
-        const manageKey = urlParams.get('manage') || urlParams.get('admin');
-
-        // SMART GUARD: Do not redirect if we are inside an iframe (like the editor preview)
-        // or on the Google/local development preview hostnames.
-        const isIframe = window.self !== window.top;
-        const isPreviewHost = window.location.hostname.includes('usercontent.goog') || 
-                              window.location.hostname.includes('localhost') || 
-                              window.location.hostname.includes('127.0.0.1');
-
-        // Check secret key authentication immediately
-        if (manageKey && manageKey.toLowerCase().trim() === "pooja2026") {
-            try {
-                localStorage.setItem('qr_admin_authorized', 'true');
-            } catch(e) {
-                window.isInMemoryAuthorized = true;
-            }
-        }
-
-        // HIGH-SPEED INLINE DISMISSAL:
-        // If we are NOT redirecting, hide the loading screen immediately before drawing the page
-        if (!routeId || isIframe || isPreviewHost) {
-            document.getElementById('redirecting-screen').classList.add('hidden');
-            
-            // Guard: If they visit qr.html directly, check if they are authorized
-            let isAuth = false;
-            try {
-                isAuth = localStorage.getItem('qr_admin_authorized') === 'true';
-            } catch(e) {
-                isAuth = window.isInMemoryAuthorized;
-            }
-
-            // If not authorized, boot them out to the homepage immediately
-            if (!isAuth && !isIframe && !isPreviewHost) {
-                window.location.replace("https://poojasawariya.com");
-            }
-        }
-    </script>
 
     <!-- OFFICIAL GOOGLE ANALYTICS (GA4) INTEGRATION -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GK2GKZJRW1"></script>
@@ -159,15 +67,15 @@
         gtag('config', 'G-GK2GKZJRW1', { 'anonymize_ip': true });
     </script>
 
-    <!-- ADMIN DASHBOARD CONTAINER -->
-    <div id="dashboard-wrapper" class="grow flex flex-col justify-between">
+    <!-- ADMIN DASHBOARD CONTAINER (HIDDEN BY DEFAULT TO PREVENT ANY FLASH) -->
+    <div id="dashboard-wrapper" class="grow flex flex-col justify-between hidden">
         <header class="border-b border-[#2D2F38] bg-[#1A1B23] py-4 px-6 sticky top-0 z-40">
             <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div class="flex items-center gap-3">
                     <span class="google-symbols text-[#D4AF37] text-3xl">qr_code_2</span>
                     <div>
                         <h1 class="font-serif-brand text-lg text-white font-semibold tracking-wider">POOJA SAWARIYA</h1>
-                        <p class="text-xs text-[#8E919A] uppercase tracking-test">Dynamic QR Hub & Redirect Manager</p>
+                        <p class="text-xs text-[#8E919A] uppercase tracking-wider">Dynamic QR Hub & Redirect Manager</p>
                     </div>
                 </div>
                 <div class="flex gap-3">
@@ -223,13 +131,13 @@
                         <div class="space-y-3 w-full">
                             <h3 class="font-serif-brand text-lg text-white tracking-wide">Synchronize Changes to Cloudflare</h3>
                             <p class="text-sm text-[#8E919A]">
-                                Because Cloudflare Pages serves purely static content, changes are completely serverless. To update your redirection rules permanently:
+                                Changes made in the UI update local preview immediately. To update redirection rules globally on Cloudflare Pages:
                             </p>
                             <ol class="list-decimal list-inside text-xs space-y-2 text-white bg-[#12131A] p-4 rounded-lg border border-[#2D2F38]">
                                 <li>Add or update your routes in the manager above.</li>
                                 <li>Click <strong>Copy Updated HTML</strong> below.</li>
-                                <li>Open your <code class="text-[#D4AF37] font-mono">qr.html</code> file on GitHub/Local Repo, replace all content, and save.</li>
-                                <li>Cloudflare will auto-build the changes globally inside 10 seconds!</li>
+                                <li>Paste the code into your <code class="text-[#D4AF37] font-mono">qr.html</code> file on GitHub/Repository and commit.</li>
+                                <li>Cloudflare will deploy globally within seconds.</li>
                             </ol>
                             <div class="flex gap-3 pt-2">
                                 <button onclick="copyUpdatedHtml()" class="bg-[#D4AF37] hover:bg-[#F3E5AB] text-[#12131A] text-xs font-bold px-4 py-2.5 rounded-lg flex items-center gap-2 transition-all">
@@ -264,7 +172,7 @@
                         <div>
                             <label class="block text-white mb-2 uppercase tracking-wider font-semibold">Active Design Preview</label>
                             <select id="preview-selector" onchange="updateQrPreview()" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 gold-glow">
-                                <!-- Dynamic selector choices -->
+                                <!-- Dynamic options -->
                             </select>
                         </div>
 
@@ -295,6 +203,11 @@
                 </div>
             </div>
         </main>
+
+        <footer class="border-t border-[#2D2F38] bg-[#12131A] py-6 text-center text-xs text-[#8E919A]">
+            <p class="font-serif-brand tracking-widest text-[#D4AF37] text-sm mb-1">POOJA SAWARIYA</p>
+            <p>© 2026 Pooja Sawariya. Designed for flawless offline & online visual marketing campaigns.</p>
+        </footer>
     </div>
 
     <!-- MODALS -->
@@ -311,13 +224,13 @@
                     <label class="block text-xs uppercase text-[#8E919A] tracking-wider font-semibold mb-2">Short URL Code ID</label>
                     <div class="relative flex items-center">
                         <span class="absolute left-3 text-xs text-[#8E919A] font-mono">poojasawariya.com/qr.html?id=</span>
-                        <input type="text" id="new-route-id" placeholder="samarpan" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 pl-56 text-sm gold-glow font-mono">
+                        <input type="text" id="new-route-id" placeholder="podcast" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 pl-56 text-sm gold-glow font-mono">
                     </div>
-                    <p class="text-[10px] text-[#8E919A] mt-1.5">No spaces, keep it short, lower-case, and dynamic.</p>
+                    <p class="text-[10px] text-[#8E919A] mt-1.5">No spaces, lowercase alphanumeric and hyphens/underscores only.</p>
                 </div>
                 <div>
                     <label class="block text-xs uppercase text-[#8E919A] tracking-wider font-semibold mb-2">Destination Target URL</label>
-                    <input type="url" id="new-route-target" placeholder="https://poojasawariya.com/songs.html" class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 text-sm gold-glow">
+                    <input type="url" id="new-route-target" placeholder="https://open.spotify.com/..." class="w-full bg-[#12131A] border border-[#2D2F38] text-white rounded-lg p-3 text-sm gold-glow">
                 </div>
             </div>
             <div class="p-6 border-t border-[#2D2F38] flex gap-3 justify-end">
@@ -369,42 +282,136 @@
         </div>
     </div>
 
-    <div id="hud-message" class="fixed bottom-6 right-6 z-50 bg-[#1A1B23] border border-[#D4AF37] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+    <div id="hud-message" class="fixed bottom-6 right-6 z-50 bg-[#1A1B23] border border-[#D4AF37] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
         <span class="google-symbols text-[#D4AF37]" id="hud-icon">info</span>
         <span class="text-sm tracking-wide" id="hud-text">Successfully actioned!</span>
     </div>
 
-    <footer class="border-t border-[#2D2F38] bg-[#12131A] py-6 text-center text-xs text-[#8E919A]">
-        <p class="font-serif-brand tracking-widest text-[#D4AF37] text-sm mb-1">POOJA SAWARIYA</p>
-        <p>© 2026 Pooja Sawariya. Designed for flawless offline & online visual marketing campaigns.</p>
-    </footer>
-
+    <!-- CORE LOGIC -->
     <script>
-        // Synchronize routes directly with GLOBAL_REDIRECTS
-        let routes = { ...GLOBAL_REDIRECTS };
+        const GLOBAL_REDIRECTS = {
+            "website": "https://poojasawariya.com",
+            "samarpan": "https://www.amazon.in/Samarpan-Pooja-Sawariya/dp/B0GTBSN49T/",
+            "instagram": "https://instagram.com/sawariyaa_pooja",
+            "youtube": "https://youtube.com/@sawariyaa_pooja",
+            "podcast": "https://open.spotify.com/episode/1BFT7preaxed8DeDd8jIBf?si=7eE7nwd7RsCJ_8mJWGwioA",
+            "humsafar": "https://poojasawariya.com/songs.html",
+            "song1": "https://poojasawariya.com/songs.html",
+            "song2": "https://poojasawariya.com/songs.html",
+            "song3": "https://poojasawariya.com/songs.html",
+            "song4": "https://poojasawariya.com/songs.html",
+            "song5": "https://poojasawariya.com/songs.html",
+            "song6": "https://poojasawariya.com/songs.html",
+            "song7": "https://poojasawariya.com/songs.html",
+            "song8": "https://poojasawariya.com/songs.html",
+            "song9": "https://poojasawariya.com/songs.html",
+            "song10": "https://poojasawariya.com/songs.html",
+            "song11": "https://poojasawariya.com/songs.html",
+            "song12": "https://poojasawariya.com/songs.html",
+            "song13": "https://poojasawariya.com/songs.html",
+            "song14": "https://poojasawariya.com/songs.html",
+            "song15": "https://poojasawariya.com/songs.html",
+            "song16": "https://poojasawariya.com/songs.html",
+            "song17": "https://poojasawariya.com/songs.html",
+            "song18": "https://poojasawariya.com/songs.html",
+            "song19": "https://poojasawariya.com/songs.html",
+            "song20": "https://poojasawariya.com/songs.html",
+            "song21": "https://poojasawariya.com/songs.html",
+            "song22": "https://poojasawariya.com/songs.html",
+            "song23": "https://poojasawariya.com/songs.html",
+            "song24": "https://poojasawariya.com/songs.html",
+            "song25": "https://poojasawariya.com/songs.html",
+            "song26": "https://poojasawariya.com/songs.html",
+            "song27": "https://poojasawariya.com/songs.html",
+            "song28": "https://poojasawariya.com/songs.html",
+            "song29": "https://poojasawariya.com/songs.html",
+            "song30": "https://poojasawariya.com/songs.html"
+        };
 
-        try {
-            const stored = localStorage.getItem('pooja_qr_routes');
-            if (stored) {
-                const storedRoutes = JSON.parse(stored);
-                // Merge stored routes while ensuring global defaults override outdated defaults
-                Object.keys(storedRoutes).forEach(key => {
-                    if (!GLOBAL_REDIRECTS[key]) {
-                        routes[key] = storedRoutes[key];
-                    }
-                });
+        function sanitizeUrl(url) {
+            if (!url) return '';
+            url = url.trim();
+            if (!/^https?:\/\//i.test(url)) {
+                return 'https://' + url;
             }
-            localStorage.setItem('pooja_qr_routes', JSON.stringify(routes));
-        } catch(e) {
-            routes = { ...GLOBAL_REDIRECTS };
+            return url;
         }
 
-        // Initialize State & Tables
-        function renderTable() {
-            const tbody = document.getElementById('routes-table-body');
-            tbody.innerHTML = '';
-            
-            const keys = Object.keys(routes).sort((a, b) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const routeId = urlParams.get('id') || urlParams.get('r');
+        const manageKey = urlParams.get('manage') || urlParams.get('admin');
+
+        const isIframe = window.self !== window.top;
+        const isPreviewHost = window.location.hostname.includes('usercontent.goog') || 
+                              window.location.hostname.includes('localhost') || 
+                              window.location.hostname.includes('127.0.0.1');
+
+        if (manageKey && manageKey.toLowerCase().trim() === "pooja2026") {
+            try {
+                localStorage.setItem('qr_admin_authorized', 'true');
+            } catch(e) {
+                window.isInMemoryAuthorized = true;
+            }
+        }
+
+        let isAuth = false;
+        try {
+            isAuth = localStorage.getItem('qr_admin_authorized') === 'true';
+        } catch(e) {
+            isAuth = window.isInMemoryAuthorized;
+        }
+
+        // REDIRECT EXECUTION (IMMEDIATE)
+        if (routeId && !isIframe && !isPreviewHost) {
+            const targetUrl = GLOBAL_REDIRECTS[routeId.toLowerCase()];
+            if (targetUrl) {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'qr_scan', {
+                        'qr_id': routeId.toLowerCase(),
+                        'destination_url': sanitizeUrl(targetUrl),
+                        'transport_type': 'beacon'
+                    });
+                }
+                setTimeout(() => {
+                    window.location.replace(sanitizeUrl(targetUrl));
+                }, 800);
+            } else {
+                window.location.replace("https://poojasawariya.com");
+            }
+        } else {
+            // DASHBOARD OR ACCESS CONTROL
+            if (!isAuth && !isIframe && !isPreviewHost) {
+                window.location.replace("https://poojasawariya.com");
+            } else {
+                window.addEventListener('DOMContentLoaded', () => {
+                    document.getElementById('redirecting-screen').classList.add('hidden');
+                    document.getElementById('dashboard-wrapper').classList.remove('hidden');
+                    initDashboard();
+                });
+            }
+        }
+
+        let routes = { ...GLOBAL_REDIRECTS };
+
+        function initDashboard() {
+            try {
+                const stored = localStorage.getItem('pooja_qr_routes');
+                if (stored) {
+                    const storedRoutes = JSON.parse(stored);
+                    Object.keys(storedRoutes).forEach(key => {
+                        if (!GLOBAL_REDIRECTS[key]) {
+                            routes[key] = storedRoutes[key];
+                        }
+                    });
+                }
+            } catch(e) {
+                routes = { ...GLOBAL_REDIRECTS };
+            }
+            renderTable();
+        }
+
+        function getSortedKeys() {
+            return Object.keys(routes).sort((a, b) => {
                 const aIsSong = a.startsWith('song');
                 const bIsSong = b.startsWith('song');
                 if (aIsSong && !bIsSong) return 1;
@@ -416,7 +423,13 @@
                 }
                 return a.localeCompare(b);
             });
+        }
 
+        function renderTable() {
+            const tbody = document.getElementById('routes-table-body');
+            tbody.innerHTML = '';
+            
+            const keys = getSortedKeys();
             document.getElementById('total-count').textContent = `${keys.length} Active Link(s)`;
 
             keys.forEach(key => {
@@ -458,19 +471,7 @@
             const currentValue = selector.value;
             selector.innerHTML = '';
             
-            const keys = Object.keys(routes).sort((a, b) => {
-                const aIsSong = a.startsWith('song');
-                const bIsSong = b.startsWith('song');
-                if (aIsSong && !bIsSong) return 1;
-                if (!aIsSong && bIsSong) return -1;
-                if (aIsSong && bIsSong) {
-                    const numA = parseInt(a.replace('song', ''), 10);
-                    const numB = parseInt(b.replace('song', ''), 10);
-                    return numA - numB;
-                }
-                return a.localeCompare(b);
-            });
-
+            const keys = getSortedKeys();
             keys.forEach(key => {
                 const opt = document.createElement('option');
                 opt.value = key;
@@ -533,33 +534,42 @@
             }
         }
 
-        function copyUpdatedHtml() {
-            let currentFullHtml = document.documentElement.outerHTML;
-            const routePlaceholderRegex = /const GLOBAL_REDIRECTS = \{[\s\S]*?\};/;
+        // IDEMPOTENT CLEAN EXPORT BUILDER (AVOIDS RECURSIVE HTML DUPLICATION)
+        function generateExportHtml() {
+            let docStr = document.documentElement.outerHTML;
             
-            const updatedRedirectionBlock = `const GLOBAL_REDIRECTS = ${JSON.stringify(routes, null, 12)};`;
-            const freshlyMergedHTML = `<!DOCTYPE html>\n<html lang="en">\n${currentFullHtml}\n</html>`
-                .replace(routePlaceholderRegex, updatedRedirectionBlock);
+            // Clean dynamic/temporary modifications
+            const tempDiv = document.createElement('html');
+            tempDiv.innerHTML = docStr;
+            
+            // Ensure dashboard is hidden by default and loading is visible in the export template
+            const dash = tempDiv.querySelector('#dashboard-wrapper');
+            if (dash) dash.classList.add('hidden');
+            const redirectScreen = tempDiv.querySelector('#redirecting-screen');
+            if (redirectScreen) redirectScreen.classList.remove('hidden');
 
+            let cleanOuter = tempDiv.outerHTML;
+            const routePlaceholderRegex = /const GLOBAL_REDIRECTS = \{[\s\S]*?\};/;
+            const updatedRedirectionBlock = `const GLOBAL_REDIRECTS = ${JSON.stringify(routes, null, 12)};`;
+            
+            return `<!DOCTYPE html>\n${cleanOuter.replace(routePlaceholderRegex, updatedRedirectionBlock)}`;
+        }
+
+        function copyUpdatedHtml() {
+            const finalHtml = generateExportHtml();
             const tempTextarea = document.createElement('textarea');
-            tempTextarea.value = freshlyMergedHTML;
+            tempTextarea.value = finalHtml;
             document.body.appendChild(tempTextarea);
             tempTextarea.select();
             document.execCommand('copy');
             document.body.removeChild(tempTextarea);
 
-            showHUD("Copied Updated HTML Code to Clipboard! Paste into qr.html in GitHub.", "cloud_done");
+            showHUD("Copied Updated HTML Code! Paste into qr.html in GitHub.", "cloud_done");
         }
 
         function downloadHtmlFile() {
-            let currentFullHtml = document.documentElement.outerHTML;
-            const routePlaceholderRegex = /const GLOBAL_REDIRECTS = \{[\s\S]*?\};/;
-            const updatedRedirectionBlock = `const GLOBAL_REDIRECTS = ${JSON.stringify(routes, null, 12)};`;
-            
-            const freshlyMergedHTML = `<!DOCTYPE html>\n<html lang="en">\n${currentFullHtml}\n</html>`
-                .replace(routePlaceholderRegex, updatedRedirectionBlock);
-
-            const blob = new Blob([freshlyMergedHTML], { type: 'text/html' });
+            const finalHtml = generateExportHtml();
+            const blob = new Blob([finalHtml], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
@@ -686,45 +696,6 @@
                 hud.classList.add('translate-y-20', 'opacity-0');
             }, 3000);
         }
-
-        window.addEventListener('load', () => {
-            const isRedirecting = (routeId && !isIframe && !isPreviewHost);
-            
-            if (isRedirecting) {
-                const targetUrl = GLOBAL_REDIRECTS[routeId.toLowerCase()];
-                if (targetUrl) {
-                    document.getElementById('redirecting-screen').classList.remove('hidden');
-
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'qr_scan', {
-                            'qr_id': routeId.toLowerCase(),
-                            'destination_url': sanitizeUrl(targetUrl),
-                            'transport_type': 'beacon'
-                        });
-                    }
-
-                    setTimeout(() => {
-                        window.location.replace(sanitizeUrl(targetUrl));
-                    }, 1200);
-
-                } else {
-                    window.location.replace("https://poojasawariya.com");
-                }
-            } else {
-                let isAuth = false;
-                try {
-                    isAuth = localStorage.getItem('qr_admin_authorized') === 'true';
-                } catch(e) {
-                    isAuth = window.isInMemoryAuthorized;
-                }
-
-                if (!isAuth && !isIframe && !isPreviewHost) {
-                    window.location.replace("https://poojasawariya.com");
-                } else {
-                    renderTable();
-                }
-            }
-        });
     </script>
 </body>
 </html>
