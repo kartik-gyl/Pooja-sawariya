@@ -21,7 +21,7 @@
             parchment: '#FDFBF1',
             sand: '#D9BFAB',
             sandMuted: '#A68D79',
-            saffron: '#E1A337',
+            saffron: '#F5B041',
             saffronDark: '#B87B1F',
             indigoDeep: '#0B1017',
           },
@@ -50,7 +50,7 @@
     }
 
     ::selection {
-      background-color: #E1A337;
+      background-color: #F5B041;
       color: #000000;
     }
 
@@ -106,9 +106,9 @@
       transition: all 0.25s ease;
     }
     .nav-pill-btn:hover {
-      background: rgba(225, 163, 55, 0.2);
-      border-color: rgba(225, 163, 55, 0.7);
-      color: #E1A337;
+      background: rgba(245, 176, 65, 0.2);
+      border-color: rgba(245, 176, 65, 0.7);
+      color: #F5B041;
     }
 
     /* Custom Slider */
@@ -130,11 +130,11 @@
       height: 10px;
       width: 10px;
       border-radius: 50%;
-      background: #E1A337;
+      background: #F5B041;
       cursor: pointer;
       -webkit-appearance: none;
       margin-top: -3.5px;
-      box-shadow: 0 0 8px rgba(225, 163, 55, 0.8);
+      box-shadow: 0 0 8px rgba(245, 176, 65, 0.8);
       transition: transform 0.15s ease;
     }
     input[type=range]::-webkit-slider-thumb:hover {
@@ -154,23 +154,23 @@
       border-radius: 2px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #E1A337;
+      background: #F5B041;
     }
   </style>
 </head>
 <body class="h-full w-full font-sans text-parchment relative">
 
   <!-- ========================================================================= -->
-  <!-- 01. FULL-SCREEN DUAL ARTWORK CANVAS (100vw x 100vh Edge-to-Edge) -->
+  <!-- 01. FULL-SCREEN DUAL ARTWORK CANVAS (Direct Root PNG Resolution) -->
   <!-- ========================================================================= -->
-  <img id="bg-art-layer-a" class="bg-art-layer opacity-100 z-0" src="" alt="Humsafar Visual" />
+  <img id="bg-art-layer-a" class="bg-art-layer opacity-100 z-0" src="01.png" alt="Humsafar Visual" />
   <img id="bg-art-layer-b" class="bg-art-layer opacity-0 z-0" src="" alt="Humsafar Visual Transition" />
   
   <div class="cinema-overlay z-10"></div>
   <div class="film-grain z-10"></div>
 
   <!-- ========================================================================= -->
-  <!-- 02. FLOATING TOP HEADER (Floating Directly over Artwork) -->
+  <!-- 02. FLOATING TOP HEADER -->
   <!-- ========================================================================= -->
   <header class="fixed top-0 left-0 right-0 z-30 p-5 md:p-8 flex items-center justify-between pointer-events-none">
     <!-- Brand Context -->
@@ -181,7 +181,7 @@
       </div>
       <div class="hidden sm:block h-5 w-px bg-white/20"></div>
       <div class="hidden sm:flex items-center gap-2 text-xs font-serif italic text-sand/90 drop-shadow">
-        <span class="text-saffron font-sans not-italic uppercase tracking-widest text-[10px]" id="nav-act-pill">ACT I</span>
+        <span class="text-saffron font-sans not-italic uppercase tracking-widest text-[10px] font-semibold" id="nav-act-pill">ACT I</span>
         <span>—</span>
         <span id="nav-act-title">The First Spark</span>
       </div>
@@ -206,17 +206,18 @@
   </header>
 
   <!-- ========================================================================= -->
-  <!-- 03. CINEMATIC OVER-ARTWORK TITLE TYPOGRAPHY (Small Act, Grand Hindi Title) -->
+  <!-- 03. CINEMATIC OVER-ARTWORK TITLE TYPOGRAPHY (Generous Spacing & High Contrast) -->
   <!-- ========================================================================= -->
   <div class="fixed inset-0 z-20 flex flex-col justify-center items-center text-center p-6 pointer-events-none">
-    <div class="max-w-4xl transform -translate-y-6 md:-translate-y-8">
-      <!-- Restrained Small Act Label -->
-      <p class="text-saffron/90 text-[10px] sm:text-xs font-sans tracking-[0.4em] uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] mb-3" id="canvas-act-badge">
+    <div class="max-w-4xl transform -translate-y-6 md:-translate-y-8 flex flex-col items-center">
+      
+      <!-- High Contrast, Small Contextual Chapter Marker -->
+      <p class="text-amber-300 font-sans text-xs md:text-sm font-semibold tracking-[0.45em] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] mb-6 md:mb-8" id="canvas-act-badge">
         ACT I — THE FIRST SPARK
       </p>
 
-      <!-- Prominent Literary Devanagari Headline -->
-      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-devanagari font-bold text-parchment tracking-wide drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] leading-tight mb-2" id="canvas-hindi-title">
+      <!-- Dominant Literary Devanagari Headline -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-devanagari font-bold text-parchment tracking-wide drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)] leading-tight mb-3" id="canvas-hindi-title">
         एक मुलाकात हुई
       </h1>
 
@@ -228,18 +229,18 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- 04. COMPACT FLOATING MUSIC PLAYER CAPSULE (Bottom Center) -->
+  <!-- 04. COMPACT FLOATING MUSIC PLAYER CAPSULE -->
   <!-- ========================================================================= -->
   <div class="fixed bottom-5 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30 w-[92%] max-w-2xl pointer-events-auto">
     <div class="floating-player-capsule rounded-2xl md:rounded-full px-5 py-3 md:py-3.5 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-5 shadow-2xl">
       
-      <!-- Mini Artwork & Pure Narrative Position (NO original numbers shown) -->
+      <!-- Mini Artwork & Pure Narrative Position (01/30) -->
       <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-start">
         <div class="w-10 h-10 rounded-full overflow-hidden border border-white/20 shadow-md flex-shrink-0 relative">
-          <img id="player-thumb-img" src="" alt="Thumbnail" class="w-full h-full object-cover" />
+          <img id="player-thumb-img" src="01.png" alt="Thumbnail" class="w-full h-full object-cover" />
         </div>
         <div class="flex flex-col min-w-0 pr-2">
-          <span class="text-[10px] text-saffron uppercase font-sans tracking-wider" id="player-sequence-num">01 / 30</span>
+          <span class="text-[10px] text-saffron uppercase font-sans tracking-wider font-semibold" id="player-sequence-num">01 / 30</span>
           <span class="text-xs md:text-sm font-devanagari font-medium text-parchment truncate max-w-[150px] sm:max-w-[200px]" id="player-title-text">
             एक मुलाकात हुई
           </span>
@@ -270,7 +271,7 @@
           </button>
 
           <!-- Main Play / Pause Circle -->
-          <button id="btn-player-play-pause" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-saffron hover:bg-saffronDark text-black flex items-center justify-center transition-transform active:scale-95 shadow-[0_0_15px_rgba(225,163,55,0.4)]" title="Play / Pause">
+          <button id="btn-player-play-pause" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-saffron hover:bg-saffronDark text-black flex items-center justify-center transition-transform active:scale-95 shadow-[0_0_15px_rgba(245,176,65,0.4)]" title="Play / Pause">
             <svg id="icon-play" class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z"/>
             </svg>
@@ -335,7 +336,7 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- 05. READ THE POEM (Literary Full Poem Sheet - Cleaned from Production Tags) -->
+  <!-- 05. READ THE POEM (Literary Full Poem Sheet) -->
   <!-- ========================================================================= -->
   <div id="poem-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-xl flex justify-end opacity-0 pointer-events-none transition-opacity duration-300">
     <div id="poem-sheet" class="w-full max-w-xl h-full bg-[#FAF6ED] text-[#15202E] flex flex-col transform translate-x-full transition-transform duration-300 ease-out shadow-2xl">
@@ -354,7 +355,7 @@
         </button>
       </div>
 
-      <!-- Pure Poetry Text (Complete & Vertically Scrollable) -->
+      <!-- Pure Poetry Text -->
       <div class="flex-1 overflow-y-auto p-8 md:p-10 space-y-6 font-devanagari text-indigoDeep leading-loose">
         <div id="poem-body-text" class="text-base md:text-lg whitespace-pre-line tracking-wide">
           <!-- Text Injected Here -->
@@ -370,7 +371,7 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- 06. THE JOURNEY (5-Act Chapter Map - Narrative Numbering Only) -->
+  <!-- 06. THE JOURNEY (5-Act Chapter Map) -->
   <!-- ========================================================================= -->
   <div id="journey-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex flex-col opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="px-6 py-5 border-b border-white/10 flex items-center justify-between">
@@ -430,12 +431,11 @@
   <audio id="humsafar-audio-player" preload="metadata"></audio>
 
   <!-- ========================================================================= -->
-  <!-- 09. CORE JAVASCRIPT & COMPLETE CLEAN POEMS DATASET -->
+  <!-- 09. CORE JAVASCRIPT & COMPLETE DATASET -->
   <!-- ========================================================================= -->
   <script>
     /**
      * 30 COMPLETE CLEAN POEMS & METADATA
-     * All production tags, BPM, style notes, and bracketed vocal tags removed.
      */
     const SONGS = [
       {
@@ -1451,7 +1451,7 @@
     ];
 
     /**
-     * 30-STEP NARRATIVE PLAY ORDER
+     * 30-STEP PUBLIC NARRATIVE PLAY ORDER
      */
     const NARRATIVE_PLAY_ORDER = [
       1, 7, 5, 2, 16, 24,       // ACT I
@@ -1474,7 +1474,7 @@
      */
     let currentIdx = 0; // 0 to 29
     let isPlaying = false;
-    let activeLayer = 'A'; // 'A' or 'B'
+    let activeLayer = 'A';
     const audio = document.getElementById('humsafar-audio-player');
 
     function pad(num) {
@@ -1493,21 +1493,17 @@
     }
 
     /**
-     * MULTI-PATH ASSET RESOLVERS
-     * Automatically attempts standard folder hierarchies and naming conventions.
+     * DIRECT ROOT FILE PATH RESOLVERS
+     * Resolves ./01.png, 01.png, ./1.png directly in root folder
      */
     function getArtworkCandidates(origNum) {
       const p = pad(origNum);
       const n = `${origNum}`;
       return [
-        `assets/artwork/${p}.png`,
-        `assets/artwork/${n}.png`,
-        `artwork/${p}.png`,
-        `artwork/${n}.png`,
-        `/assets/artwork/${p}.png`,
-        `/assets/artwork/${n}.png`,
-        `/artwork/${p}.png`,
-        `/artwork/${n}.png`
+        `${p}.png`,
+        `./${p}.png`,
+        `${n}.png`,
+        `./${n}.png`
       ];
     }
 
@@ -1515,14 +1511,10 @@
       const p = pad(origNum);
       const n = `${origNum}`;
       return [
-        `assets/audio/${p}.mp3`,
-        `assets/audio/${n}.mp3`,
-        `audio/${p}.mp3`,
-        `audio/${n}.mp3`,
-        `/assets/audio/${p}.mp3`,
-        `/assets/audio/${n}.mp3`,
-        `/audio/${p}.mp3`,
-        `/audio/${n}.mp3`
+        `${p}.mp3`,
+        `./${p}.mp3`,
+        `${n}.mp3`,
+        `./${n}.mp3`
       ];
     }
 
@@ -1556,12 +1548,12 @@
             activeLayer = (activeLayer === 'A') ? 'B' : 'A';
           };
           testImg.onerror = () => {
-            console.warn(`[Asset Resolver] Artwork path not found: ${path}. Trying alternate candidate...`);
+            console.warn(`[Asset Resolver] Root artwork path not found: ${path}. Trying next candidate...`);
             tryNextImage();
           };
           testImg.src = path;
         } else {
-          console.error(`[Asset Resolver Error] Could not load artwork for Song #${origNum} from any expected paths:`, candidates);
+          console.error(`[Asset Resolver Error] Could not load root artwork for Song #${origNum} from paths:`, candidates);
         }
       }
 
@@ -1582,7 +1574,7 @@
 
           audio.src = path;
           audio.onerror = () => {
-            console.warn(`[Asset Resolver] Audio path not found: ${path}. Trying alternate candidate...`);
+            console.warn(`[Asset Resolver] Root audio path not found: ${path}. Trying next candidate...`);
             tryNextAudio();
           };
 
@@ -1592,7 +1584,7 @@
             });
           }
         } else {
-          console.error(`[Asset Resolver Error] Could not load audio for Song #${origNum} from any expected paths:`, candidates);
+          console.error(`[Asset Resolver Error] Could not load root audio for Song #${origNum} from paths:`, candidates);
         }
       }
 
@@ -1600,7 +1592,7 @@
     }
 
     /**
-     * RENDER TRACK (Clean, Literary, No internal original numbers in visible UI)
+     * RENDER TRACK
      */
     function renderCanvasTrack(narrativeIdx, shouldAutoPlay = true) {
       const origNum = NARRATIVE_PLAY_ORDER[narrativeIdx];
@@ -1611,12 +1603,12 @@
       document.getElementById('nav-act-pill').innerText = act.roman;
       document.getElementById('nav-act-title').innerText = act.title;
 
-      // Update Center Title Typography (Small Act, Grand Devanagari Title)
+      // Update High-Contrast Act Badge & Headline
       document.getElementById('canvas-act-badge').innerText = `${act.roman} — ${act.title}`;
       document.getElementById('canvas-hindi-title').innerText = song.hindiTitle;
       document.getElementById('canvas-roman-title').innerText = song.romanTitle;
 
-      // Update Player Capsule (ONLY Narrative Position 01/30)
+      // Update Player Capsule
       document.getElementById('player-sequence-num').innerText = `${pad(narrativeIdx + 1)} / 30`;
       document.getElementById('player-title-text').innerText = song.hindiTitle;
 
@@ -1636,17 +1628,17 @@
       // Trigger Audio Source Resolver
       updateAudioSource(song.originalNumber, shouldAutoPlay);
 
-      // Sync Deep Link Hash (Uses clean song identifier)
+      // Sync Deep Link Hash
       const targetHash = `#song-${pad(song.originalNumber)}`;
       if (window.location.hash !== targetHash) {
         history.replaceState(null, null, targetHash);
       }
 
-      // Preload next artwork in sequence
+      // Preload next artwork in root
       if (narrativeIdx + 1 < NARRATIVE_PLAY_ORDER.length) {
         const nextOrig = NARRATIVE_PLAY_ORDER[narrativeIdx + 1];
         const pre = new Image();
-        pre.src = `assets/artwork/${pad(nextOrig)}.png`;
+        pre.src = `${pad(nextOrig)}.png`;
       }
     }
 
@@ -1681,7 +1673,7 @@
     }
 
     /**
-     * POPULATE THE JOURNEY MAP (Only Narrative Chapter Numbers)
+     * POPULATE THE JOURNEY MAP
      */
     function buildJourneyChapters() {
       const container = document.getElementById('journey-acts-wrapper');
@@ -1700,7 +1692,7 @@
         actSection.innerHTML = `
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-white/10 pb-3 mb-4">
             <div>
-              <span class="text-saffron font-sans text-xs uppercase tracking-widest">${act.roman}</span>
+              <span class="text-saffron font-sans text-xs uppercase tracking-widest font-semibold">${act.roman}</span>
               <h3 class="text-lg md:text-xl font-serif text-parchment uppercase">${act.title} <span class="font-devanagari text-sand font-normal text-sm ml-2">(${act.hindi})</span></h3>
             </div>
             <p class="text-xs text-sandMuted font-serif italic">${act.subtitle}</p>
